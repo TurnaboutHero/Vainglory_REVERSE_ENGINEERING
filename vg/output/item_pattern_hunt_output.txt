@@ -1,0 +1,781 @@
+ITEM PATTERN HUNT - VG REPLAY ANALYSIS
+================================================================================
+Replay: a8d06624-352e-4897-b920-2cdbafdb48ab-50361b75-aa42-41b7-ac17-8f252350a313
+Frames: 7
+
+
+--- Item 101 (0x65): Weapon Blade ---
+Pattern: FF FF FF FF 65 00
+
+  Frame 5 @ offset 00000DD9:
+    @00000DD9: FF FF FF FF 65 00 00 01 01 01 42 48 07 9C 00 00 00 0B 03 F8 65 C2 63 7A E1 00 00 00 00 42  |....e.....BH........e.cz.....B|
+  Frame 5: 1 match(es)
+
+  Frame 6 @ offset 00000DD9:
+    @00000DD9: FF FF FF FF 65 00 00 01 01 01 42 70 04 80 00 00 00 0B 03 F8 65 C1 AF 0A 3D 00 00 00 00 42  |....e.....Bp........e...=....B|
+  Frame 6: 1 match(es)
+  FIRST APPEARANCE: Frame 5
+
+--- Item 102 (0x66): Book of Eulogies ---
+Pattern: FF FF FF FF 66 00
+
+  Frame 5 @ offset 00000D42:
+    @00000D42: FF FF FF FF 66 00 00 01 00 01 42 48 07 9C 00 00 00 0B 03 F8 66 C2 89 80 00 C1 75 EB 85 42  |....f.....BH........f.....u..B|
+  Frame 5: 1 match(es)
+
+  Frame 6 @ offset 00000D42:
+    @00000D42: FF FF FF FF 66 00 00 01 00 01 42 70 04 80 00 00 00 0B 03 F8 66 C2 48 28 F6 C2 27 3D 71 42  |....f.....Bp........f.H(..'=qB|
+  Frame 6: 1 match(es)
+  FIRST APPEARANCE: Frame 5
+
+--- Item 103 (0x67): Swift Shooter ---
+Pattern: FF FF FF FF 67 00
+
+  Frame 5 @ offset 00000CAB:
+    @00000CAB: FF FF FF FF 67 00 00 01 05 02 42 48 07 9C 00 00 00 0B 03 F8 67 42 8F 38 52 41 63 D7 0A 42  |....g.....BH........gB.8RAc..B|
+  Frame 5: 1 match(es)
+
+  Frame 6 @ offset 00000CAB:
+    @00000CAB: FF FF FF FF 67 00 00 01 05 02 42 70 04 80 00 00 00 0B 03 F8 67 42 48 28 F6 42 27 3D 71 42  |....g.....Bp........gBH(.B'=qB|
+  Frame 6: 1 match(es)
+  FIRST APPEARANCE: Frame 5
+
+--- Item 111 (0x6F): Heavy Steel ---
+Pattern: FF FF FF FF 6F 00
+
+  Frame 5 @ offset 000007F3:
+    @000007F3: FF FF FF FF 6F 00 00 01 03 02 42 48 07 9C 00 00 00 0B 03 F8 6F 42 92 E1 48 C1 34 F5 C3 42  |....o.....BH........oB..H.4..B|
+  Frame 5: 1 match(es)
+
+  Frame 6 @ offset 000007F3:
+    @000007F3: FF FF FF FF 6F 00 00 01 03 02 42 70 04 80 00 00 00 0B 03 F8 6F 42 54 85 1F C2 18 D7 0A 42  |....o.....Bp........oBT......B|
+  Frame 6: 1 match(es)
+  FIRST APPEARANCE: Frame 5
+
+--- Item 121 (0x79): Sorrowblade ---
+Pattern: FF FF FF FF 79 00
+  NOT FOUND in any frame
+
+
+SUMMARY - First Appearances:
+  Item 101 (Weapon Blade        ): Frame 5
+  Item 102 (Book of Eulogies    ): Frame 5
+  Item 103 (Swift Shooter       ): Frame 5
+  Item 111 (Heavy Steel         ): Frame 5
+
+Found 119 unique XX values in pattern FF FF FF FF [XX 00]
+
+
+Frame 0: 28 unique XX values, 64 total matches
+  XX=0xBC (188):  37 occurrences
+  XX=0x0E ( 14):   1 occurrences
+  XX=0x1A ( 26):   1 occurrences
+  XX=0x19 ( 25):   1 occurrences
+  XX=0x0D ( 13):   1 occurrences
+  XX=0x18 ( 24):   1 occurrences
+  XX=0x17 ( 23):   1 occurrences
+  XX=0x0C ( 12):   1 occurrences
+  XX=0x16 ( 22):   1 occurrences
+  XX=0x15 ( 21):   1 occurrences
+
+Frame 1: 43 unique XX values, 71 total matches
+  XX=0xBC (188):  29 occurrences
+  XX=0x2A ( 42):   1 occurrences
+  XX=0x29 ( 41):   1 occurrences
+  XX=0x28 ( 40):   1 occurrences
+  XX=0x27 ( 39):   1 occurrences
+  XX=0x26 ( 38):   1 occurrences
+  XX=0x25 ( 37):   1 occurrences
+  XX=0x24 ( 36):   1 occurrences
+  XX=0x23 ( 35):   1 occurrences
+  XX=0x22 ( 34):   1 occurrences
+
+Frame 2: 64 unique XX values, 92 total matches
+  XX=0xBC (188):  29 occurrences
+  XX=0x3F ( 63):   1 occurrences
+  XX=0x3E ( 62):   1 occurrences
+  XX=0x3D ( 61):   1 occurrences
+  XX=0x3C ( 60):   1 occurrences
+  XX=0x3B ( 59):   1 occurrences
+  XX=0x3A ( 58):   1 occurrences
+  XX=0x39 ( 57):   1 occurrences
+  XX=0x38 ( 56):   1 occurrences
+  XX=0x37 ( 55):   1 occurrences
+
+Frame 3: 91 unique XX values, 119 total matches
+  XX=0xBC (188):  29 occurrences
+  XX=0x5A ( 90):   1 occurrences
+  XX=0x59 ( 89):   1 occurrences
+  XX=0x58 ( 88):   1 occurrences
+  XX=0x57 ( 87):   1 occurrences
+  XX=0x56 ( 86):   1 occurrences
+  XX=0x55 ( 85):   1 occurrences
+  XX=0x54 ( 84):   1 occurrences
+  XX=0x53 ( 83):   1 occurrences
+  XX=0x52 ( 82):   1 occurrences
+
+Frame 4: 91 unique XX values, 131 total matches
+  XX=0xBC (188):  29 occurrences
+  XX=0x00 (  0):  13 occurrences
+  XX=0x5A ( 90):   1 occurrences
+  XX=0x59 ( 89):   1 occurrences
+  XX=0x58 ( 88):   1 occurrences
+  XX=0x57 ( 87):   1 occurrences
+  XX=0x56 ( 86):   1 occurrences
+  XX=0x55 ( 85):   1 occurrences
+  XX=0x54 ( 84):   1 occurrences
+  XX=0x53 ( 83):   1 occurrences
+
+Frame 5: 115 unique XX values, 143 total matches
+  XX=0xBC (188):  29 occurrences
+  XX=0x72 (114):   1 occurrences
+  XX=0x71 (113):   1 occurrences
+  XX=0x70 (112):   1 occurrences
+  XX=0x6F (111):   1 occurrences
+  XX=0x6E (110):   1 occurrences
+  XX=0x6D (109):   1 occurrences
+  XX=0x6C (108):   1 occurrences
+  XX=0x6B (107):   1 occurrences
+  XX=0x6A (106):   1 occurrences
+
+Frame 6: 116 unique XX values, 151 total matches
+  XX=0xBC (188):  35 occurrences
+  XX=0x00 (  0):   2 occurrences
+  XX=0x72 (114):   1 occurrences
+  XX=0x71 (113):   1 occurrences
+  XX=0x70 (112):   1 occurrences
+  XX=0x6F (111):   1 occurrences
+  XX=0x6E (110):   1 occurrences
+  XX=0x6D (109):   1 occurrences
+  XX=0x6C (108):   1 occurrences
+  XX=0x6B (107):   1 occurrences
+
+
+XX values that appear ONLY in specific frames:
+  XX=0x0E ( 14): frames [0]
+  XX=0x1B ( 27): frames [1, 2, 3, 4, 5, 6]
+  XX=0x1C ( 28): frames [1, 2, 3, 4, 5, 6]
+  XX=0x1D ( 29): frames [1, 2, 3, 4, 5, 6]
+  XX=0x1E ( 30): frames [1, 2, 3, 4, 5, 6]
+  XX=0x1F ( 31): frames [1, 2, 3, 4, 5, 6]
+  XX=0x20 ( 32): frames [1, 2, 3, 4, 5, 6]
+  XX=0x21 ( 33): frames [1, 2, 3, 4, 5, 6]
+  XX=0x22 ( 34): frames [1, 2, 3, 4, 5, 6]
+  XX=0x23 ( 35): frames [1, 2, 3, 4, 5, 6]
+  XX=0x24 ( 36): frames [1, 2, 3, 4, 5, 6]
+  XX=0x25 ( 37): frames [1, 2, 3, 4, 5, 6]
+  XX=0x26 ( 38): frames [1, 2, 3, 4, 5, 6]
+  XX=0x27 ( 39): frames [1, 2, 3, 4, 5, 6]
+  XX=0x28 ( 40): frames [1, 2, 3, 4, 5, 6]
+  XX=0x29 ( 41): frames [1, 2, 3, 4, 5, 6]
+  XX=0x2A ( 42): frames [1, 2, 3, 4, 5, 6]
+  XX=0x2B ( 43): frames [2, 3, 4, 5, 6]
+  XX=0x2C ( 44): frames [2, 3, 4, 5, 6]
+  XX=0x2D ( 45): frames [2, 3, 4, 5, 6]
+  XX=0x2E ( 46): frames [2, 3, 4, 5, 6]
+  XX=0x2F ( 47): frames [2, 3, 4, 5, 6]
+  XX=0x30 ( 48): frames [2, 3, 4, 5, 6]
+  XX=0x31 ( 49): frames [2, 3, 4, 5, 6]
+  XX=0x32 ( 50): frames [2, 3, 4, 5, 6]
+  XX=0x33 ( 51): frames [2, 3, 4, 5, 6]
+  XX=0x34 ( 52): frames [2, 3, 4, 5, 6]
+  XX=0x35 ( 53): frames [2, 3, 4, 5, 6]
+  XX=0x36 ( 54): frames [2, 3, 4, 5, 6]
+  XX=0x37 ( 55): frames [2, 3, 4, 5, 6]
+  XX=0x38 ( 56): frames [2, 3, 4, 5, 6]
+  XX=0x39 ( 57): frames [2, 3, 4, 5, 6]
+  XX=0x3A ( 58): frames [2, 3, 4, 5, 6]
+  XX=0x3B ( 59): frames [2, 3, 4, 5, 6]
+  XX=0x3C ( 60): frames [2, 3, 4, 5, 6]
+  XX=0x3D ( 61): frames [2, 3, 4, 5, 6]
+  XX=0x3E ( 62): frames [2, 3, 4, 5, 6]
+  XX=0x3F ( 63): frames [2, 3, 4, 5, 6]
+  XX=0x40 ( 64): frames [3, 4, 5, 6]
+  XX=0x41 ( 65): frames [3, 4, 5]
+  XX=0x42 ( 66): frames [3, 4, 5, 6]
+  XX=0x43 ( 67): frames [3, 4, 5, 6]
+  XX=0x44 ( 68): frames [3, 4, 5]
+  XX=0x45 ( 69): frames [3, 4, 5, 6]
+  XX=0x46 ( 70): frames [3, 4, 5, 6]
+  XX=0x47 ( 71): frames [3, 4, 5, 6]
+  XX=0x48 ( 72): frames [3, 4, 5, 6]
+  XX=0x49 ( 73): frames [3, 4, 5, 6]
+  XX=0x4A ( 74): frames [3, 4, 5, 6]
+  XX=0x4B ( 75): frames [3, 4, 5, 6]
+  XX=0x4C ( 76): frames [3, 4, 5, 6]
+  XX=0x4D ( 77): frames [3, 4, 5, 6]
+  XX=0x4E ( 78): frames [3, 4, 5, 6]
+  XX=0x4F ( 79): frames [3, 4, 5, 6]
+  XX=0x50 ( 80): frames [3, 4, 5, 6]
+  XX=0x51 ( 81): frames [3, 4, 5, 6]
+  XX=0x52 ( 82): frames [3, 4, 5, 6]
+  XX=0x53 ( 83): frames [3, 4, 5, 6]
+  XX=0x54 ( 84): frames [3, 4, 5, 6]
+  XX=0x55 ( 85): frames [3, 4, 5, 6]
+  XX=0x56 ( 86): frames [3, 4, 5, 6]
+  XX=0x57 ( 87): frames [3, 4, 5, 6]
+  XX=0x58 ( 88): frames [3, 4, 5, 6]
+  XX=0x59 ( 89): frames [3, 4, 5, 6]
+  XX=0x5A ( 90): frames [3, 4, 5, 6]
+  XX=0x5B ( 91): frames [5, 6]
+  XX=0x5C ( 92): frames [5, 6]
+  XX=0x5D ( 93): frames [5, 6]
+  XX=0x5E ( 94): frames [5, 6]
+  XX=0x5F ( 95): frames [5, 6]
+  XX=0x60 ( 96): frames [5, 6]
+  XX=0x61 ( 97): frames [5, 6]
+  XX=0x62 ( 98): frames [5, 6]
+  XX=0x63 ( 99): frames [5, 6]
+  XX=0x64 (100): frames [5, 6]
+  XX=0x65 (101): frames [5, 6]
+    ^ MATCHES ITEM: Weapon Blade
+  XX=0x66 (102): frames [5, 6]
+    ^ MATCHES ITEM: Book of Eulogies
+  XX=0x67 (103): frames [5, 6]
+    ^ MATCHES ITEM: Swift Shooter
+  XX=0x68 (104): frames [5, 6]
+  XX=0x69 (105): frames [5, 6]
+  XX=0x6A (106): frames [5, 6]
+  XX=0x6B (107): frames [5, 6]
+  XX=0x6C (108): frames [5, 6]
+  XX=0x6D (109): frames [5, 6]
+  XX=0x6E (110): frames [5, 6]
+  XX=0x6F (111): frames [5, 6]
+    ^ MATCHES ITEM: Heavy Steel
+  XX=0x70 (112): frames [5, 6]
+  XX=0x71 (113): frames [5, 6]
+  XX=0x72 (114): frames [5, 6]
+  XX=0x73 (115): frames [6]
+  XX=0x74 (116): frames [6]
+  XX=0xFF (255): frames [6]
+
+Prefix patterns for each item:
+
+
+--- Item 101 (0x65): Weapon Blade ---
+  Prefix 00000008: 7 occurrence(s)
+    Frame 0 @ 0x000026E2
+    Frame 1 @ 0x00001D57
+    Frame 2 @ 0x00002B17
+  Prefix 0041AE77: 7 occurrence(s)
+    Frame 2 @ 0x000048E2
+    Frame 2 @ 0x000048FA
+    Frame 2 @ 0x0000491A
+  Prefix 00423BEB: 7 occurrence(s)
+    Frame 4 @ 0x00008A60
+    Frame 4 @ 0x00008A80
+    Frame 4 @ 0x00008AA0
+  Prefix FFFFFFFF: 2 occurrence(s)
+    Frame 5 @ 0x00000DDD
+    Frame 6 @ 0x00000DDD
+  Prefix 00000009: 1 occurrence(s)
+    Frame 0 @ 0x00005DC2
+  Prefix 0000000A: 1 occurrence(s)
+    Frame 2 @ 0x00003FE6
+  Prefix 0000000B: 1 occurrence(s)
+    Frame 3 @ 0x0000640C
+  Prefix 0000000C: 1 occurrence(s)
+    Frame 4 @ 0x000092B4
+  Prefix 6600000D: 1 occurrence(s)
+    Frame 5 @ 0x0000A716
+  Prefix 6600000E: 1 occurrence(s)
+    Frame 6 @ 0x00006428
+
+--- Item 102 (0x66): Book of Eulogies ---
+  Prefix 00406666: 97 occurrence(s)
+    Frame 0 @ 0x000002EA
+    Frame 1 @ 0x000001F7
+    Frame 2 @ 0x000001F7
+  Prefix 66000044: 20 occurrence(s)
+    Frame 2 @ 0x000007F7
+    Frame 2 @ 0x000008FF
+    Frame 2 @ 0x00000F2F
+  Prefix 000ABF40: 17 occurrence(s)
+    Frame 4 @ 0x00006DF0
+    Frame 4 @ 0x00007AF8
+    Frame 4 @ 0x00008A18
+  Prefix 000ABC40: 17 occurrence(s)
+    Frame 4 @ 0x00006E28
+    Frame 4 @ 0x00007B30
+    Frame 4 @ 0x00008A50
+  Prefix 75BE2942: 16 occurrence(s)
+    Frame 0 @ 0x0000079A
+    Frame 0 @ 0x00000C62
+    Frame 1 @ 0x0000154B
+  Prefix 000AD240: 16 occurrence(s)
+    Frame 4 @ 0x000077A0
+    Frame 4 @ 0x000088B8
+    Frame 4 @ 0x00009738
+  Prefix 000AD140: 16 occurrence(s)
+    Frame 4 @ 0x000077D8
+    Frame 4 @ 0x000088F0
+    Frame 4 @ 0x00009770
+  Prefix 000000C2: 15 occurrence(s)
+    Frame 0 @ 0x00000F92
+    Frame 1 @ 0x00001233
+    Frame 2 @ 0x00001D07
+  Prefix 000AA940: 15 occurrence(s)
+    Frame 4 @ 0x00006378
+    Frame 4 @ 0x00007440
+    Frame 4 @ 0x00008648
+  Prefix 000AA640: 15 occurrence(s)
+    Frame 4 @ 0x000063B0
+    Frame 4 @ 0x00007478
+    Frame 4 @ 0x00008680
+  Prefix 0AC25566: 14 occurrence(s)
+    Frame 3 @ 0x000075BF
+    Frame 3 @ 0x000075EF
+    Frame 3 @ 0x000079C7
+  Prefix 0A425566: 14 occurrence(s)
+    Frame 3 @ 0x000075D7
+    Frame 3 @ 0x00007607
+    Frame 3 @ 0x000079DF
+  Prefix 000A8D40: 14 occurrence(s)
+    Frame 4 @ 0x00006308
+    Frame 4 @ 0x000071E8
+    Frame 4 @ 0x00007D70
+  Prefix 000A8A40: 14 occurrence(s)
+    Frame 4 @ 0x00006340
+    Frame 4 @ 0x00007250
+    Frame 4 @ 0x00007DA8
+  Prefix C00000C2: 14 occurrence(s)
+    Frame 5 @ 0x0000609F
+    Frame 5 @ 0x000060CF
+    Frame 5 @ 0x00006237
+  Prefix 200000C2: 12 occurrence(s)
+    Frame 4 @ 0x0000B315
+    Frame 4 @ 0x0000B345
+    Frame 4 @ 0x0000B3A5
+  Prefix 75BE29C2: 11 occurrence(s)
+    Frame 0 @ 0x00000ACA
+    Frame 1 @ 0x000016D7
+    Frame 2 @ 0x000021AB
+  Prefix 000A8E40: 11 occurrence(s)
+    Frame 5 @ 0x00007692
+    Frame 5 @ 0x00009142
+    Frame 5 @ 0x0000A2A2
+  Prefix 000A8B40: 11 occurrence(s)
+    Frame 5 @ 0x000076E2
+    Frame 5 @ 0x0000917A
+    Frame 5 @ 0x0000A2DA
+  Prefix 000A8C40: 11 occurrence(s)
+    Frame 5 @ 0x00007D7A
+    Frame 5 @ 0x00009592
+    Frame 5 @ 0x0000A62A
+  Prefix 000A8940: 11 occurrence(s)
+    Frame 5 @ 0x00007DB2
+    Frame 5 @ 0x000095CA
+    Frame 5 @ 0x0000A662
+  Prefix 80000044: 10 occurrence(s)
+    Frame 2 @ 0x000007F3
+    Frame 2 @ 0x000008FB
+    Frame 3 @ 0x000017CD
+  Prefix 7C1C5C44: 10 occurrence(s)
+    Frame 2 @ 0x00000F2B
+    Frame 2 @ 0x00001033
+    Frame 3 @ 0x00001F05
+  Prefix 000AAA40: 10 occurrence(s)
+    Frame 5 @ 0x00007942
+    Frame 5 @ 0x0000970A
+    Frame 5 @ 0x0000AACA
+  Prefix 000AA740: 10 occurrence(s)
+    Frame 5 @ 0x00007992
+    Frame 5 @ 0x00009742
+    Frame 5 @ 0x0000AB02
+  Prefix 000AA840: 10 occurrence(s)
+    Frame 5 @ 0x00008192
+    Frame 5 @ 0x00009AA2
+    Frame 5 @ 0x0000ACF2
+  Prefix 000AA540: 10 occurrence(s)
+    Frame 5 @ 0x000081CA
+    Frame 5 @ 0x00009ADA
+    Frame 5 @ 0x0000AD2A
+  Prefix 000ABD40: 10 occurrence(s)
+    Frame 5 @ 0x00008BBA
+    Frame 5 @ 0x00009F7A
+    Frame 5 @ 0x0000AF72
+  Prefix 000AC040: 10 occurrence(s)
+    Frame 5 @ 0x00008C82
+    Frame 5 @ 0x0000A022
+    Frame 5 @ 0x0000B062
+  Prefix 000ABE40: 10 occurrence(s)
+    Frame 5 @ 0x000090D2
+    Frame 5 @ 0x0000A232
+    Frame 5 @ 0x0000B27A
+  Prefix 000ABB40: 10 occurrence(s)
+    Frame 5 @ 0x0000910A
+    Frame 5 @ 0x0000A26A
+    Frame 5 @ 0x0000B2B2
+  Prefix 000A7740: 9 occurrence(s)
+    Frame 5 @ 0x00006EFA
+    Frame 5 @ 0x00008A42
+    Frame 5 @ 0x00009E1A
+  Prefix 000A7440: 9 occurrence(s)
+    Frame 5 @ 0x00006F32
+    Frame 5 @ 0x00008A7A
+    Frame 5 @ 0x00009E52
+  Prefix 5CC27466: 8 occurrence(s)
+    Frame 4 @ 0x00005C17
+    Frame 4 @ 0x00005D47
+    Frame 4 @ 0x000065CF
+  Prefix 000A7840: 8 occurrence(s)
+    Frame 4 @ 0x00005C48
+    Frame 4 @ 0x00006A48
+    Frame 4 @ 0x00007628
+  Prefix 000A7540: 8 occurrence(s)
+    Frame 4 @ 0x00005C80
+    Frame 4 @ 0x00006A80
+    Frame 4 @ 0x00007660
+  Prefix 5C427466: 8 occurrence(s)
+    Frame 4 @ 0x00005C9F
+    Frame 4 @ 0x00005D2F
+    Frame 4 @ 0x000065E7
+  Prefix 20000042: 8 occurrence(s)
+    Frame 4 @ 0x0000B32D
+    Frame 4 @ 0x0000B35D
+    Frame 4 @ 0x0000B3BD
+  Prefix 60000042: 8 occurrence(s)
+    Frame 5 @ 0x00006A57
+    Frame 5 @ 0x00006A9F
+    Frame 5 @ 0x00006DBF
+  Prefix 90000042: 8 occurrence(s)
+    Frame 5 @ 0x000075FF
+    Frame 5 @ 0x0000762F
+    Frame 5 @ 0x000078DF
+  Prefix 000A7940: 8 occurrence(s)
+    Frame 5 @ 0x00007A82
+    Frame 5 @ 0x00009372
+    Frame 5 @ 0x0000A3C2
+  Prefix 000A7640: 8 occurrence(s)
+    Frame 5 @ 0x00007ABA
+    Frame 5 @ 0x000093AA
+    Frame 5 @ 0x0000A3FA
+  Prefix D8C1AA66: 7 occurrence(s)
+    Frame 0 @ 0x00000F8C
+    Frame 1 @ 0x0000122D
+    Frame 2 @ 0x00001D01
+  Prefix 00000008: 7 occurrence(s)
+    Frame 0 @ 0x000027A2
+    Frame 1 @ 0x00001CA7
+    Frame 2 @ 0x00002A67
+  Prefix 38C18266: 6 occurrence(s)
+    Frame 1 @ 0x0000785C
+    Frame 2 @ 0x000006D5
+    Frame 3 @ 0x000016AF
+  Prefix 00000042: 6 occurrence(s)
+    Frame 5 @ 0x00006867
+    Frame 5 @ 0x00006897
+    Frame 5 @ 0x000068AF
+  Prefix 00423F90: 4 occurrence(s)
+    Frame 4 @ 0x00009668
+    Frame 4 @ 0x00009688
+    Frame 4 @ 0x000096A8
+  Prefix C0000042: 4 occurrence(s)
+    Frame 5 @ 0x000060B7
+    Frame 5 @ 0x000060E7
+    Frame 5 @ 0x0000624F
+  Prefix 600000C2: 4 occurrence(s)
+    Frame 5 @ 0x00006797
+    Frame 5 @ 0x00006DD7
+    Frame 6 @ 0x00006D59
+  Prefix 900000C2: 4 occurrence(s)
+    Frame 5 @ 0x0000707F
+    Frame 5 @ 0x00007327
+    Frame 6 @ 0x00006D29
+  Prefix B00000C2: 4 occurrence(s)
+    Frame 5 @ 0x000074D7
+    Frame 5 @ 0x000074EF
+    Frame 5 @ 0x00007647
+  Prefix FFFFFFFF: 2 occurrence(s)
+    Frame 5 @ 0x00000D46
+    Frame 6 @ 0x00000D46
+  Prefix 00000009: 1 occurrence(s)
+    Frame 0 @ 0x0000609A
+  Prefix 0009E340: 1 occurrence(s)
+    Frame 1 @ 0x0000471E
+  Prefix 0009E540: 1 occurrence(s)
+    Frame 1 @ 0x0000486E
+  Prefix 0009E740: 1 occurrence(s)
+    Frame 1 @ 0x000049BE
+  Prefix 0009E840: 1 occurrence(s)
+    Frame 1 @ 0x00004A86
+  Prefix 0009E940: 1 occurrence(s)
+    Frame 1 @ 0x00004B2E
+  Prefix 0009EA40: 1 occurrence(s)
+    Frame 1 @ 0x00004BD6
+  Prefix 0009EF40: 1 occurrence(s)
+    Frame 1 @ 0x00004E9E
+  Prefix 0009F040: 1 occurrence(s)
+    Frame 1 @ 0x00004F46
+  Prefix 0009F140: 1 occurrence(s)
+    Frame 1 @ 0x0000500E
+  Prefix 0009F340: 1 occurrence(s)
+    Frame 1 @ 0x0000515E
+  Prefix 000A5040: 1 occurrence(s)
+    Frame 1 @ 0x0000807E
+  Prefix 0000000A: 1 occurrence(s)
+    Frame 2 @ 0x00004016
+  Prefix 000A9040: 1 occurrence(s)
+    Frame 2 @ 0x00004F72
+  Prefix 0041EF1A: 1 occurrence(s)
+    Frame 2 @ 0x000084AA
+  Prefix 0000000B: 1 occurrence(s)
+    Frame 3 @ 0x0000644C
+  Prefix 0000000C: 1 occurrence(s)
+    Frame 4 @ 0x0000935C
+  Prefix 0000000D: 1 occurrence(s)
+    Frame 5 @ 0x0000A78E
+  Prefix 6600000E: 1 occurrence(s)
+    Frame 6 @ 0x00006460
+
+--- Item 103 (0x67): Swift Shooter ---
+  Prefix 00427976: 13 occurrence(s)
+    Frame 6 @ 0x00007F7C
+    Frame 6 @ 0x00007F9C
+    Frame 6 @ 0x00007FBC
+  Prefix 00419665: 6 occurrence(s)
+    Frame 1 @ 0x00007DAE
+    Frame 1 @ 0x00007DC6
+    Frame 1 @ 0x00007DE6
+  Prefix DF000008: 2 occurrence(s)
+    Frame 3 @ 0x00004CFD
+    Frame 4 @ 0x00004CFD
+  Prefix FFFFFFFF: 2 occurrence(s)
+    Frame 5 @ 0x00000CAF
+    Frame 6 @ 0x00000CAF
+  Prefix F3000008: 1 occurrence(s)
+    Frame 0 @ 0x000015A2
+  Prefix 00000009: 1 occurrence(s)
+    Frame 0 @ 0x000060BA
+  Prefix E2000008: 1 occurrence(s)
+    Frame 1 @ 0x0000303F
+  Prefix F0000008: 1 occurrence(s)
+    Frame 2 @ 0x00003DFF
+  Prefix 0000000A: 1 occurrence(s)
+    Frame 2 @ 0x00003FC6
+  Prefix 0000000B: 1 occurrence(s)
+    Frame 3 @ 0x0000647C
+  Prefix 0000000C: 1 occurrence(s)
+    Frame 4 @ 0x0000937C
+  Prefix E6000008: 1 occurrence(s)
+    Frame 5 @ 0x00005C1F
+  Prefix 0D00000D: 1 occurrence(s)
+    Frame 5 @ 0x0000A82C
+  Prefix F6000008: 1 occurrence(s)
+    Frame 6 @ 0x00005D71
+  Prefix 6600000E: 1 occurrence(s)
+    Frame 6 @ 0x000064B0
+
+--- Item 111 (0x6F): Heavy Steel ---
+  Prefix 0042453B: 11 occurrence(s)
+    Frame 4 @ 0x0000AC78
+    Frame 4 @ 0x0000AC90
+    Frame 4 @ 0x0000ACB0
+  Prefix 1F3ED861: 5 occurrence(s)
+    Frame 2 @ 0x00000A7D
+    Frame 3 @ 0x00001A57
+    Frame 4 @ 0x00001A57
+  Prefix 004180AD: 2 occurrence(s)
+    Frame 1 @ 0x00006AF6
+    Frame 1 @ 0x00006B0E
+  Prefix FFFFFFFF: 2 occurrence(s)
+    Frame 5 @ 0x000007F7
+    Frame 6 @ 0x000007F7
+  Prefix 00000009: 1 occurrence(s)
+    Frame 0 @ 0x0000646A
+  Prefix 0000000A: 1 occurrence(s)
+    Frame 2 @ 0x0000410E
+  Prefix 0000000B: 1 occurrence(s)
+    Frame 3 @ 0x000067A4
+  Prefix 0000000C: 1 occurrence(s)
+    Frame 4 @ 0x000096D4
+  Prefix 6600000D: 1 occurrence(s)
+    Frame 5 @ 0x0000AB06
+  Prefix 0000000E: 1 occurrence(s)
+    Frame 6 @ 0x00006838
+
+--- Item 121 (0x79): Sorrowblade ---
+  Prefix 1E00000A: 25 occurrence(s)
+    Frame 5 @ 0x0000855C
+    Frame 5 @ 0x0000868C
+    Frame 5 @ 0x00008DCC
+  Prefix 3E00000A: 8 occurrence(s)
+    Frame 5 @ 0x00007A7C
+    Frame 5 @ 0x0000936C
+    Frame 5 @ 0x0000A3BC
+  Prefix 0042440C: 7 occurrence(s)
+    Frame 4 @ 0x0000A460
+    Frame 4 @ 0x0000A480
+    Frame 4 @ 0x0000A4A0
+  Prefix 1500000A: 7 occurrence(s)
+    Frame 5 @ 0x00007A64
+    Frame 5 @ 0x00009354
+    Frame 5 @ 0x0000A3A4
+  Prefix 7600000A: 6 occurrence(s)
+    Frame 5 @ 0x00007AA0
+    Frame 5 @ 0x00009390
+    Frame 5 @ 0x0000A3E0
+  Prefix 8B00000A: 4 occurrence(s)
+    Frame 5 @ 0x000076C8
+    Frame 5 @ 0x00009160
+    Frame 5 @ 0x0000B308
+  Prefix A700000A: 3 occurrence(s)
+    Frame 5 @ 0x00007978
+    Frame 5 @ 0x0000AAE8
+    Frame 5 @ 0x0000E360
+  Prefix BD00000A: 3 occurrence(s)
+    Frame 5 @ 0x00009F60
+    Frame 5 @ 0x0000AF58
+    Frame 5 @ 0x0000DF30
+  Prefix 2B00000A: 2 occurrence(s)
+    Frame 5 @ 0x00007F1C
+    Frame 6 @ 0x0000650E
+  Prefix 00000009: 1 occurrence(s)
+    Frame 0 @ 0x0000687A
+  Prefix 0000000B: 1 occurrence(s)
+    Frame 3 @ 0x00006A54
+  Prefix 0000000C: 1 occurrence(s)
+    Frame 4 @ 0x00009964
+  Prefix 6600000D: 1 occurrence(s)
+    Frame 5 @ 0x0000AD2E
+  Prefix 3F00000A: 1 occurrence(s)
+    Frame 6 @ 0x000045DB
+  Prefix 3000000A: 1 occurrence(s)
+    Frame 6 @ 0x000062EE
+  Prefix 0000000E: 1 occurrence(s)
+    Frame 6 @ 0x00006CB0
+  Prefix 3100000A: 1 occurrence(s)
+    Frame 6 @ 0x00009136
+  Prefix 0B00000A: 1 occurrence(s)
+    Frame 6 @ 0x00009246
+
+
+Most common prefixes across ALL items:
+  00000009: appears before 5/5 items
+  0000000B: appears before 5/5 items
+  0000000C: appears before 5/5 items
+  FFFFFFFF: appears before 4/5 items
+    ^ THIS IS THE MARKER!
+  0000000A: appears before 4/5 items
+
+============================================================
+Item 101 (0x65): Weapon Blade
+============================================================
+
+Frame 5 @ offset 00000DD9:
+  0000: FF FF FF FF 65 00 00 01 01 01 42 48 07 9C 00 00  |....e.....BH....|
+  0010: 00 0B 03 F8 65 C2 63 7A E1 00 00 00 00 42 48 07  |....e.cz.....BH.|
+  0020: 9C 00 00 00 7C 03 F2 00 00 01 50 EB 39 CE 55 00  |....|.....P.9.U.|
+  0030: 00 0C 5D C2 8E 4A                                |..]..J|
+
+Field Interpretations (after marker+itemID):
+  +00 uint16:   256 (0x0100)
+  +02 uint16:   257 (0x0101)
+  +04 uint8:   66 (0x42)
+  +05 uint8:   72 (0x48)
+  +06 uint16: 39943 (0x9C07)
+  +08 float:  0.000000
+  +08 uint32:  184549376 (0x0B000000)
+  +12 float:  -57.492199
+  +12 uint32: 3261462531 (0xC265F803)
+
+============================================================
+Item 102 (0x66): Book of Eulogies
+============================================================
+
+Frame 5 @ offset 00000D42:
+  0000: FF FF FF FF 66 00 00 01 00 01 42 48 07 9C 00 00  |....f.....BH....|
+  0010: 00 0B 03 F8 66 C2 89 80 00 C1 75 EB 85 42 48 07  |....f.....u..BH.|
+  0020: 9C 00 00 00 7C 03 F2 00 00 01 50 EB 39 CE 55 00  |....|.....P.9.U.|
+  0030: 00 0C 5E C2 73 E5                                |..^.s.|
+
+Field Interpretations (after marker+itemID):
+  +00 uint16:   256 (0x0100)
+  +02 uint16:   256 (0x0100)
+  +04 uint8:   66 (0x42)
+  +05 uint8:   72 (0x48)
+  +06 uint16: 39943 (0x9C07)
+  +08 float:  0.000000
+  +08 uint32:  184549376 (0x0B000000)
+  +12 float:  -57.742199
+  +12 uint32: 3261528067 (0xC266F803)
+
+============================================================
+Item 103 (0x67): Swift Shooter
+============================================================
+
+Frame 5 @ offset 00000CAB:
+  0000: FF FF FF FF 67 00 00 01 05 02 42 48 07 9C 00 00  |....g.....BH....|
+  0010: 00 0B 03 F8 67 42 8F 38 52 41 63 D7 0A 42 48 07  |....gB.8RAc..BH.|
+  0020: 9C 00 00 00 7C 03 F2 00 00 01 50 EB 39 CE 55 00  |....|.....P.9.U.|
+  0030: 00 0C 5F C2 8E 4A                                |.._..J|
+
+Field Interpretations (after marker+itemID):
+  +00 uint16:   256 (0x0100)
+  +02 uint16:   517 (0x0205)
+  +04 uint8:   66 (0x42)
+  +05 uint8:   72 (0x48)
+  +06 uint16: 39943 (0x9C07)
+  +08 float:  0.000000
+  +08 uint32:  184549376 (0x0B000000)
+  +12 float:  57.992199
+  +12 uint32: 1114109955 (0x4267F803)
+
+============================================================
+Item 111 (0x6F): Heavy Steel
+============================================================
+
+Frame 5 @ offset 000007F3:
+  0000: FF FF FF FF 6F 00 00 01 03 02 42 48 07 9C 00 00  |....o.....BH....|
+  0010: 00 0B 03 F8 6F 42 92 E1 48 C1 34 F5 C3 42 48 07  |....oB..H.4..BH.|
+  0020: 9C 00 00 00 7C 03 F2 00 00 01 4F EB 39 CE 55 00  |....|.....O.9.U.|
+  0030: 00 0C 9A 42 86 14                                |...B..|
+
+Field Interpretations (after marker+itemID):
+  +00 uint16:   256 (0x0100)
+  +02 uint16:   515 (0x0203)
+  +04 uint8:   66 (0x42)
+  +05 uint8:   72 (0x48)
+  +06 uint16: 39943 (0x9C07)
+  +08 float:  0.000000
+  +08 uint32:  184549376 (0x0B000000)
+  +12 float:  59.992199
+  +12 uint32: 1114634243 (0x426FF803)
+
+============================================================
+Item 121 (0x79): Sorrowblade
+============================================================
+
+Total FF FF FF FF [XX 00] records per frame:
+
+  Frame 0:  64 records
+  Frame 1:  71 records
+  Frame 2:  92 records
+  Frame 3: 119 records
+  Frame 4: 131 records
+  Frame 5: 143 records
+  Frame 6: 151 records
+
+
+Frame-to-frame changes:
+  Frame 0 -> 1:  +7 records
+  Frame 1 -> 2: +21 records
+  Frame 2 -> 3: +27 records
+  Frame 3 -> 4: +12 records
+  Frame 4 -> 5: +12 records
+  Frame 5 -> 6:  +8 records
+
+
+Test items in each frame:
+
+  Frame 5:
+    Item 101 (0x65) Weapon Blade        : 1 occurrence(s)
+    Item 102 (0x66) Book of Eulogies    : 1 occurrence(s)
+    Item 103 (0x67) Swift Shooter       : 1 occurrence(s)
+    Item 111 (0x6F) Heavy Steel         : 1 occurrence(s)
+
+  Frame 6:
+    Item 101 (0x65) Weapon Blade        : 1 occurrence(s)
+    Item 102 (0x66) Book of Eulogies    : 1 occurrence(s)
+    Item 103 (0x67) Swift Shooter       : 1 occurrence(s)
+    Item 111 (0x6F) Heavy Steel         : 1 occurrence(s)

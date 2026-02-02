@@ -686,3 +686,25 @@ Source: https://www.reddit.com/r/vainglorygame/comments/1qax79g/is_there_anyone_
 - vgr â†’ ì„œë²„ ì—…ë¡œë“œ í”„ë¡œí† ì½œ ì •ì˜(íŒŒì¼/ë©”íƒ€ë°ì´í„° ë™ì‹œ ì „ì†¡).
 - OCR ê²°ê³¼(truth.json)ì™€ vgr ë§¤ì¹­ ë¡œì§ ë¬¸ì„œí™”.
 - MVP ì‚°ì¶œë¬¼(ì „ì  ê²€ìƒ‰ ìµœì†Œ ê¸°ëŠ¥) ëª…ì„¸ ì‘ì„±.
+
+---
+
+## 16. Item ID Linkage Findings (2026-02-03)
+
+### FFFF ¸¶Ä¿ ±â¹İ ÀÎº¥Åä¸® ·¹ÄÚµå Å½»ö
+
+`FF FF FF FF [item_id 2B LE]` ÆĞÅÏÀÌ **Frame 5/6¿¡¼­¸¸** È®ÀÎµÊ (item buy test ±âÁØ).
+- ¹ß°ßµÊ: 101(Weapon Blade), 102(Book of Eulogies), 103(Swift Shooter), 111(Heavy Steel)
+- ¹Ì¹ß°ß: 121(Sorrowblade) (µ¿ÀÏ ¸¶Ä¿¿¡¼­´Â ¾È ÀâÈû)
+
+°üÂû:
+- `FF FF FF FF [XX 00]` ·¹ÄÚµå °³¼ö°¡ ÇÁ·¹ÀÓÀÌ ÁøÇàµÉ¼ö·Ï Áõ°¡ (Frame0 64 -> Frame6 151)
+- ±¸¸Å ½ÃÁ¡ Á÷ÈÄ ÇÁ·¹ÀÓ(5/6)¿¡¸¸ Æ¯Á¤ item_id°¡ µîÀå
+
+ÇØ¼®:
+- 0xBC´Â "±¸¸Å ¹ß»ı" Æ®¸®°Å
+- ½ÇÁ¦ ¾ÆÀÌÅÛ ID´Â **º°µµ ÀÎº¥Åä¸®/»óÅÂ ½º³À¼¦ ·¹ÄÚµå**¿¡ ±â·ÏµÇ´Â °¡´É¼º
+
+°ü·Ã ½ºÅ©¸³Æ®/Ãâ·Â:
+- `vg/analysis/item_pattern_hunt.py` (FFFF ¸¶Ä¿ Å½»ö)
+- Ãâ·Â: `vg/output/item_pattern_hunt_output.txt`

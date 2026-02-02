@@ -314,3 +314,12 @@ python verify_tournament_truth.py --truth tournament_truth.json --parsed tournam
 - [ì—­ê³µí•™ ìƒì„¸ ë…¸íŠ¸](./REVERSE_ENGINEERING_NOTES.md)
 - [ì˜ì›… ë§¤í•‘ ì½”ë“œ](./vgr_mapping.py)
 - [ë°ì´í„°ë² ì´ìŠ¤ ìŠ¤í‚¤ë§ˆ](./vgr_database.py)
+
+---
+
+## Update (2026-02-03): Item ID Linkage
+
+- `FF FF FF FF [item_id 2B LE]` ÆĞÅÏÀÌ ±¸¸Å ÀÌÈÄ ÇÁ·¹ÀÓ(5/6)¿¡¼­¸¸ µîÀå È®ÀÎ
+- ÇØ´ç ÆĞÅÏÀÌ ÀÎº¥Åä¸®/»óÅÂ ½º³À¼¦ ·¹ÄÚµåÀÏ °¡´É¼º ³ôÀ½
+- 0xBC´Â ±¸¸Å Æ®¸®°Å, ½ÇÁ¦ ¾ÆÀÌÅÛ ID´Â º°µµ ·¹ÄÚµå¿¡ ±â·ÏµÇ´Â ±¸Á¶·Î ÃßÁ¤
+- »ó¼¼ °á°ú: `vg/output/item_pattern_hunt_output.txt`

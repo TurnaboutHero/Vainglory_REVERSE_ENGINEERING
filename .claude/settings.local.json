@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(python -m py_compile:*)",
+      "Bash(python:*)",
+      "Bash(powershell -Command \"\\(Get-Content ''d:\\\\Documents\\\\GitHub\\\\VG_REVERSE_ENGINEERING\\\\vg\\\\output\\\\item_deep_probe_output.txt'' | Measure-Object -Line\\).Lines\")",
+      "Bash(powershell -Command \"\\(Get-Item ''d:\\\\Documents\\\\GitHub\\\\VG_REVERSE_ENGINEERING\\\\vg\\\\output\\\\item_deep_probe_output.txt''\\).Length\")",
+      "Bash(powershell -Command \"Select-String -Path ''d:\\\\Documents\\\\GitHub\\\\VG_REVERSE_ENGINEERING\\\\vg\\\\output\\\\item_deep_probe_output.txt'' -Pattern ''PART [1-7]:'' -SimpleMatch | ForEach-Object { $_Line }\")"
+    ]
+  }
+}
