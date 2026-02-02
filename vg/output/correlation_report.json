@@ -1,0 +1,6452 @@
+{
+  "replays": [
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-8c6e1a3e-68a0-4853-8786-44c899ff1e8a",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Team Stooopid (Semi)\\1\\d8736287-e35e-4c76-89b0-c78c76fd0b05-8c6e1a3e-68a0-4853-8786-44c899ff1e8a.0.vgr",
+      "players": [
+        {
+          "name": "2600_Ghost",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 3427,
+            "0x00": 516,
+            "0x65": 223,
+            "0x76": 204,
+            "0x13": 169,
+            "0x1B": 143,
+            "0x01": 118,
+            "0x43": 112,
+            "0x07": 84,
+            "0x7F": 72,
+            "0x9A": 72,
+            "0xF4": 67,
+            "0xCD": 60,
+            "0x40": 50,
+            "0x4E": 48,
+            "0xDC": 48,
+            "0x08": 45,
+            "0xB8": 43,
+            "0xA8": 42,
+            "0xFE": 35
+          },
+          "truth": {
+            "hero_name": "Inara",
+            "kills": 4,
+            "deaths": 2,
+            "assists": 5,
+            "gold": 8700,
+            "minion_kills": 30,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Acex",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 3143,
+            "0x00": 243,
+            "0x13": 144,
+            "0x01": 118,
+            "0x07": 108,
+            "0x65": 59,
+            "0x44": 39,
+            "0x76": 33,
+            "0x08": 29,
+            "0x98": 25,
+            "0x96": 25,
+            "0x70": 23,
+            "0x1A": 22,
+            "0x6F": 21,
+            "0x1B": 20,
+            "0x43": 19,
+            "0x82": 19,
+            "0x59": 17,
+            "0xB3": 15,
+            "0x55": 14
+          },
+          "truth": {
+            "hero_name": "Lyra",
+            "kills": 0,
+            "deaths": 0,
+            "assists": 5,
+            "gold": 6300,
+            "minion_kills": 3,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3962,
+            "0x08": 1443,
+            "0x00": 988,
+            "0x65": 208,
+            "0x13": 151,
+            "0x01": 120,
+            "0x76": 111,
+            "0x1B": 98,
+            "0x07": 97,
+            "0x9F": 80,
+            "0x41": 75,
+            "0x69": 74,
+            "0xFD": 69,
+            "0xD8": 65,
+            "0xE4": 62,
+            "0x43": 58,
+            "0xB6": 56,
+            "0x44": 51,
+            "0x68": 48,
+            "0x88": 48
+          },
+          "truth": {
+            "hero_name": "Grumpjaw",
+            "kills": 1,
+            "deaths": 0,
+            "assists": 3,
+            "gold": 8600,
+            "minion_kills": 95,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_staplers",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 4129,
+            "0x00": 461,
+            "0x13": 128,
+            "0x01": 123,
+            "0x07": 102,
+            "0x43": 71,
+            "0x82": 68,
+            "0x1B": 57,
+            "0x98": 57,
+            "0x76": 53,
+            "0x08": 48,
+            "0x65": 48,
+            "0xC3": 47,
+            "0xFA": 45,
+            "0x6F": 39,
+            "0x55": 32,
+            "0xE4": 32,
+            "0x96": 30,
+            "0x1D": 29,
+            "0x5E": 28
+          },
+          "truth": {
+            "hero_name": "Mallene",
+            "kills": 3,
+            "deaths": 0,
+            "assists": 4,
+            "gold": 11800,
+            "minion_kills": 156,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_IcyBang",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 5397,
+            "0x00": 445,
+            "0x13": 189,
+            "0x07": 168,
+            "0x65": 161,
+            "0x01": 123,
+            "0x1A": 86,
+            "0xD7": 62,
+            "0x08": 54,
+            "0x8D": 54,
+            "0xFE": 40,
+            "0x64": 38,
+            "0x41": 34,
+            "0x76": 28,
+            "0x5E": 24,
+            "0x98": 23,
+            "0xD2": 22,
+            "0xD0": 22,
+            "0xF4": 21,
+            "0x1D": 20
+          },
+          "truth": {
+            "hero_name": "Kestrel",
+            "kills": 5,
+            "deaths": 0,
+            "assists": 3,
+            "gold": 12900,
+            "minion_kills": 137,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2604_Ray",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 2431,
+            "0x00": 333,
+            "0x13": 234,
+            "0x65": 147,
+            "0x01": 119,
+            "0x1B": 83,
+            "0x07": 61,
+            "0xDC": 61,
+            "0x40": 60,
+            "0x44": 41,
+            "0xA0": 37,
+            "0x43": 27,
+            "0xD2": 27,
+            "0x98": 23,
+            "0x51": 22,
+            "0xF9": 19,
+            "0x64": 16,
+            "0x88": 16,
+            "0xBE": 15,
+            "0x3C": 13
+          },
+          "truth": {
+            "hero_name": "Blackfeather",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 0,
+            "gold": 7300,
+            "minion_kills": 76,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_FengLin",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 3157,
+            "0x00": 202,
+            "0x13": 187,
+            "0x01": 119,
+            "0x43": 87,
+            "0x1A": 72,
+            "0xA2": 61,
+            "0x8D": 58,
+            "0x44": 51,
+            "0x1B": 46,
+            "0x65": 45,
+            "0x6A": 37,
+            "0x4B": 36,
+            "0xE3": 31,
+            "0x07": 28,
+            "0x74": 25,
+            "0x2C": 20,
+            "0x24": 18,
+            "0x34": 17,
+            "0xAF": 17
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 0,
+            "deaths": 4,
+            "assists": 1,
+            "gold": 5800,
+            "minion_kills": 14,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_Shifnoob",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 2945,
+            "0x00": 447,
+            "0x13": 261,
+            "0x01": 123,
+            "0x07": 103,
+            "0xAD": 78,
+            "0x1A": 60,
+            "0xFD": 53,
+            "0x74": 49,
+            "0xD5": 44,
+            "0x44": 41,
+            "0x64": 25,
+            "0xED": 24,
+            "0x43": 23,
+            "0xA0": 23,
+            "0x42": 22,
+            "0x24": 20,
+            "0x51": 20,
+            "0x1D": 19,
+            "0x5E": 18
+          },
+          "truth": {
+            "hero_name": "Kinetic",
+            "kills": 0,
+            "deaths": 3,
+            "assists": 0,
+            "gold": 8100,
+            "minion_kills": 101,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_jeebanana",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 2670,
+            "0x13": 286,
+            "0x00": 202,
+            "0x01": 115,
+            "0x44": 60,
+            "0x1B": 50,
+            "0x65": 37,
+            "0x1A": 34,
+            "0x76": 30,
+            "0x07": 28,
+            "0x43": 27,
+            "0xD6": 24,
+            "0x6D": 19,
+            "0x52": 18,
+            "0x49": 13,
+            "0x7F": 12,
+            "0x97": 12,
+            "0x82": 11,
+            "0x5F": 10,
+            "0xD3": 10
+          },
+          "truth": {
+            "hero_name": "Ardan",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 0,
+            "gold": 5000,
+            "minion_kills": 4,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_PeacePlayz",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 2635,
+            "0x00": 372,
+            "0x13": 187,
+            "0x01": 118,
+            "0x44": 67,
+            "0x1B": 58,
+            "0x07": 41,
+            "0x65": 40,
+            "0x43": 29,
+            "0x1D": 21,
+            "0x69": 19,
+            "0x42": 18,
+            "0x34": 18,
+            "0xB8": 18,
+            "0x5F": 16,
+            "0x64": 16,
+            "0x6D": 15,
+            "0x82": 15,
+            "0x24": 14,
+            "0x97": 13
+          },
+          "truth": {
+            "hero_name": "Magnus",
+            "kills": 2,
+            "deaths": 2,
+            "assists": 0,
+            "gold": 10600,
+            "minion_kills": 151,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-20692443-e314-4ca5-934e-faa63d820d72",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Team Stooopid (Semi)\\2\\d8736287-e35e-4c76-89b0-c78c76fd0b05-20692443-e314-4ca5-934e-faa63d820d72.0.vgr",
+      "players": [
+        {
+          "name": "2599_Shifnoob",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 3221,
+            "0x00": 1129,
+            "0x0F": 142,
+            "0x01": 113,
+            "0x07": 78,
+            "0xB5": 73,
+            "0x77": 66,
+            "0x4D": 44,
+            "0x43": 42,
+            "0x16": 36,
+            "0xB9": 36,
+            "0xE8": 36,
+            "0x90": 34,
+            "0xF1": 31,
+            "0x15": 30,
+            "0x44": 28,
+            "0xC0": 28,
+            "0x62": 26,
+            "0x1E": 25,
+            "0x18": 25
+          },
+          "truth": {
+            "hero_name": "Gwen",
+            "kills": 0,
+            "deaths": 3,
+            "assists": 3,
+            "gold": 8100,
+            "minion_kills": 80,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_PeacePlayz",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 2810,
+            "0x00": 528,
+            "0x0F": 374,
+            "0x07": 70,
+            "0x16": 63,
+            "0x44": 55,
+            "0x43": 51,
+            "0xC8": 51,
+            "0x3D": 42,
+            "0x6A": 32,
+            "0xF8": 24,
+            "0x18": 19,
+            "0x1E": 19,
+            "0x25": 18,
+            "0x2D": 16,
+            "0x35": 16,
+            "0x8B": 16,
+            "0x99": 16,
+            "0x24": 15,
+            "0x2E": 15
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 2,
+            "gold": 8900,
+            "minion_kills": 126,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_jeebanana",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 3148,
+            "0x0F": 344,
+            "0x00": 230,
+            "0x01": 111,
+            "0x62": 58,
+            "0x43": 42,
+            "0x44": 36,
+            "0x3A": 34,
+            "0x07": 29,
+            "0x16": 23,
+            "0x26": 21,
+            "0x7D": 21,
+            "0x3D": 16,
+            "0x99": 11,
+            "0xF3": 11,
+            "0x1D": 8,
+            "0x9D": 7,
+            "0x42": 6,
+            "0x47": 6,
+            "0x9C": 6
+          },
+          "truth": {
+            "hero_name": "Phinn",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 3,
+            "gold": 5200,
+            "minion_kills": 4,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_FengLin",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 3021,
+            "0x00": 1443,
+            "0x0F": 233,
+            "0x16": 152,
+            "0x01": 109,
+            "0x07": 88,
+            "0xF1": 63,
+            "0x46": 60,
+            "0x3D": 59,
+            "0x60": 59,
+            "0x44": 51,
+            "0x90": 28,
+            "0x62": 27,
+            "0xE8": 25,
+            "0x43": 21,
+            "0x75": 20,
+            "0x5A": 19,
+            "0x70": 18,
+            "0x72": 17,
+            "0x4D": 16
+          },
+          "truth": {
+            "hero_name": "Tony",
+            "kills": 1,
+            "deaths": 2,
+            "assists": 0,
+            "gold": 5300,
+            "minion_kills": 7,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2604_Kittymite",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 3476,
+            "0x00": 410,
+            "0x0F": 338,
+            "0x01": 113,
+            "0x43": 77,
+            "0x16": 70,
+            "0x07": 50,
+            "0x62": 37,
+            "0x44": 26,
+            "0x18": 24,
+            "0x15": 14,
+            "0xAF": 14,
+            "0xCA": 14,
+            "0xF8": 14,
+            "0x2B": 13,
+            "0xE6": 12,
+            "0x54": 11,
+            "0x55": 11,
+            "0x82": 11,
+            "0x23": 10
+          },
+          "truth": {
+            "hero_name": "Kestrel",
+            "kills": 2,
+            "deaths": 4,
+            "assists": 1,
+            "gold": 7600,
+            "minion_kills": 67,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Ghost",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 3285,
+            "0x00": 647,
+            "0x62": 343,
+            "0x16": 175,
+            "0x0F": 109,
+            "0x07": 103,
+            "0x3F": 67,
+            "0x74": 59,
+            "0x39": 58,
+            "0x99": 58,
+            "0xB4": 56,
+            "0x4C": 53,
+            "0x6D": 52,
+            "0x60": 41,
+            "0xF0": 41,
+            "0x44": 33,
+            "0x75": 25,
+            "0x7A": 25,
+            "0x08": 23,
+            "0x43": 20
+          },
+          "truth": {
+            "hero_name": "Catherine",
+            "kills": 2,
+            "deaths": 0,
+            "assists": 7,
+            "gold": 8500,
+            "minion_kills": 35,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_staplers",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 4236,
+            "0x00": 721,
+            "0x07": 176,
+            "0x62": 130,
+            "0x08": 129,
+            "0x01": 115,
+            "0x0F": 84,
+            "0x16": 56,
+            "0xC8": 54,
+            "0x8B": 44,
+            "0xF3": 37,
+            "0x66": 33,
+            "0x25": 32,
+            "0x95": 32,
+            "0x3E": 28,
+            "0x5A": 28,
+            "0xC5": 28,
+            "0x44": 24,
+            "0x71": 22,
+            "0x43": 19
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 4,
+            "deaths": 0,
+            "assists": 4,
+            "gold": 12100,
+            "minion_kills": 144,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_IcyBang",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 3363,
+            "0x07": 367,
+            "0x00": 304,
+            "0x62": 283,
+            "0x0F": 119,
+            "0x03": 99,
+            "0x08": 84,
+            "0xD0": 77,
+            "0xA2": 63,
+            "0xE8": 58,
+            "0xF0": 55,
+            "0x8C": 53,
+            "0x16": 43,
+            "0xDA": 41,
+            "0x75": 36,
+            "0x43": 29,
+            "0x35": 29,
+            "0x5F": 26,
+            "0x3C": 24,
+            "0x82": 21
+          },
+          "truth": {
+            "hero_name": "Ishutar",
+            "kills": 5,
+            "deaths": 1,
+            "assists": 2,
+            "gold": 10700,
+            "minion_kills": 104,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Acex",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 3353,
+            "0x0F": 233,
+            "0x00": 229,
+            "0x07": 150,
+            "0x01": 108,
+            "0x62": 85,
+            "0x08": 39,
+            "0x71": 33,
+            "0xF0": 30,
+            "0x5D": 28,
+            "0x75": 26,
+            "0x16": 20,
+            "0x3E": 20,
+            "0x66": 20,
+            "0x4A": 19,
+            "0x25": 16,
+            "0xA4": 16,
+            "0x39": 15,
+            "0x7A": 14,
+            "0xD4": 13
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 0,
+            "deaths": 1,
+            "assists": 4,
+            "gold": 6200,
+            "minion_kills": 7,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3967,
+            "0x08": 1193,
+            "0x00": 941,
+            "0x0F": 188,
+            "0x75": 166,
+            "0x07": 149,
+            "0x62": 139,
+            "0x01": 117,
+            "0x43": 94,
+            "0x16": 91,
+            "0xF5": 76,
+            "0x44": 71,
+            "0x69": 70,
+            "0x99": 70,
+            "0xCF": 69,
+            "0x3B": 63,
+            "0xF0": 47,
+            "0x53": 30,
+            "0x15": 27,
+            "0x18": 25
+          },
+          "truth": {
+            "hero_name": "Grumpjaw",
+            "kills": 2,
+            "deaths": 1,
+            "assists": 4,
+            "gold": 9300,
+            "minion_kills": 93,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-c2612bb7-c551-408f-bc75-c51ab6da604e",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Maitun Gaming\\1\\d8736287-e35e-4c76-89b0-c78c76fd0b05-c2612bb7-c551-408f-bc75-c51ab6da604e.0.vgr",
+      "players": [
+        {
+          "name": "3000_HongQiGong",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 3793,
+            "0x18": 225,
+            "0x00": 210,
+            "0x01": 120,
+            "0x44": 84,
+            "0x6D": 40,
+            "0x43": 39,
+            "0x07": 32,
+            "0x49": 29,
+            "0x2D": 24,
+            "0x7F": 17,
+            "0x87": 14,
+            "0xD4": 14,
+            "0x1F": 12,
+            "0xF6": 12,
+            "0x42": 11,
+            "0xA6": 11,
+            "0x4E": 9,
+            "0x56": 8,
+            "0x80": 8
+          },
+          "truth": {
+            "hero_name": "Phinn",
+            "kills": 0,
+            "deaths": 6,
+            "assists": 3,
+            "gold": 5500,
+            "minion_kills": 12,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_YiNong",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 3678,
+            "0x00": 402,
+            "0x18": 244,
+            "0x6D": 152,
+            "0x01": 121,
+            "0x1F": 105,
+            "0xCF": 74,
+            "0x45": 66,
+            "0x7C": 66,
+            "0x44": 48,
+            "0x07": 38,
+            "0xCD": 32,
+            "0xA2": 31,
+            "0xEA": 29,
+            "0x87": 26,
+            "0x5D": 25,
+            "0xA6": 23,
+            "0x9F": 22,
+            "0x43": 21,
+            "0x3F": 21
+          },
+          "truth": {
+            "hero_name": "Reza",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 3,
+            "gold": 7900,
+            "minion_kills": 76,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_OuYangFeng",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 4417,
+            "0xCE": 472,
+            "0x00": 321,
+            "0x18": 297,
+            "0x01": 120,
+            "0x1F": 94,
+            "0x76": 75,
+            "0x07": 57,
+            "0x44": 56,
+            "0x6D": 55,
+            "0x9F": 36,
+            "0xAD": 35,
+            "0xA6": 34,
+            "0x43": 31,
+            "0xA5": 26,
+            "0x99": 24,
+            "0x87": 23,
+            "0xB5": 22,
+            "0x55": 20,
+            "0xEA": 20
+          },
+          "truth": {
+            "hero_name": "Ylva",
+            "kills": 2,
+            "deaths": 2,
+            "assists": 2,
+            "gold": 8100,
+            "minion_kills": 73,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_Dawg",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 3457,
+            "0x00": 568,
+            "0x18": 409,
+            "0x1F": 181,
+            "0x01": 121,
+            "0x6D": 111,
+            "0x4C": 74,
+            "0x08": 61,
+            "0xCC": 54,
+            "0xA0": 52,
+            "0x07": 49,
+            "0x44": 48,
+            "0xED": 48,
+            "0xF6": 46,
+            "0x74": 45,
+            "0x45": 35,
+            "0xC3": 35,
+            "0x56": 33,
+            "0x9C": 28,
+            "0x6B": 22
+          },
+          "truth": {
+            "hero_name": "Fortress",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 3,
+            "gold": 8000,
+            "minion_kills": 32,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_DuGuQiuBai",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 5238,
+            "0x96": 759,
+            "0x00": 501,
+            "0x18": 156,
+            "0x01": 127,
+            "0xD1": 122,
+            "0x1F": 118,
+            "0x07": 98,
+            "0x08": 86,
+            "0x44": 86,
+            "0x83": 84,
+            "0x77": 69,
+            "0xA0": 59,
+            "0x6D": 48,
+            "0x4E": 44,
+            "0x6C": 40,
+            "0x27": 33,
+            "0xD8": 32,
+            "0x2E": 31,
+            "0x8E": 31
+          },
+          "truth": {
+            "hero_name": "Kensei",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 1,
+            "gold": 9200,
+            "minion_kills": 110,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_Ghost",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 3798,
+            "0x00": 508,
+            "0x1F": 205,
+            "0x18": 190,
+            "0x07": 125,
+            "0x01": 122,
+            "0x6D": 93,
+            "0x44": 93,
+            "0x08": 91,
+            "0x4C": 79,
+            "0x80": 58,
+            "0x7E": 57,
+            "0xEC": 52,
+            "0x76": 49,
+            "0xAC": 46,
+            "0x9D": 43,
+            "0x52": 39,
+            "0xC6": 37,
+            "0xF0": 35,
+            "0x54": 32
+          },
+          "truth": {
+            "hero_name": "Baptiste",
+            "kills": 2,
+            "deaths": 1,
+            "assists": 11,
+            "gold": 7700,
+            "minion_kills": 22,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3004_TenshiiHime",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 3528,
+            "0x00": 490,
+            "0x6D": 197,
+            "0x18": 138,
+            "0x01": 121,
+            "0x1F": 112,
+            "0x6C": 108,
+            "0x07": 92,
+            "0x99": 76,
+            "0x45": 74,
+            "0xF4": 71,
+            "0xA1": 59,
+            "0x44": 57,
+            "0xA3": 55,
+            "0xF0": 35,
+            "0x55": 32,
+            "0x21": 28,
+            "0x27": 28,
+            "0x43": 25,
+            "0x5D": 24
+          },
+          "truth": {
+            "hero_name": "Blackfeather",
+            "kills": 2,
+            "deaths": 0,
+            "assists": 8,
+            "gold": 9700,
+            "minion_kills": 106,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_stapler",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 3879,
+            "0xEF": 939,
+            "0x00": 641,
+            "0x07": 372,
+            "0x08": 176,
+            "0x18": 160,
+            "0x6D": 110,
+            "0x1F": 67,
+            "0x44": 67,
+            "0x81": 57,
+            "0x9F": 56,
+            "0xF3": 54,
+            "0x47": 49,
+            "0xC8": 38,
+            "0x43": 34,
+            "0x27": 28,
+            "0x3F": 25,
+            "0x73": 24,
+            "0x37": 23,
+            "0x7F": 20
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 8,
+            "deaths": 1,
+            "assists": 8,
+            "gold": 12900,
+            "minion_kills": 147,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_Acex",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3494,
+            "0x00": 353,
+            "0x18": 194,
+            "0x81": 190,
+            "0x07": 186,
+            "0x01": 121,
+            "0x44": 67,
+            "0x6D": 56,
+            "0xF3": 46,
+            "0xF0": 44,
+            "0x08": 43,
+            "0x73": 35,
+            "0x43": 25,
+            "0x37": 23,
+            "0x47": 22,
+            "0x1F": 16,
+            "0x27": 14,
+            "0x5D": 14,
+            "0xC8": 14,
+            "0x80": 13
+          },
+          "truth": {
+            "hero_name": "Ardan",
+            "kills": 1,
+            "deaths": 0,
+            "assists": 12,
+            "gold": 7500,
+            "minion_kills": 5,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_IcyBang",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 4252,
+            "0x98": 703,
+            "0x00": 619,
+            "0x18": 143,
+            "0x03": 108,
+            "0x07": 93,
+            "0x22": 71,
+            "0x6D": 67,
+            "0xC8": 61,
+            "0xD6": 57,
+            "0x44": 51,
+            "0x08": 47,
+            "0x1F": 44,
+            "0x66": 44,
+            "0xF2": 39,
+            "0xA1": 37,
+            "0xDC": 37,
+            "0xF0": 32,
+            "0xF9": 30,
+            "0x81": 29
+          },
+          "truth": {
+            "hero_name": "Caine",
+            "kills": 4,
+            "deaths": 3,
+            "assists": 8,
+            "gold": 10500,
+            "minion_kills": 104,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "02aae104-45ba-4f50-972c-00c4a6719716-863aaed7-13d5-459e-9c50-963bac077ff3",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Maitun Gaming\\2\\02aae104-45ba-4f50-972c-00c4a6719716-863aaed7-13d5-459e-9c50-963bac077ff3.0.vgr",
+      "players": [
+        {
+          "name": "2999_Ghost",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3950,
+            "0x00": 519,
+            "0x6F": 279,
+            "0x1E": 210,
+            "0x17": 176,
+            "0x07": 140,
+            "0x01": 133,
+            "0x08": 89,
+            "0x83": 82,
+            "0x44": 80,
+            "0x51": 73,
+            "0xE1": 73,
+            "0xE5": 61,
+            "0x49": 55,
+            "0x9D": 55,
+            "0x8A": 46,
+            "0xD0": 46,
+            "0x70": 45,
+            "0x54": 41,
+            "0xF9": 39
+          },
+          "truth": {
+            "hero_name": "Ylva",
+            "kills": 1,
+            "deaths": 2,
+            "assists": 13,
+            "gold": 9100,
+            "minion_kills": 34,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_staplers",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 4165,
+            "0xEE": 1219,
+            "0x00": 627,
+            "0x07": 297,
+            "0x08": 233,
+            "0x6F": 153,
+            "0x17": 128,
+            "0xDF": 73,
+            "0x9E": 67,
+            "0x72": 49,
+            "0x1E": 42,
+            "0x7B": 42,
+            "0x48": 39,
+            "0x1D": 34,
+            "0x43": 27,
+            "0x44": 27,
+            "0x20": 26,
+            "0x81": 24,
+            "0x76": 21,
+            "0x37": 20
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 4,
+            "deaths": 0,
+            "assists": 17,
+            "gold": 12300,
+            "minion_kills": 147,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_Acex",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 4509,
+            "0x00": 316,
+            "0x07": 183,
+            "0x17": 181,
+            "0x01": 134,
+            "0x6F": 108,
+            "0x81": 60,
+            "0x08": 49,
+            "0x44": 46,
+            "0x7F": 21,
+            "0x9F": 18,
+            "0x48": 17,
+            "0x76": 16,
+            "0xF9": 15,
+            "0x20": 12,
+            "0x47": 12,
+            "0x43": 11,
+            "0x1E": 10,
+            "0x37": 10,
+            "0x1D": 9
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 2,
+            "deaths": 3,
+            "assists": 11,
+            "gold": 8500,
+            "minion_kills": 11,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2999_IcyBang",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 5641,
+            "0x87": 939,
+            "0x00": 748,
+            "0x03": 120,
+            "0x17": 118,
+            "0x07": 111,
+            "0x6F": 96,
+            "0x08": 78,
+            "0x83": 59,
+            "0xE7": 45,
+            "0x3E": 43,
+            "0x20": 41,
+            "0x44": 34,
+            "0xBB": 34,
+            "0x71": 33,
+            "0xDD": 27,
+            "0x1E": 24,
+            "0x82": 23,
+            "0x47": 22,
+            "0x94": 21
+          },
+          "truth": {
+            "hero_name": "Caine",
+            "kills": 11,
+            "deaths": 0,
+            "assists": 8,
+            "gold": 12700,
+            "minion_kills": 111,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3004_TenshiiHime",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 4621,
+            "0x00": 505,
+            "0x17": 195,
+            "0x07": 147,
+            "0x01": 134,
+            "0x6F": 114,
+            "0x08": 97,
+            "0x1E": 97,
+            "0x81": 75,
+            "0x44": 71,
+            "0x43": 69,
+            "0x46": 60,
+            "0x8D": 47,
+            "0xE1": 47,
+            "0xAA": 46,
+            "0x1D": 27,
+            "0xB1": 23,
+            "0x97": 22,
+            "0xBB": 22,
+            "0xDD": 22
+          },
+          "truth": {
+            "hero_name": "Blackfeather",
+            "kills": 9,
+            "deaths": 1,
+            "assists": 7,
+            "gold": 11900,
+            "minion_kills": 113,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_YiNong",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 4267,
+            "0x00": 451,
+            "0x17": 255,
+            "0x1E": 191,
+            "0x01": 137,
+            "0x07": 93,
+            "0x6F": 79,
+            "0x44": 78,
+            "0x52": 67,
+            "0x9E": 65,
+            "0x47": 64,
+            "0x7E": 57,
+            "0xD3": 57,
+            "0x74": 53,
+            "0xE2": 46,
+            "0xAB": 43,
+            "0x7F": 41,
+            "0x4A": 38,
+            "0x49": 35,
+            "0x99": 32
+          },
+          "truth": {
+            "hero_name": "Reza",
+            "kills": 4,
+            "deaths": 6,
+            "assists": 1,
+            "gold": 10200,
+            "minion_kills": 48,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_OuYangFeng",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 4232,
+            "0x08": 834,
+            "0x00": 741,
+            "0x17": 234,
+            "0x07": 139,
+            "0x01": 136,
+            "0x44": 96,
+            "0x43": 80,
+            "0x6F": 75,
+            "0x1E": 25,
+            "0x26": 21,
+            "0xED": 21,
+            "0x1D": 18,
+            "0x37": 18,
+            "0x5E": 18,
+            "0x75": 17,
+            "0x3F": 16,
+            "0x9F": 16,
+            "0xE0": 15,
+            "0x8A": 13
+          },
+          "truth": {
+            "hero_name": "Grumpjaw",
+            "kills": 0,
+            "deaths": 7,
+            "assists": 3,
+            "gold": 7900,
+            "minion_kills": 69,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_DuGuQiuBai",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 4777,
+            "0x00": 396,
+            "0x17": 300,
+            "0x87": 230,
+            "0x07": 162,
+            "0x01": 142,
+            "0xAC": 65,
+            "0xDF": 65,
+            "0x44": 63,
+            "0x1E": 59,
+            "0xFD": 37,
+            "0x47": 34,
+            "0x1D": 32,
+            "0x6F": 30,
+            "0x2C": 25,
+            "0xF0": 25,
+            "0xCE": 24,
+            "0x26": 23,
+            "0x65": 22,
+            "0x8D": 22
+          },
+          "truth": {
+            "hero_name": "Kinetic",
+            "kills": 1,
+            "deaths": 6,
+            "assists": 1,
+            "gold": 10500,
+            "minion_kills": 119,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_Dawg",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 4412,
+            "0x17": 339,
+            "0x00": 314,
+            "0xA6": 223,
+            "0x01": 133,
+            "0x6F": 100,
+            "0x48": 68,
+            "0x07": 66,
+            "0x77": 54,
+            "0x44": 51,
+            "0x1E": 44,
+            "0x55": 29,
+            "0xFD": 26,
+            "0x26": 24,
+            "0x1D": 23,
+            "0x47": 23,
+            "0xB1": 23,
+            "0xEC": 23,
+            "0x20": 22,
+            "0x1F": 20
+          },
+          "truth": {
+            "hero_name": "Silvernail",
+            "kills": 1,
+            "deaths": 2,
+            "assists": 2,
+            "gold": 9500,
+            "minion_kills": 109,
+            "bounty": null
+          }
+        },
+        {
+          "name": "3000_HongQiGong",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 3817,
+            "0x00": 376,
+            "0x17": 212,
+            "0x01": 133,
+            "0x07": 87,
+            "0x44": 77,
+            "0x6F": 71,
+            "0x43": 35,
+            "0x1E": 24,
+            "0x40": 18,
+            "0xF4": 17,
+            "0xEC": 16,
+            "0x86": 12,
+            "0x75": 11,
+            "0x76": 11,
+            "0x7F": 11,
+            "0x3F": 10,
+            "0xE4": 10,
+            "0xFA": 10,
+            "0x47": 9
+          },
+          "truth": {
+            "hero_name": "San Feng",
+            "kills": 0,
+            "deaths": 6,
+            "assists": 3,
+            "gold": 6400,
+            "minion_kills": 2,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-e76f857f-218a-45bf-8982-292c7671c902",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Law Enforcers (Finals)\\1\\d8736287-e35e-4c76-89b0-c78c76fd0b05-e76f857f-218a-45bf-8982-292c7671c902.0.vgr",
+      "players": [
+        {
+          "name": "2599_123",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 4058,
+            "0x00": 1163,
+            "0x6A": 164,
+            "0x0F": 121,
+            "0x07": 121,
+            "0x03": 117,
+            "0x7D": 64,
+            "0x44": 39,
+            "0xF7": 34,
+            "0x17": 32,
+            "0x43": 32,
+            "0x9B": 23,
+            "0x08": 20,
+            "0x19": 20,
+            "0xA1": 18,
+            "0x01": 17,
+            "0x7C": 12,
+            "0xB9": 11,
+            "0x21": 10,
+            "0x3C": 10
+          },
+          "truth": {
+            "hero_name": "Warhawk",
+            "kills": 1,
+            "deaths": 0,
+            "assists": 8,
+            "gold": 8200,
+            "minion_kills": 8,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2604_topLaner",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 3796,
+            "0x00": 328,
+            "0x0F": 212,
+            "0x6A": 188,
+            "0x17": 141,
+            "0x07": 138,
+            "0x01": 130,
+            "0x7D": 78,
+            "0x46": 73,
+            "0x7F": 72,
+            "0x44": 65,
+            "0xA6": 57,
+            "0xF7": 57,
+            "0x51": 42,
+            "0x86": 39,
+            "0x41": 31,
+            "0x3C": 25,
+            "0xDB": 20,
+            "0x99": 19,
+            "0x77": 18
+          },
+          "truth": {
+            "hero_name": "Ylva",
+            "kills": 2,
+            "deaths": 1,
+            "assists": 8,
+            "gold": 8100,
+            "minion_kills": 13,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_Ritoramu",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 4976,
+            "0x00": 744,
+            "0x01": 137,
+            "0x6A": 123,
+            "0x07": 85,
+            "0x17": 65,
+            "0x0F": 64,
+            "0x08": 60,
+            "0xA1": 58,
+            "0x44": 46,
+            "0x63": 42,
+            "0x43": 37,
+            "0xD6": 32,
+            "0xFC": 31,
+            "0x77": 29,
+            "0x9B": 27,
+            "0x7D": 23,
+            "0xC3": 23,
+            "0x41": 22,
+            "0x3C": 21
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 4,
+            "deaths": 0,
+            "assists": 4,
+            "gold": 13900,
+            "minion_kills": 167,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_tsuki",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 6594,
+            "0x00": 1064,
+            "0x6A": 191,
+            "0x07": 152,
+            "0x03": 117,
+            "0x16": 89,
+            "0x0F": 84,
+            "0x63": 82,
+            "0xDA": 56,
+            "0xB1": 50,
+            "0xA5": 46,
+            "0xE2": 38,
+            "0x08": 37,
+            "0xF7": 36,
+            "0x43": 31,
+            "0x19": 30,
+            "0x3C": 30,
+            "0xFA": 28,
+            "0xD0": 27,
+            "0x29": 25
+          },
+          "truth": {
+            "hero_name": "Caine",
+            "kills": 4,
+            "deaths": 0,
+            "assists": 5,
+            "gold": 12700,
+            "minion_kills": 130,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_killzx",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 4685,
+            "0x0F": 651,
+            "0x00": 402,
+            "0x6A": 390,
+            "0x07": 214,
+            "0x08": 150,
+            "0x03": 117,
+            "0x17": 95,
+            "0x84": 71,
+            "0xE2": 67,
+            "0x43": 44,
+            "0x16": 36,
+            "0x19": 27,
+            "0x3C": 25,
+            "0xE1": 25,
+            "0x4A": 23,
+            "0x44": 21,
+            "0xF7": 21,
+            "0x5A": 20,
+            "0x01": 19
+          },
+          "truth": {
+            "hero_name": "Ishutar",
+            "kills": 2,
+            "deaths": 1,
+            "assists": 5,
+            "gold": 11500,
+            "minion_kills": 132,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Ghost",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3180,
+            "0x00": 495,
+            "0x6A": 206,
+            "0x0F": 198,
+            "0x44": 170,
+            "0x01": 130,
+            "0x16": 112,
+            "0x17": 104,
+            "0x4F": 92,
+            "0x78": 75,
+            "0x07": 70,
+            "0x54": 62,
+            "0x7B": 61,
+            "0x6E": 59,
+            "0xAC": 57,
+            "0x99": 55,
+            "0xA5": 38,
+            "0x70": 20,
+            "0x43": 19,
+            "0xC3": 15
+          },
+          "truth": {
+            "hero_name": "Inara",
+            "kills": 0,
+            "deaths": 3,
+            "assists": 1,
+            "gold": 7300,
+            "minion_kills": 30,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Acex",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 2856,
+            "0x0F": 256,
+            "0x00": 207,
+            "0x01": 129,
+            "0x6A": 89,
+            "0x07": 37,
+            "0x44": 34,
+            "0x9A": 24,
+            "0x40": 20,
+            "0xCA": 18,
+            "0x43": 16,
+            "0x17": 14,
+            "0x63": 14,
+            "0x42": 13,
+            "0x4B": 10,
+            "0x92": 10,
+            "0xC6": 10,
+            "0x6E": 9,
+            "0x16": 6,
+            "0x1A": 6
+          },
+          "truth": {
+            "hero_name": "Lyra",
+            "kills": 0,
+            "deaths": 1,
+            "assists": 0,
+            "gold": 5900,
+            "minion_kills": 4,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_staplers",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 6405,
+            "0x00": 920,
+            "0x0F": 138,
+            "0x01": 133,
+            "0x17": 75,
+            "0x44": 74,
+            "0x65": 62,
+            "0x43": 58,
+            "0x6A": 57,
+            "0x92": 51,
+            "0x07": 39,
+            "0x73": 36,
+            "0x70": 32,
+            "0xC6": 29,
+            "0xCC": 27,
+            "0x99": 25,
+            "0xF0": 25,
+            "0xCA": 23,
+            "0x2A": 22,
+            "0x53": 22
+          },
+          "truth": {
+            "hero_name": "Skye",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 1,
+            "gold": 11500,
+            "minion_kills": 148,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 3991,
+            "0x08": 1301,
+            "0x00": 957,
+            "0x0F": 179,
+            "0x6A": 171,
+            "0x01": 133,
+            "0x44": 116,
+            "0x42": 101,
+            "0x17": 95,
+            "0x71": 84,
+            "0x43": 60,
+            "0x07": 58,
+            "0xAC": 54,
+            "0x91": 33,
+            "0x3C": 31,
+            "0x16": 25,
+            "0x19": 22,
+            "0x73": 22,
+            "0x7B": 21,
+            "0xA7": 21
+          }
+        },
+        {
+          "name": "2600_IcyBang",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 5205,
+            "0x00": 512,
+            "0x0F": 304,
+            "0x01": 136,
+            "0x07": 107,
+            "0xD3": 60,
+            "0x43": 51,
+            "0xFE": 50,
+            "0x44": 47,
+            "0x6A": 38,
+            "0xDB": 35,
+            "0x16": 23,
+            "0xA5": 22,
+            "0x7B": 21,
+            "0x5A": 20,
+            "0x63": 20,
+            "0xA4": 20,
+            "0x81": 19,
+            "0x33": 16,
+            "0x77": 16
+          },
+          "truth": {
+            "hero_name": "Kestrel",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 1,
+            "gold": 11000,
+            "minion_kills": 124,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-5f22df2e-921a-4638-937b-a88f9fe88a73",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Law Enforcers (Finals)\\2\\d8736287-e35e-4c76-89b0-c78c76fd0b05-5f22df2e-921a-4638-937b-a88f9fe88a73.0.vgr",
+      "players": [
+        {
+          "name": "2600_IcyBang",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 6621,
+            "0x00": 583,
+            "0x63": 354,
+            "0x07": 179,
+            "0x01": 171,
+            "0x10": 110,
+            "0x93": 72,
+            "0xDF": 63,
+            "0x44": 54,
+            "0xDC": 51,
+            "0x9C": 42,
+            "0xB1": 29,
+            "0xC2": 25,
+            "0x75": 24,
+            "0x43": 23,
+            "0x81": 23,
+            "0xEB": 23,
+            "0x08": 23,
+            "0xD8": 22,
+            "0x37": 14
+          },
+          "truth": {
+            "hero_name": "Kestrel",
+            "kills": 6,
+            "deaths": 3,
+            "assists": 7,
+            "gold": 16100,
+            "minion_kills": 146,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 4887,
+            "0x00": 562,
+            "0x63": 299,
+            "0x01": 170,
+            "0x10": 116,
+            "0x07": 91,
+            "0x44": 80,
+            "0x43": 69,
+            "0x9D": 68,
+            "0x3D": 60,
+            "0xE6": 46,
+            "0xC0": 42,
+            "0xD8": 33,
+            "0xC6": 23,
+            "0xD1": 20,
+            "0xAA": 18,
+            "0xBF": 18,
+            "0x62": 15,
+            "0x6F": 15,
+            "0xE4": 14
+          }
+        },
+        {
+          "name": "2600_Acex",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 4996,
+            "0x00": 328,
+            "0x10": 172,
+            "0x07": 172,
+            "0x01": 165,
+            "0x63": 154,
+            "0x75": 129,
+            "0x44": 42,
+            "0xD8": 35,
+            "0xB4": 31,
+            "0x81": 29,
+            "0x6B": 24,
+            "0x43": 21,
+            "0x9C": 18,
+            "0x20": 17,
+            "0xBA": 11,
+            "0xEB": 11,
+            "0x4C": 10,
+            "0x5D": 10,
+            "0x7A": 10
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 0,
+            "deaths": 2,
+            "assists": 11,
+            "gold": 9400,
+            "minion_kills": 19,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_staplers",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 6652,
+            "0x00": 932,
+            "0x07": 172,
+            "0x01": 168,
+            "0x63": 109,
+            "0x10": 53,
+            "0xE6": 53,
+            "0x44": 44,
+            "0xBA": 44,
+            "0x68": 41,
+            "0x90": 38,
+            "0x43": 34,
+            "0x20": 32,
+            "0xDA": 31,
+            "0x65": 28,
+            "0x91": 28,
+            "0xD8": 27,
+            "0x3F": 26,
+            "0x08": 25,
+            "0x4C": 24
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 6,
+            "deaths": 2,
+            "assists": 10,
+            "gold": 17000,
+            "minion_kills": 166,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Ghost",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 4165,
+            "0x00": 611,
+            "0x63": 270,
+            "0x07": 175,
+            "0x01": 164,
+            "0x10": 135,
+            "0x3C": 102,
+            "0x77": 67,
+            "0xE7": 67,
+            "0xB9": 64,
+            "0x91": 56,
+            "0x44": 55,
+            "0x76": 47,
+            "0xE0": 46,
+            "0x3E": 43,
+            "0x48": 36,
+            "0x6F": 34,
+            "0x20": 31,
+            "0x8D": 29,
+            "0x90": 29
+          },
+          "truth": {
+            "hero_name": "Ylva",
+            "kills": 2,
+            "deaths": 2,
+            "assists": 10,
+            "gold": 10500,
+            "minion_kills": 32,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_Ritoramu",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 4793,
+            "0x00": 572,
+            "0x01": 172,
+            "0x10": 172,
+            "0x63": 137,
+            "0x07": 86,
+            "0x44": 48,
+            "0xAA": 45,
+            "0xCB": 39,
+            "0x43": 37,
+            "0x3F": 34,
+            "0x8F": 33,
+            "0x65": 32,
+            "0x8B": 30,
+            "0xF3": 28,
+            "0x20": 27,
+            "0x54": 27,
+            "0x81": 20,
+            "0x26": 19,
+            "0x5F": 19
+          },
+          "truth": {
+            "hero_name": "Celeste",
+            "kills": 3,
+            "deaths": 3,
+            "assists": 2,
+            "gold": 18400,
+            "minion_kills": 234,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_tsuki",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 4387,
+            "0x00": 537,
+            "0x63": 252,
+            "0x01": 166,
+            "0x07": 135,
+            "0xAF": 75,
+            "0x10": 73,
+            "0x6B": 67,
+            "0xD4": 66,
+            "0x9C": 63,
+            "0xBC": 58,
+            "0xDF": 41,
+            "0xD8": 40,
+            "0x44": 39,
+            "0x43": 38,
+            "0x20": 37,
+            "0xAE": 36,
+            "0x26": 27,
+            "0x2F": 26,
+            "0x37": 18
+          },
+          "truth": {
+            "hero_name": "Kinetic",
+            "kills": 4,
+            "deaths": 3,
+            "assists": 1,
+            "gold": 16200,
+            "minion_kills": 161,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_123",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 4789,
+            "0x00": 359,
+            "0x63": 222,
+            "0x10": 179,
+            "0x01": 162,
+            "0x07": 106,
+            "0x44": 97,
+            "0x43": 28,
+            "0x3F": 14,
+            "0x4C": 13,
+            "0xD1": 13,
+            "0x28": 10,
+            "0xE4": 10,
+            "0xAD": 9,
+            "0x41": 8,
+            "0x3B": 8,
+            "0x21": 6,
+            "0x42": 6,
+            "0xCB": 6,
+            "0xED": 6
+          },
+          "truth": {
+            "hero_name": "Lyra",
+            "kills": 1,
+            "deaths": 4,
+            "assists": 4,
+            "gold": 9100,
+            "minion_kills": 6,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_killzx",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 6038,
+            "0x08": 1533,
+            "0x00": 1219,
+            "0x63": 395,
+            "0x07": 218,
+            "0x10": 215,
+            "0x01": 168,
+            "0x44": 136,
+            "0x43": 66,
+            "0x42": 55,
+            "0xB2": 51,
+            "0x75": 46,
+            "0x8C": 40,
+            "0x2F": 31,
+            "0xB1": 30,
+            "0xE4": 28,
+            "0x3E": 26,
+            "0x62": 26,
+            "0x17": 23,
+            "0xD4": 21
+          },
+          "truth": {
+            "hero_name": "Grumpjaw",
+            "kills": 2,
+            "deaths": 6,
+            "assists": 3,
+            "gold": 13500,
+            "minion_kills": 137,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2604_topLaner",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 5173,
+            "0x00": 2134,
+            "0x63": 270,
+            "0x10": 244,
+            "0x01": 165,
+            "0x44": 127,
+            "0x07": 94,
+            "0x17": 86,
+            "0x65": 84,
+            "0x3F": 70,
+            "0x47": 59,
+            "0x4A": 38,
+            "0x43": 38,
+            "0x81": 30,
+            "0x3C": 23,
+            "0x5F": 20,
+            "0xEC": 16,
+            "0x97": 15,
+            "0xB8": 12,
+            "0x53": 11
+          },
+          "truth": {
+            "hero_name": "Tony",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 5,
+            "gold": 10100,
+            "minion_kills": 15,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-0bfec87b-0b07-4f4d-8e4f-936d74758dfd",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Law Enforcers (Finals)\\3\\d8736287-e35e-4c76-89b0-c78c76fd0b05-0bfec87b-0b07-4f4d-8e4f-936d74758dfd.0.vgr",
+      "players": [
+        {
+          "name": "2600_Ghost",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 5815,
+            "0x00": 683,
+            "0x0F": 335,
+            "0x6E": 238,
+            "0x01": 184,
+            "0x16": 177,
+            "0x44": 115,
+            "0x07": 78,
+            "0x08": 73,
+            "0x4B": 58,
+            "0xA0": 53,
+            "0x81": 52,
+            "0xCE": 50,
+            "0x99": 45,
+            "0x70": 42,
+            "0x43": 41,
+            "0xAF": 30,
+            "0xC8": 19,
+            "0x21": 17,
+            "0x31": 15
+          },
+          "truth": {
+            "hero_name": "Baptiste",
+            "kills": 2,
+            "deaths": 5,
+            "assists": 8,
+            "gold": 10400,
+            "minion_kills": 44,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_Acex",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 7029,
+            "0x00": 466,
+            "0x6E": 358,
+            "0x0F": 319,
+            "0x01": 180,
+            "0x07": 147,
+            "0x43": 65,
+            "0x44": 61,
+            "0x16": 30,
+            "0xD3": 21,
+            "0xB0": 18,
+            "0xD0": 16,
+            "0x2A": 15,
+            "0x6A": 14,
+            "0x4C": 13,
+            "0xA2": 13,
+            "0xAA": 12,
+            "0x22": 11,
+            "0x3E": 11,
+            "0xC8": 10
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 0,
+            "deaths": 5,
+            "assists": 12,
+            "gold": 9300,
+            "minion_kills": 13,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 7626,
+            "0x00": 695,
+            "0x6E": 222,
+            "0x0F": 209,
+            "0x01": 185,
+            "0x07": 181,
+            "0x44": 155,
+            "0x16": 108,
+            "0x7E": 84,
+            "0x41": 72,
+            "0xB3": 56,
+            "0x4B": 47,
+            "0xD5": 39,
+            "0x90": 38,
+            "0x42": 35,
+            "0x55": 26,
+            "0x60": 26,
+            "0x6D": 26,
+            "0x89": 26,
+            "0xBC": 25
+          },
+          "truth": {
+            "hero_name": "Ozo",
+            "kills": 4,
+            "deaths": 4,
+            "assists": 8,
+            "gold": 14100,
+            "minion_kills": 125,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_IcyBang",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 6763,
+            "0x00": 2380,
+            "0x6E": 222,
+            "0x0F": 199,
+            "0x01": 189,
+            "0x07": 92,
+            "0xF5": 72,
+            "0x44": 61,
+            "0x16": 51,
+            "0xB0": 42,
+            "0x84": 39,
+            "0x43": 26,
+            "0x42": 24,
+            "0x4B": 20,
+            "0x31": 17,
+            "0x67": 16,
+            "0xC8": 16,
+            "0xC6": 13,
+            "0x19": 12,
+            "0x21": 12
+          },
+          "truth": {
+            "hero_name": "Gwen",
+            "kills": 9,
+            "deaths": 4,
+            "assists": 7,
+            "gold": 17000,
+            "minion_kills": 176,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2600_staplers",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 7569,
+            "0x00": 1096,
+            "0x0F": 251,
+            "0x01": 186,
+            "0x6E": 149,
+            "0x07": 107,
+            "0x44": 80,
+            "0x43": 59,
+            "0x16": 58,
+            "0x71": 40,
+            "0xA0": 37,
+            "0x91": 36,
+            "0x21": 31,
+            "0xD3": 30,
+            "0x22": 24,
+            "0x6D": 23,
+            "0x3E": 21,
+            "0x89": 19,
+            "0x6A": 18,
+            "0x19": 17
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 2,
+            "deaths": 4,
+            "assists": 12,
+            "gold": 15300,
+            "minion_kills": 172,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_tsuki",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 6338,
+            "0x00": 572,
+            "0x6E": 358,
+            "0x0F": 194,
+            "0x07": 187,
+            "0x01": 186,
+            "0x84": 81,
+            "0xEB": 70,
+            "0x44": 66,
+            "0xB7": 58,
+            "0x4D": 55,
+            "0x08": 50,
+            "0x16": 47,
+            "0xED": 43,
+            "0x8E": 39,
+            "0x3A": 28,
+            "0x4B": 25,
+            "0x21": 22,
+            "0x42": 22,
+            "0x55": 22
+          },
+          "truth": {
+            "hero_name": "Kinetic",
+            "kills": 3,
+            "deaths": 0,
+            "assists": 5,
+            "gold": 17400,
+            "minion_kills": 168,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_123",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 5146,
+            "0x00": 543,
+            "0x6E": 341,
+            "0x0F": 285,
+            "0x01": 184,
+            "0x07": 160,
+            "0x44": 117,
+            "0x83": 96,
+            "0x16": 34,
+            "0x2A": 32,
+            "0x42": 30,
+            "0x22": 20,
+            "0x90": 17,
+            "0x91": 15,
+            "0x43": 12,
+            "0x29": 11,
+            "0x4C": 10,
+            "0x8B": 10,
+            "0x31": 9,
+            "0x56": 8
+          },
+          "truth": {
+            "hero_name": "San Feng",
+            "kills": 2,
+            "deaths": 5,
+            "assists": 12,
+            "gold": 9700,
+            "minion_kills": 4,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2604_topLaner",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 5150,
+            "0x6E": 471,
+            "0x00": 470,
+            "0x0F": 297,
+            "0x16": 209,
+            "0x07": 201,
+            "0x01": 183,
+            "0x44": 183,
+            "0xB4": 44,
+            "0xC2": 34,
+            "0x43": 30,
+            "0x51": 30,
+            "0x4E": 28,
+            "0x6A": 28,
+            "0x83": 25,
+            "0xEA": 24,
+            "0x08": 15,
+            "0xBC": 15,
+            "0x6D": 13,
+            "0x76": 11
+          },
+          "truth": {
+            "hero_name": "Reim",
+            "kills": 2,
+            "deaths": 5,
+            "assists": 14,
+            "gold": 11300,
+            "minion_kills": 26,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_killzx",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 7062,
+            "0x00": 640,
+            "0x6E": 570,
+            "0x07": 340,
+            "0x08": 203,
+            "0x0F": 195,
+            "0x03": 163,
+            "0x44": 71,
+            "0x95": 65,
+            "0x16": 62,
+            "0x5C": 53,
+            "0xCC": 48,
+            "0xD5": 37,
+            "0x83": 32,
+            "0x55": 29,
+            "0x19": 28,
+            "0x01": 27,
+            "0x90": 26,
+            "0xB4": 26,
+            "0x4B": 24
+          },
+          "truth": {
+            "hero_name": "Ishutar",
+            "kills": 9,
+            "deaths": 6,
+            "assists": 8,
+            "gold": 16300,
+            "minion_kills": 158,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2599_Ritoramu",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 10586,
+            "0x00": 2032,
+            "0x6E": 306,
+            "0x07": 219,
+            "0x01": 185,
+            "0x0F": 142,
+            "0x08": 116,
+            "0x16": 94,
+            "0x3E": 87,
+            "0x84": 81,
+            "0x44": 64,
+            "0x9F": 53,
+            "0x94": 47,
+            "0x83": 43,
+            "0xD1": 35,
+            "0x27": 34,
+            "0x71": 33,
+            "0xBE": 31,
+            "0xD7": 29,
+            "0x56": 27
+          },
+          "truth": {
+            "hero_name": "Skye",
+            "kills": 6,
+            "deaths": 1,
+            "assists": 10,
+            "gold": 19600,
+            "minion_kills": 221,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-7a593bce-eded-4fdc-a164-6bb8162958ea",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Law Enforcers (Finals)\\4\\d8736287-e35e-4c76-89b0-c78c76fd0b05-7a593bce-eded-4fdc-a164-6bb8162958ea.0.vgr",
+      "players": [
+        {
+          "name": "2399_tsuki",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 4253,
+            "0x00": 559,
+            "0x5E": 178,
+            "0x01": 157,
+            "0x07": 156,
+            "0x0E": 146,
+            "0x15": 106,
+            "0x6A": 73,
+            "0x8B": 72,
+            "0x44": 68,
+            "0xB6": 67,
+            "0xED": 62,
+            "0xDB": 43,
+            "0x68": 39,
+            "0xFB": 38,
+            "0xAD": 35,
+            "0x1C": 34,
+            "0x93": 33,
+            "0xBE": 33,
+            "0x57": 31
+          },
+          "truth": {
+            "hero_name": "Kinetic",
+            "kills": 3,
+            "deaths": 4,
+            "assists": 0,
+            "gold": 14200,
+            "minion_kills": 162,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2399_killlzx",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 4535,
+            "0x00": 1658,
+            "0x5E": 252,
+            "0x0E": 174,
+            "0x07": 124,
+            "0x15": 118,
+            "0x94": 92,
+            "0xB5": 76,
+            "0x44": 75,
+            "0x62": 68,
+            "0xF6": 50,
+            "0x97": 40,
+            "0x8B": 39,
+            "0x17": 31,
+            "0x57": 28,
+            "0xE5": 27,
+            "0xE9": 26,
+            "0x82": 23,
+            "0x33": 22,
+            "0x3A": 22
+          },
+          "truth": {
+            "hero_name": "Ringo",
+            "kills": 2,
+            "deaths": 5,
+            "assists": 7,
+            "gold": 14700,
+            "minion_kills": 138,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2404_topLaner",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 4512,
+            "0x08": 1125,
+            "0x00": 813,
+            "0x0E": 308,
+            "0x5E": 181,
+            "0x01": 152,
+            "0x44": 119,
+            "0x07": 105,
+            "0x15": 79,
+            "0xF4": 62,
+            "0x57": 54,
+            "0x3D": 45,
+            "0x7D": 45,
+            "0x43": 42,
+            "0x35": 39,
+            "0x5D": 39,
+            "0xDB": 33,
+            "0xAE": 26,
+            "0x2C": 20,
+            "0x1C": 17
+          },
+          "truth": {
+            "hero_name": "Grumpjaw",
+            "kills": 3,
+            "deaths": 4,
+            "assists": 3,
+            "gold": 9600,
+            "minion_kills": 16,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2399_Ritoramu",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 5518,
+            "0x00": 891,
+            "0x01": 158,
+            "0x0E": 155,
+            "0x07": 134,
+            "0x5E": 96,
+            "0x15": 89,
+            "0x44": 70,
+            "0x3B": 54,
+            "0x8F": 49,
+            "0xF1": 43,
+            "0x43": 39,
+            "0xB8": 36,
+            "0x6D": 35,
+            "0x57": 32,
+            "0xEB": 31,
+            "0x17": 25,
+            "0x8E": 25,
+            "0x8B": 22,
+            "0x5D": 19
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 2,
+            "deaths": 4,
+            "assists": 3,
+            "gold": 14200,
+            "minion_kills": 178,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2399_123",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 4163,
+            "0x00": 426,
+            "0x0E": 181,
+            "0x01": 153,
+            "0x5E": 150,
+            "0x07": 129,
+            "0x44": 119,
+            "0xDB": 58,
+            "0x15": 54,
+            "0x08": 49,
+            "0x43": 38,
+            "0x57": 23,
+            "0x6D": 18,
+            "0x6A": 14,
+            "0x1C": 11,
+            "0x41": 11,
+            "0xEB": 11,
+            "0x53": 7,
+            "0x34": 6,
+            "0xD7": 6
+          },
+          "truth": {
+            "hero_name": "Baptiste",
+            "kills": 2,
+            "deaths": 7,
+            "assists": 5,
+            "gold": 8400,
+            "minion_kills": 3,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2400_Ghost",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 4507,
+            "0x00": 961,
+            "0x5E": 348,
+            "0x0E": 212,
+            "0x15": 137,
+            "0x07": 106,
+            "0x44": 95,
+            "0x6D": 70,
+            "0x46": 66,
+            "0xC8": 51,
+            "0x08": 26,
+            "0x43": 21,
+            "0x57": 21,
+            "0x8F": 20,
+            "0x3E": 19,
+            "0x88": 19,
+            "0x65": 16,
+            "0x01": 14,
+            "0x38": 13,
+            "0x42": 12
+          },
+          "truth": {
+            "hero_name": "Catherine",
+            "kills": 2,
+            "deaths": 3,
+            "assists": 15,
+            "gold": 8800,
+            "minion_kills": 19,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2400_TenshiiHime",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 4209,
+            "0x00": 465,
+            "0x5E": 189,
+            "0x01": 155,
+            "0x0E": 128,
+            "0x15": 117,
+            "0x07": 97,
+            "0x44": 52,
+            "0x76": 49,
+            "0x71": 41,
+            "0x43": 33,
+            "0x57": 28,
+            "0x3A": 25,
+            "0x5D": 25,
+            "0x94": 24,
+            "0x82": 23,
+            "0x9C": 20,
+            "0xBD": 20,
+            "0x33": 19,
+            "0x75": 15
+          },
+          "truth": {
+            "hero_name": "San Feng",
+            "kills": 1,
+            "deaths": 1,
+            "assists": 13,
+            "gold": 11800,
+            "minion_kills": 127,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2400_Acex",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 4582,
+            "0x00": 371,
+            "0x0E": 264,
+            "0x5E": 203,
+            "0x07": 177,
+            "0x01": 152,
+            "0x71": 67,
+            "0x15": 66,
+            "0x43": 40,
+            "0x2C": 32,
+            "0x44": 28,
+            "0xAD": 26,
+            "0x08": 25,
+            "0x57": 21,
+            "0xF0": 19,
+            "0x1C": 14,
+            "0x66": 14,
+            "0xEE": 12,
+            "0x8F": 11,
+            "0x3D": 9
+          },
+          "truth": {
+            "hero_name": "Lorelai",
+            "kills": 2,
+            "deaths": 3,
+            "assists": 13,
+            "gold": 8500,
+            "minion_kills": 2,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2400_IcyBang",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 6391,
+            "0x00": 851,
+            "0x0E": 244,
+            "0x5E": 171,
+            "0x03": 137,
+            "0x07": 123,
+            "0x44": 56,
+            "0x6E": 54,
+            "0x71": 53,
+            "0xC3": 52,
+            "0x88": 46,
+            "0xF3": 46,
+            "0x2B": 42,
+            "0x08": 32,
+            "0x60": 31,
+            "0xA1": 28,
+            "0x43": 24,
+            "0x3D": 24,
+            "0x4A": 24,
+            "0x57": 24
+          },
+          "truth": {
+            "hero_name": "Caine",
+            "kills": 7,
+            "deaths": 3,
+            "assists": 8,
+            "gold": 13600,
+            "minion_kills": 114,
+            "bounty": null
+          }
+        },
+        {
+          "name": "2400_stapler",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 4814,
+            "0xB8": 1565,
+            "0x00": 721,
+            "0x07": 239,
+            "0x5E": 161,
+            "0x0E": 128,
+            "0x08": 96,
+            "0x15": 92,
+            "0x71": 78,
+            "0x44": 76,
+            "0x40": 52,
+            "0xF6": 52,
+            "0x8F": 48,
+            "0x6C": 41,
+            "0xBB": 41,
+            "0x38": 39,
+            "0x3F": 32,
+            "0x43": 31,
+            "0xE3": 28,
+            "0x33": 26
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 12,
+            "deaths": 2,
+            "assists": 8,
+            "gold": 18100,
+            "minion_kills": 172,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-f7dc84e0-071a-4126-a0da-319ca51a6796",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\SFC vs Law Enforcers (Finals)\\5 (Incomplete)\\d8736287-e35e-4c76-89b0-c78c76fd0b05-f7dc84e0-071a-4126-a0da-319ca51a6796.0.vgr",
+      "players": [
+        {
+          "name": "1900_IcyBang",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 3692,
+            "0x00": 1348,
+            "0x83": 839,
+            "0x01": 95,
+            "0x61": 89,
+            "0x07": 85,
+            "0x0F": 71,
+            "0xB7": 61,
+            "0xD4": 56,
+            "0xDD": 40,
+            "0x80": 39,
+            "0x44": 35,
+            "0x43": 31,
+            "0x9F": 26,
+            "0xA6": 21,
+            "0x84": 20,
+            "0xD3": 18,
+            "0x99": 17,
+            "0xF6": 17,
+            "0xB1": 16
+          },
+          "truth": {
+            "hero_name": "Gwen",
+            "kills": 6,
+            "deaths": 1,
+            "assists": 6,
+            "gold": 18900,
+            "minion_kills": 202,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1900_stapler",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 3912,
+            "0x00": 519,
+            "0x01": 92,
+            "0xA1": 66,
+            "0x6F": 58,
+            "0x0F": 49,
+            "0xCD": 48,
+            "0xFC": 45,
+            "0x07": 41,
+            "0xF7": 31,
+            "0xDD": 30,
+            "0x43": 25,
+            "0x8E": 25,
+            "0xE7": 24,
+            "0xA5": 20,
+            "0x44": 17,
+            "0x69": 16,
+            "0xBE": 16,
+            "0x61": 15,
+            "0x16": 14
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 1,
+            "deaths": 1,
+            "assists": 9,
+            "gold": 17000,
+            "minion_kills": 188,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1900_Acex",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 2409,
+            "0x00": 182,
+            "0x0F": 103,
+            "0x61": 95,
+            "0x01": 94,
+            "0x07": 89,
+            "0xDD": 36,
+            "0x16": 28,
+            "0x80": 26,
+            "0x7C": 24,
+            "0x44": 22,
+            "0xD3": 18,
+            "0x93": 16,
+            "0x9F": 16,
+            "0x99": 15,
+            "0x42": 13,
+            "0x43": 13,
+            "0x84": 13,
+            "0xB1": 13,
+            "0xF7": 12
+          },
+          "truth": {
+            "hero_name": "Lyra",
+            "kills": 1,
+            "deaths": 1,
+            "assists": 8,
+            "gold": 9900,
+            "minion_kills": 10,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1900_TenshiiHime",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 3259,
+            "0x00": 250,
+            "0x61": 152,
+            "0x01": 97,
+            "0x0F": 82,
+            "0x69": 81,
+            "0xC2": 71,
+            "0x43": 51,
+            "0x07": 48,
+            "0xE0": 25,
+            "0xA6": 23,
+            "0xD2": 22,
+            "0x99": 21,
+            "0x42": 18,
+            "0xE1": 17,
+            "0x84": 16,
+            "0xBE": 16,
+            "0x44": 15,
+            "0xB0": 13,
+            "0xB8": 13
+          },
+          "truth": {
+            "hero_name": "Blackfeather",
+            "kills": 3,
+            "deaths": 2,
+            "assists": 7,
+            "gold": 15200,
+            "minion_kills": 143,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1900_Ghost",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 3268,
+            "0x00": 567,
+            "0x61": 135,
+            "0x0F": 124,
+            "0xFB": 68,
+            "0xB4": 61,
+            "0x96": 55,
+            "0x43": 43,
+            "0x8E": 43,
+            "0x07": 42,
+            "0x7F": 37,
+            "0x16": 36,
+            "0xCA": 28,
+            "0xDD": 26,
+            "0x42": 21,
+            "0x44": 21,
+            "0xA5": 20,
+            "0x68": 19,
+            "0x93": 17,
+            "0xD3": 16
+          },
+          "truth": {
+            "hero_name": "Catherine",
+            "kills": 1,
+            "deaths": 1,
+            "assists": 9,
+            "gold": 9900,
+            "minion_kills": 25,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1899_1CN",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 3847,
+            "0x00": 539,
+            "0x61": 103,
+            "0x03": 85,
+            "0x07": 78,
+            "0x0F": 73,
+            "0xDC": 70,
+            "0xE8": 67,
+            "0xA6": 60,
+            "0xA8": 51,
+            "0xC9": 45,
+            "0x08": 40,
+            "0xE1": 28,
+            "0x68": 26,
+            "0xB1": 26,
+            "0x83": 25,
+            "0xC5": 23,
+            "0xBD": 22,
+            "0xCA": 19,
+            "0x43": 18
+          }
+        },
+        {
+          "name": "1904_topLaner",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 2787,
+            "0x00": 255,
+            "0x61": 227,
+            "0x0F": 106,
+            "0x03": 85,
+            "0x07": 56,
+            "0x43": 44,
+            "0x7F": 39,
+            "0x44": 32,
+            "0xDD": 28,
+            "0xBE": 21,
+            "0x99": 18,
+            "0xC5": 17,
+            "0xD9": 17,
+            "0x42": 16,
+            "0xF6": 16,
+            "0x8C": 15,
+            "0x69": 13,
+            "0x7B": 13,
+            "0xE0": 13
+          },
+          "truth": {
+            "hero_name": "Leo",
+            "kills": 0,
+            "deaths": 1,
+            "assists": 4,
+            "gold": 10900,
+            "minion_kills": 81,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1899_123",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 2631,
+            "0x00": 784,
+            "0x61": 197,
+            "0x0F": 119,
+            "0x03": 85,
+            "0x07": 62,
+            "0x43": 26,
+            "0x08": 22,
+            "0x44": 20,
+            "0xDD": 18,
+            "0x69": 18,
+            "0x90": 13,
+            "0x7F": 11,
+            "0x01": 9,
+            "0xC5": 9,
+            "0xF4": 9,
+            "0xAF": 8,
+            "0xF5": 8,
+            "0x73": 7,
+            "0xBE": 6
+          },
+          "truth": {
+            "hero_name": "Warhawk",
+            "kills": 0,
+            "deaths": 3,
+            "assists": 5,
+            "gold": 10100,
+            "minion_kills": 8,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1899_Ritoramu",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 5451,
+            "0x00": 1031,
+            "0x61": 199,
+            "0x01": 96,
+            "0x0F": 71,
+            "0x08": 70,
+            "0x9D": 60,
+            "0xF5": 58,
+            "0x69": 53,
+            "0x7C": 48,
+            "0xF4": 42,
+            "0x07": 40,
+            "0xA0": 39,
+            "0x7E": 36,
+            "0x43": 34,
+            "0x9F": 32,
+            "0xCD": 30,
+            "0xDD": 28,
+            "0x7A": 26,
+            "0x84": 25
+          },
+          "truth": {
+            "hero_name": "Skye",
+            "kills": 2,
+            "deaths": 2,
+            "assists": 3,
+            "gold": 18800,
+            "minion_kills": 238,
+            "bounty": null
+          }
+        },
+        {
+          "name": "1899_killlzx",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 2733,
+            "0x00": 333,
+            "0x61": 156,
+            "0x0F": 148,
+            "0x01": 91,
+            "0x71": 76,
+            "0x07": 66,
+            "0xAA": 65,
+            "0x64": 60,
+            "0xCF": 54,
+            "0x6D": 47,
+            "0x93": 43,
+            "0xCC": 36,
+            "0x43": 26,
+            "0x44": 26,
+            "0x18": 23,
+            "0x9F": 22,
+            "0x16": 16,
+            "0x68": 15,
+            "0x15": 14
+          },
+          "truth": {
+            "hero_name": "Reza",
+            "kills": 1,
+            "deaths": 3,
+            "assists": 4,
+            "gold": 13800,
+            "minion_kills": 95,
+            "bounty": null
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "f27505c4-1449-4e71-bd8a-134133e7f4b4-443dfc2c-bcf9-4791-be53-63c0f831d6f3",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\Buffalo vs RRONE\\1\\f27505c4-1449-4e71-bd8a-134133e7f4b4-443dfc2c-bcf9-4791-be53-63c0f831d6f3.0.vgr",
+      "players": [
+        {
+          "name": "2999_Prym",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 3447,
+            "0x00": 698,
+            "0x1B": 223,
+            "0x6C": 147,
+            "0x22": 104,
+            "0xB2": 67,
+            "0x44": 61,
+            "0x07": 56,
+            "0x46": 56,
+            "0xE4": 56,
+            "0x69": 52,
+            "0xB0": 48,
+            "0x8C": 46,
+            "0xED": 37,
+            "0x08": 35,
+            "0xB6": 35,
+            "0xD3": 34,
+            "0xC4": 31,
+            "0x91": 29,
+            "0xB5": 28
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 0,
+            "deaths": 5,
+            "assists": 3,
+            "gold": 9700,
+            "minion_kills": null,
+            "bounty": 25
+          }
+        },
+        {
+          "name": "3004_BearFang",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 3128,
+            "0x00": 381,
+            "0x1B": 183,
+            "0x6C": 180,
+            "0x01": 145,
+            "0x07": 141,
+            "0x44": 67,
+            "0xE4": 58,
+            "0x69": 36,
+            "0x43": 29,
+            "0x22": 15,
+            "0x3B": 14,
+            "0x66": 14,
+            "0x42": 12,
+            "0xD3": 11,
+            "0x33": 10,
+            "0x65": 10,
+            "0xA3": 7,
+            "0x3A": 6,
+            "0x41": 6
+          },
+          "truth": {
+            "hero_name": "Ardan",
+            "kills": 1,
+            "deaths": 4,
+            "assists": 4,
+            "gold": 7900,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "2999_DrPawn",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 5004,
+            "0x00": 805,
+            "0xF3": 599,
+            "0x1B": 222,
+            "0x03": 134,
+            "0x07": 94,
+            "0xD6": 58,
+            "0x22": 54,
+            "0x7B": 53,
+            "0x44": 50,
+            "0x9F": 44,
+            "0xC3": 44,
+            "0x24": 41,
+            "0x6C": 32,
+            "0xE4": 28,
+            "0x4F": 27,
+            "0x7A": 25,
+            "0x9E": 23,
+            "0x2B": 22,
+            "0x43": 22
+          },
+          "truth": {
+            "hero_name": "Caine",
+            "kills": 1,
+            "deaths": 4,
+            "assists": 2,
+            "gold": 11600,
+            "minion_kills": null,
+            "bounty": 25
+          }
+        },
+        {
+          "name": "2999_MoonQe",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 3536,
+            "0x00": 1803,
+            "0x1B": 225,
+            "0x6C": 194,
+            "0x07": 183,
+            "0x03": 134,
+            "0x22": 84,
+            "0xD3": 62,
+            "0x7C": 49,
+            "0x49": 46,
+            "0x44": 43,
+            "0x61": 27,
+            "0xE4": 27,
+            "0x58": 22,
+            "0xF7": 22,
+            "0x69": 21,
+            "0x01": 19,
+            "0x3B": 19,
+            "0xD2": 19,
+            "0x41": 17
+          },
+          "truth": {
+            "hero_name": "Warhawk",
+            "kills": 4,
+            "deaths": 1,
+            "assists": 2,
+            "gold": 13300,
+            "minion_kills": null,
+            "bounty": 280
+          }
+        },
+        {
+          "name": "2999_Ambrasadors",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 3929,
+            "0x00": 509,
+            "0x1B": 229,
+            "0x22": 194,
+            "0x01": 148,
+            "0x07": 143,
+            "0x6C": 115,
+            "0x44": 87,
+            "0x7B": 71,
+            "0x4A": 59,
+            "0x08": 57,
+            "0x90": 53,
+            "0x45": 39,
+            "0x72": 38,
+            "0xE4": 37,
+            "0xA1": 36,
+            "0x55": 29,
+            "0x52": 24,
+            "0x6B": 20,
+            "0x61": 19
+          },
+          "truth": {
+            "hero_name": "Baptiste",
+            "kills": 2,
+            "deaths": 8,
+            "assists": 2,
+            "gold": 8600,
+            "minion_kills": null,
+            "bounty": 25
+          }
+        },
+        {
+          "name": "3000",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 4404,
+            "0x00": 312,
+            "0x1B": 189,
+            "0x01": 150,
+            "0x07": 121,
+            "0x6C": 107,
+            "0x7D": 55,
+            "0x44": 53,
+            "0x22": 32,
+            "0x4A": 26,
+            "0x7C": 24,
+            "0xEF": 22,
+            "0x43": 19,
+            "0x81": 18,
+            "0x2B": 17,
+            "0xAB": 17,
+            "0x97": 15,
+            "0xD9": 15,
+            "0x3B": 14,
+            "0x41": 14
+          },
+          "truth": {
+            "hero_name": "Yates",
+            "kills": 3,
+            "deaths": 2,
+            "assists": 5,
+            "gold": 8400,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "3000_saptozz",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 7319,
+            "0x00": 617,
+            "0x07": 161,
+            "0x6C": 160,
+            "0x01": 157,
+            "0x1B": 154,
+            "0x22": 87,
+            "0x45": 52,
+            "0x7E": 52,
+            "0x68": 50,
+            "0xF7": 40,
+            "0x8D": 33,
+            "0x44": 31,
+            "0x08": 23,
+            "0x32": 23,
+            "0x4F": 21,
+            "0xD3": 21,
+            "0x6B": 19,
+            "0x7D": 18,
+            "0xCA": 16
+          },
+          "truth": {
+            "hero_name": "Kestrel",
+            "kills": 7,
+            "deaths": 1,
+            "assists": 8,
+            "gold": 13900,
+            "minion_kills": null,
+            "bounty": 1000
+          }
+        },
+        {
+          "name": "3000_FL",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 5046,
+            "0x00": 590,
+            "0x6C": 252,
+            "0x1B": 179,
+            "0x01": 153,
+            "0x07": 136,
+            "0x22": 98,
+            "0x7D": 75,
+            "0x44": 62,
+            "0x48": 60,
+            "0x43": 48,
+            "0x47": 34,
+            "0x87": 22,
+            "0xA4": 20,
+            "0x4F": 19,
+            "0x32": 18,
+            "0x66": 17,
+            "0x42": 15,
+            "0x08": 14,
+            "0x41": 14
+          },
+          "truth": {
+            "hero_name": "Grace",
+            "kills": 0,
+            "deaths": 0,
+            "assists": 8,
+            "gold": 8600,
+            "minion_kills": null,
+            "bounty": 691
+          }
+        },
+        {
+          "name": "3000_Synd",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 3987,
+            "0x00": 421,
+            "0x1B": 289,
+            "0x6C": 278,
+            "0x01": 151,
+            "0xDB": 77,
+            "0x07": 64,
+            "0x22": 53,
+            "0x7C": 42,
+            "0xAB": 36,
+            "0xA7": 28,
+            "0x6B": 26,
+            "0x44": 26,
+            "0x87": 23,
+            "0x2B": 21,
+            "0x43": 17,
+            "0x3B": 17,
+            "0xBF": 17,
+            "0x41": 16,
+            "0xD8": 16
+          },
+          "truth": {
+            "hero_name": "Magnus",
+            "kills": 8,
+            "deaths": 3,
+            "assists": 5,
+            "gold": 13500,
+            "minion_kills": null,
+            "bounty": 175
+          }
+        },
+        {
+          "name": "3000_HiTayo",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 4251,
+            "0x00": 441,
+            "0x1B": 203,
+            "0x6C": 199,
+            "0x22": 158,
+            "0x01": 150,
+            "0x07": 92,
+            "0x44": 86,
+            "0x6D": 56,
+            "0x56": 51,
+            "0x96": 51,
+            "0x8F": 49,
+            "0x4A": 48,
+            "0xFD": 48,
+            "0x69": 39,
+            "0x8A": 29,
+            "0xD4": 26,
+            "0xB1": 22,
+            "0xA7": 16,
+            "0x7D": 14
+          },
+          "truth": {
+            "hero_name": "Inara",
+            "kills": 4,
+            "deaths": 2,
+            "assists": 10,
+            "gold": 11600,
+            "minion_kills": null,
+            "bounty": 292
+          }
+        }
+      ],
+      "truth_available": true
+    },
+    {
+      "replay_name": "02aae104-45ba-4f50-972c-00c4a6719716-9bfb7a7c-18f5-41f5-bc07-63bf7db248e8",
+      "replay_file": "D:\\Desktop\\My Folder\\Game\\VG\\vg replay\\Tournament_Replays\\Buffalo vs RRONE\\2\\02aae104-45ba-4f50-972c-00c4a6719716-9bfb7a7c-18f5-41f5-bc07-63bf7db248e8.0.vgr",
+      "players": [
+        {
+          "name": "3000_FL",
+          "entity_id": 56837,
+          "action_counts": {
+            "0x05": 3691,
+            "0xE0": 769,
+            "0x00": 555,
+            "0x07": 299,
+            "0x19": 132,
+            "0x21": 107,
+            "0x69": 106,
+            "0x08": 89,
+            "0x9F": 44,
+            "0xA0": 38,
+            "0x44": 32,
+            "0x7A": 28,
+            "0x78": 27,
+            "0x46": 25,
+            "0x7E": 25,
+            "0x8C": 25,
+            "0x93": 25,
+            "0x43": 24,
+            "0xEE": 24,
+            "0x70": 22
+          },
+          "truth": {
+            "hero_name": "Skaarf",
+            "kills": 5,
+            "deaths": 4,
+            "assists": 14,
+            "gold": 10100,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "3000_saptozz",
+          "entity_id": 57093,
+          "action_counts": {
+            "0x05": 4069,
+            "0x82": 766,
+            "0x00": 617,
+            "0x69": 157,
+            "0xC9": 149,
+            "0x07": 140,
+            "0x19": 128,
+            "0x21": 115,
+            "0x08": 95,
+            "0x44": 93,
+            "0x7A": 80,
+            "0xE2": 72,
+            "0x88": 59,
+            "0xCB": 55,
+            "0x66": 40,
+            "0x23": 35,
+            "0x40": 34,
+            "0x46": 31,
+            "0xED": 28,
+            "0xBB": 27
+          },
+          "truth": {
+            "hero_name": "Joule",
+            "kills": 8,
+            "deaths": 1,
+            "assists": 8,
+            "gold": 13200,
+            "minion_kills": null,
+            "bounty": 259
+          }
+        },
+        {
+          "name": "3000_Synd",
+          "entity_id": 57349,
+          "action_counts": {
+            "0x05": 4155,
+            "0x00": 426,
+            "0x19": 208,
+            "0x07": 161,
+            "0x69": 158,
+            "0x01": 128,
+            "0x21": 65,
+            "0x44": 58,
+            "0x71": 54,
+            "0xFC": 51,
+            "0x48": 46,
+            "0x98": 43,
+            "0xBD": 40,
+            "0x43": 37,
+            "0xEE": 37,
+            "0xAF": 36,
+            "0xB4": 28,
+            "0x2A": 23,
+            "0x70": 23,
+            "0x23": 22
+          },
+          "truth": {
+            "hero_name": "Mallene",
+            "kills": 5,
+            "deaths": 4,
+            "assists": 11,
+            "gold": 10200,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "3000",
+          "entity_id": 57605,
+          "action_counts": {
+            "0x05": 3994,
+            "0x19": 333,
+            "0x00": 294,
+            "0x7A": 136,
+            "0x01": 126,
+            "0x44": 61,
+            "0x07": 49,
+            "0x69": 46,
+            "0xE2": 36,
+            "0x43": 32,
+            "0x30": 25,
+            "0x21": 21,
+            "0x85": 19,
+            "0x40": 18,
+            "0x3C": 12,
+            "0xEE": 10,
+            "0x27": 9,
+            "0x68": 8,
+            "0x93": 8,
+            "0x62": 7
+          },
+          "truth": {
+            "hero_name": "Phinn",
+            "kills": 0,
+            "deaths": 4,
+            "assists": 12,
+            "gold": 6400,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "3000_HiTayo",
+          "entity_id": 57861,
+          "action_counts": {
+            "0x05": 5328,
+            "0x00": 457,
+            "0x69": 312,
+            "0x21": 163,
+            "0x01": 132,
+            "0x19": 127,
+            "0x44": 106,
+            "0xEC": 101,
+            "0x07": 81,
+            "0xAE": 62,
+            "0x43": 59,
+            "0x79": 54,
+            "0x4A": 48,
+            "0xB8": 45,
+            "0x91": 43,
+            "0x52": 42,
+            "0x8E": 42,
+            "0xC3": 42,
+            "0xAF": 40,
+            "0xF1": 40
+          },
+          "truth": {
+            "hero_name": "Idris",
+            "kills": 12,
+            "deaths": 2,
+            "assists": 11,
+            "gold": 14600,
+            "minion_kills": null,
+            "bounty": 253
+          }
+        },
+        {
+          "name": "2999_Prym",
+          "entity_id": 56581,
+          "action_counts": {
+            "0x05": 4243,
+            "0x00": 713,
+            "0x19": 146,
+            "0x01": 125,
+            "0x69": 84,
+            "0x21": 80,
+            "0x07": 77,
+            "0x44": 63,
+            "0x48": 49,
+            "0x71": 47,
+            "0x43": 37,
+            "0x85": 23,
+            "0x2A": 21,
+            "0xC6": 21,
+            "0xE7": 21,
+            "0x4C": 18,
+            "0x23": 17,
+            "0x93": 17,
+            "0x30": 16,
+            "0x54": 16
+          },
+          "truth": {
+            "hero_name": "Samuel",
+            "kills": 7,
+            "deaths": 5,
+            "assists": 4,
+            "gold": 12900,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "2999_MoonQe",
+          "entity_id": 56325,
+          "action_counts": {
+            "0x05": 3136,
+            "0x00": 498,
+            "0x21": 204,
+            "0x19": 194,
+            "0x69": 134,
+            "0x01": 126,
+            "0x44": 85,
+            "0x08": 80,
+            "0x4F": 63,
+            "0x43": 57,
+            "0x47": 53,
+            "0x07": 51,
+            "0x99": 48,
+            "0x70": 45,
+            "0x6B": 43,
+            "0x80": 33,
+            "0x52": 26,
+            "0x66": 25,
+            "0x5A": 17,
+            "0xEF": 16
+          },
+          "truth": {
+            "hero_name": "Fortress",
+            "kills": 5,
+            "deaths": 7,
+            "assists": 4,
+            "gold": 8400,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "2999_Ambrasadors",
+          "entity_id": 58117,
+          "action_counts": {
+            "0x05": 3534,
+            "0x00": 429,
+            "0x19": 315,
+            "0x69": 153,
+            "0x01": 127,
+            "0x44": 124,
+            "0x21": 73,
+            "0x43": 69,
+            "0x07": 48,
+            "0x68": 33,
+            "0x23": 25,
+            "0x4C": 22,
+            "0x40": 21,
+            "0x8D": 17,
+            "0xA0": 14,
+            "0x70": 13,
+            "0x45": 12,
+            "0x46": 12,
+            "0x29": 11,
+            "0x5A": 11
+          },
+          "truth": {
+            "hero_name": "Grace",
+            "kills": 1,
+            "deaths": 7,
+            "assists": 6,
+            "gold": 7600,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "3004_BearFang",
+          "entity_id": 58373,
+          "action_counts": {
+            "0x05": 3194,
+            "0x19": 248,
+            "0x00": 207,
+            "0x01": 123,
+            "0x69": 114,
+            "0x44": 79,
+            "0x07": 52,
+            "0x43": 49,
+            "0x21": 22,
+            "0x85": 15,
+            "0x54": 12,
+            "0x70": 11,
+            "0x48": 10,
+            "0x4C": 10,
+            "0x59": 10,
+            "0x78": 10,
+            "0x30": 8,
+            "0x38": 8,
+            "0x68": 8,
+            "0xEF": 8
+          },
+          "truth": {
+            "hero_name": "Ardan",
+            "kills": 0,
+            "deaths": 6,
+            "assists": 6,
+            "gold": 5400,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        },
+        {
+          "name": "2999_DrPawn",
+          "entity_id": 58629,
+          "action_counts": {
+            "0x05": 4628,
+            "0x00": 722,
+            "0x19": 232,
+            "0x01": 129,
+            "0x69": 85,
+            "0x44": 68,
+            "0x07": 60,
+            "0xD3": 55,
+            "0x21": 43,
+            "0x72": 35,
+            "0x43": 34,
+            "0xEF": 30,
+            "0x68": 22,
+            "0x93": 20,
+            "0x38": 18,
+            "0x46": 18,
+            "0xF1": 17,
+            "0x40": 14,
+            "0xC6": 14,
+            "0x9A": 13
+          },
+          "truth": {
+            "hero_name": "Baron",
+            "kills": 2,
+            "deaths": 5,
+            "assists": 7,
+            "gold": 10800,
+            "minion_kills": null,
+            "bounty": 250
+          }
+        }
+      ],
+      "truth_available": true
+    }
+  ],
+  "summary": {
+    "correlations": {
+      "kills": [
+        {
+          "action": "0xBB",
+          "corr": 0.5405,
+          "pvalue": 0.0,
+          "confidence": "high"
+        },
+        {
+          "action": "0x38",
+          "corr": 0.4195,
+          "pvalue": 7e-06,
+          "confidence": "high"
+        },
+        {
+          "action": "0x07",
+          "corr": 0.4121,
+          "pvalue": 1e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x05",
+          "corr": 0.4054,
+          "pvalue": 1.5e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x67",
+          "corr": 0.3904,
+          "pvalue": 3.2e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x79",
+          "corr": 0.3787,
+          "pvalue": 5.8e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x21",
+          "corr": 0.3501,
+          "pvalue": 0.000218,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB8",
+          "corr": 0.3317,
+          "pvalue": 0.000483,
+          "confidence": "high"
+        },
+        {
+          "action": "0xAE",
+          "corr": 0.3285,
+          "pvalue": 0.000551,
+          "confidence": "high"
+        },
+        {
+          "action": "0x30",
+          "corr": 0.3031,
+          "pvalue": 0.001505,
+          "confidence": "high"
+        },
+        {
+          "action": "0x69",
+          "corr": 0.286,
+          "pvalue": 0.002826,
+          "confidence": "high"
+        },
+        {
+          "action": "0x87",
+          "corr": 0.2661,
+          "pvalue": 0.005601,
+          "confidence": "high"
+        },
+        {
+          "action": "0x31",
+          "corr": 0.2637,
+          "pvalue": 0.006067,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD5",
+          "corr": 0.2596,
+          "pvalue": 0.006936,
+          "confidence": "high"
+        },
+        {
+          "action": "0x71",
+          "corr": 0.2591,
+          "pvalue": 0.007034,
+          "confidence": "high"
+        },
+        {
+          "action": "0xC7",
+          "corr": 0.2588,
+          "pvalue": 0.007102,
+          "confidence": "high"
+        },
+        {
+          "action": "0x89",
+          "corr": 0.2574,
+          "pvalue": 0.007433,
+          "confidence": "high"
+        },
+        {
+          "action": "0x00",
+          "corr": 0.2445,
+          "pvalue": 0.011145,
+          "confidence": "medium"
+        },
+        {
+          "action": "0xF9",
+          "corr": 0.2399,
+          "pvalue": 0.012811,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x3E",
+          "corr": 0.2345,
+          "pvalue": 0.01503,
+          "confidence": "medium"
+        }
+      ],
+      "deaths": [
+        {
+          "action": "0x44",
+          "corr": 0.5165,
+          "pvalue": 0.0,
+          "confidence": "high"
+        },
+        {
+          "action": "0x19",
+          "corr": 0.3189,
+          "pvalue": 0.000816,
+          "confidence": "high"
+        },
+        {
+          "action": "0xF7",
+          "corr": -0.2801,
+          "pvalue": 0.003477,
+          "confidence": "high"
+        },
+        {
+          "action": "0xF0",
+          "corr": -0.2706,
+          "pvalue": 0.004818,
+          "confidence": "high"
+        },
+        {
+          "action": "0x59",
+          "corr": -0.2696,
+          "pvalue": 0.00499,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD9",
+          "corr": -0.2682,
+          "pvalue": 0.005217,
+          "confidence": "high"
+        },
+        {
+          "action": "0xC5",
+          "corr": -0.2583,
+          "pvalue": 0.007236,
+          "confidence": "high"
+        },
+        {
+          "action": "0x01",
+          "corr": 0.2581,
+          "pvalue": 0.007268,
+          "confidence": "high"
+        },
+        {
+          "action": "0xDD",
+          "corr": -0.2575,
+          "pvalue": 0.007416,
+          "confidence": "high"
+        },
+        {
+          "action": "0x7D",
+          "corr": -0.2473,
+          "pvalue": 0.010222,
+          "confidence": "medium"
+        },
+        {
+          "action": "0xD2",
+          "corr": -0.2415,
+          "pvalue": 0.012213,
+          "confidence": "medium"
+        },
+        {
+          "action": "0xC7",
+          "corr": -0.2366,
+          "pvalue": 0.014162,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x34",
+          "corr": -0.2365,
+          "pvalue": 0.014187,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x9B",
+          "corr": -0.233,
+          "pvalue": 0.015722,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x2E",
+          "corr": -0.2128,
+          "pvalue": 0.027753,
+          "confidence": "medium"
+        },
+        {
+          "action": "0xA3",
+          "corr": -0.2095,
+          "pvalue": 0.030298,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x25",
+          "corr": -0.2077,
+          "pvalue": 0.031833,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x6E",
+          "corr": 0.2052,
+          "pvalue": 0.033976,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x8E",
+          "corr": -0.2049,
+          "pvalue": 0.034212,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x65",
+          "corr": -0.2041,
+          "pvalue": 0.035013,
+          "confidence": "medium"
+        }
+      ],
+      "assists": [
+        {
+          "action": "0x07",
+          "corr": 0.3744,
+          "pvalue": 7.1e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x13",
+          "corr": -0.3185,
+          "pvalue": 0.000827,
+          "confidence": "high"
+        },
+        {
+          "action": "0x24",
+          "corr": -0.3013,
+          "pvalue": 0.001611,
+          "confidence": "high"
+        },
+        {
+          "action": "0x02",
+          "corr": 0.2997,
+          "pvalue": 0.00171,
+          "confidence": "high"
+        },
+        {
+          "action": "0x05",
+          "corr": 0.2957,
+          "pvalue": 0.001986,
+          "confidence": "high"
+        },
+        {
+          "action": "0x6E",
+          "corr": 0.2896,
+          "pvalue": 0.002478,
+          "confidence": "high"
+        },
+        {
+          "action": "0xEE",
+          "corr": 0.2831,
+          "pvalue": 0.003128,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB4",
+          "corr": 0.2695,
+          "pvalue": 0.004992,
+          "confidence": "high"
+        },
+        {
+          "action": "0x25",
+          "corr": -0.2593,
+          "pvalue": 0.006995,
+          "confidence": "high"
+        },
+        {
+          "action": "0x30",
+          "corr": 0.2423,
+          "pvalue": 0.011926,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x34",
+          "corr": -0.2381,
+          "pvalue": 0.013507,
+          "confidence": "medium"
+        },
+        {
+          "action": "0xE4",
+          "corr": -0.2364,
+          "pvalue": 0.014232,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x81",
+          "corr": 0.2319,
+          "pvalue": 0.016256,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x59",
+          "corr": -0.2307,
+          "pvalue": 0.016815,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x74",
+          "corr": -0.2292,
+          "pvalue": 0.017581,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x1A",
+          "corr": -0.2228,
+          "pvalue": 0.021071,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x6F",
+          "corr": 0.2223,
+          "pvalue": 0.021392,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x71",
+          "corr": 0.2201,
+          "pvalue": 0.022697,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x92",
+          "corr": -0.2129,
+          "pvalue": 0.027691,
+          "confidence": "medium"
+        },
+        {
+          "action": "0x35",
+          "corr": -0.2084,
+          "pvalue": 0.031235,
+          "confidence": "medium"
+        }
+      ],
+      "gold": [
+        {
+          "action": "0x05",
+          "corr": 0.5898,
+          "pvalue": 0.0,
+          "confidence": "high"
+        },
+        {
+          "action": "0x89",
+          "corr": 0.494,
+          "pvalue": 0.0,
+          "confidence": "high"
+        },
+        {
+          "action": "0x00",
+          "corr": 0.4392,
+          "pvalue": 2e-06,
+          "confidence": "high"
+        },
+        {
+          "action": "0x84",
+          "corr": 0.405,
+          "pvalue": 1.5e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0x67",
+          "corr": 0.398,
+          "pvalue": 2.2e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB7",
+          "corr": 0.3888,
+          "pvalue": 3.5e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0xE6",
+          "corr": 0.3362,
+          "pvalue": 0.0004,
+          "confidence": "high"
+        },
+        {
+          "action": "0x31",
+          "corr": 0.3252,
+          "pvalue": 0.000633,
+          "confidence": "high"
+        },
+        {
+          "action": "0xAA",
+          "corr": 0.322,
+          "pvalue": 0.000719,
+          "confidence": "high"
+        },
+        {
+          "action": "0xBE",
+          "corr": 0.3127,
+          "pvalue": 0.00104,
+          "confidence": "high"
+        },
+        {
+          "action": "0x07",
+          "corr": 0.3062,
+          "pvalue": 0.001341,
+          "confidence": "high"
+        },
+        {
+          "action": "0xDD",
+          "corr": 0.3057,
+          "pvalue": 0.001365,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD4",
+          "corr": 0.3031,
+          "pvalue": 0.001506,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB1",
+          "corr": 0.2998,
+          "pvalue": 0.001708,
+          "confidence": "high"
+        },
+        {
+          "action": "0x3E",
+          "corr": 0.289,
+          "pvalue": 0.002532,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD9",
+          "corr": 0.2861,
+          "pvalue": 0.002818,
+          "confidence": "high"
+        },
+        {
+          "action": "0xBC",
+          "corr": 0.2823,
+          "pvalue": 0.003217,
+          "confidence": "high"
+        },
+        {
+          "action": "0x6E",
+          "corr": 0.2767,
+          "pvalue": 0.003918,
+          "confidence": "high"
+        },
+        {
+          "action": "0x8F",
+          "corr": 0.273,
+          "pvalue": 0.004434,
+          "confidence": "high"
+        },
+        {
+          "action": "0xA9",
+          "corr": 0.272,
+          "pvalue": 0.004594,
+          "confidence": "high"
+        }
+      ],
+      "minion_kills": [
+        {
+          "action": "0x89",
+          "corr": 0.4405,
+          "pvalue": 2e-06,
+          "confidence": "high"
+        },
+        {
+          "action": "0x05",
+          "corr": 0.4128,
+          "pvalue": 1e-05,
+          "confidence": "high"
+        },
+        {
+          "action": "0xBE",
+          "corr": 0.3566,
+          "pvalue": 0.000164,
+          "confidence": "high"
+        },
+        {
+          "action": "0xE6",
+          "corr": 0.3541,
+          "pvalue": 0.000182,
+          "confidence": "high"
+        },
+        {
+          "action": "0x84",
+          "corr": 0.3533,
+          "pvalue": 0.000189,
+          "confidence": "high"
+        },
+        {
+          "action": "0x67",
+          "corr": 0.3255,
+          "pvalue": 0.000625,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD9",
+          "corr": 0.3245,
+          "pvalue": 0.000649,
+          "confidence": "high"
+        },
+        {
+          "action": "0xC7",
+          "corr": 0.3192,
+          "pvalue": 0.000803,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB7",
+          "corr": 0.3136,
+          "pvalue": 0.001005,
+          "confidence": "high"
+        },
+        {
+          "action": "0x00",
+          "corr": 0.3128,
+          "pvalue": 0.001036,
+          "confidence": "high"
+        },
+        {
+          "action": "0x1B",
+          "corr": -0.3121,
+          "pvalue": 0.001064,
+          "confidence": "high"
+        },
+        {
+          "action": "0xB1",
+          "corr": 0.3069,
+          "pvalue": 0.001301,
+          "confidence": "high"
+        },
+        {
+          "action": "0x8B",
+          "corr": 0.303,
+          "pvalue": 0.00151,
+          "confidence": "high"
+        },
+        {
+          "action": "0x27",
+          "corr": 0.2869,
+          "pvalue": 0.002733,
+          "confidence": "high"
+        },
+        {
+          "action": "0xAA",
+          "corr": 0.278,
+          "pvalue": 0.003741,
+          "confidence": "high"
+        },
+        {
+          "action": "0xD4",
+          "corr": 0.2776,
+          "pvalue": 0.003798,
+          "confidence": "high"
+        },
+        {
+          "action": "0x36",
+          "corr": 0.2758,
+          "pvalue": 0.004029,
+          "confidence": "high"
+        },
+        {
+          "action": "0x94",
+          "corr": 0.2721,
+          "pvalue": 0.004575,
+          "confidence": "high"
+        },
+        {
+          "action": "0x3E",
+          "corr": 0.2717,
+          "pvalue": 0.004643,
+          "confidence": "high"
+        },
+        {
+          "action": "0x19",
+          "corr": -0.2705,
+          "pvalue": 0.004834,
+          "confidence": "high"
+        }
+      ]
+    },
+    "truth_players": 107,
+    "stat_analysis": {
+      "deaths": [
+        {
+          "action": "0x78",
+          "exact_match": 21,
+          "exact_rate": 0.1963,
+          "within_1_rate": 0.3551,
+          "within_2_rate": 0.5514,
+          "avg_error": 3.3738,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x9C",
+          "exact_match": 20,
+          "exact_rate": 0.1869,
+          "within_1_rate": 0.3178,
+          "within_2_rate": 0.4766,
+          "avg_error": 4.1308,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 1,
+              "diff": 1
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xDB",
+          "exact_match": 20,
+          "exact_rate": 0.1869,
+          "within_1_rate": 0.3178,
+          "within_2_rate": 0.4766,
+          "avg_error": 5.3364,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xAE",
+          "exact_match": 19,
+          "exact_rate": 0.1776,
+          "within_1_rate": 0.3738,
+          "within_2_rate": 0.5327,
+          "avg_error": 3.5981,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x90",
+          "exact_match": 19,
+          "exact_rate": 0.1776,
+          "within_1_rate": 0.3738,
+          "within_2_rate": 0.5327,
+          "avg_error": 4.8318,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x50",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3925,
+          "within_2_rate": 0.5607,
+          "avg_error": 2.486,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xEB",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3364,
+          "within_2_rate": 0.4953,
+          "avg_error": 3.6355,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 1,
+              "diff": 1
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2599_Shifnoob",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x9A",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3551,
+          "within_2_rate": 0.5421,
+          "avg_error": 3.7383,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 72,
+              "diff": 70
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 3,
+              "diff": 1
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 2,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xF6",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3551,
+          "within_2_rate": 0.5421,
+          "avg_error": 4.0093,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2599_Shifnoob",
+              "expected": 3,
+              "got": 1,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xC9",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3084,
+          "within_2_rate": 0.514,
+          "avg_error": 4.1869,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xAA",
+          "exact_match": 18,
+          "exact_rate": 0.1682,
+          "within_1_rate": 0.3738,
+          "within_2_rate": 0.514,
+          "avg_error": 4.2617,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xA9",
+          "exact_match": 17,
+          "exact_rate": 0.1589,
+          "within_1_rate": 0.3832,
+          "within_2_rate": 0.5327,
+          "avg_error": 2.8692,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 10,
+              "diff": 8
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0xF8",
+          "exact_match": 17,
+          "exact_rate": 0.1589,
+          "within_1_rate": 0.3458,
+          "within_2_rate": 0.5421,
+          "avg_error": 3.3458,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 8,
+              "diff": 6
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x85",
+          "exact_match": 17,
+          "exact_rate": 0.1589,
+          "within_1_rate": 0.3084,
+          "within_2_rate": 0.486,
+          "avg_error": 3.486,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 1,
+              "diff": 1
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 1,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xA8",
+          "exact_match": 17,
+          "exact_rate": 0.1589,
+          "within_1_rate": 0.3458,
+          "within_2_rate": 0.4579,
+          "avg_error": 3.5514,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 2,
+              "got": 42,
+              "diff": 40
+            },
+            {
+              "name": "2604_Ray",
+              "expected": 2,
+              "got": 3,
+              "diff": 1
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            }
+          ]
+        }
+      ],
+      "kills": [
+        {
+          "action": "0xD7",
+          "exact_match": 30,
+          "exact_rate": 0.2804,
+          "within_1_rate": 0.486,
+          "within_2_rate": 0.6449,
+          "avg_error": 3.0561,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 5,
+              "got": 62,
+              "diff": 57
+            },
+            {
+              "name": "2599_PeacePlayz",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xC9",
+          "exact_match": 29,
+          "exact_rate": 0.271,
+          "within_1_rate": 0.4299,
+          "within_2_rate": 0.6449,
+          "avg_error": 3.8692,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 5,
+              "got": 2,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x94",
+          "exact_match": 29,
+          "exact_rate": 0.271,
+          "within_1_rate": 0.4486,
+          "within_2_rate": 0.6262,
+          "avg_error": 4.271,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 2,
+              "diff": 1
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 5,
+              "got": 6,
+              "diff": 1
+            }
+          ]
+        },
+        {
+          "action": "0xE3",
+          "exact_match": 28,
+          "exact_rate": 0.2617,
+          "within_1_rate": 0.4579,
+          "within_2_rate": 0.6355,
+          "avg_error": 2.8972,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x9B",
+          "exact_match": 28,
+          "exact_rate": 0.2617,
+          "within_1_rate": 0.4766,
+          "within_2_rate": 0.6822,
+          "avg_error": 2.9346,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 2,
+              "diff": 1
+            }
+          ]
+        },
+        {
+          "action": "0x8F",
+          "exact_match": 28,
+          "exact_rate": 0.2617,
+          "within_1_rate": 0.4953,
+          "within_2_rate": 0.6355,
+          "avg_error": 3.8879,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 1,
+              "diff": 3
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xCC",
+          "exact_match": 28,
+          "exact_rate": 0.2617,
+          "within_1_rate": 0.4299,
+          "within_2_rate": 0.6168,
+          "avg_error": 3.9626,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 1,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xB1",
+          "exact_match": 28,
+          "exact_rate": 0.2617,
+          "within_1_rate": 0.3925,
+          "within_2_rate": 0.5514,
+          "avg_error": 4.243,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x38",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4299,
+          "within_2_rate": 0.5888,
+          "avg_error": 2.9533,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x56",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4766,
+          "within_2_rate": 0.6355,
+          "avg_error": 3.3551,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 1,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xD0",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4673,
+          "within_2_rate": 0.6449,
+          "avg_error": 4.0093,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xF1",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4299,
+          "within_2_rate": 0.6075,
+          "avg_error": 4.0748,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 5,
+              "got": 11,
+              "diff": 6
+            },
+            {
+              "name": "2599_PeacePlayz",
+              "expected": 2,
+              "got": 0,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xF5",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4579,
+          "within_2_rate": 0.6449,
+          "avg_error": 4.243,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 1,
+              "diff": 3
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 0,
+              "diff": 1
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 24,
+              "diff": 21
+            }
+          ]
+        },
+        {
+          "action": "0x88",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.4579,
+          "within_2_rate": 0.6168,
+          "avg_error": 4.2991,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 48,
+              "diff": 47
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x52",
+          "exact_match": 27,
+          "exact_rate": 0.2523,
+          "within_1_rate": 0.3738,
+          "within_2_rate": 0.5234,
+          "avg_error": 5.2056,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 4,
+              "got": 0,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 1,
+              "got": 8,
+              "diff": 7
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 3,
+              "got": 12,
+              "diff": 9
+            }
+          ]
+        }
+      ],
+      "assists": [
+        {
+          "action": "0x02",
+          "exact_match": 15,
+          "exact_rate": 0.1402,
+          "within_1_rate": 0.3738,
+          "within_2_rate": 0.4953,
+          "avg_error": 3.3832,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 2,
+              "diff": 3
+            },
+            {
+              "name": "2600_IcyBang",
+              "expected": 3,
+              "got": 2,
+              "diff": 1
+            },
+            {
+              "name": "2599_FengLin",
+              "expected": 1,
+              "got": 2,
+              "diff": 1
+            }
+          ]
+        },
+        {
+          "action": "0x85",
+          "exact_match": 13,
+          "exact_rate": 0.1215,
+          "within_1_rate": 0.1682,
+          "within_2_rate": 0.2336,
+          "avg_error": 5.6355,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x73",
+          "exact_match": 13,
+          "exact_rate": 0.1215,
+          "within_1_rate": 0.1776,
+          "within_2_rate": 0.2336,
+          "avg_error": 6.1963,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 3,
+              "diff": 2
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xF7",
+          "exact_match": 13,
+          "exact_rate": 0.1215,
+          "within_1_rate": 0.1963,
+          "within_2_rate": 0.2991,
+          "avg_error": 6.9346,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 14,
+              "diff": 9
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x6B",
+          "exact_match": 13,
+          "exact_rate": 0.1215,
+          "within_1_rate": 0.1776,
+          "within_2_rate": 0.215,
+          "avg_error": 7.2617,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 6,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xC2",
+          "exact_match": 12,
+          "exact_rate": 0.1121,
+          "within_1_rate": 0.2056,
+          "within_2_rate": 0.271,
+          "avg_error": 6.2804,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 2,
+              "diff": 3
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x4C",
+          "exact_match": 12,
+          "exact_rate": 0.1121,
+          "within_1_rate": 0.2056,
+          "within_2_rate": 0.2991,
+          "avg_error": 6.9907,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xDB",
+          "exact_match": 12,
+          "exact_rate": 0.1121,
+          "within_1_rate": 0.1776,
+          "within_2_rate": 0.271,
+          "avg_error": 7.5607,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x81",
+          "exact_match": 12,
+          "exact_rate": 0.1121,
+          "within_1_rate": 0.2056,
+          "within_2_rate": 0.271,
+          "avg_error": 9.3551,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 7,
+              "diff": 4
+            }
+          ]
+        },
+        {
+          "action": "0x2A",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.1963,
+          "within_2_rate": 0.2897,
+          "avg_error": 5.5607,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 8,
+              "diff": 5
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 4,
+              "got": 7,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xC6",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.2056,
+          "within_2_rate": 0.3084,
+          "avg_error": 5.7664,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_staplers",
+              "expected": 4,
+              "got": 2,
+              "diff": 2
+            }
+          ]
+        },
+        {
+          "action": "0xE8",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.2056,
+          "within_2_rate": 0.2897,
+          "avg_error": 6.1028,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 2,
+              "diff": 3
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xD5",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.1963,
+          "within_2_rate": 0.2897,
+          "avg_error": 6.2897,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 2,
+              "diff": 3
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0xB2",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.1682,
+          "within_2_rate": 0.2336,
+          "avg_error": 6.4953,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 1,
+              "diff": 4
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        },
+        {
+          "action": "0x60",
+          "exact_match": 11,
+          "exact_rate": 0.1028,
+          "within_1_rate": 0.1963,
+          "within_2_rate": 0.2617,
+          "avg_error": 6.5514,
+          "sample_size": 107,
+          "mismatches": [
+            {
+              "name": "2600_Ghost",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_Acex",
+              "expected": 5,
+              "got": 0,
+              "diff": 5
+            },
+            {
+              "name": "2600_TenshiiHime",
+              "expected": 3,
+              "got": 0,
+              "diff": 3
+            }
+          ]
+        }
+      ]
+    },
+    "death_candidates": [
+      {
+        "action": "0x02",
+        "exact_match_rate": 0.163,
+        "avg_error": 1.8696,
+        "sample_size": 92
+      },
+      {
+        "action": "0x08",
+        "exact_match_rate": 0.1413,
+        "avg_error": 75.3152,
+        "sample_size": 92
+      },
+      {
+        "action": "0x9C",
+        "exact_match_rate": 0.1304,
+        "avg_error": 4.587,
+        "sample_size": 92
+      },
+      {
+        "action": "0xDB",
+        "exact_match_rate": 0.1304,
+        "avg_error": 5.6739,
+        "sample_size": 92
+      },
+      {
+        "action": "0x78",
+        "exact_match_rate": 0.1196,
+        "avg_error": 3.8478,
+        "sample_size": 92
+      },
+      {
+        "action": "0xF8",
+        "exact_match_rate": 0.1087,
+        "avg_error": 3.2609,
+        "sample_size": 92
+      },
+      {
+        "action": "0xC7",
+        "exact_match_rate": 0.0761,
+        "avg_error": 2.913,
+        "sample_size": 92
+      },
+      {
+        "action": "0x50",
+        "exact_match_rate": 0.0652,
+        "avg_error": 2.8478,
+        "sample_size": 92
+      },
+      {
+        "action": "0x31",
+        "exact_match_rate": 0.0326,
+        "avg_error": 2.9783,
+        "sample_size": 92
+      },
+      {
+        "action": "0x39",
+        "exact_match_rate": 0.0217,
+        "avg_error": 2.9891,
+        "sample_size": 92
+      }
+    ],
+    "exact_validation": {
+      "0x44": {
+        "exact_match_rate": 0.0,
+        "within_one_rate": 0.0,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "kills",
+            "action_count": 25,
+            "truth_value": 4,
+            "diff": 21
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "deaths",
+            "action_count": 25,
+            "truth_value": 2,
+            "diff": 23
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "assists",
+            "action_count": 25,
+            "truth_value": 5,
+            "diff": 20
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 39,
+            "truth_value": 5,
+            "diff": 34
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "kills",
+            "action_count": 51,
+            "truth_value": 1,
+            "diff": 50
+          }
+        ]
+      },
+      "0x02": {
+        "exact_match_rate": 0.1558,
+        "within_one_rate": 0.4058,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "deaths",
+            "action_count": 5,
+            "truth_value": 2,
+            "diff": 3
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 2,
+            "truth_value": 5,
+            "diff": 3
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "kills",
+            "action_count": 3,
+            "truth_value": 1,
+            "diff": 2
+          },
+          {
+            "player": "2600_IcyBang",
+            "stat": "kills",
+            "action_count": 2,
+            "truth_value": 5,
+            "diff": 3
+          },
+          {
+            "player": "2604_Ray",
+            "stat": "deaths",
+            "action_count": 4,
+            "truth_value": 2,
+            "diff": 2
+          }
+        ]
+      },
+      "0x80": {
+        "exact_match_rate": 0.058,
+        "within_one_rate": 0.2355,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "kills",
+            "action_count": 0,
+            "truth_value": 4,
+            "diff": 4
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "deaths",
+            "action_count": 0,
+            "truth_value": 2,
+            "diff": 2
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 5,
+            "diff": 5
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 1,
+            "truth_value": 5,
+            "diff": 4
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 3,
+            "diff": 3
+          }
+        ]
+      },
+      "0x9C": {
+        "exact_match_rate": 0.0688,
+        "within_one_rate": 0.1993,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "kills",
+            "action_count": 1,
+            "truth_value": 4,
+            "diff": 3
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "assists",
+            "action_count": 1,
+            "truth_value": 5,
+            "diff": 4
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 1,
+            "truth_value": 5,
+            "diff": 4
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 3,
+            "diff": 3
+          },
+          {
+            "player": "2600_staplers",
+            "stat": "kills",
+            "action_count": 0,
+            "truth_value": 3,
+            "diff": 3
+          }
+        ]
+      },
+      "0x08": {
+        "exact_match_rate": 0.087,
+        "within_one_rate": 0.2355,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "kills",
+            "action_count": 45,
+            "truth_value": 4,
+            "diff": 41
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "deaths",
+            "action_count": 45,
+            "truth_value": 2,
+            "diff": 43
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "assists",
+            "action_count": 45,
+            "truth_value": 5,
+            "diff": 40
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 29,
+            "truth_value": 5,
+            "diff": 24
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "kills",
+            "action_count": 1443,
+            "truth_value": 1,
+            "diff": 1442
+          }
+        ]
+      },
+      "0x19": {
+        "exact_match_rate": 0.029,
+        "within_one_rate": 0.163,
+        "total_comparisons": 276,
+        "sample_errors": [
+          {
+            "player": "2600_Ghost",
+            "stat": "kills",
+            "action_count": 0,
+            "truth_value": 4,
+            "diff": 4
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "deaths",
+            "action_count": 0,
+            "truth_value": 2,
+            "diff": 2
+          },
+          {
+            "player": "2600_Ghost",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 5,
+            "diff": 5
+          },
+          {
+            "player": "2600_Acex",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 5,
+            "diff": 5
+          },
+          {
+            "player": "2600_TenshiiHime",
+            "stat": "assists",
+            "action_count": 0,
+            "truth_value": 3,
+            "diff": 3
+          }
+        ]
+      }
+    },
+    "pattern_comparison": {
+      "deaths": {
+        "stat": "deaths",
+        "zero_count": 15,
+        "nonzero_count": 92,
+        "top_positive_diff": [
+          {
+            "action": "0x0F",
+            "zero_avg": 43.73,
+            "nonzero_avg": 74.43,
+            "diff": 30.7,
+            "ratio": 1.7
+          },
+          {
+            "action": "0x44",
+            "zero_avg": 40.27,
+            "nonzero_avg": 63.7,
+            "diff": 23.43,
+            "ratio": 1.58
+          },
+          {
+            "action": "0x01",
+            "zero_avg": 93.4,
+            "nonzero_avg": 114.6,
+            "diff": 21.2,
+            "ratio": 1.23
+          },
+          {
+            "action": "0x0E",
+            "zero_avg": 0,
+            "nonzero_avg": 21.09,
+            "diff": 21.09,
+            "ratio": 210.87
+          },
+          {
+            "action": "0x19",
+            "zero_avg": 5.93,
+            "nonzero_avg": 24.75,
+            "diff": 18.82,
+            "ratio": 4.1
+          },
+          {
+            "action": "0xB8",
+            "zero_avg": 4.33,
+            "nonzero_avg": 20.78,
+            "diff": 16.45,
+            "ratio": 4.69
+          },
+          {
+            "action": "0x61",
+            "zero_avg": 0.6,
+            "nonzero_avg": 16.55,
+            "diff": 15.95,
+            "ratio": 23.65
+          },
+          {
+            "action": "0x5E",
+            "zero_avg": 8.07,
+            "nonzero_avg": 23.27,
+            "diff": 15.21,
+            "ratio": 2.85
+          },
+          {
+            "action": "0x63",
+            "zero_avg": 9.6,
+            "nonzero_avg": 24.64,
+            "diff": 15.04,
+            "ratio": 2.54
+          },
+          {
+            "action": "0x10",
+            "zero_avg": 0.53,
+            "nonzero_avg": 14.79,
+            "diff": 14.26,
+            "ratio": 23.36
+          }
+        ],
+        "top_negative_diff": [
+          {
+            "action": "0x05",
+            "zero_avg": 4532.8,
+            "nonzero_avg": 4389.25,
+            "diff": -143.55,
+            "ratio": 0.97
+          },
+          {
+            "action": "0xEE",
+            "zero_avg": 82.93,
+            "nonzero_avg": 2.72,
+            "diff": -80.22,
+            "ratio": 0.03
+          },
+          {
+            "action": "0x08",
+            "zero_avg": 151.73,
+            "nonzero_avg": 77.14,
+            "diff": -74.59,
+            "ratio": 0.51
+          },
+          {
+            "action": "0x87",
+            "zero_avg": 65.6,
+            "nonzero_avg": 4.9,
+            "diff": -60.7,
+            "ratio": 0.07
+          },
+          {
+            "action": "0x00",
+            "zero_avg": 657.07,
+            "nonzero_avg": 627.26,
+            "diff": -29.81,
+            "ratio": 0.95
+          },
+          {
+            "action": "0x13",
+            "zero_avg": 40.8,
+            "nonzero_avg": 14.46,
+            "diff": -26.34,
+            "ratio": 0.35
+          },
+          {
+            "action": "0x65",
+            "zero_avg": 36.07,
+            "nonzero_avg": 10.51,
+            "diff": -25.56,
+            "ratio": 0.29
+          },
+          {
+            "action": "0x07",
+            "zero_avg": 141.4,
+            "nonzero_avg": 115.93,
+            "diff": -25.47,
+            "ratio": 0.82
+          },
+          {
+            "action": "0x62",
+            "zero_avg": 33.87,
+            "nonzero_avg": 10.33,
+            "diff": -23.54,
+            "ratio": 0.3
+          },
+          {
+            "action": "0x6A",
+            "zero_avg": 33.67,
+            "nonzero_avg": 14.71,
+            "diff": -18.96,
+            "ratio": 0.44
+          }
+        ]
+      },
+      "kills": {
+        "stat": "kills",
+        "zero_count": 23,
+        "nonzero_count": 84,
+        "top_positive_diff": [
+          {
+            "action": "0x05",
+            "zero_avg": 3612.39,
+            "nonzero_avg": 4627.6,
+            "diff": 1015.2,
+            "ratio": 1.28
+          },
+          {
+            "action": "0x00",
+            "zero_avg": 422.0,
+            "nonzero_avg": 688.79,
+            "diff": 266.79,
+            "ratio": 1.63
+          },
+          {
+            "action": "0x08",
+            "zero_avg": 44.43,
+            "nonzero_avg": 99.42,
+            "diff": 54.98,
+            "ratio": 2.23
+          },
+          {
+            "action": "0x07",
+            "zero_avg": 80.74,
+            "nonzero_avg": 130.12,
+            "diff": 49.38,
+            "ratio": 1.61
+          },
+          {
+            "action": "0x5E",
+            "zero_avg": 2.35,
+            "nonzero_avg": 26.29,
+            "diff": 23.94,
+            "ratio": 10.74
+          },
+          {
+            "action": "0x0E",
+            "zero_avg": 0,
+            "nonzero_avg": 23.1,
+            "diff": 23.1,
+            "ratio": 230.95
+          },
+          {
+            "action": "0xB8",
+            "zero_avg": 1.39,
+            "nonzero_avg": 23.15,
+            "diff": 21.76,
+            "ratio": 15.53
+          },
+          {
+            "action": "0x63",
+            "zero_avg": 8.35,
+            "nonzero_avg": 26.42,
+            "diff": 18.07,
+            "ratio": 3.13
+          },
+          {
+            "action": "0x6E",
+            "zero_avg": 19.0,
+            "nonzero_avg": 36.8,
+            "diff": 17.8,
+            "ratio": 1.93
+          },
+          {
+            "action": "0xEE",
+            "zero_avg": 0.96,
+            "nonzero_avg": 17.52,
+            "diff": 16.57,
+            "ratio": 16.59
+          }
+        ],
+        "top_negative_diff": [
+          {
+            "action": "0x0F",
+            "zero_avg": 104.13,
+            "nonzero_avg": 60.82,
+            "diff": -43.31,
+            "ratio": 0.58
+          },
+          {
+            "action": "0x13",
+            "zero_avg": 48.35,
+            "nonzero_avg": 9.88,
+            "diff": -38.47,
+            "ratio": 0.2
+          },
+          {
+            "action": "0x61",
+            "zero_avg": 21.04,
+            "nonzero_avg": 12.48,
+            "diff": -8.57,
+            "ratio": 0.59
+          },
+          {
+            "action": "0x43",
+            "zero_avg": 37.65,
+            "nonzero_avg": 31.2,
+            "diff": -6.45,
+            "ratio": 0.83
+          },
+          {
+            "action": "0x1A",
+            "zero_avg": 9.0,
+            "nonzero_avg": 2.81,
+            "diff": -6.19,
+            "ratio": 0.31
+          },
+          {
+            "action": "0x19",
+            "zero_avg": 26.22,
+            "nonzero_avg": 20.99,
+            "diff": -5.23,
+            "ratio": 0.8
+          },
+          {
+            "action": "0x4F",
+            "zero_avg": 5.78,
+            "nonzero_avg": 2.12,
+            "diff": -3.66,
+            "ratio": 0.36
+          },
+          {
+            "action": "0x78",
+            "zero_avg": 4.48,
+            "nonzero_avg": 1.26,
+            "diff": -3.22,
+            "ratio": 0.28
+          },
+          {
+            "action": "0x7A",
+            "zero_avg": 8.39,
+            "nonzero_avg": 5.51,
+            "diff": -2.88,
+            "ratio": 0.65
+          },
+          {
+            "action": "0x6A",
+            "zero_avg": 19.48,
+            "nonzero_avg": 16.79,
+            "diff": -2.69,
+            "ratio": 0.86
+          }
+        ]
+      }
+    },
+    "multiplied_matches": {
+      "deaths": [],
+      "kills": []
+    }
+  }
+}

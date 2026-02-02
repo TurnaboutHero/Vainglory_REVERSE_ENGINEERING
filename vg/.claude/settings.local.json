@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"D:\\\\Desktop\\\\My Folder\\\\Game\\\\VG\\\\vg replay\" /b)",
+      "Bash(dir \"D:\\\\Desktop\\\\My Folder\\\\Game\\\\VG\\\\vg replay\\\\replay-test\" /b)",
+      "Bash(python vgr_parser.py:*)",
+      "Bash(python event_deep_analysis.py:*)",
+      "Bash(python find_death_event.py:*)",
+      "Bash(python validate_death_code.py:*)",
+      "Bash(python:*)",
+      "Bash(dir /b \"d:\\\\Desktop\\\\My Folder\\\\Game\\\\VG\\\\vg\")",
+      "Bash(dir:*)"
+    ]
+  }
+}

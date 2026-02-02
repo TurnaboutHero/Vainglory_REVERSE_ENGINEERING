@@ -1,0 +1,1161 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Adagio",
+      "name_ko": "아다지오",
+      "role": "Captain",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/adagio",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 2,
+      "name": "Alpha",
+      "name_ko": "알파",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/alpha",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 3,
+      "name": "Amael",
+      "name_ko": "아마엘",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/amael",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 4,
+      "name": "Anka",
+      "name_ko": "앙카",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/anka",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 5,
+      "name": "Ardan",
+      "name_ko": "아단",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/ardan",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 6,
+      "name": "Baptiste",
+      "name_ko": "바티스트",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/baptiste",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 7,
+      "name": "Baron",
+      "name_ko": "바론",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/baron",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 8,
+      "name": "Blackfeather",
+      "name_ko": "흑깃",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/blackfeather",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 9,
+      "name": "Caine",
+      "name_ko": "케인",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/caine",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 10,
+      "name": "Catherine",
+      "name_ko": "캐서린",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/catherine",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 11,
+      "name": "Celeste",
+      "name_ko": "셀레스트",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/celeste",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 12,
+      "name": "Churnwalker",
+      "name_ko": "어둠추적자",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/churnwalker",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 13,
+      "name": "Flicker",
+      "name_ko": "플리커",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/flicker",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 14,
+      "name": "Fortress",
+      "name_ko": "포트리스",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/fortress",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 15,
+      "name": "Glaive",
+      "name_ko": "글레이브",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/glaive",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 16,
+      "name": "Grace",
+      "name_ko": "그레이스",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/grace",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 17,
+      "name": "Grumpjaw",
+      "name_ko": "사슬니",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/grumpjaw",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 18,
+      "name": "Gwen",
+      "name_ko": "그웬",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/gwen",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 19,
+      "name": "Idris",
+      "name_ko": "이드리스",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/idris",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 20,
+      "name": "Inara",
+      "name_ko": "이나라",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/inara",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 21,
+      "name": "Ishtar",
+      "name_ko": "이슈타르",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/ishtar",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 22,
+      "name": "Joule",
+      "name_ko": "쥴",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/joule",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 23,
+      "name": "Karas",
+      "name_ko": "카라스",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/karas",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 24,
+      "name": "Kensei",
+      "name_ko": "켄세이",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/kensei",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 25,
+      "name": "Kestrel",
+      "name_ko": "케스트럴",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/kestrel",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 26,
+      "name": "Kinetic",
+      "name_ko": "키네틱",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/kinetic",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 27,
+      "name": "Koshka",
+      "name_ko": "코쉬카",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/koshka",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 28,
+      "name": "Krul",
+      "name_ko": "크럴",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/krul",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 29,
+      "name": "Lance",
+      "name_ko": "랜스",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/lance",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 30,
+      "name": "Leo",
+      "name_ko": "레오",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/leo",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 31,
+      "name": "Lorelai",
+      "name_ko": "로렐라이",
+      "role": "Captain",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/lorelai",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 32,
+      "name": "Lyra",
+      "name_ko": "라이라",
+      "role": "Captain",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/lyra",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 33,
+      "name": "Magnus",
+      "name_ko": "마그누스",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/magnus",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 34,
+      "name": "Malene",
+      "name_ko": "말렌",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/malene",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 35,
+      "name": "Miho",
+      "name_ko": "미호",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/miho",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 36,
+      "name": "Ozo",
+      "name_ko": "오조",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/ozo",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 37,
+      "name": "Petal",
+      "name_ko": "페탈",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/petal",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 38,
+      "name": "Phinn",
+      "name_ko": "핀",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/phinn",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 39,
+      "name": "Reim",
+      "name_ko": "라임",
+      "role": "Mage",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/reim",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 40,
+      "name": "Reza",
+      "name_ko": "레자",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/reza",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 41,
+      "name": "Ringo",
+      "name_ko": "링고",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/ringo",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 42,
+      "name": "Rona",
+      "name_ko": "로나",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/rona",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 45,
+      "name": "SAW",
+      "name_ko": "쏘우",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/saw",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 43,
+      "name": "Samuel",
+      "name_ko": "사무엘",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/samuel",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 44,
+      "name": "San Feng",
+      "name_ko": "삼봉",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/san-feng",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 46,
+      "name": "Shin",
+      "name_ko": "신",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/shin",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 47,
+      "name": "Silvernail",
+      "name_ko": "실버네일",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/silvernail",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 48,
+      "name": "Skaarf",
+      "name_ko": "스카프",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/skaarf",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 49,
+      "name": "Skye",
+      "name_ko": "스카이",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/skye",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 50,
+      "name": "Taka",
+      "name_ko": "타카",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/taka",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 51,
+      "name": "Tony",
+      "name_ko": "토니",
+      "role": "Warrior",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/tony",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 52,
+      "name": "Varya",
+      "name_ko": "바리야",
+      "role": "Mage",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/varya",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 53,
+      "name": "Viola",
+      "name_ko": "비올라",
+      "role": "Captain",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/viola",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 54,
+      "name": "Vox",
+      "name_ko": "복스",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/vox",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 55,
+      "name": "Warhawk",
+      "name_ko": "워호크",
+      "role": "Sniper",
+      "attack_type": "Ranged",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/warhawk",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 56,
+      "name": "Yates",
+      "name_ko": "예이츠",
+      "role": "Captain",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/yates",
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 57,
+      "name": "Ylva",
+      "name_ko": "일바",
+      "role": "Assassin",
+      "attack_type": "Melee",
+      "image_path": null,
+      "wiki_url": "https://www.vaingloryfire.com/vainglory/wiki/heroes/ylva",
+      "created_at": "2025-12-25 12:47:40"
+    }
+  ],
+  "items": [
+    {
+      "id": 20,
+      "name": "Crystal Bit",
+      "category": "Crystal",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 21,
+      "name": "Energy Battery",
+      "category": "Crystal",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 22,
+      "name": "Hourglass",
+      "category": "Crystal",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 26,
+      "name": "Chronograph",
+      "category": "Crystal",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 23,
+      "name": "Eclipse Prism",
+      "category": "Crystal",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 24,
+      "name": "Heavy Prism",
+      "category": "Crystal",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 25,
+      "name": "Piercing Shard",
+      "category": "Crystal",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 27,
+      "name": "Void Battery",
+      "category": "Crystal",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 65,
+      "name": "Aftershock",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 33,
+      "name": "Alternating Current",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 31,
+      "name": "Broken Myth",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 32,
+      "name": "Clockwork",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 34,
+      "name": "Dragon's Eye",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 30,
+      "name": "Eve of Harvest",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 29,
+      "name": "Frostburn",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 28,
+      "name": "Shatterglass",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 35,
+      "name": "Spellfire",
+      "category": "Crystal",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 37,
+      "name": "Light Armor",
+      "category": "Defense",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 36,
+      "name": "Light Shield",
+      "category": "Defense",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 38,
+      "name": "Oakheart",
+      "category": "Defense",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 40,
+      "name": "Coat of Plates",
+      "category": "Defense",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 41,
+      "name": "Dragonheart",
+      "category": "Defense",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 39,
+      "name": "Kinetic Shield",
+      "category": "Defense",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 42,
+      "name": "Reflex Block",
+      "category": "Defense",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 43,
+      "name": "Aegis",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 47,
+      "name": "Atlas Pauldron",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 50,
+      "name": "Capacitor Plate",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 46,
+      "name": "Crucible",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 45,
+      "name": "Fountain of Renewal",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 44,
+      "name": "Metal Jacket",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 49,
+      "name": "Pulseweave",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 48,
+      "name": "Slumbering Husk",
+      "category": "Defense",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 57,
+      "name": "Flare",
+      "category": "Utility",
+      "tier_name": "Consumable",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 58,
+      "name": "Scout Trap",
+      "category": "Utility",
+      "tier_name": "Consumable",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 51,
+      "name": "Sprint Boots",
+      "category": "Utility",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 59,
+      "name": "Flare Gun",
+      "category": "Utility",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 52,
+      "name": "Travel Boots",
+      "category": "Utility",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 60,
+      "name": "Contraption",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 63,
+      "name": "Echo",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 54,
+      "name": "Halcyon Chargers",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 53,
+      "name": "Journey Boots",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 62,
+      "name": "Nullwave Gauntlet",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 64,
+      "name": "Stormcrown",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 61,
+      "name": "Superscout 2000",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 56,
+      "name": "Teleport Boots",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 55,
+      "name": "War Treads",
+      "category": "Utility",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 2,
+      "name": "Book of Eulogies",
+      "category": "Weapon",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 4,
+      "name": "Minion's Foot",
+      "category": "Weapon",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 3,
+      "name": "Swift Shooter",
+      "category": "Weapon",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 1,
+      "name": "Weapon Blade",
+      "category": "Weapon",
+      "tier_name": "Basic",
+      "tier": 1,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 10,
+      "name": "Barbed Needle",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 7,
+      "name": "Blazing Salvo",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 5,
+      "name": "Heavy Steel",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 8,
+      "name": "Lucky Strike",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 9,
+      "name": "Piercing Spear",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 6,
+      "name": "Six Sins",
+      "category": "Weapon",
+      "tier_name": "Tier 2",
+      "tier": 2,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 15,
+      "name": "Bonesaw",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 17,
+      "name": "Breaking Point",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 16,
+      "name": "Poisoned Shiv",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 12,
+      "name": "Serpent Mask",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 11,
+      "name": "Sorrowblade",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 19,
+      "name": "Spellsword",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 18,
+      "name": "Tension Bow",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 13,
+      "name": "Tornado Trigger",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    },
+    {
+      "id": 14,
+      "name": "Tyrant's Monocle",
+      "category": "Weapon",
+      "tier_name": "Tier 3",
+      "tier": 3,
+      "image_path": null,
+      "created_at": "2025-12-25 12:47:40"
+    }
+  ]
+}
