@@ -36,6 +36,34 @@ ASSET_HERO_ID_MAP: Dict[str, str] = {
     # Still missing: Ylva, Viola (One is likely 056 or 022?)
 }
 
+# Hero name normalization for OCR typos
+HERO_NAME_NORMALIZE: Dict[str, str] = {
+    "mallene": "Malene",
+    "ishutar": "Ishtar",
+    # Add more typos as discovered
+}
+
+def normalize_hero_name(name: str) -> str:
+    """Normalize hero name to handle OCR typos."""
+    if not name:
+        return name
+    return HERO_NAME_NORMALIZE.get(name.lower(), name)
+
+# Asset Hero ID map with integer keys for byte pattern matching
+def _build_asset_hero_id_int_map() -> Dict[int, str]:
+    """Convert ASSET_HERO_ID_MAP string keys to integers."""
+    result = {}
+    for key, name in ASSET_HERO_ID_MAP.items():
+        try:
+            # "009" -> 9, "010" -> 10
+            int_key = int(key)
+            result[int_key] = name
+        except ValueError:
+            continue
+    return result
+
+ASSET_HERO_ID_INT_MAP: Dict[int, str] = _build_asset_hero_id_int_map()
+
 # Asset-based Item Name Mapping (extracted from game files)
 ASSET_ITEM_NAMES = [
     "AC", "AMR", "CapPlate", "Crisis_Crystal_Con", "Crisis_Weapon_Con",

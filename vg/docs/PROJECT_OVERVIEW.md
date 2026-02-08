@@ -359,8 +359,65 @@ python verify_tournament_truth.py --truth tournament_truth.json --parsed tournam
 - `vg/output/0x3D_event_analysis.txt` - 0x3D 이벤트 분석
 - `vg/output/image_vs_extraction_comparison.md` - 이미지 vs 추출 비교
 
-### 다음 단계
-Crystal/Defense/Utility 아이템의 저장 패턴을 찾기 위해:
-1. 해당 카테고리 아이템만 구매하는 테스트 리플레이 생성
-2. 결과 이미지와 리플레이 hex dump 비교 분석
-3. 새로운 바이트 패턴 식별
+---
+
+## Update (2026-02-09): Hero Matching & KDA 분석 결과
+
+### 핵심 결론
+
+**VGR 리플레이는 입력 재생 시스템입니다. 영웅/KDA 정보는 저장되지 않고 게임 엔진이 실시간 계산합니다.**
+
+| 데이터 | 바이너리 추출 | 정확도 | 비고 |
+|--------|-------------|--------|------|
+| 플레이어 이름 | ✅ 가능 | 100% | 플레이어 블록에서 직접 추출 |
+| 팀 구분 | ✅ 가능 | 100% | +0xD5 오프셋 |
+| **영웅 매칭** | ❌ 불가 | **0%** | 바이트 패턴 감지 실패 |
+| **KDA** | ❌ 불가 | ~20% | 게임 엔진 계산 필요 |
+| 무기 아이템 | ✅ 가능 | 100% | FF FF FF FF 패턴 |
+
+### 영웅 매칭 검증 결과
+
+**토너먼트 11경기 (109명) 검증:**
+```
+정확도: 0.0% (0/109)
+모든 영웅이 잘못 매칭됨
+```
+
+**예시:**
+| 플레이어 | 실제 영웅 | 감지된 영웅 |
+|---------|----------|------------|
+| 2600_Acex | Lyra | Celeste ❌ |
+| 2600_Ghost | Inara | Grace ❌ |
+| 2600_IcyBang | Kestrel | Miho ❌ |
+
+**원인:** `[hero_id, 0, 0, 0]` 바이트 패턴이 영웅 ID가 아닌 다른 게임 데이터를 잡음
+
+### 생성된 모듈
+
+| 파일 | 용도 |
+|------|------|
+| `vg/core/config.py` | 환경 변수 기반 경로 설정 |
+| `vg/core/hero_matcher.py` | 영웅 매칭 시도 (0% 정확도) |
+| `vg/core/confidence_model.py` | 신뢰도 점수 시스템 |
+| `vg/core/replay_extractor.py` | 통합 추출 API |
+| `vg/analysis/hero_accuracy_validator.py` | 검증 스크립트 |
+
+### 수정된 파일
+
+| 파일 | 변경 내용 |
+|------|----------|
+| `vg/core/vgr_mapping.py` | HERO_NAME_NORMALIZE, normalize_hero_name() 추가 |
+| `vg/core/vgr_parser.py` | HeroMatcher 통합, hero_confidence 필드 추가 |
+
+### 하이브리드 시스템
+
+Truth 데이터(OCR/수동 입력)와 결합 시:
+- 영웅 매칭 정확도: **97.3%** (107/110)
+- 3명 불일치는 OCR 실패로 "Unknown" 처리된 케이스
+
+### 다음 단계: 스킬 ID 기반 영웅 탐지
+
+각 영웅은 고유한 스킬 ID를 가지므로, 스킬 사용 이벤트 분석으로 영웅 추론 가능성 탐색:
+1. 스킬 사용 이벤트 패턴 찾기
+2. 스킬 ID → 영웅 매핑 구축
+3. entity_id와 스킬 이벤트 상관관계 분석

@@ -29,6 +29,19 @@ try:
 except ImportError:
     TRUTH_AVAILABLE = False
 
+# Hero matching imports
+try:
+    from hero_matcher import HeroMatcher, HeroCandidate
+    from vgr_mapping import normalize_hero_name
+    HERO_MATCHER_AVAILABLE = True
+except ImportError:
+    try:
+        from .hero_matcher import HeroMatcher, HeroCandidate
+        from .vgr_mapping import normalize_hero_name
+        HERO_MATCHER_AVAILABLE = True
+    except ImportError:
+        HERO_MATCHER_AVAILABLE = False
+
 
 @dataclass
 class PlayerData:
@@ -42,6 +55,7 @@ class PlayerData:
     hero_id: Optional[int] = None
     hero_name: Optional[str] = "Unknown"
     hero_name_ko: Optional[str] = None
+    hero_confidence: float = 0.0  # NEW: Confidence score
     skin_id: Optional[int] = None
     # Stats
     kills: int = 0
@@ -51,7 +65,7 @@ class PlayerData:
     gold: int = 0
     bounty: Optional[int] = None
     items: List[str] = field(default_factory=list)
-    
+
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
@@ -215,10 +229,10 @@ class VGRParser:
             return "Halcyon Fold"
         return "Unknown"
     
-    def _detect_heroes(self, data: bytes, team_size: int = 3) -> List[Dict]:
+    def _detect_heroes_legacy(self, data: bytes, team_size: int = 3) -> List[Dict]:
         """
-        Detect participating heroes based on event frequency analysis.
-        Heroes that are actively played generate more events with their ID pattern.
+        Legacy hero detection using simple event frequency.
+        Preserved for comparison and fallback.
         """
         # Hero ID to name mapping (from asset analysis)
         HERO_MAP = {
@@ -236,7 +250,7 @@ class VGRParser:
             68: ('Inara', '이나라'), 69: ('Magnus', '마그누스'), 70: ('Caine', '케인'), 71: ('Leo', '레오'),
             72: ('Amael', '아마엘'),
         }
-        
+
         # Count event patterns for each hero ID
         hero_counts = {}
         for hero_id, (name, name_ko) in HERO_MAP.items():
@@ -246,7 +260,7 @@ class VGRParser:
                 # Count death events (action type 0x80)
                 death_pattern = bytes([hero_id, 0, 0, 0, 0x80])
                 death_count = data.count(death_pattern)
-                
+
                 hero_counts[hero_id] = {
                     'id': hero_id,
                     'name': name,
@@ -254,46 +268,69 @@ class VGRParser:
                     'event_count': count,
                     'deaths': death_count  # NEW: estimated deaths
                 }
-        
+
         # Return top heroes (team_size * 2 for both teams)
         # Sort by event count first to get candidates
         sorted_by_count = sorted(hero_counts.values(), key=lambda x: -x['event_count'])
         top_candidates = sorted_by_count[:team_size * 2]
-        
+
         # Then sort candidates by FIRST APPEARANCE offset to match player order
         # We need to find the first occurrence of each ID
         for hero in top_candidates:
             pattern = bytes([hero['id'], 0, 0, 0])
             hero['first_offset'] = data.find(pattern)
-            
+
         # Sort by offset (ascending)
         final_heroes = sorted(top_candidates, key=lambda x: x['first_offset'])
-        
+
         return final_heroes
+
+    def _detect_heroes(self, data: bytes, team_size: int = 3) -> List[Dict]:
+        """
+        Detect heroes using HeroMatcher (multi-signal detection).
+        Falls back to legacy method if HeroMatcher not available.
+        """
+        if not HERO_MATCHER_AVAILABLE:
+            return self._detect_heroes_legacy(data, team_size)
+
+        matcher = HeroMatcher(data, team_size)
+        candidates = matcher.detect_heroes()
+
+        # Convert to dict format for compatibility
+        return [
+            {
+                'id': c.hero_id,
+                'name': c.hero_name,
+                'name_ko': '',  # Will be filled by mapping if available
+                'event_count': c.event_count,
+                'first_offset': c.first_offset,
+                'confidence': c.confidence,
+            }
+            for c in candidates
+        ]
 
     def _link_heroes_to_players(self, left_team, right_team, detected_heroes, data):
         """
         Link detected heroes to players based on sequential order.
-        Assumption: Player blocks and Hero/Entity blocks specific to players appear in the same order.
+        Updated to include confidence scores.
         """
-        all_players = left_team + right_team # Should be ordered by position 0..N
-        
-        # Sort players by position (just in case)
+        all_players = left_team + right_team
         all_players.sort(key=lambda p: p.position)
-        
-        # Map sequentially
-        # If we have 6 players and 6 heroes, 1:1 mapping
-        # If counts mismatch, try best effort
-        
+
         count = min(len(all_players), len(detected_heroes))
-        
+
         for i in range(count):
             player = all_players[i]
             hero = detected_heroes[i]
-            
-            player.hero_name = hero['name']
-            player.hero_id = hero['id']
-            player.deaths = hero['deaths'] // 2
+
+            player.hero_name = hero.get('name', 'Unknown')
+            player.hero_id = hero.get('id')
+            # Add confidence if available (new HeroMatcher provides this)
+            if 'confidence' in hero:
+                player.hero_confidence = hero.get('confidence', 0.0)
+            # Legacy deaths field if available
+            if 'deaths' in hero:
+                player.deaths = hero['deaths'] // 2
     
     def _parse_player_blocks(self, data: bytes) -> List[PlayerData]:
         """Find player blocks and extract name, team id, and entity id."""
@@ -460,7 +497,11 @@ class VGRParser:
             if tdata.get("team"):
                 player.team = tdata["team"]
             if tdata.get("hero_name"):
-                player.hero_name = tdata["hero_name"]
+                hero_name = tdata["hero_name"]
+                # Normalize hero name to handle OCR typos
+                if HERO_MATCHER_AVAILABLE:
+                    hero_name = normalize_hero_name(hero_name)
+                player.hero_name = hero_name
             if tdata.get("hero_name_ko"):
                 player.hero_name_ko = tdata["hero_name_ko"]
             if tdata.get("kills") is not None:
