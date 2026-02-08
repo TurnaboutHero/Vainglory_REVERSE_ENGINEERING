@@ -128,6 +128,12 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     102: {"name": "Book of Eulogies", "category": "Weapon", "tier": 1},
     103: {"name": "Swift Shooter", "category": "Weapon", "tier": 1},
     104: {"name": "Minion's Foot", "category": "Weapon", "tier": 1},
+    105: {"name": "Unknown Weapon 105", "category": "Weapon", "tier": 1, "status": "discovered"},
+    106: {"name": "Unknown Weapon 106", "category": "Weapon", "tier": 1, "status": "discovered"},
+    107: {"name": "Unknown Weapon 107", "category": "Weapon", "tier": 1, "status": "discovered"},
+    108: {"name": "Unknown Weapon 108", "category": "Weapon", "tier": 1, "status": "discovered"},
+    109: {"name": "Unknown Weapon 109", "category": "Weapon", "tier": 1, "status": "discovered"},
+    110: {"name": "Unknown Weapon 110", "category": "Weapon", "tier": 1, "status": "discovered"},
     
     # Weapon - Tier 2
     111: {"name": "Heavy Steel", "category": "Weapon", "tier": 2},
@@ -138,6 +144,8 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     116: {"name": "Barbed Needle", "category": "Weapon", "tier": 2},
     
     # Weapon - Tier 3
+    # Note: Tier 3 items (121-129, 221-229, 321-328) are NOT stored with FF FF FF FF pattern
+    # They use different storage mechanism when crafted from components
     121: {"name": "Sorrowblade", "category": "Weapon", "tier": 3},
     122: {"name": "Serpent Mask", "category": "Weapon", "tier": 3},
     123: {"name": "Tornado Trigger", "category": "Weapon", "tier": 3},
@@ -211,6 +219,10 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     421: {"name": "Nullwave Gauntlet", "category": "Utility", "tier": 3},
     422: {"name": "Echo", "category": "Utility", "tier": 3},
     423: {"name": "Stormcrown", "category": "Utility", "tier": 3},
+
+    # System Items
+    188: {"name": "System Item 188", "category": "System", "tier": 0, "status": "system"},
+    255: {"name": "Marker 255", "category": "System", "tier": 0, "status": "marker"},
 }
 
 # Reverse lookup: item name to ID
