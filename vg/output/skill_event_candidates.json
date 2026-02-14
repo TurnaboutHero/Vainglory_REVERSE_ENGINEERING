@@ -1,0 +1,2523 @@
+{
+  "summary": {
+    "total_replays": 11,
+    "total_players": 110,
+    "candidate_codes": 6
+  },
+  "candidates": [
+    {
+      "event_code": "0x0E",
+      "total_occurrences": 1940,
+      "avg_per_player": 194.0,
+      "median_per_player": 177.5,
+      "std_per_player": 58.16,
+      "hero_correlation": 0.2996,
+      "sample_size": 10,
+      "confidence": "HIGH"
+    },
+    {
+      "event_code": "0x13",
+      "total_occurrences": 1942,
+      "avg_per_player": 138.71,
+      "median_per_player": 160.0,
+      "std_per_player": 96.16,
+      "hero_correlation": 0.6113,
+      "sample_size": 14,
+      "confidence": "MEDIUM"
+    },
+    {
+      "event_code": "0x44",
+      "total_occurrences": 6663,
+      "avg_per_player": 60.57,
+      "median_per_player": 56.0,
+      "std_per_player": 33.97,
+      "hero_correlation": 1.6589,
+      "sample_size": 110,
+      "confidence": "MEDIUM"
+    },
+    {
+      "event_code": "0x43",
+      "total_occurrences": 3634,
+      "avg_per_player": 33.04,
+      "median_per_player": 29.0,
+      "std_per_player": 20.4,
+      "hero_correlation": 2.129,
+      "sample_size": 110,
+      "confidence": "LOW"
+    },
+    {
+      "event_code": "0x65",
+      "total_occurrences": 1508,
+      "avg_per_player": 26.0,
+      "median_per_player": 8.0,
+      "std_per_player": 47.23,
+      "hero_correlation": 2.3285,
+      "sample_size": 58,
+      "confidence": "LOW"
+    },
+    {
+      "event_code": "0x76",
+      "total_occurrences": 997,
+      "avg_per_player": 16.62,
+      "median_per_player": 7.0,
+      "std_per_player": 31.45,
+      "hero_correlation": 2.6622,
+      "sample_size": 60,
+      "confidence": "LOW"
+    }
+  ],
+  "per_hero_patterns": {
+    "Inara": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 281
+        },
+        {
+          "event_code": "0x65",
+          "count": 223
+        },
+        {
+          "event_code": "0x76",
+          "count": 204
+        },
+        {
+          "event_code": "0x13",
+          "count": 169
+        },
+        {
+          "event_code": "0x43",
+          "count": 139
+        }
+      ],
+      "total_events": 1016
+    },
+    "Lyra": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 192
+        },
+        {
+          "event_code": "0x13",
+          "count": 144
+        },
+        {
+          "event_code": "0x43",
+          "count": 76
+        },
+        {
+          "event_code": "0x65",
+          "count": 60
+        },
+        {
+          "event_code": "0x76",
+          "count": 33
+        }
+      ],
+      "total_events": 505
+    },
+    "Grumpjaw": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 473
+        },
+        {
+          "event_code": "0x43",
+          "count": 340
+        },
+        {
+          "event_code": "0x0E",
+          "count": 308
+        },
+        {
+          "event_code": "0x65",
+          "count": 212
+        },
+        {
+          "event_code": "0x13",
+          "count": 152
+        },
+        {
+          "event_code": "0x76",
+          "count": 123
+        }
+      ],
+      "total_events": 1608
+    },
+    "Mallene": {
+      "top_events": [
+        {
+          "event_code": "0x13",
+          "count": 128
+        },
+        {
+          "event_code": "0x43",
+          "count": 108
+        },
+        {
+          "event_code": "0x44",
+          "count": 78
+        },
+        {
+          "event_code": "0x76",
+          "count": 54
+        },
+        {
+          "event_code": "0x65",
+          "count": 48
+        }
+      ],
+      "total_events": 416
+    },
+    "Kestrel": {
+      "top_events": [
+        {
+          "event_code": "0x13",
+          "count": 189
+        },
+        {
+          "event_code": "0x65",
+          "count": 179
+        },
+        {
+          "event_code": "0x44",
+          "count": 172
+        },
+        {
+          "event_code": "0x43",
+          "count": 167
+        },
+        {
+          "event_code": "0x76",
+          "count": 39
+        }
+      ],
+      "total_events": 746
+    },
+    "Blackfeather": {
+      "top_events": [
+        {
+          "event_code": "0x13",
+          "count": 234
+        },
+        {
+          "event_code": "0x44",
+          "count": 184
+        },
+        {
+          "event_code": "0x43",
+          "count": 172
+        },
+        {
+          "event_code": "0x65",
+          "count": 172
+        },
+        {
+          "event_code": "0x76",
+          "count": 31
+        }
+      ],
+      "total_events": 793
+    },
+    "Lorelai": {
+      "top_events": [
+        {
+          "event_code": "0x0E",
+          "count": 264
+        },
+        {
+          "event_code": "0x44",
+          "count": 237
+        },
+        {
+          "event_code": "0x43",
+          "count": 234
+        },
+        {
+          "event_code": "0x13",
+          "count": 187
+        },
+        {
+          "event_code": "0x65",
+          "count": 50
+        },
+        {
+          "event_code": "0x76",
+          "count": 18
+        }
+      ],
+      "total_events": 990
+    },
+    "Kinetic": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 277
+        },
+        {
+          "event_code": "0x13",
+          "count": 264
+        },
+        {
+          "event_code": "0x0E",
+          "count": 146
+        },
+        {
+          "event_code": "0x43",
+          "count": 82
+        },
+        {
+          "event_code": "0x65",
+          "count": 23
+        },
+        {
+          "event_code": "0x76",
+          "count": 21
+        }
+      ],
+      "total_events": 813
+    },
+    "Ardan": {
+      "top_events": [
+        {
+          "event_code": "0x13",
+          "count": 286
+        },
+        {
+          "event_code": "0x44",
+          "count": 273
+        },
+        {
+          "event_code": "0x43",
+          "count": 130
+        },
+        {
+          "event_code": "0x65",
+          "count": 48
+        },
+        {
+          "event_code": "0x76",
+          "count": 31
+        }
+      ],
+      "total_events": 768
+    },
+    "Magnus": {
+      "top_events": [
+        {
+          "event_code": "0x13",
+          "count": 187
+        },
+        {
+          "event_code": "0x44",
+          "count": 93
+        },
+        {
+          "event_code": "0x43",
+          "count": 46
+        },
+        {
+          "event_code": "0x65",
+          "count": 42
+        }
+      ],
+      "total_events": 368
+    },
+    "Gwen": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 124
+        },
+        {
+          "event_code": "0x43",
+          "count": 99
+        },
+        {
+          "event_code": "0x65",
+          "count": 3
+        },
+        {
+          "event_code": "0x76",
+          "count": 3
+        }
+      ],
+      "total_events": 229
+    },
+    "Skaarf": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 318
+        },
+        {
+          "event_code": "0x43",
+          "count": 180
+        },
+        {
+          "event_code": "0x0E",
+          "count": 128
+        },
+        {
+          "event_code": "0x65",
+          "count": 44
+        },
+        {
+          "event_code": "0x76",
+          "count": 30
+        }
+      ],
+      "total_events": 700
+    },
+    "Phinn": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 181
+        },
+        {
+          "event_code": "0x43",
+          "count": 113
+        },
+        {
+          "event_code": "0x76",
+          "count": 8
+        },
+        {
+          "event_code": "0x65",
+          "count": 1
+        }
+      ],
+      "total_events": 303
+    },
+    "Tony": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 178
+        },
+        {
+          "event_code": "0x65",
+          "count": 84
+        },
+        {
+          "event_code": "0x43",
+          "count": 59
+        },
+        {
+          "event_code": "0x76",
+          "count": 1
+        }
+      ],
+      "total_events": 322
+    },
+    "Catherine": {
+      "top_events": [
+        {
+          "event_code": "0x0E",
+          "count": 212
+        },
+        {
+          "event_code": "0x44",
+          "count": 149
+        },
+        {
+          "event_code": "0x43",
+          "count": 84
+        },
+        {
+          "event_code": "0x65",
+          "count": 16
+        },
+        {
+          "event_code": "0x76",
+          "count": 2
+        },
+        {
+          "event_code": "0x13",
+          "count": 1
+        }
+      ],
+      "total_events": 464
+    },
+    "Samuel": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 344
+        },
+        {
+          "event_code": "0x43",
+          "count": 250
+        },
+        {
+          "event_code": "0x0E",
+          "count": 155
+        },
+        {
+          "event_code": "0x65",
+          "count": 30
+        },
+        {
+          "event_code": "0x76",
+          "count": 17
+        }
+      ],
+      "total_events": 796
+    },
+    "Ishutar": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 107
+        },
+        {
+          "event_code": "0x43",
+          "count": 84
+        },
+        {
+          "event_code": "0x76",
+          "count": 14
+        },
+        {
+          "event_code": "0x65",
+          "count": 1
+        }
+      ],
+      "total_events": 206
+    },
+    "Reza": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 152
+        },
+        {
+          "event_code": "0x43",
+          "count": 57
+        },
+        {
+          "event_code": "0x65",
+          "count": 21
+        },
+        {
+          "event_code": "0x76",
+          "count": 9
+        }
+      ],
+      "total_events": 239
+    },
+    "Ylva": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 256
+        },
+        {
+          "event_code": "0x76",
+          "count": 123
+        },
+        {
+          "event_code": "0x43",
+          "count": 72
+        },
+        {
+          "event_code": "0x65",
+          "count": 15
+        },
+        {
+          "event_code": "0x13",
+          "count": 1
+        }
+      ],
+      "total_events": 467
+    },
+    "Fortress": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 133
+        },
+        {
+          "event_code": "0x43",
+          "count": 75
+        },
+        {
+          "event_code": "0x65",
+          "count": 1
+        },
+        {
+          "event_code": "0x76",
+          "count": 1
+        }
+      ],
+      "total_events": 210
+    },
+    "Kensei": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 86
+        },
+        {
+          "event_code": "0x76",
+          "count": 25
+        },
+        {
+          "event_code": "0x65",
+          "count": 15
+        },
+        {
+          "event_code": "0x43",
+          "count": 12
+        }
+      ],
+      "total_events": 138
+    },
+    "Baptiste": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 414
+        },
+        {
+          "event_code": "0x0E",
+          "count": 181
+        },
+        {
+          "event_code": "0x43",
+          "count": 124
+        },
+        {
+          "event_code": "0x76",
+          "count": 51
+        }
+      ],
+      "total_events": 770
+    },
+    "Caine": {
+      "top_events": [
+        {
+          "event_code": "0x0E",
+          "count": 244
+        },
+        {
+          "event_code": "0x44",
+          "count": 216
+        },
+        {
+          "event_code": "0x43",
+          "count": 105
+        },
+        {
+          "event_code": "0x65",
+          "count": 45
+        },
+        {
+          "event_code": "0x76",
+          "count": 37
+        }
+      ],
+      "total_events": 647
+    },
+    "Silvernail": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 51
+        },
+        {
+          "event_code": "0x65",
+          "count": 12
+        },
+        {
+          "event_code": "0x43",
+          "count": 9
+        },
+        {
+          "event_code": "0x76",
+          "count": 6
+        }
+      ],
+      "total_events": 78
+    },
+    "San Feng": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 246
+        },
+        {
+          "event_code": "0x0E",
+          "count": 128
+        },
+        {
+          "event_code": "0x43",
+          "count": 80
+        },
+        {
+          "event_code": "0x76",
+          "count": 60
+        },
+        {
+          "event_code": "0x65",
+          "count": 11
+        }
+      ],
+      "total_events": 525
+    },
+    "Warhawk": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 102
+        },
+        {
+          "event_code": "0x43",
+          "count": 71
+        },
+        {
+          "event_code": "0x65",
+          "count": 7
+        }
+      ],
+      "total_events": 180
+    },
+    "Skye": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 148
+        },
+        {
+          "event_code": "0x43",
+          "count": 115
+        },
+        {
+          "event_code": "0x65",
+          "count": 69
+        },
+        {
+          "event_code": "0x76",
+          "count": 28
+        }
+      ],
+      "total_events": 360
+    },
+    "Unknown": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 199
+        },
+        {
+          "event_code": "0x43",
+          "count": 147
+        }
+      ],
+      "total_events": 346
+    },
+    "Celeste": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 48
+        },
+        {
+          "event_code": "0x43",
+          "count": 37
+        },
+        {
+          "event_code": "0x65",
+          "count": 32
+        }
+      ],
+      "total_events": 117
+    },
+    "Ozo": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 155
+        },
+        {
+          "event_code": "0x43",
+          "count": 24
+        },
+        {
+          "event_code": "0x76",
+          "count": 13
+        },
+        {
+          "event_code": "0x65",
+          "count": 2
+        }
+      ],
+      "total_events": 194
+    },
+    "Reim": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 183
+        },
+        {
+          "event_code": "0x43",
+          "count": 30
+        },
+        {
+          "event_code": "0x76",
+          "count": 11
+        }
+      ],
+      "total_events": 224
+    },
+    "Ringo": {
+      "top_events": [
+        {
+          "event_code": "0x0E",
+          "count": 174
+        },
+        {
+          "event_code": "0x44",
+          "count": 75
+        },
+        {
+          "event_code": "0x43",
+          "count": 16
+        },
+        {
+          "event_code": "0x65",
+          "count": 4
+        },
+        {
+          "event_code": "0x76",
+          "count": 4
+        }
+      ],
+      "total_events": 273
+    },
+    "Leo": {
+      "top_events": [
+        {
+          "event_code": "0x43",
+          "count": 44
+        },
+        {
+          "event_code": "0x44",
+          "count": 32
+        }
+      ],
+      "total_events": 76
+    },
+    "Yates": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 53
+        },
+        {
+          "event_code": "0x43",
+          "count": 19
+        },
+        {
+          "event_code": "0x65",
+          "count": 3
+        }
+      ],
+      "total_events": 75
+    },
+    "Grace": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 186
+        },
+        {
+          "event_code": "0x43",
+          "count": 117
+        },
+        {
+          "event_code": "0x65",
+          "count": 9
+        }
+      ],
+      "total_events": 312
+    },
+    "Joule": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 93
+        },
+        {
+          "event_code": "0x43",
+          "count": 24
+        }
+      ],
+      "total_events": 117
+    },
+    "Idris": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 106
+        },
+        {
+          "event_code": "0x43",
+          "count": 59
+        },
+        {
+          "event_code": "0x65",
+          "count": 26
+        }
+      ],
+      "total_events": 191
+    },
+    "Baron": {
+      "top_events": [
+        {
+          "event_code": "0x44",
+          "count": 68
+        },
+        {
+          "event_code": "0x43",
+          "count": 34
+        }
+      ],
+      "total_events": 102
+    }
+  },
+  "recommendation": "HIGH CONFIDENCE: 0x0E - These events show consistent frequency across players and good correlation patterns.\nMEDIUM CONFIDENCE: 0x13, 0x44 - These events are promising but show some variance. Requires further validation.\n\nNext steps: Analyze payload structure and cross-reference with known skill cooldowns/usage patterns.",
+  "detailed_replays": [
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-8c6e1a3e-68a0-4853-8786-44c899ff1e8a",
+      "players": {
+        "2600_Ghost": {
+          "entity_id": 57093,
+          "hero_name": "Inara",
+          "candidate_events": {
+            "0x13": 169,
+            "0x43": 112,
+            "0x44": 25,
+            "0x65": 223,
+            "0x76": 204
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 2,
+            "assists": 5
+          }
+        },
+        "2600_Acex": {
+          "entity_id": 56581,
+          "hero_name": "Lyra",
+          "candidate_events": {
+            "0x13": 144,
+            "0x43": 19,
+            "0x44": 39,
+            "0x65": 59,
+            "0x76": 33
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 0,
+            "assists": 5
+          }
+        },
+        "2600_TenshiiHime": {
+          "entity_id": 57861,
+          "hero_name": "Grumpjaw",
+          "candidate_events": {
+            "0x13": 151,
+            "0x43": 58,
+            "0x44": 51,
+            "0x65": 208,
+            "0x76": 111
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 0,
+            "assists": 3
+          }
+        },
+        "2600_staplers": {
+          "entity_id": 58117,
+          "hero_name": "Mallene",
+          "candidate_events": {
+            "0x13": 128,
+            "0x43": 71,
+            "0x44": 20,
+            "0x65": 48,
+            "0x76": 53
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 0,
+            "assists": 4
+          }
+        },
+        "2600_IcyBang": {
+          "entity_id": 58373,
+          "hero_name": "Kestrel",
+          "candidate_events": {
+            "0x13": 189,
+            "0x43": 5,
+            "0x44": 14,
+            "0x65": 161,
+            "0x76": 28
+          },
+          "truth": {
+            "kills": 5,
+            "deaths": 0,
+            "assists": 3
+          }
+        },
+        "2604_Ray": {
+          "entity_id": 56325,
+          "hero_name": "Blackfeather",
+          "candidate_events": {
+            "0x13": 234,
+            "0x43": 27,
+            "0x44": 41,
+            "0x65": 147
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 0
+          }
+        },
+        "2599_FengLin": {
+          "entity_id": 56837,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x13": 187,
+            "0x43": 87,
+            "0x44": 51,
+            "0x65": 45
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 4,
+            "assists": 1
+          }
+        },
+        "2599_Shifnoob": {
+          "entity_id": 57349,
+          "hero_name": "Kinetic",
+          "candidate_events": {
+            "0x13": 261,
+            "0x43": 23,
+            "0x44": 41
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 3,
+            "assists": 0
+          }
+        },
+        "2599_jeebanana": {
+          "entity_id": 57605,
+          "hero_name": "Ardan",
+          "candidate_events": {
+            "0x13": 286,
+            "0x43": 27,
+            "0x44": 60,
+            "0x65": 37,
+            "0x76": 30
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 0
+          }
+        },
+        "2599_PeacePlayz": {
+          "entity_id": 58629,
+          "hero_name": "Magnus",
+          "candidate_events": {
+            "0x13": 187,
+            "0x43": 29,
+            "0x44": 67,
+            "0x65": 40
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 2,
+            "assists": 0
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-20692443-e314-4ca5-934e-faa63d820d72",
+      "players": {
+        "2599_Shifnoob": {
+          "entity_id": 56325,
+          "hero_name": "Gwen",
+          "candidate_events": {
+            "0x43": 42,
+            "0x44": 28,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 3,
+            "assists": 3
+          }
+        },
+        "2599_PeacePlayz": {
+          "entity_id": 57093,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 51,
+            "0x44": 55,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 2
+          }
+        },
+        "2599_jeebanana": {
+          "entity_id": 57605,
+          "hero_name": "Phinn",
+          "candidate_events": {
+            "0x43": 42,
+            "0x44": 36,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 3
+          }
+        },
+        "2599_FengLin": {
+          "entity_id": 58117,
+          "hero_name": "Tony",
+          "candidate_events": {
+            "0x43": 21,
+            "0x44": 51,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 2,
+            "assists": 0
+          }
+        },
+        "2604_Kittymite": {
+          "entity_id": 58629,
+          "hero_name": "Kestrel",
+          "candidate_events": {
+            "0x43": 77,
+            "0x44": 26,
+            "0x65": 3,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 4,
+            "assists": 1
+          }
+        },
+        "2600_Ghost": {
+          "entity_id": 58373,
+          "hero_name": "Catherine",
+          "candidate_events": {
+            "0x43": 20,
+            "0x44": 33
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 0,
+            "assists": 7
+          }
+        },
+        "2600_staplers": {
+          "entity_id": 56581,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 19,
+            "0x44": 24,
+            "0x65": 1,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 0,
+            "assists": 4
+          }
+        },
+        "2600_IcyBang": {
+          "entity_id": 56837,
+          "hero_name": "Ishutar",
+          "candidate_events": {
+            "0x43": 29,
+            "0x44": 15
+          },
+          "truth": {
+            "kills": 5,
+            "deaths": 1,
+            "assists": 2
+          }
+        },
+        "2600_Acex": {
+          "entity_id": 57349,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x43": 10,
+            "0x44": 9,
+            "0x76": 2
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 1,
+            "assists": 4
+          }
+        },
+        "2600_TenshiiHime": {
+          "entity_id": 57861,
+          "hero_name": "Grumpjaw",
+          "candidate_events": {
+            "0x43": 94,
+            "0x44": 71,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 1,
+            "assists": 4
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-c2612bb7-c551-408f-bc75-c51ab6da604e",
+      "players": {
+        "3000_HongQiGong": {
+          "entity_id": 56325,
+          "hero_name": "Phinn",
+          "candidate_events": {
+            "0x43": 39,
+            "0x44": 84,
+            "0x65": 1,
+            "0x76": 7
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 6,
+            "assists": 3
+          }
+        },
+        "3000_YiNong": {
+          "entity_id": 57093,
+          "hero_name": "Reza",
+          "candidate_events": {
+            "0x43": 21,
+            "0x44": 48,
+            "0x65": 15,
+            "0x76": 9
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 3
+          }
+        },
+        "3000_OuYangFeng": {
+          "entity_id": 57349,
+          "hero_name": "Ylva",
+          "candidate_events": {
+            "0x43": 31,
+            "0x44": 56,
+            "0x76": 75
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 2,
+            "assists": 2
+          }
+        },
+        "3000_Dawg": {
+          "entity_id": 58117,
+          "hero_name": "Fortress",
+          "candidate_events": {
+            "0x43": 18,
+            "0x44": 48,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 3
+          }
+        },
+        "3000_DuGuQiuBai": {
+          "entity_id": 58629,
+          "hero_name": "Kensei",
+          "candidate_events": {
+            "0x43": 12,
+            "0x44": 86,
+            "0x65": 15,
+            "0x76": 25
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 1
+          }
+        },
+        "2999_Ghost": {
+          "entity_id": 56837,
+          "hero_name": "Baptiste",
+          "candidate_events": {
+            "0x43": 30,
+            "0x44": 93,
+            "0x76": 49
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 1,
+            "assists": 11
+          }
+        },
+        "3004_TenshiiHime": {
+          "entity_id": 56581,
+          "hero_name": "Blackfeather",
+          "candidate_events": {
+            "0x43": 25,
+            "0x44": 57,
+            "0x65": 13,
+            "0x76": 15
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 0,
+            "assists": 8
+          }
+        },
+        "2999_stapler": {
+          "entity_id": 57605,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 34,
+            "0x44": 67,
+            "0x65": 4,
+            "0x76": 7
+          },
+          "truth": {
+            "kills": 8,
+            "deaths": 1,
+            "assists": 8
+          }
+        },
+        "2999_Acex": {
+          "entity_id": 57861,
+          "hero_name": "Ardan",
+          "candidate_events": {
+            "0x43": 25,
+            "0x44": 67
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 0,
+            "assists": 12
+          }
+        },
+        "2999_IcyBang": {
+          "entity_id": 58373,
+          "hero_name": "Caine",
+          "candidate_events": {
+            "0x43": 14,
+            "0x44": 51,
+            "0x65": 6,
+            "0x76": 4
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 3,
+            "assists": 8
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "02aae104-45ba-4f50-972c-00c4a6719716-863aaed7-13d5-459e-9c50-963bac077ff3",
+      "players": {
+        "2999_Ghost": {
+          "entity_id": 57861,
+          "hero_name": "Ylva",
+          "candidate_events": {
+            "0x43": 20,
+            "0x44": 80
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 2,
+            "assists": 13
+          }
+        },
+        "2999_staplers": {
+          "entity_id": 56837,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 27,
+            "0x44": 27,
+            "0x65": 20,
+            "0x76": 21
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 0,
+            "assists": 17
+          }
+        },
+        "2999_Acex": {
+          "entity_id": 57093,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x43": 11,
+            "0x44": 46,
+            "0x65": 2,
+            "0x76": 16
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 3,
+            "assists": 11
+          }
+        },
+        "2999_IcyBang": {
+          "entity_id": 57605,
+          "hero_name": "Caine",
+          "candidate_events": {
+            "0x43": 14,
+            "0x44": 34,
+            "0x65": 20,
+            "0x76": 8
+          },
+          "truth": {
+            "kills": 11,
+            "deaths": 0,
+            "assists": 8
+          }
+        },
+        "3004_TenshiiHime": {
+          "entity_id": 58373,
+          "hero_name": "Blackfeather",
+          "candidate_events": {
+            "0x43": 69,
+            "0x44": 71,
+            "0x65": 12,
+            "0x76": 16
+          },
+          "truth": {
+            "kills": 9,
+            "deaths": 1,
+            "assists": 7
+          }
+        },
+        "3000_YiNong": {
+          "entity_id": 56325,
+          "hero_name": "Reza",
+          "candidate_events": {
+            "0x43": 10,
+            "0x44": 78,
+            "0x65": 6
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 6,
+            "assists": 1
+          }
+        },
+        "3000_OuYangFeng": {
+          "entity_id": 56581,
+          "hero_name": "Grumpjaw",
+          "candidate_events": {
+            "0x43": 80,
+            "0x44": 96,
+            "0x65": 4,
+            "0x76": 4
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 7,
+            "assists": 3
+          }
+        },
+        "3000_DuGuQiuBai": {
+          "entity_id": 57349,
+          "hero_name": "Kinetic",
+          "candidate_events": {
+            "0x43": 14,
+            "0x44": 63,
+            "0x65": 22,
+            "0x76": 6
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 6,
+            "assists": 1
+          }
+        },
+        "3000_Dawg": {
+          "entity_id": 58117,
+          "hero_name": "Silvernail",
+          "candidate_events": {
+            "0x43": 9,
+            "0x44": 51,
+            "0x65": 12,
+            "0x76": 6
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 2,
+            "assists": 2
+          }
+        },
+        "3000_HongQiGong": {
+          "entity_id": 58629,
+          "hero_name": "San Feng",
+          "candidate_events": {
+            "0x43": 35,
+            "0x44": 77,
+            "0x65": 7,
+            "0x76": 11
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 6,
+            "assists": 3
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-e76f857f-218a-45bf-8982-292c7671c902",
+      "players": {
+        "2599_123": {
+          "entity_id": 57093,
+          "hero_name": "Warhawk",
+          "candidate_events": {
+            "0x43": 32,
+            "0x44": 39,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 0,
+            "assists": 8
+          }
+        },
+        "2604_topLaner": {
+          "entity_id": 57605,
+          "hero_name": "Ylva",
+          "candidate_events": {
+            "0x13": 1,
+            "0x43": 10,
+            "0x44": 65,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 1,
+            "assists": 8
+          }
+        },
+        "2599_Ritoramu": {
+          "entity_id": 58117,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 37,
+            "0x44": 46
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 0,
+            "assists": 4
+          }
+        },
+        "2599_tsuki": {
+          "entity_id": 58373,
+          "hero_name": "Caine",
+          "candidate_events": {
+            "0x43": 31,
+            "0x44": 25,
+            "0x76": 14
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 0,
+            "assists": 5
+          }
+        },
+        "2599_killzx": {
+          "entity_id": 58629,
+          "hero_name": "Ishutar",
+          "candidate_events": {
+            "0x43": 44,
+            "0x44": 21,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 1,
+            "assists": 5
+          }
+        },
+        "2600_Ghost": {
+          "entity_id": 57861,
+          "hero_name": "Inara",
+          "candidate_events": {
+            "0x43": 19,
+            "0x44": 170
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 3,
+            "assists": 1
+          }
+        },
+        "2600_Acex": {
+          "entity_id": 56325,
+          "hero_name": "Lyra",
+          "candidate_events": {
+            "0x43": 16,
+            "0x44": 34
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 1,
+            "assists": 0
+          }
+        },
+        "2600_staplers": {
+          "entity_id": 56581,
+          "hero_name": "Skye",
+          "candidate_events": {
+            "0x43": 58,
+            "0x44": 74,
+            "0x65": 62,
+            "0x76": 2
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 1
+          }
+        },
+        "2600_TenshiiHime": {
+          "entity_id": 56837,
+          "hero_name": "Unknown",
+          "candidate_events": {
+            "0x43": 60,
+            "0x44": 116
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 0,
+            "assists": 0
+          }
+        },
+        "2600_IcyBang": {
+          "entity_id": 57349,
+          "hero_name": "Kestrel",
+          "candidate_events": {
+            "0x43": 51,
+            "0x44": 47,
+            "0x65": 11,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 1
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-5f22df2e-921a-4638-937b-a88f9fe88a73",
+      "players": {
+        "2600_IcyBang": {
+          "entity_id": 56581,
+          "hero_name": "Kestrel",
+          "candidate_events": {
+            "0x43": 23,
+            "0x44": 54
+          },
+          "truth": {
+            "kills": 6,
+            "deaths": 3,
+            "assists": 7
+          }
+        },
+        "2600_TenshiiHime": {
+          "entity_id": 57093,
+          "hero_name": "Unknown",
+          "candidate_events": {
+            "0x43": 69,
+            "0x44": 80
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 0,
+            "assists": 0
+          }
+        },
+        "2600_Acex": {
+          "entity_id": 57349,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x43": 21,
+            "0x44": 42
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 2,
+            "assists": 11
+          }
+        },
+        "2600_staplers": {
+          "entity_id": 57861,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 34,
+            "0x44": 44,
+            "0x65": 28
+          },
+          "truth": {
+            "kills": 6,
+            "deaths": 2,
+            "assists": 10
+          }
+        },
+        "2600_Ghost": {
+          "entity_id": 57605,
+          "hero_name": "Ylva",
+          "candidate_events": {
+            "0x43": 11,
+            "0x44": 55,
+            "0x65": 15,
+            "0x76": 47
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 2,
+            "assists": 10
+          }
+        },
+        "2599_Ritoramu": {
+          "entity_id": 56325,
+          "hero_name": "Celeste",
+          "candidate_events": {
+            "0x43": 37,
+            "0x44": 48,
+            "0x65": 32
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 3,
+            "assists": 2
+          }
+        },
+        "2599_tsuki": {
+          "entity_id": 56837,
+          "hero_name": "Kinetic",
+          "candidate_events": {
+            "0x13": 3,
+            "0x43": 38,
+            "0x44": 39
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 3,
+            "assists": 1
+          }
+        },
+        "2599_123": {
+          "entity_id": 58117,
+          "hero_name": "Lyra",
+          "candidate_events": {
+            "0x43": 28,
+            "0x44": 97,
+            "0x65": 1
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 4,
+            "assists": 4
+          }
+        },
+        "2599_killzx": {
+          "entity_id": 58373,
+          "hero_name": "Grumpjaw",
+          "candidate_events": {
+            "0x43": 66,
+            "0x44": 136,
+            "0x76": 3
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 6,
+            "assists": 3
+          }
+        },
+        "2604_topLaner": {
+          "entity_id": 58629,
+          "hero_name": "Tony",
+          "candidate_events": {
+            "0x43": 38,
+            "0x44": 127,
+            "0x65": 84
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 5
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-0bfec87b-0b07-4f4d-8e4f-936d74758dfd",
+      "players": {
+        "2600_Ghost": {
+          "entity_id": 57349,
+          "hero_name": "Baptiste",
+          "candidate_events": {
+            "0x43": 41,
+            "0x44": 115,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 5,
+            "assists": 8
+          }
+        },
+        "2600_Acex": {
+          "entity_id": 56581,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x43": 65,
+            "0x44": 61,
+            "0x65": 3
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 5,
+            "assists": 12
+          }
+        },
+        "2600_TenshiiHime": {
+          "entity_id": 56837,
+          "hero_name": "Ozo",
+          "candidate_events": {
+            "0x43": 24,
+            "0x44": 155,
+            "0x65": 2,
+            "0x76": 13
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 4,
+            "assists": 8
+          }
+        },
+        "2600_IcyBang": {
+          "entity_id": 58117,
+          "hero_name": "Gwen",
+          "candidate_events": {
+            "0x43": 26,
+            "0x44": 61,
+            "0x65": 2,
+            "0x76": 2
+          },
+          "truth": {
+            "kills": 9,
+            "deaths": 4,
+            "assists": 7
+          }
+        },
+        "2600_staplers": {
+          "entity_id": 58373,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 59,
+            "0x44": 80,
+            "0x76": 8
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 4,
+            "assists": 12
+          }
+        },
+        "2599_tsuki": {
+          "entity_id": 56325,
+          "hero_name": "Kinetic",
+          "candidate_events": {
+            "0x43": 2,
+            "0x44": 66,
+            "0x65": 1,
+            "0x76": 9
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 0,
+            "assists": 5
+          }
+        },
+        "2599_123": {
+          "entity_id": 57093,
+          "hero_name": "San Feng",
+          "candidate_events": {
+            "0x43": 12,
+            "0x44": 117
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 5,
+            "assists": 12
+          }
+        },
+        "2604_topLaner": {
+          "entity_id": 57605,
+          "hero_name": "Reim",
+          "candidate_events": {
+            "0x43": 30,
+            "0x44": 183,
+            "0x76": 11
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 5,
+            "assists": 14
+          }
+        },
+        "2599_killzx": {
+          "entity_id": 57861,
+          "hero_name": "Ishutar",
+          "candidate_events": {
+            "0x43": 11,
+            "0x44": 71,
+            "0x76": 14
+          },
+          "truth": {
+            "kills": 9,
+            "deaths": 6,
+            "assists": 8
+          }
+        },
+        "2599_Ritoramu": {
+          "entity_id": 58629,
+          "hero_name": "Skye",
+          "candidate_events": {
+            "0x43": 23,
+            "0x44": 64,
+            "0x65": 7,
+            "0x76": 13
+          },
+          "truth": {
+            "kills": 6,
+            "deaths": 1,
+            "assists": 10
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-7a593bce-eded-4fdc-a164-6bb8162958ea",
+      "players": {
+        "2399_tsuki": {
+          "entity_id": 56581,
+          "hero_name": "Kinetic",
+          "candidate_events": {
+            "0x43": 5,
+            "0x44": 68,
+            "0x76": 6,
+            "0x0E": 146
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 4,
+            "assists": 0
+          }
+        },
+        "2399_killlzx": {
+          "entity_id": 57349,
+          "hero_name": "Ringo",
+          "candidate_events": {
+            "0x43": 16,
+            "0x44": 75,
+            "0x65": 4,
+            "0x76": 4,
+            "0x0E": 174
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 5,
+            "assists": 7
+          }
+        },
+        "2404_topLaner": {
+          "entity_id": 57605,
+          "hero_name": "Grumpjaw",
+          "candidate_events": {
+            "0x13": 1,
+            "0x43": 42,
+            "0x44": 119,
+            "0x76": 4,
+            "0x0E": 308
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 4,
+            "assists": 3
+          }
+        },
+        "2399_Ritoramu": {
+          "entity_id": 58117,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 39,
+            "0x44": 70,
+            "0x76": 7,
+            "0x0E": 155
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 4,
+            "assists": 3
+          }
+        },
+        "2399_123": {
+          "entity_id": 58373,
+          "hero_name": "Baptiste",
+          "candidate_events": {
+            "0x43": 38,
+            "0x44": 119,
+            "0x76": 1,
+            "0x0E": 181
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 7,
+            "assists": 5
+          }
+        },
+        "2400_Ghost": {
+          "entity_id": 56837,
+          "hero_name": "Catherine",
+          "candidate_events": {
+            "0x43": 21,
+            "0x44": 95,
+            "0x65": 16,
+            "0x76": 2,
+            "0x0E": 212
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 3,
+            "assists": 15
+          }
+        },
+        "2400_TenshiiHime": {
+          "entity_id": 56325,
+          "hero_name": "San Feng",
+          "candidate_events": {
+            "0x43": 33,
+            "0x44": 52,
+            "0x65": 4,
+            "0x76": 49,
+            "0x0E": 128
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 1,
+            "assists": 13
+          }
+        },
+        "2400_Acex": {
+          "entity_id": 57093,
+          "hero_name": "Lorelai",
+          "candidate_events": {
+            "0x43": 40,
+            "0x44": 28,
+            "0x0E": 264
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 3,
+            "assists": 13
+          }
+        },
+        "2400_IcyBang": {
+          "entity_id": 57861,
+          "hero_name": "Caine",
+          "candidate_events": {
+            "0x43": 24,
+            "0x44": 56,
+            "0x65": 6,
+            "0x76": 10,
+            "0x0E": 244
+          },
+          "truth": {
+            "kills": 7,
+            "deaths": 3,
+            "assists": 8
+          }
+        },
+        "2400_stapler": {
+          "entity_id": 58629,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 31,
+            "0x44": 76,
+            "0x65": 19,
+            "0x0E": 128
+          },
+          "truth": {
+            "kills": 12,
+            "deaths": 2,
+            "assists": 8
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "d8736287-e35e-4c76-89b0-c78c76fd0b05-f7dc84e0-071a-4126-a0da-319ca51a6796",
+      "players": {
+        "1900_IcyBang": {
+          "entity_id": 57093,
+          "hero_name": "Gwen",
+          "candidate_events": {
+            "0x43": 31,
+            "0x44": 35,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 6,
+            "deaths": 1,
+            "assists": 6
+          }
+        },
+        "1900_stapler": {
+          "entity_id": 57349,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 25,
+            "0x44": 17
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 1,
+            "assists": 9
+          }
+        },
+        "1900_Acex": {
+          "entity_id": 57861,
+          "hero_name": "Lyra",
+          "candidate_events": {
+            "0x43": 13,
+            "0x44": 22
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 1,
+            "assists": 8
+          }
+        },
+        "1900_TenshiiHime": {
+          "entity_id": 58117,
+          "hero_name": "Blackfeather",
+          "candidate_events": {
+            "0x43": 51,
+            "0x44": 15
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 2,
+            "assists": 7
+          }
+        },
+        "1900_Ghost": {
+          "entity_id": 58373,
+          "hero_name": "Catherine",
+          "candidate_events": {
+            "0x13": 1,
+            "0x43": 43,
+            "0x44": 21
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 1,
+            "assists": 9
+          }
+        },
+        "1899_1CN": {
+          "entity_id": 56325,
+          "hero_name": "Unknown",
+          "candidate_events": {
+            "0x43": 18,
+            "0x44": 3
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 0,
+            "assists": 0
+          }
+        },
+        "1904_topLaner": {
+          "entity_id": 56581,
+          "hero_name": "Leo",
+          "candidate_events": {
+            "0x43": 44,
+            "0x44": 32
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 1,
+            "assists": 4
+          }
+        },
+        "1899_123": {
+          "entity_id": 56837,
+          "hero_name": "Warhawk",
+          "candidate_events": {
+            "0x43": 26,
+            "0x44": 20
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 3,
+            "assists": 5
+          }
+        },
+        "1899_Ritoramu": {
+          "entity_id": 57605,
+          "hero_name": "Skye",
+          "candidate_events": {
+            "0x43": 34,
+            "0x44": 10,
+            "0x76": 13
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 2,
+            "assists": 3
+          }
+        },
+        "1899_killlzx": {
+          "entity_id": 58629,
+          "hero_name": "Reza",
+          "candidate_events": {
+            "0x43": 26,
+            "0x44": 26
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 3,
+            "assists": 4
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "f27505c4-1449-4e71-bd8a-134133e7f4b4-443dfc2c-bcf9-4791-be53-63c0f831d6f3",
+      "players": {
+        "2999_Prym": {
+          "entity_id": 57349,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 13,
+            "0x44": 61,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 5,
+            "assists": 3
+          }
+        },
+        "3004_BearFang": {
+          "entity_id": 56581,
+          "hero_name": "Ardan",
+          "candidate_events": {
+            "0x43": 29,
+            "0x44": 67,
+            "0x65": 10
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 4,
+            "assists": 4
+          }
+        },
+        "2999_DrPawn": {
+          "entity_id": 57093,
+          "hero_name": "Caine",
+          "candidate_events": {
+            "0x43": 22,
+            "0x44": 50,
+            "0x65": 13,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 4,
+            "assists": 2
+          }
+        },
+        "2999_MoonQe": {
+          "entity_id": 57861,
+          "hero_name": "Warhawk",
+          "candidate_events": {
+            "0x43": 13,
+            "0x44": 43,
+            "0x65": 6
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 1,
+            "assists": 2
+          }
+        },
+        "2999_Ambrasadors": {
+          "entity_id": 58373,
+          "hero_name": "Baptiste",
+          "candidate_events": {
+            "0x43": 15,
+            "0x44": 87
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 8,
+            "assists": 2
+          }
+        },
+        "3000": {
+          "entity_id": 56325,
+          "hero_name": "Yates",
+          "candidate_events": {
+            "0x43": 19,
+            "0x44": 53,
+            "0x65": 3
+          },
+          "truth": {
+            "kills": 3,
+            "deaths": 2,
+            "assists": 5
+          }
+        },
+        "3000_saptozz": {
+          "entity_id": 56837,
+          "hero_name": "Kestrel",
+          "candidate_events": {
+            "0x43": 11,
+            "0x44": 31,
+            "0x65": 4,
+            "0x76": 9
+          },
+          "truth": {
+            "kills": 7,
+            "deaths": 1,
+            "assists": 8
+          }
+        },
+        "3000_FL": {
+          "entity_id": 57605,
+          "hero_name": "Grace",
+          "candidate_events": {
+            "0x43": 48,
+            "0x44": 62,
+            "0x65": 9
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 0,
+            "assists": 8
+          }
+        },
+        "3000_Synd": {
+          "entity_id": 58117,
+          "hero_name": "Magnus",
+          "candidate_events": {
+            "0x43": 17,
+            "0x44": 26,
+            "0x65": 2
+          },
+          "truth": {
+            "kills": 8,
+            "deaths": 3,
+            "assists": 5
+          }
+        },
+        "3000_HiTayo": {
+          "entity_id": 58629,
+          "hero_name": "Inara",
+          "candidate_events": {
+            "0x43": 8,
+            "0x44": 86
+          },
+          "truth": {
+            "kills": 4,
+            "deaths": 2,
+            "assists": 10
+          }
+        }
+      }
+    },
+    {
+      "replay_name": "02aae104-45ba-4f50-972c-00c4a6719716-9bfb7a7c-18f5-41f5-bc07-63bf7db248e8",
+      "players": {
+        "3000_FL": {
+          "entity_id": 56837,
+          "hero_name": "Skaarf",
+          "candidate_events": {
+            "0x43": 24,
+            "0x44": 32,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 5,
+            "deaths": 4,
+            "assists": 14
+          }
+        },
+        "3000_saptozz": {
+          "entity_id": 57093,
+          "hero_name": "Joule",
+          "candidate_events": {
+            "0x43": 24,
+            "0x44": 93
+          },
+          "truth": {
+            "kills": 8,
+            "deaths": 1,
+            "assists": 8
+          }
+        },
+        "3000_Synd": {
+          "entity_id": 57349,
+          "hero_name": "Mallene",
+          "candidate_events": {
+            "0x43": 37,
+            "0x44": 58,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 5,
+            "deaths": 4,
+            "assists": 11
+          }
+        },
+        "3000": {
+          "entity_id": 57605,
+          "hero_name": "Phinn",
+          "candidate_events": {
+            "0x43": 32,
+            "0x44": 61
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 4,
+            "assists": 12
+          }
+        },
+        "3000_HiTayo": {
+          "entity_id": 57861,
+          "hero_name": "Idris",
+          "candidate_events": {
+            "0x43": 59,
+            "0x44": 106,
+            "0x65": 26
+          },
+          "truth": {
+            "kills": 12,
+            "deaths": 2,
+            "assists": 11
+          }
+        },
+        "2999_Prym": {
+          "entity_id": 56581,
+          "hero_name": "Samuel",
+          "candidate_events": {
+            "0x43": 37,
+            "0x44": 63,
+            "0x65": 1,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 7,
+            "deaths": 5,
+            "assists": 4
+          }
+        },
+        "2999_MoonQe": {
+          "entity_id": 56325,
+          "hero_name": "Fortress",
+          "candidate_events": {
+            "0x43": 57,
+            "0x44": 85,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 5,
+            "deaths": 7,
+            "assists": 4
+          }
+        },
+        "2999_Ambrasadors": {
+          "entity_id": 58117,
+          "hero_name": "Grace",
+          "candidate_events": {
+            "0x43": 69,
+            "0x44": 124
+          },
+          "truth": {
+            "kills": 1,
+            "deaths": 7,
+            "assists": 6
+          }
+        },
+        "3004_BearFang": {
+          "entity_id": 58373,
+          "hero_name": "Ardan",
+          "candidate_events": {
+            "0x43": 49,
+            "0x44": 79,
+            "0x65": 1,
+            "0x76": 1
+          },
+          "truth": {
+            "kills": 0,
+            "deaths": 6,
+            "assists": 6
+          }
+        },
+        "2999_DrPawn": {
+          "entity_id": 58629,
+          "hero_name": "Baron",
+          "candidate_events": {
+            "0x43": 34,
+            "0x44": 68
+          },
+          "truth": {
+            "kills": 2,
+            "deaths": 5,
+            "assists": 7
+          }
+        }
+      }
+    }
+  ]
+}
