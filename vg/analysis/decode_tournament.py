@@ -87,6 +87,8 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
     kill_total = 0
     death_correct = 0
     death_total = 0
+    assist_correct = 0
+    assist_total = 0
     winner_correct = 0
     winner_total = 0
     team_swapped_matches = 0
@@ -139,6 +141,8 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         match_k_total = 0
         match_d_ok = 0
         match_d_total = 0
+        match_a_ok = 0
+        match_a_total = 0
 
         for player in decoded.all_players:
             tp = truth_players.get(player.name, {})
@@ -192,6 +196,17 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
                 else:
                     print(f"  [MISS] Death {player.name}: detected={player.deaths}, truth={truth_d}")
 
+            # Assists
+            truth_a = tp.get("assists")
+            if truth_a is not None and player.assists is not None:
+                assist_total += 1
+                match_a_total += 1
+                if player.assists == truth_a:
+                    assist_correct += 1
+                    match_a_ok += 1
+                else:
+                    print(f"  [MISS] Assist {player.name}: detected={player.assists}, truth={truth_a}")
+
         # Match summary
         effective_winner = (_flip_team(decoded.winner) if is_swapped else decoded.winner) if decoded.winner else None
         match_result = {
@@ -201,6 +216,7 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
             "winner_ok": effective_winner == truth_winner if truth_winner else None,
             "kill_accuracy": f"{match_k_ok}/{match_k_total}" if match_k_total else "N/A",
             "death_accuracy": f"{match_d_ok}/{match_d_total}" if match_d_total else "N/A",
+            "assist_accuracy": f"{match_a_ok}/{match_a_total}" if match_a_total else "N/A",
             "duration_detected": decoded.duration_seconds,
             "duration_truth": truth_duration,
         }
@@ -208,7 +224,7 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
 
         if verbose:
             print(f"  Duration: detected={decoded.duration_seconds}s, truth={truth_duration}s")
-            print(f"  Kills: {match_k_ok}/{match_k_total}, Deaths: {match_d_ok}/{match_d_total}")
+            print(f"  Kills: {match_k_ok}/{match_k_total}, Deaths: {match_d_ok}/{match_d_total}, Assists: {match_a_ok}/{match_a_total}")
 
     # --- Summary ---
     print(f"\n{'='*70}")
@@ -241,6 +257,11 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         pct = death_correct / death_total * 100
         summary["deaths"] = {"correct": death_correct, "total": death_total, "pct": pct}
         print(f"Deaths: {death_correct}/{death_total} ({pct:.1f}%)")
+
+    if assist_total:
+        pct = assist_correct / assist_total * 100
+        summary["assists"] = {"correct": assist_correct, "total": assist_total, "pct": pct}
+        print(f"Assist: {assist_correct}/{assist_total} ({pct:.1f}%)")
 
     combined = kill_correct + death_correct
     combined_total = kill_total + death_total

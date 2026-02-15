@@ -310,7 +310,7 @@ class UnifiedDecoder:
         match_info: Dict,
     ) -> tuple:
         """
-        Run KDADetector on all frames and assign K/D to players.
+        Run KDADetector on all frames and assign K/D/A to players.
 
         Returns:
             (kda_used: bool, duration_estimate: Optional[float])
@@ -318,11 +318,13 @@ class UnifiedDecoder:
         # Build BE entity ID set and LE→BE mapping
         eid_map = {}  # BE -> player
         valid_eids = set()
+        team_map = {}  # BE -> team name
         for player in all_players:
             if player.entity_id:
                 eid_be = _le_to_be(player.entity_id)
                 eid_map[eid_be] = player
                 valid_eids.add(eid_be)
+                team_map[eid_be] = player.team
 
         if not valid_eids:
             return False, None
@@ -336,14 +338,17 @@ class UnifiedDecoder:
         if detector.death_events:
             duration_est = max(d.timestamp for d in detector.death_events)
 
-        # Get results with post-game filter using estimated duration
-        results = detector.get_results(game_duration=duration_est)
+        # Get results with post-game filter and assist detection
+        results = detector.get_results(
+            game_duration=duration_est, team_map=team_map,
+        )
 
         for eid_be, kda in results.items():
             player = eid_map.get(eid_be)
             if player:
                 player.kills = kda.kills
                 player.deaths = kda.deaths
+                player.assists = kda.assists
 
         return True, duration_est
 
@@ -358,11 +363,13 @@ class UnifiedDecoder:
 
         eid_map = {}
         valid_eids = set()
+        team_map = {}
         for player in match.all_players:
             if player.entity_id:
                 eid_be = _le_to_be(player.entity_id)
                 eid_map[eid_be] = player
                 valid_eids.add(eid_be)
+                team_map[eid_be] = player.team
 
         if not valid_eids:
             return
@@ -371,12 +378,13 @@ class UnifiedDecoder:
         for frame_idx, data in frames:
             detector.process_frame(frame_idx, data)
 
-        results = detector.get_results(game_duration=duration)
+        results = detector.get_results(game_duration=duration, team_map=team_map)
         for eid_be, kda in results.items():
             player = eid_map.get(eid_be)
             if player:
                 player.kills = kda.kills
                 player.deaths = kda.deaths
+                player.assists = kda.assists
 
     def _load_truth(self, truth_path: str, replay_name: str) -> Optional[Dict]:
         """Load truth data for a specific replay."""

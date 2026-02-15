@@ -1,21 +1,24 @@
 """
-KDA Detector - Kill/Death detection from Vainglory replay files.
+KDA Detector - Kill/Death/Assist detection from Vainglory replay files.
 
 Cross-validated accuracy (94 players across 10 complete replays):
-  Kill: 97.9% (92/94) - raw detection, no filtering
-  Death: 95.7% (90/94) - with post-game ceremony filter (ts <= duration + 10s)
-  Combined: 96.8% (182/188)
+  Kill:   97.9% (92/94) - raw detection, no filtering
+  Death:  95.7% (90/94) - with post-game ceremony filter (ts <= duration + 10s)
+  Assist: 93.9% (93/99) - credit record flag + same-team filtering
+  Combined K+D: 96.8% (182/188)
 
 Record structures (Big Endian protocol):
-  Kill:  [18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]
-         Timestamp: f32 BE at 7 bytes before header
-  Death: [08 04 31] [00 00] [victim_eid BE] [00 00] [timestamp f32 BE] [00 00 00]
+  Kill:   [18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]
+          Timestamp: f32 BE at 7 bytes before header
+  Death:  [08 04 31] [00 00] [victim_eid BE] [00 00] [timestamp f32 BE] [00 00 00]
+  Credit: [10 04 1D] [00 00] [eid BE] [value f32 BE]  (9 bytes)
+          After kill header: killer(1.0), then assister(gold), assister(1.0), assister(0.5)
 
-Discovery method: Brute-force frequency matching across all (pattern, offset)
-combinations, then structural validation and cross-replay verification.
+Assist detection: After each kill, scan credit records within 500 bytes.
+An assist = non-killer player with value==1.0 flag AND same team as killer.
 """
 import struct
-from collections import Counter
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Set, Tuple
 
@@ -25,12 +28,21 @@ CREDIT_HEADER = bytes([0x10, 0x04, 0x1D])
 
 
 @dataclass
+class CreditRecord:
+    """A credit record following a kill."""
+    eid: int
+    value: float
+    offset: int = 0
+
+
+@dataclass
 class KillEvent:
     """A detected kill event."""
     killer_eid: int
     timestamp: Optional[float] = None
     frame_idx: int = 0
     file_offset: int = 0
+    credits: List[CreditRecord] = field(default_factory=list)
 
 
 @dataclass
@@ -47,6 +59,7 @@ class KDAResult:
     """Per-player KDA counts."""
     kills: int = 0
     deaths: int = 0
+    assists: int = 0
     kill_events: List[KillEvent] = field(default_factory=list)
     death_events: List[DeathEvent] = field(default_factory=list)
 
@@ -109,13 +122,47 @@ class KDADetector:
                 if not (0 < ts < 1800):
                     ts = None
 
+            # Scan credit records following this kill
+            credits = self._scan_credits(data, pos + 16)
+
             self._kill_events.append(KillEvent(
                 killer_eid=eid,
                 timestamp=ts,
                 frame_idx=frame_idx,
                 file_offset=pos,
+                credits=credits,
             ))
             pos += 16  # Skip past this record
+
+    def _scan_credits(self, data: bytes, start_pos: int) -> List[CreditRecord]:
+        """Scan credit records [10 04 1D] after a kill, up to 500 bytes or next kill."""
+        credits = []
+        pos = start_pos
+        max_scan = min(start_pos + 500, len(data))
+
+        while pos < max_scan:
+            # Stop at next validated kill header
+            if (data[pos:pos + 3] == KILL_HEADER and pos + 16 <= len(data)
+                    and data[pos+3:pos+5] == b'\x00\x00'
+                    and data[pos+7:pos+11] == b'\xFF\xFF\xFF\xFF'
+                    and data[pos+11:pos+15] == b'\x3F\x80\x00\x00'
+                    and data[pos+15] == 0x29):
+                break
+
+            if data[pos:pos + 3] == CREDIT_HEADER:
+                if pos + 9 <= len(data) and data[pos+3:pos+5] == b'\x00\x00':
+                    eid = struct.unpack_from(">H", data, pos + 5)[0]
+                    value = struct.unpack_from(">f", data, pos + 7)[0]
+                    if eid in self.valid_eids and 0 <= value <= 10000:
+                        credits.append(CreditRecord(
+                            eid=eid, value=round(value, 2), offset=pos,
+                        ))
+                    pos += 9
+                    continue
+
+            pos += 1
+
+        return credits
 
     def _scan_deaths(self, frame_idx: int, data: bytes) -> None:
         """Scan for death records: [08 04 31] [00 00] [eid BE] [00 00] [ts f32 BE]"""
@@ -149,7 +196,8 @@ class KDADetector:
             pos += 1
 
     def get_results(self, game_duration: Optional[float] = None,
-                    death_buffer: float = 10.0) -> Dict[int, KDAResult]:
+                    death_buffer: float = 10.0,
+                    team_map: Optional[Dict[int, str]] = None) -> Dict[int, KDAResult]:
         """
         Get per-player KDA results.
 
@@ -158,6 +206,8 @@ class KDADetector:
                           are filtered (post-game ceremony kills not counted in stats).
             death_buffer: Buffer seconds added to game_duration for death filtering.
                          Default 10s. Only used if game_duration is provided.
+            team_map: Dict mapping entity ID (BE) -> team name ("left"/"right").
+                     Required for assist detection. If None, assists remain 0.
 
         Returns:
             Dict mapping entity ID (BE) to KDAResult.
@@ -179,7 +229,40 @@ class KDADetector:
                 results[dev.victim_eid].deaths += 1
                 results[dev.victim_eid].death_events.append(dev)
 
+        # Count assists (requires team_map)
+        if team_map:
+            self._count_assists(results, team_map)
+
         return results
+
+    def _count_assists(self, results: Dict[int, KDAResult],
+                       team_map: Dict[int, str]) -> None:
+        """Count assists from credit records after each kill.
+
+        An assist = non-killer, same-team player with value==1.0 flag.
+        """
+        for kev in self._kill_events:
+            killer_eid = kev.killer_eid
+            killer_team = team_map.get(killer_eid)
+            if not killer_team:
+                continue
+
+            # Group credits by entity ID
+            credits_by_eid: Dict[int, List[float]] = defaultdict(list)
+            for cr in kev.credits:
+                credits_by_eid[cr.eid].append(cr.value)
+
+            for eid, values in credits_by_eid.items():
+                if eid == killer_eid:
+                    continue
+                # Must have 1.0 participation flag
+                if not any(abs(v - 1.0) < 0.01 for v in values):
+                    continue
+                # Must be same team as killer
+                if team_map.get(eid) != killer_team:
+                    continue
+                if eid in results:
+                    results[eid].assists += 1
 
     @property
     def kill_events(self) -> List[KillEvent]:
