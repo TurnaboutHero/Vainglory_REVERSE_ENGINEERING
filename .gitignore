@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Large analysis outputs (regenerable)
+vg/output/entity_map.json
+vg/output/entity_timeline.json
+vg/output/interaction_graph.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

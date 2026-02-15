@@ -1,0 +1,2986 @@
+{
+  "total_replays": 60,
+  "successful": 60,
+  "errors": 0,
+  "unique_players": 326,
+  "game_modes": {
+    "GameMode_5v5_Ranked": 38,
+    "GameMode_5v5_Casual": 9,
+    "GameMode_HF_Ranked": 7,
+    "null": 4,
+    "GameMode_5v5_Practic": 2
+  },
+  "hero_picks": {
+    "Unknown": 93,
+    "Caine": 26,
+    "Ardan": 25,
+    "Baron": 21,
+    "Lorelai": 20,
+    "Phinn": 18,
+    "Blackfeather": 18,
+    "Skaarf": 17,
+    "Lyra": 17,
+    "Kinetic": 16,
+    "Gwen": 15,
+    "Samuel": 15,
+    "Magnus": 14,
+    "Grace": 14,
+    "Kestrel": 14,
+    "Yates": 12,
+    "Tony": 12,
+    "Ylva": 12,
+    "Grumpjaw": 12,
+    "Reza": 12,
+    "Celeste": 10,
+    "Ringo": 9,
+    "Malene": 9,
+    "Baptiste": 8,
+    "Skye": 8,
+    "Catherine": 8,
+    "San Feng": 7,
+    "Warhawk": 7,
+    "Inara": 6,
+    "Leo": 5,
+    "Ishtar": 5,
+    "Kensei": 5,
+    "Reim": 5,
+    "Ozo": 5,
+    "Fortress": 4,
+    "Idris": 4,
+    "Joule": 3,
+    "Silvernail": 3
+  },
+  "hero_detection_rate": 81.91,
+  "replays": [
+    {
+      "file": "cache",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "2930_SuperHero",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "2930_ErAtoR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2930_ALWAYSCRY",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "2930_SSR",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "2930_FL",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "2930",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "리플",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_DIOR",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "8815_Bro",
+          "hero": "Tony",
+          "team": "left"
+        },
+        {
+          "name": "8815_mumu",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "8815_nok",
+          "hero": "Leo",
+          "team": "left"
+        },
+        {
+          "name": "8815_Sui",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "8815_korea",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Ringo",
+          "team": "right"
+        },
+        {
+          "name": "8815_zm",
+          "hero": "Fortress",
+          "team": "right"
+        },
+        {
+          "name": "8815_rui",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "8815_lamy_KR",
+          "hero": "Ardan",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "리플-1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_HeroKR",
+          "hero": "Baptiste",
+          "team": "left"
+        },
+        {
+          "name": "8815_SUI_FL",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "8815_koreacex",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "8815_Bro",
+          "hero": "Tony",
+          "team": "left"
+        },
+        {
+          "name": "8815_h",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "8815_mumu",
+          "hero": "Ylva",
+          "team": "right"
+        },
+        {
+          "name": "8815_aa",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "8815_ArtXD",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_FL",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_HeroKR",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "8815_koreabts",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "8815_CRY_BETCH",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "8815_mukdori",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_SUI",
+          "hero": "Skye",
+          "team": "left"
+        },
+        {
+          "name": "8815_zm",
+          "hero": "Grumpjaw",
+          "team": "right"
+        },
+        {
+          "name": "8815_Bro",
+          "hero": "Ringo",
+          "team": "right"
+        },
+        {
+          "name": "8815_ToSSiT",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "8815_nok",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Yates",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_HeroKR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_SUI",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815_CRY_BETCH",
+          "hero": "Ishtar",
+          "team": "left"
+        },
+        {
+          "name": "8815_koreabts",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "8815_nok",
+          "hero": "Ylva",
+          "team": "right"
+        },
+        {
+          "name": "8815_zm",
+          "hero": "Phinn",
+          "team": "right"
+        },
+        {
+          "name": "8815_ToSSiT",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_mukdori",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "8815_Bro",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "3",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_koreabts",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "8815_Bro",
+          "hero": "Kensei",
+          "team": "left"
+        },
+        {
+          "name": "8815_zm",
+          "hero": "San Feng",
+          "team": "left"
+        },
+        {
+          "name": "8815_mukdori",
+          "hero": "Reim",
+          "team": "left"
+        },
+        {
+          "name": "8815_Abellllllli",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "8815_HeroKR",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Celeste",
+          "team": "right"
+        },
+        {
+          "name": "8815_CRY_BETCH",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "8815_SUI",
+          "hero": "Malene",
+          "team": "right"
+        },
+        {
+          "name": "8815_ToSSiT",
+          "hero": "Blackfeather",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "4",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_Bro",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "8815_trashmu",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "8815_zm",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_ToSSiT",
+          "hero": "Skye",
+          "team": "left"
+        },
+        {
+          "name": "8815_HeroKR",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "8815_CRY_BETCH",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_koreabts",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "8815_SUI",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "8815_Abeli",
+          "hero": "Samuel",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "815_SuperHero_KR",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "Rimmy",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "777_iLove815mu",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "815_mu",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "Guest",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "815_KTH",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "1815_BARONGOD",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "1815_zm",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "1815_mu",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "2000_Sagittarius",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "1815_KTH",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1815",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "1815_Bro",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "1815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2000_",
+          "hero": "Ozo",
+          "team": "right"
+        },
+        {
+          "name": "1815_s",
+          "hero": "Magnus",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "815_np",
+          "hero": "Idris",
+          "team": "left"
+        },
+        {
+          "name": "815_risingnovaKR",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "815_LeeJiEun",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "815_Sinchon",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "815_kk",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "815_Osori",
+          "hero": "Reim",
+          "team": "right"
+        },
+        {
+          "name": "815_Ghost",
+          "hero": "Joule",
+          "team": "right"
+        },
+        {
+          "name": "815_ParkJaeHyun",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "815_ab",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "815_Guest",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "815_Kimchi",
+          "hero": "Ringo",
+          "team": "left"
+        },
+        {
+          "name": "815_LiSA",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "815_ShinHaesun",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "815_HeroKR",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "815_Marehz",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "815_Bro",
+          "hero": "Tony",
+          "team": "right"
+        },
+        {
+          "name": "815_Hi",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "815_1s",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "Temporary karin0204",
+          "hero": "Joule",
+          "team": "left"
+        },
+        {
+          "name": "666_",
+          "hero": "Kinetic",
+          "team": "left"
+        },
+        {
+          "name": "1001",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "666_Yolanda",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "815_SuperEvil_KR",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "Guest",
+          "hero": "Idris",
+          "team": "right"
+        },
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "Tiger-D",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "815_TD",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "00001200",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "Temporary Miniyo",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "Guest",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "joe_",
+          "hero": "Ringo",
+          "team": "left"
+        },
+        {
+          "name": "007joker",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "Temporary jungles",
+          "hero": "Fortress",
+          "team": "right"
+        },
+        {
+          "name": "QWE",
+          "hero": "Leo",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1799_Enzyyy",
+          "hero": "Grace",
+          "team": "left"
+        },
+        {
+          "name": "1799",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "1799_RichardB18",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "1799_MawarMerah",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1804_x",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1800_HeroKR",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "1800_KTH",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "1800_nok",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "1800_LeeJiEun",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "1800_SuperOhtani",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1799",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "1799_MawarMerah",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "1799_RichardB18",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "1804_DrPawn",
+          "hero": "Ozo",
+          "team": "left"
+        },
+        {
+          "name": "1799_Enzyyy",
+          "hero": "Grace",
+          "team": "left"
+        },
+        {
+          "name": "1800_HeroKR",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "1800_KTH",
+          "hero": "Ishtar",
+          "team": "right"
+        },
+        {
+          "name": "1800_LeeJiEun",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "1800_SuperOhtani",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "1800_nok",
+          "hero": "Tony",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1799_DrPawn",
+          "hero": "Ozo",
+          "team": "left"
+        },
+        {
+          "name": "1804_Prym",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1799_ihza01",
+          "hero": "San Feng",
+          "team": "left"
+        },
+        {
+          "name": "1799_RichardB18",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "1799_barbatos",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "1800_HeroKR",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "1800",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "1800_",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "1800_SuperSSam",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "1800_risingnova",
+          "hero": "Silvernail",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1799_DrPawn",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "1804_Prym",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "1799_ihza01",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1799_RichardB18",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "1799_barbatos",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "1800_HeroKR",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "1800_SuperSSam",
+          "hero": "Reza",
+          "team": "right"
+        },
+        {
+          "name": "1800_",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "1800",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "1800_risingnova",
+          "hero": "Caine",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1799_ihza01",
+          "hero": "Tony",
+          "team": "left"
+        },
+        {
+          "name": "1799_RichardB18",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "1799_DrPawn",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1799_auen",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "1804_Prym",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "1800_HeroKR",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "1800_Pxphealer",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "1800_",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "1800_SuperSSam",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "3000_HeroKR",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "3000_LeeJiEun",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "3000_Pxphealer",
+          "hero": "Warhawk",
+          "team": "left"
+        },
+        {
+          "name": "3000_fl",
+          "hero": "Kinetic",
+          "team": "left"
+        },
+        {
+          "name": "3000_",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "2999_Tetsu",
+          "hero": "Kestrel",
+          "team": "right"
+        },
+        {
+          "name": "3004_TenshiiHime",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2999_",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "2999_Acelynx",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "2999_Chepler",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "Hgkk",
+          "hero": "Ozo",
+          "team": "left"
+        },
+        {
+          "name": "2000_Heart",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2000_Jiin",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "2000_pxp",
+          "hero": "Ringo",
+          "team": "left"
+        },
+        {
+          "name": "2000_Fiesta",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "0002000",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "2000_t",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2000",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "2000_RosekNas",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2500_Shrimp",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "2500_pxp",
+          "hero": "Kinetic",
+          "team": "left"
+        },
+        {
+          "name": "2500_nok",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "2500_Ghost",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "2500_Brianeo",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2499_HANXINPI",
+          "hero": "Catherine",
+          "team": "right"
+        },
+        {
+          "name": "2504_",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "00002499",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2499_TVTlollipop",
+          "hero": "Reza",
+          "team": "right"
+        },
+        {
+          "name": "2499_",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "815_Lamy_KR",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "815_Amadudu",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "815_Ghost",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "815_kth",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "Guest",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "815_Flutt3r",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "815_",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "815_pxp",
+          "hero": "Ylva",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "100-1_Flutt3r",
+          "hero": "Baptiste",
+          "team": "left"
+        },
+        {
+          "name": "100-1_Amadough",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "100-1_imt",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "100-1_DrPawn",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "100-1_Ghost",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "100-2_FL",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "100-2_seonwoo",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "100-2_ez",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "100-2_NewJeans",
+          "hero": "Skye",
+          "team": "right"
+        },
+        {
+          "name": "100-2_ricrot",
+          "hero": "Grace",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_Hunt2",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_s",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_qwer",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_nok",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_rush",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_S4VE",
+          "hero": "Baptiste",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_FL",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Amadough",
+          "hero": "Ringo",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_kth",
+          "hero": "San Feng",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_mayb",
+          "hero": "Lyra",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_pxp",
+          "hero": "Yates",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_s",
+          "hero": "Kinetic",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Hunt2",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_rush",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_qwer",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_S4VE",
+          "hero": "Ylva",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_mayb",
+          "hero": "Phinn",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Amadough",
+          "hero": "Ringo",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_FL",
+          "hero": "Warhawk",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_kth",
+          "hero": "Malene",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_S4VE",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_nok",
+          "hero": "San Feng",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Leon",
+          "hero": "Yates",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Hunt2",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_qwer",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_maybe",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_asdf",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_TJ",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Amadudu",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Ooeng",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_Hunt2",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Flutt3r",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_kth",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_jie",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_T",
+          "hero": "Skye",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_Rush",
+          "hero": "Leo",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_maybe",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Amadudu",
+          "hero": "Kestrel",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_qwer",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_asdf",
+          "hero": "Ardan",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_Shrimp",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_sanE1014",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "8815_ia",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "8815_asdf",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815_MyNameisKTH",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_Aria",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "8815_Amadough",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_Hunt2",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "8815_FL",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "8815_Maybe",
+          "hero": "Yates",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_Amadudu",
+          "hero": "Kensei",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_S4VE",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_s",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Maybe",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Heart",
+          "hero": "Skye",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_pxp",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_zxccx",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Super",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_bastion",
+          "hero": "Catherine",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_zhzhzh",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Cookie",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_A",
+          "hero": "Leo",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_GAGMAN",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Sinchon",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_pxpxpxp",
+          "hero": "Warhawk",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_t",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Maybe",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_AJIN",
+          "hero": "Catherine",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_SONGZIO",
+          "hero": "Celeste",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815-1_KHH",
+          "hero": "Grace",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_qwer",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_Sichon",
+          "hero": "Yates",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_ppxpxp",
+          "hero": "Inara",
+          "team": "left"
+        },
+        {
+          "name": "8815-1_KTH",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "8815-2_A",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_ACACIA",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_miss",
+          "hero": "Baptiste",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_t",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "8815-2_Oreo",
+          "hero": "Phinn",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8800-1_N",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "8800-1_",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8800-1_MrsLover",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8800-1_krno1",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8800-2_KTH",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8800-2_khh",
+          "hero": "Kestrel",
+          "team": "right"
+        },
+        {
+          "name": "8800-2_Oreo",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "8800-2_t",
+          "hero": "Tony",
+          "team": "right"
+        },
+        {
+          "name": "8800-2_qwer",
+          "hero": "Grumpjaw",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "item buy test",
+      "mode": "GameMode_5v5_Practic",
+      "players": [
+        {
+          "name": "Temporary Moreal",
+          "hero": "Kestrel",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "ringo death test",
+      "mode": "GameMode_5v5_Practic",
+      "players": [
+        {
+          "name": "Temporary sungwookim",
+          "hero": "Ringo",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": null,
+      "players": [
+        {
+          "name": "ATTR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "apple",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "lastuseddate",
+          "hero": "Unknown",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": null,
+      "players": [
+        {
+          "name": "ATTR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "apple",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "lastuseddate",
+          "hero": "Unknown",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": null,
+      "players": [
+        {
+          "name": "ATTR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "apple",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "lastuseddate",
+          "hero": "Unknown",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": null,
+      "players": [
+        {
+          "name": "ATTR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "apple",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "lastuseddate",
+          "hero": "Unknown",
+          "team": "left"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2999_Prym",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "3004_BearFang",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "2999_DrPawn",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "2999_MoonQe",
+          "hero": "Warhawk",
+          "team": "left"
+        },
+        {
+          "name": "2999_Ambrasadors",
+          "hero": "Baptiste",
+          "team": "left"
+        },
+        {
+          "name": "3000",
+          "hero": "Yates",
+          "team": "right"
+        },
+        {
+          "name": "3000_saptozz",
+          "hero": "Kestrel",
+          "team": "right"
+        },
+        {
+          "name": "3000_FL",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "3000_Synd",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "3000_HiTayo",
+          "hero": "Inara",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "3000_FL",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "3000_saptozz",
+          "hero": "Joule",
+          "team": "left"
+        },
+        {
+          "name": "3000_Synd",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "3000",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "3000_HiTayo",
+          "hero": "Idris",
+          "team": "left"
+        },
+        {
+          "name": "2999_Prym",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "2999_MoonQe",
+          "hero": "Fortress",
+          "team": "right"
+        },
+        {
+          "name": "2999_Ambrasadors",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "3004_BearFang",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2999_DrPawn",
+          "hero": "Baron",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2599_123",
+          "hero": "Warhawk",
+          "team": "left"
+        },
+        {
+          "name": "2604_topLaner",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "2599_Ritoramu",
+          "hero": "Samuel",
+          "team": "left"
+        },
+        {
+          "name": "2599_tsuki",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "2599_killzx",
+          "hero": "Ishtar",
+          "team": "left"
+        },
+        {
+          "name": "2600_Ghost",
+          "hero": "Inara",
+          "team": "right"
+        },
+        {
+          "name": "2600_Acex",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "2600_staplers",
+          "hero": "Skye",
+          "team": "right"
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "hero": "Grumpjaw",
+          "team": "right"
+        },
+        {
+          "name": "2600_IcyBang",
+          "hero": "Kestrel",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2600_IcyBang",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "2600_Acex",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "2600_staplers",
+          "hero": "Samuel",
+          "team": "left"
+        },
+        {
+          "name": "2600_Ghost",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "2599_Ritoramu",
+          "hero": "Celeste",
+          "team": "right"
+        },
+        {
+          "name": "2599_tsuki",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "2599_123",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "2599_killzx",
+          "hero": "Grumpjaw",
+          "team": "right"
+        },
+        {
+          "name": "2604_topLaner",
+          "hero": "Tony",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "3",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2600_Ghost",
+          "hero": "Baptiste",
+          "team": "left"
+        },
+        {
+          "name": "2600_Acex",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "hero": "Ozo",
+          "team": "left"
+        },
+        {
+          "name": "2600_IcyBang",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "2600_staplers",
+          "hero": "Samuel",
+          "team": "left"
+        },
+        {
+          "name": "2599_tsuki",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "2599_123",
+          "hero": "San Feng",
+          "team": "right"
+        },
+        {
+          "name": "2604_topLaner",
+          "hero": "Reim",
+          "team": "right"
+        },
+        {
+          "name": "2599_killzx",
+          "hero": "Ishtar",
+          "team": "right"
+        },
+        {
+          "name": "2599_Ritoramu",
+          "hero": "Skye",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "4",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2399_tsuki",
+          "hero": "Kinetic",
+          "team": "left"
+        },
+        {
+          "name": "2399_killlzx",
+          "hero": "Ringo",
+          "team": "left"
+        },
+        {
+          "name": "2404_topLaner",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "2399_Ritoramu",
+          "hero": "Samuel",
+          "team": "left"
+        },
+        {
+          "name": "2399_123",
+          "hero": "Baptiste",
+          "team": "left"
+        },
+        {
+          "name": "2400_Ghost",
+          "hero": "Catherine",
+          "team": "right"
+        },
+        {
+          "name": "2400_TenshiiHime",
+          "hero": "San Feng",
+          "team": "right"
+        },
+        {
+          "name": "2400_Acex",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "2400_IcyBang",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "2400_stapler",
+          "hero": "Skaarf",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "5 (Incomplete)",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "1900_IcyBang",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "1900_stapler",
+          "hero": "Samuel",
+          "team": "left"
+        },
+        {
+          "name": "1900_Acex",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "1900_TenshiiHime",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "1900_Ghost",
+          "hero": "Catherine",
+          "team": "left"
+        },
+        {
+          "name": "1899_1CN",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "1904_topLaner",
+          "hero": "Leo",
+          "team": "right"
+        },
+        {
+          "name": "1899_123",
+          "hero": "Warhawk",
+          "team": "right"
+        },
+        {
+          "name": "1899_Ritoramu",
+          "hero": "Skye",
+          "team": "right"
+        },
+        {
+          "name": "1899_killlzx",
+          "hero": "Reza",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "3000_HongQiGong",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "3000_YiNong",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "3000_OuYangFeng",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "3000_Dawg",
+          "hero": "Fortress",
+          "team": "left"
+        },
+        {
+          "name": "3000_DuGuQiuBai",
+          "hero": "Kensei",
+          "team": "left"
+        },
+        {
+          "name": "2999_Ghost",
+          "hero": "Baptiste",
+          "team": "right"
+        },
+        {
+          "name": "3004_TenshiiHime",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "2999_stapler",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "2999_Acex",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2999_IcyBang",
+          "hero": "Caine",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2999_Ghost",
+          "hero": "Ylva",
+          "team": "left"
+        },
+        {
+          "name": "2999_staplers",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "2999_Acex",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "2999_IcyBang",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "3004_TenshiiHime",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "3000_YiNong",
+          "hero": "Reza",
+          "team": "right"
+        },
+        {
+          "name": "3000_OuYangFeng",
+          "hero": "Grumpjaw",
+          "team": "right"
+        },
+        {
+          "name": "3000_DuGuQiuBai",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "3000_Dawg",
+          "hero": "Silvernail",
+          "team": "right"
+        },
+        {
+          "name": "3000_HongQiGong",
+          "hero": "San Feng",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2600_Ghost",
+          "hero": "Inara",
+          "team": "left"
+        },
+        {
+          "name": "2600_Acex",
+          "hero": "Lyra",
+          "team": "left"
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "2600_staplers",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "2600_IcyBang",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "2604_Ray",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "2599_FengLin",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "2599_Shifnoob",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "2599_jeebanana",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2599_PeacePlayz",
+          "hero": "Magnus",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "2",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2599_Shifnoob",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "2599_PeacePlayz",
+          "hero": "Skaarf",
+          "team": "left"
+        },
+        {
+          "name": "2599_jeebanana",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "2599_FengLin",
+          "hero": "Tony",
+          "team": "left"
+        },
+        {
+          "name": "2604_Kittymite",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "2600_Ghost",
+          "hero": "Catherine",
+          "team": "right"
+        },
+        {
+          "name": "2600_staplers",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "2600_IcyBang",
+          "hero": "Ishtar",
+          "team": "right"
+        },
+        {
+          "name": "2600_Acex",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "2600_TenshiiHime",
+          "hero": "Grumpjaw",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "8815_gu",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "8815_noobAria",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "8815_nok",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "8815_korea",
+          "hero": "Silvernail",
+          "team": "left"
+        },
+        {
+          "name": "8815_mu3",
+          "hero": "Reim",
+          "team": "left"
+        },
+        {
+          "name": "8815_Hero",
+          "hero": "Lorelai",
+          "team": "right"
+        },
+        {
+          "name": "8815_AAA",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "8815_KAKA",
+          "hero": "Blackfeather",
+          "team": "right"
+        },
+        {
+          "name": "8815_LeeJiEun",
+          "hero": "Skaarf",
+          "team": "right"
+        },
+        {
+          "name": "8815_",
+          "hero": "Kestrel",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "2930_SuperHeroKR",
+          "hero": "Grace",
+          "team": "left"
+        },
+        {
+          "name": "2930_SSR",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "2930_Valhalla",
+          "hero": "Reza",
+          "team": "left"
+        },
+        {
+          "name": "2930_FL",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "2930",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2930_2930_2930_F",
+          "hero": "Inara",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache (1)",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "2930_Valhalla",
+          "hero": "Idris",
+          "team": "left"
+        },
+        {
+          "name": "2930",
+          "hero": "Inara",
+          "team": "left"
+        },
+        {
+          "name": "2930_SuperHeroKR",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "2930_FL",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "2930_SSR",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2930_2930_2930_F",
+          "hero": "Tony",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache (2)",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "2930_Valhalla",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2930_2930_2930_F",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "2930",
+          "hero": "Tony",
+          "team": "left"
+        },
+        {
+          "name": "2930_SuperHeroKR",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2930_SSR",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2930_FL",
+          "hero": "Kinetic",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache (3)",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "2930_SuperHeroKR",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2930_SSR",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "2930",
+          "hero": "Grace",
+          "team": "left"
+        },
+        {
+          "name": "2930_FL",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "2930_2930_2930_F",
+          "hero": "Kensei",
+          "team": "right"
+        },
+        {
+          "name": "2930_Sesx",
+          "hero": "Tony",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cp 크럴",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "Mono",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "angkimoZZi",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "Guest",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "1200_SuperHero",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "tacica",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "Temporary hanimom",
+          "hero": "Lorelai",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "히",
+      "mode": "GameMode_HF_Ranked",
+      "players": [
+        {
+          "name": "1337_HANMA_BAKI",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "1337_mupama",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "1337_water",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "1337",
+          "hero": "Reza",
+          "team": "right"
+        },
+        {
+          "name": "1337_InnerPeace",
+          "hero": "Caine",
+          "team": "right"
+        },
+        {
+          "name": "1337_smbd",
+          "hero": "Phinn",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "로섹",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2946_RosekNas",
+          "hero": "Catherine",
+          "team": "left"
+        },
+        {
+          "name": "2947_nok",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "2960_Jiin5906",
+          "hero": "Lorelai",
+          "team": "left"
+        },
+        {
+          "name": "2948_LyRiz",
+          "hero": "Celeste",
+          "team": "left"
+        },
+        {
+          "name": "2949",
+          "hero": "Baron",
+          "team": "left"
+        },
+        {
+          "name": "2950_Aria",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "2950_ArtXD",
+          "hero": "Lyra",
+          "team": "right"
+        },
+        {
+          "name": "2950_korea",
+          "hero": "Magnus",
+          "team": "right"
+        },
+        {
+          "name": "2950_lane",
+          "hero": "Gwen",
+          "team": "right"
+        },
+        {
+          "name": "2950_zm",
+          "hero": "Grace",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "생일내전 1",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2927_easylamy",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2926_QUADRA_KILL",
+          "hero": "Kestrel",
+          "team": "left"
+        },
+        {
+          "name": "2928_odae",
+          "hero": "Phinn",
+          "team": "left"
+        },
+        {
+          "name": "2929_happiess",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "2940",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2930_skskskmka10",
+          "hero": "Grace",
+          "team": "right"
+        },
+        {
+          "name": "2930_Super",
+          "hero": "Samuel",
+          "team": "right"
+        },
+        {
+          "name": "2930_InnerPeace",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "2930_Hero",
+          "hero": "Catherine",
+          "team": "right"
+        },
+        {
+          "name": "2930_Aria",
+          "hero": "Unknown",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache",
+      "mode": "GameMode_5v5_Ranked",
+      "players": [
+        {
+          "name": "2927_AlphaS2",
+          "hero": "Kensei",
+          "team": "left"
+        },
+        {
+          "name": "2940",
+          "hero": "Unknown",
+          "team": "left"
+        },
+        {
+          "name": "2929_CARPEDIEM",
+          "hero": "Gwen",
+          "team": "left"
+        },
+        {
+          "name": "2928_happiess",
+          "hero": "Blackfeather",
+          "team": "left"
+        },
+        {
+          "name": "2926_Taejin",
+          "hero": "Malene",
+          "team": "left"
+        },
+        {
+          "name": "2930_skskskmka10",
+          "hero": "Tony",
+          "team": "right"
+        },
+        {
+          "name": "2930_Super",
+          "hero": "Reim",
+          "team": "right"
+        },
+        {
+          "name": "2930_InnerPeace",
+          "hero": "Kinetic",
+          "team": "right"
+        },
+        {
+          "name": "2930_Hero",
+          "hero": "Ardan",
+          "team": "right"
+        },
+        {
+          "name": "2930_Aria",
+          "hero": "Warhawk",
+          "team": "right"
+        }
+      ]
+    },
+    {
+      "file": "cache (3)",
+      "mode": "GameMode_5v5_Casual",
+      "players": [
+        {
+          "name": "2_7700",
+          "hero": "Caine",
+          "team": "left"
+        },
+        {
+          "name": "815_mus",
+          "hero": "Grumpjaw",
+          "team": "left"
+        },
+        {
+          "name": "815_Haru",
+          "hero": "Ardan",
+          "team": "left"
+        },
+        {
+          "name": "815_LiSA",
+          "hero": "Magnus",
+          "team": "left"
+        },
+        {
+          "name": "815_BringBackVG",
+          "hero": "Ylva",
+          "team": "right"
+        },
+        {
+          "name": "815_Oreo",
+          "hero": "Baron",
+          "team": "right"
+        },
+        {
+          "name": "815",
+          "hero": "Unknown",
+          "team": "right"
+        },
+        {
+          "name": "815_ss",
+          "hero": "Celeste",
+          "team": "right"
+        },
+        {
+          "name": "815_bonobono",
+          "hero": "Lorelai",
+          "team": "right"
+        }
+      ]
+    }
+  ]
+}
