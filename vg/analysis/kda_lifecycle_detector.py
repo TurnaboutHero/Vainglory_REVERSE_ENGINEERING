@@ -23,11 +23,16 @@ from collections import defaultdict, Counter
 from typing import Dict, List, Tuple, Set, Optional
 from datetime import datetime
 
+# Import VGRParser for accurate player entity extraction
+sys.path.insert(0, str(Path(__file__).parent.parent / 'core'))
+from vgr_parser import VGRParser
+
 
 class KDALifecycleDetector:
     """Detect KDA events using entity lifecycle state machine."""
 
-    # Player entity ID range (refined from analysis)
+    # Player entity ID range (refined from analysis) - DEPRECATED
+    # Now using exact entity IDs from VGRParser
     PLAYER_ENTITY_MIN = 50000
     PLAYER_ENTITY_MAX = 60000
 
@@ -64,6 +69,9 @@ class KDALifecycleDetector:
         self.entity_last_seen: Dict[int, int] = {}  # entity_id -> last_frame
         self.entity_activity: Dict[int, List[int]] = defaultdict(list)  # entity_id -> [frames]
 
+        # Player mapping from VGRParser
+        self.player_entity_map: Dict[int, dict] = {}  # entity_id -> {name, hero, team}
+
         # Event tracking
         self.all_events: List[dict] = []
         self.death_marker_events: List[dict] = []  # 0x80 events
@@ -97,8 +105,55 @@ class KDALifecycleDetector:
         self.frame_count = len(self.frames)
         print(f"[DATA] Loaded {self.frame_count} frames")
 
+    def extract_player_entities(self) -> None:
+        """Extract exact player entity IDs using VGRParser."""
+        print(f"\n[STAGE:begin:player_entity_extraction]")
+        print(f"[OBJECTIVE] Extract exact player entity IDs from player blocks")
+
+        try:
+            # Initialize parser with first frame
+            parser = VGRParser(str(self.replay_dir))
+            data = parser.parse()
+
+            # Extract all players
+            all_players = data['teams']['left'] + data['teams']['right']
+
+            for player in all_players:
+                entity_id = player.get('entity_id')
+                if entity_id:
+                    self.player_entities.add(entity_id)
+                    self.player_entity_map[entity_id] = {
+                        'name': player.get('name', 'Unknown'),
+                        'hero_name': player.get('hero_name', 'Unknown'),
+                        'team': player.get('team', 'unknown'),
+                        'truth_kda': self.TRUTH_KDA.get(player.get('hero_name', ''), {}),
+                    }
+
+            print(f"[DATA] Extracted {len(self.player_entities)} player entities")
+            print(f"[FINDING] Player entity IDs: {sorted(self.player_entities)}")
+
+            # Print player mapping
+            print(f"\n[DATA] Player Entity Mapping:")
+            for entity_id in sorted(self.player_entities):
+                player_info = self.player_entity_map[entity_id]
+                truth = player_info.get('truth_kda', {})
+                kda_str = f"{truth.get('kills', 0)}/{truth.get('deaths', 0)}/{truth.get('assists', 0)}" if truth else "N/A"
+                print(f"  Entity {entity_id}: {player_info['name']} ({player_info['hero_name']}, {player_info['team']}) - Truth KDA: {kda_str}")
+
+            print(f"[STAGE:end:player_entity_extraction]")
+
+        except Exception as e:
+            print(f"[ERROR] Failed to extract player entities: {e}")
+            print(f"[FALLBACK] Using range-based filtering ({self.PLAYER_ENTITY_MIN}-{self.PLAYER_ENTITY_MAX})")
+            self.player_entities = set()  # Will be populated during timeline construction
+            print(f"[STAGE:end:player_entity_extraction]")
+
     def is_player_entity(self, entity_id: int) -> bool:
-        """Check if entity ID is in player range."""
+        """Check if entity ID is a player entity."""
+        # If we have exact player entities from VGRParser, use them
+        if self.player_entities:
+            return entity_id in self.player_entities
+        # Fallback to range-based filtering
         return self.PLAYER_ENTITY_MIN <= entity_id <= self.PLAYER_ENTITY_MAX
 
     def extract_events_from_frame(self, frame_num: int, frame_data: bytes) -> List[dict]:
@@ -119,6 +174,9 @@ class KDALifecycleDetector:
                 target_entity = None
                 if len(payload) >= 12:
                     target_entity = struct.unpack('<H', payload[10:12])[0]
+                    # Only keep if it's a valid player entity (non-zero and in player range)
+                    if target_entity != 0 and not self.is_player_entity(target_entity):
+                        target_entity = None
 
                 event = {
                     'frame': frame_num,
@@ -128,7 +186,7 @@ class KDALifecycleDetector:
                     'action_hex': f"0x{action_code:02X}",
                     'payload': payload,
                     'payload_hex': payload.hex(),
-                    'target_entity': target_entity if self.is_player_entity(target_entity) else None,
+                    'target_entity': target_entity,
                 }
 
                 events.append(event)
@@ -246,7 +304,7 @@ class KDALifecycleDetector:
         expected_total_deaths = sum(p['deaths'] for p in self.TRUTH_KDA.values())
 
         threshold_analysis = {}
-        test_thresholds = [3, 5, 7, 10, 15, 20, 30]
+        test_thresholds = [1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 30]
 
         for threshold in test_thresholds:
             disappearances = self.detect_entity_disappearances(threshold)
@@ -464,15 +522,28 @@ class KDALifecycleDetector:
         # Get disappearances with optimal threshold
         disappearances = self.detect_entity_disappearances(optimal_threshold)
 
-        # Entity-level summary
+        # Entity-level summary with player mapping
         entity_summary = {}
         for entity_id in sorted(self.player_entities):
             entity_disappearances = [d for d in disappearances if d['entity_id'] == entity_id]
             entity_kills = [k for k in kill_events if k['killer'] == entity_id]
             entity_deaths = [d for d in disappearances if d['entity_id'] == entity_id and d['reappear_frame'] is not None]
 
+            # Get player info
+            player_info = self.player_entity_map.get(entity_id, {})
+            hero_name = player_info.get('hero_name', 'Unknown')
+            player_name = player_info.get('name', 'Unknown')
+            team = player_info.get('team', 'unknown')
+            truth_kda = player_info.get('truth_kda', {})
+
             entity_summary[entity_id] = {
                 'entity_id': entity_id,
+                'player_name': player_name,
+                'hero_name': hero_name,
+                'team': team,
+                'truth_kills': truth_kda.get('kills', 0),
+                'truth_deaths': truth_kda.get('deaths', 0),
+                'truth_assists': truth_kda.get('assists', 0),
                 'total_events': len(self.entity_activity[entity_id]),
                 'frames_active': len(self.entity_activity[entity_id]),
                 'disappearances': len(entity_disappearances),
@@ -485,7 +556,9 @@ class KDALifecycleDetector:
                 'replay_dir': str(self.replay_dir),
                 'analyzed_at': datetime.now().isoformat(),
                 'frame_count': self.frame_count,
-                'player_entity_range': f"{self.PLAYER_ENTITY_MIN}-{self.PLAYER_ENTITY_MAX}",
+                'player_entity_count': len(self.player_entities),
+                'player_entity_ids': sorted(self.player_entities),
+                'extraction_method': 'VGRParser' if self.player_entity_map else 'range_based',
                 'optimal_threshold': optimal_threshold,
             },
             'ground_truth': self.TRUTH_KDA,
@@ -575,11 +648,12 @@ Tested disappearance thresholds (N consecutive frames without activity):
 
 Analysis with optimal threshold (N={optimal}):
 
-| Entity ID | Total Events | Frames Active | Disappearances | Detected Deaths | Detected Kills |
-|-----------|--------------|---------------|----------------|-----------------|----------------|
+| Entity ID | Player | Hero | Team | Truth KDA | Total Events | Disappearances | Detected Deaths | Detected Kills |
+|-----------|--------|------|------|-----------|--------------|----------------|-----------------|----------------|
 """
         for entity_id, summary in sorted(report['entity_summary'].items()):
-            md += f"| {entity_id} | {summary['total_events']} | {summary['frames_active']} | {summary['disappearances']} | {summary['detected_deaths']} | {summary['detected_kills']} |\n"
+            truth_kda = f"{summary.get('truth_kills', 0)}/{summary.get('truth_deaths', 0)}/{summary.get('truth_assists', 0)}"
+            md += f"| {entity_id} | {summary.get('player_name', 'Unknown')} | {summary.get('hero_name', 'Unknown')} | {summary.get('team', 'unknown')} | {truth_kda} | {summary['total_events']} | {summary['disappearances']} | {summary['detected_deaths']} | {summary['detected_kills']} |\n"
 
         md += f"""
 ## 0x80 Burst Correlation
@@ -709,7 +783,7 @@ Using payload offset 10-11 for target entity detection:
         report = self.generate_comprehensive_report(optimal_threshold)
 
         # Save JSON (remove payload bytes for serialization)
-        json_path = output_path / "kda_lifecycle_analysis.json"
+        json_path = output_path / "kda_player_integrated_results.json"
 
         # Clean report for JSON serialization
         def clean_for_json(obj):
@@ -742,7 +816,14 @@ Using payload offset 10-11 for target entity detection:
         expected_deaths = sum(p['deaths'] for p in self.TRUTH_KDA.values())
 
         print(f"\n[DATA] Player Entities: {len(self.player_entities)}")
+        print(f"  Extraction method: {'VGRParser (exact)' if self.player_entity_map else 'Range-based (fallback)'}")
         print(f"  Entity IDs: {sorted(self.player_entities)}")
+
+        if self.player_entity_map:
+            print(f"\n[DATA] Player Mapping:")
+            for entity_id in sorted(self.player_entities):
+                player_info = self.player_entity_map[entity_id]
+                print(f"  {entity_id}: {player_info['name']} ({player_info['hero_name']}, {player_info['team']})")
 
         print(f"\n[DATA] Event Statistics:")
         print(f"  Total events: {len(self.all_events):,}")
@@ -775,6 +856,9 @@ def main():
 
     # Load frames
     detector.load_frames()
+
+    # Extract exact player entities from player blocks
+    detector.extract_player_entities()
 
     # Build timelines
     detector.build_entity_timelines()

@@ -20,7 +20,7 @@ This project reverse-engineers the VGR replay binary format to extract match dat
 | Weapon items | `FF FF FF FF [item_id 2B LE]` pattern | 100% |
 | Item purchase event | Action code `0xBC` (Entity 0) | Confirmed |
 | Skill level-up event | Action code `0x3E` (Entity 0/128) | Confirmed |
-| Win/Loss | Vain Crystal destruction (6+ simultaneous turret kills) | Partial |
+| Win/Loss | Turret ID clustering + Crystal destruction pattern | 99% (1 replay validated) |
 | K/D/A | Event stream analysis | Research stage |
 
 ### Hero Coverage
@@ -44,6 +44,11 @@ vg/
   analysis/                    # Analysis & research scripts
     action_code_analyzer.py      # Event action code statistical analysis
     win_loss_detector.py         # Match outcome detection (turret patterns)
+    turret_team_mapper.py        # Turret-to-team clustering analysis
+    kda_payload_analyzer.py      # K/D/A event payload statistical analysis
+    kda_lifecycle_detector.py    # K/D/A entity lifecycle tracking
+    cross_replay_hero_validator.py # Inferred hero validation across replays
+    entity_lifecycle_tracker.py  # Entity state machine analysis
     hero_id_mapper.py            # Unknown hero ID inference engine
     player_kill_detector.py      # Kill event detection (research)
     entity_network_mapper.py     # Entity interaction graph builder
@@ -73,7 +78,7 @@ python vg/core/vgr_parser.py /path/to/replay.0.vgr --debug-events
 python vg/analysis/action_code_analyzer.py /path/to/replay/
 
 # Detect win/loss from turret destruction patterns
-python vg/analysis/win_loss_detector.py /path/to/replay.0.vgr
+python vg/analysis/win_loss_detector.py /path/to/replay/cache/ --debug
 
 # Extract item IDs from replay
 python vg/analysis/extract_all_item_ids.py /path/to/replay/
@@ -169,11 +174,11 @@ Item IDs range from 101 (Weapon Blade) to 423 (Stormcrown). See `vgr_mapping.py`
 - Game phase detection via action code distribution
 - Item purchase event detection (`0xBC`)
 - Skill level-up detection (`0x3E`)
-- Vain Crystal destruction detection (6+ simultaneous turret kills)
+- Win/Loss via turret team clustering (ID gap 834-2519) + Crystal destruction pattern (6+ turrets in 5-frame window)
 
 ### In Progress
-- **Win/Loss**: Crystal destruction detected, but turret-to-team mapping needed to determine winner
 - **K/D/A**: No single action code maps to kill/death events. The input replay system means K/D/A is computed in real-time by the game engine, not stored directly. Research ongoing with entity lifecycle tracking and multi-replay cross-validation.
+- **Inferred hero validation** (20 heroes at ~80% confidence via suffix pattern + release chronology)
 
 ## Disclaimer
 
