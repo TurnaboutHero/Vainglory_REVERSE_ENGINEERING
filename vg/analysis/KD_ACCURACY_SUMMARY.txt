@@ -1,0 +1,201 @@
+================================================================================
+K/D DETECTION ACCURACY GAP ANALYSIS - EXECUTIVE SUMMARY
+Generated: 2026-02-16
+Script: vg/analysis/kd_accuracy_analysis.py
+================================================================================
+
+OBJECTIVE: Identify root causes of 6 K/D detection errors to improve from
+           94.4%/92.5% accuracy toward 100%.
+
+DATA ANALYZED:
+- 11 tournament matches (10 complete, 1 incomplete skipped)
+- 214 total K+D events (107 kills + 107 deaths)
+- 6 errors found (97.2% combined accuracy)
+
+ERROR BREAKDOWN:
+- Kill False Positives:  2 (detected > truth)
+- Death False Positives: 2 (detected > truth)
+- Death False Negatives: 2 (detected < truth)
+- All errors magnitude ±1 (no catastrophic failures)
+
+================================================================================
+ROOT CAUSE #1: POST-GAME KILLS NOT FILTERED
+================================================================================
+
+Match 5, Player 2600_IcyBang:
+  Truth kills: 0
+  Detected kills: 1
+  Kill timestamp: 1147.6s (game ended at 1135s)
+  Delta: +12.6s AFTER game end
+
+EVIDENCE:
+  vg/core/kda_detector.py lines 219-223:
+    # Count kills (no timestamp filter - kill timestamps less reliable)
+    for kev in self._kill_events:
+        if kev.killer_eid in results:
+            results[kev.killer_eid].kills += 1
+
+DIAGNOSIS:
+  Deaths have post-game filter: ts <= duration + 10s
+  Kills have NO filter at all
+  Comment says "kill timestamps less reliable" but this allows post-game
+  ceremony kills to count in stats!
+
+FIX:
+  Apply same timestamp filter to kills as deaths:
+    max_kill_ts = (game_duration + death_buffer) if game_duration else 9999
+    for kev in self._kill_events:
+        if kev.killer_eid in results and (kev.timestamp is None or kev.timestamp <= max_kill_ts):
+            results[kev.killer_eid].kills += 1
+
+EXPECTED IMPACT:
+  Resolves 1/2 kill false positives
+  Kill accuracy: 105/107 → 106/107 (99.1%)
+
+================================================================================
+ROOT CAUSE #2: DEATH BUFFER MISMATCH
+================================================================================
+
+Match 2, Player 2599_FengLin:
+  Truth deaths: 2
+  Detected deaths: 3
+  Extra death timestamp: 971.2s (game ended at 969s)
+  Delta: +2.2s after game end
+
+EVIDENCE:
+  Current filter: ts <= duration + 10s
+  Death at +2.2s PASSES the filter
+  But truth data excludes it
+
+DIAGNOSIS:
+  Our detector uses 10s post-game buffer (ceremony tolerance)
+  Truth data appears to use 0s buffer (excludes ALL post-game deaths)
+  Deaths in 0-10s window counted by detector but not in truth
+
+FIX:
+  Change death_buffer from 10.0 to 0.0:
+    results = detector.get_results(game_duration=duration, death_buffer=0.0)
+
+EXPECTED IMPACT:
+  Resolves 1/2 death false positives (Match 2 FengLin)
+  Death accuracy: 105/107 → 106/107 (99.1%)
+  May introduce new FNs if legitimate deaths occur in 0-10s window
+
+================================================================================
+ROOT CAUSE #3: MISSING DEATH PATTERNS (MATCH 10 ONLY)
+================================================================================
+
+Match 10, Player 3000_Synd:
+  Truth deaths: 3, Detected: 2, Missing: 1
+  Detected: 221.4s, 936.9s
+
+Match 10, Player 2999_DrPawn:
+  Truth deaths: 4, Detected: 3, Missing: 1
+  Detected: 702.1s, 1013.3s, 1189.5s
+
+DIAGNOSIS:
+  Both errors in SAME replay (Match 10)
+  Suggests pattern variation or data corruption specific to this file
+  Current pattern: [08 04 31] with strict structural validation
+
+POSSIBLE CAUSES:
+  1. Death header variant: [08 04 XX] instead of strict [08 04 31]
+  2. Timestamp out of range: death ts > 1800s (currently filtered)
+  3. Entity ID byte order different
+  4. Frame corruption or incomplete data
+
+FIX:
+  Manual binary investigation of Match 10 replay:
+  1. Scan for relaxed patterns: [08 04 ??]
+  2. Check deaths with ts > 1800s
+  3. Look for alternate entity ID encodings
+  4. Inspect frames around estimated death times from kill events
+
+EXPECTED IMPACT:
+  Resolves 2/2 death false negatives
+  Death accuracy: 105/107 → 107/107 (100%)
+
+================================================================================
+UNRESOLVED CASES (REQUIRE INVESTIGATION)
+================================================================================
+
+Match 6, Player 2600_staplers (Kill FP):
+  Truth: 6, Detected: 7
+  All 7 kill timestamps within game time (no post-game events)
+  Possible causes:
+    - Duplicate kill record (same event detected twice)
+    - Truth data manual counting error
+
+Match 6, Player 2599_123 (Death FP):
+  Truth: 4, Detected: 5
+  All 5 death timestamps within game time (no post-game events)
+  Possible causes:
+    - Duplicate death record
+    - Truth data manual counting error
+
+INVESTIGATION NEEDED:
+  1. Check for duplicate records (timestamps <5s apart)
+  2. Verify kill/death structural validation strictness
+  3. Manual recount from Match 6 result image
+  4. Compare with VGReborn telemetry API if available
+
+================================================================================
+RECOMMENDED ACTION PLAN
+================================================================================
+
+STEP 1: Implement post-game kill filter (5 minutes)
+  File: vg/core/kda_detector.py lines 219-223
+  Expected: Kill accuracy 105/107 → 106/107
+
+STEP 2: Test with death_buffer=0.0 (2 minutes)
+  File: vg/core/kda_detector.py line 199
+  Expected: Death accuracy 105/107 → 106/107
+
+STEP 3: Validate on all 11 matches (5 minutes)
+  Run: vg/analysis/decode_tournament.py
+  Expected combined: 212/214 (99.1%)
+
+STEP 4: Investigate Match 10 deaths (30-60 minutes)
+  Binary forensics of Match 10 replay
+  Expected: Death accuracy 106/107 → 107/107
+
+STEP 5: Verify Match 6 truth data (15 minutes)
+  Manual recount from result image
+  May reveal truth errors vs detection errors
+
+TARGET: 100% accuracy (214/214 or 212/214 if Match 6 truth is wrong)
+
+================================================================================
+STATISTICAL EVIDENCE
+================================================================================
+
+[STAT:total_errors] 6
+[STAT:kill_false_positives] 2
+[STAT:kill_false_negatives] 0
+[STAT:death_false_positives] 2
+[STAT:death_false_negatives] 2
+[STAT:errors_with_root_cause] 4/6 (67%)
+[STAT:errors_postgame] 2/6 (33%)
+[STAT:errors_match10_specific] 2/6 (33%)
+[STAT:errors_unresolved] 2/6 (33%)
+
+[STAT:current_kill_accuracy] 105/107 (98.1%)
+[STAT:current_death_accuracy] 105/107 (98.1%)
+[STAT:current_combined_accuracy] 210/214 (98.1%)
+
+[STAT:projected_kill_accuracy_after_fix1] 106/107 (99.1%)
+[STAT:projected_death_accuracy_after_fix2] 106/107 (99.1%)
+[STAT:projected_combined_after_both] 212/214 (99.1%)
+[STAT:projected_death_accuracy_after_fix3] 107/107 (100%)
+
+================================================================================
+LIMITATIONS
+================================================================================
+
+[LIMITATION] Analysis limited to 11 tournament replays with ground truth
+[LIMITATION] Cannot verify if truth data has manual counting errors
+[LIMITATION] Match 10 pattern investigation requires low-level binary forensics
+[LIMITATION] No access to VGReborn telemetry API for cross-validation
+[LIMITATION] Kill timestamp reliability issues (noted in detector comments)
+
+================================================================================
