@@ -6,17 +6,34 @@ __pycache__/
 dist/
 build/
 
-# Large analysis outputs (regenerable)
-vg/output/entity_map.json
-vg/output/entity_timeline.json
-vg/output/interaction_graph.json
+# Analysis outputs (regenerable, may contain player PII)
+vg/output/
+
+# Data files
+vg/data/
 
 # Sensitive / MITM related (kept locally only)
 vg/docs/MITM_GUIDE.md
 vg/tools/mitm_capture.py
+vg/tools/EXAMPLES.md
 
-# Player PII (contains in-game names)
-vg/output/batch_parse_results.json
+# Reference images and screenshots
+vg/*.png
+vg/docs/*.png
+
+# Match data with player PII
+vg/docs/MATCH_DATA_*.md
+vg/docs/tournament_*.md
+vg/docs/HERO_DETECTION_RESULTS.md
+vg/docs/PROJECT_OVERVIEW.md
+
+# Temporary/context files
+vg/context_output.txt
+vg/analysis/README_extract_all_item_ids.md
+
+# Database files
+*.db
+*.sqlite
 
 # OMC state
 .omc/
