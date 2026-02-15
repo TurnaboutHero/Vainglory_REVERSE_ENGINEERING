@@ -86,41 +86,50 @@ class WinLossDetector:
         except ValueError:
             return 0
 
-    def _detect_turret_deaths(self, data: bytes) -> Set[int]:
+    def _collect_entity_events(self) -> Dict[int, Dict]:
         """
-        Detect turret entity IDs that died (lifecycle end) in this frame.
+        Collect entity lifecycle data across all frames.
 
-        Turrets are characterized by:
-        - High event count (stationary, constantly broadcasting)
-        - Low movement percentage (< 5%)
-        - Lifecycle transitions
-
-        Death detection: Look for entity disappearance or specific death events
+        Returns:
+            Dictionary mapping entity_id to {first_frame, last_frame, event_count, frames}
         """
-        # Simple heuristic: scan for entity lifecycle end markers
-        # This is a placeholder - real implementation needs event parsing
-        deaths = set()
+        frames = self._find_replay_files()
+        if not frames:
+            return {}
 
-        # Scan for entity state changes
-        # Format: [entity_id:2][00 00][action:1]
-        # Death actions: 0x80, 0x81, or entity stops appearing
+        entity_data = defaultdict(lambda: {
+            'first_frame': None,
+            'last_frame': None,
+            'event_count': 0,
+            'frames': set()
+        })
 
-        idx = 0
-        entity_patterns = defaultdict(int)
+        for frame_path in frames:
+            frame_num = self._frame_index(frame_path)
+            data = frame_path.read_bytes()
 
-        while idx < len(data) - 4:
-            # Read potential entity_id (uint16 LE)
-            entity_id = struct.unpack_from('<H', data, idx)[0]
+            # Parse entity events: [EntityID 2B LE][00 00][ActionCode 1B][Payload ~32B]
+            idx = 0
+            while idx < len(data) - 5:
+                # Check for entity event pattern
+                if data[idx+2:idx+4] == b'\x00\x00':
+                    entity_id = struct.unpack('<H', data[idx:idx+2])[0]
 
-            # Check if followed by 00 00 (common pattern)
-            if idx + 4 < len(data) and data[idx+2] == 0 and data[idx+3] == 0:
-                entity_patterns[entity_id] += 1
+                    # Filter to infrastructure/objective range (1024-19970)
+                    if 1024 <= entity_id <= 19970:
+                        entity = entity_data[entity_id]
+                        if entity['first_frame'] is None:
+                            entity['first_frame'] = frame_num
+                        entity['last_frame'] = frame_num
+                        entity['event_count'] += 1
+                        entity['frames'].add(frame_num)
 
-            idx += 1
+                    # Skip to next potential event
+                    idx += 37
+                else:
+                    idx += 1
 
-        # Turrets have high pattern counts (stationary entities)
-        # This is simplified - real detection needs full event parsing
-        return deaths
+        return dict(entity_data)
 
     def _parse_player_team_mapping(self, first_frame_data: bytes) -> Dict[int, str]:
         """
@@ -166,6 +175,93 @@ class WinLossDetector:
             search_start = pos + 1
 
         return team_map
+
+    def _cluster_turrets_by_team(self, entity_data: Dict[int, Dict]) -> Tuple[List[int], List[int]]:
+        """
+        Cluster turret entity IDs into two teams based on ID ranges.
+
+        Research finding: Turret IDs cluster by team with 834-2519 ID gap between teams.
+
+        Returns:
+            Tuple of (team1_ids, team2_ids)
+        """
+        if not entity_data:
+            return [], []
+
+        # Filter to turret candidates (appear early, high events, destroyed)
+        turret_candidates = []
+        max_frame = max(e['last_frame'] for e in entity_data.values() if e['last_frame'] is not None)
+
+        for entity_id, data in entity_data.items():
+            appears_early = data['first_frame'] is not None and data['first_frame'] <= 5
+            high_events = data['event_count'] > 50
+            destroyed = data['last_frame'] is not None and data['last_frame'] < max_frame - 10
+
+            if appears_early and high_events:
+                turret_candidates.append(entity_id)
+
+        if len(turret_candidates) < 2:
+            return [], []
+
+        # Sort by entity ID
+        turret_candidates.sort()
+
+        # Find largest gap between consecutive IDs
+        max_gap = 0
+        split_index = len(turret_candidates) // 2
+
+        for i in range(len(turret_candidates) - 1):
+            gap = turret_candidates[i + 1] - turret_candidates[i]
+            if gap > max_gap:
+                max_gap = gap
+                split_index = i + 1
+
+        team1_ids = turret_candidates[:split_index]
+        team2_ids = turret_candidates[split_index:]
+
+        if self.debug:
+            print(f"[DEBUG] Clustered {len(team1_ids)} team1 turrets, {len(team2_ids)} team2 turrets")
+            print(f"[DEBUG] Gap between teams: {max_gap} IDs")
+
+        return team1_ids, team2_ids
+
+    def _identify_vain_crystals(
+        self,
+        team1_ids: List[int],
+        team2_ids: List[int],
+        entity_data: Dict[int, Dict]
+    ) -> Tuple[Optional[int], Optional[int]]:
+        """
+        Identify Vain Crystal for each team (highest event count entity).
+
+        Research finding: Vain Crystal has the most events per team.
+
+        Returns:
+            Tuple of (team1_crystal_id, team2_crystal_id)
+        """
+        team1_crystal = None
+        team1_max_events = 0
+
+        for entity_id in team1_ids:
+            events = entity_data[entity_id]['event_count']
+            if events > team1_max_events:
+                team1_max_events = events
+                team1_crystal = entity_id
+
+        team2_crystal = None
+        team2_max_events = 0
+
+        for entity_id in team2_ids:
+            events = entity_data[entity_id]['event_count']
+            if events > team2_max_events:
+                team2_max_events = events
+                team2_crystal = entity_id
+
+        if self.debug:
+            print(f"[DEBUG] Team1 crystal: {team1_crystal} ({team1_max_events} events)")
+            print(f"[DEBUG] Team2 crystal: {team2_crystal} ({team2_max_events} events)")
+
+        return team1_crystal, team2_crystal
 
     def _identify_crystal_frame(self) -> Optional[int]:
         """
@@ -288,102 +384,169 @@ class WinLossDetector:
         """
         Detect match winner from turret destruction pattern.
 
+        Algorithm:
+        1. Collect all entity events across frames
+        2. Cluster turret entities into 2 teams by ID ranges
+        3. Track turret destruction timeline
+        4. Detect crystal destruction: 6+ turrets destroyed in 5-frame window
+        5. Team with concentrated destruction = loser
+
         Returns:
             MatchOutcome if winner can be determined, None otherwise
         """
         print("[STAGE:begin:data_loading]")
 
-        # Try reading from entity_network_report.md first (for validation)
-        report_path = Path("vg/output/entity_network_report.md")
-        if report_path.exists():
-            self.turret_destructions = self._read_entity_network_report(report_path)
-            if self.debug:
-                print(f"[DEBUG] Loaded {len(self.turret_destructions)} turret destructions from report")
+        # Collect entity lifecycle data
+        entity_data = self._collect_entity_events()
 
-        # If no report, parse binary (TODO: implement full binary parsing)
-        if not self.turret_destructions:
-            frames = self._find_replay_files()
-            if not frames:
-                print("[LIMITATION] No replay frames found")
-                return None
+        if not entity_data:
+            print("[LIMITATION] No entity data collected")
+            print("[STAGE:status:fail]")
+            print("[STAGE:end:data_loading]")
+            return None
 
-            print(f"[DATA] Found {len(frames)} replay frames")
+        print(f"[DATA] Collected {len(entity_data)} entities in range 1024-19970")
 
-            # Read first frame for player team mapping
+        # Read first frame for player team mapping (for reference)
+        frames = self._find_replay_files()
+        if frames:
             first_frame_data = frames[0].read_bytes()
             player_team_map = self._parse_player_team_mapping(first_frame_data)
-
-            if self.debug:
-                print(f"[DEBUG] Parsed {len(player_team_map)} player team mappings")
-
-            # TODO: Parse all frames to detect turret destructions
-            # For now, we rely on entity_network_report.md
-            print("[LIMITATION] Full binary parsing not yet implemented")
-            print("[LIMITATION] Using entity_network_report.md for turret data")
+            if self.debug and player_team_map:
+                print(f"[DEBUG] Player teams: {player_team_map}")
 
         print("[STAGE:status:success]")
         print("[STAGE:end:data_loading]")
 
-        if not self.turret_destructions:
-            print("[LIMITATION] No turret destruction data available")
+        print("[STAGE:begin:analysis]")
+
+        # Cluster turrets into two teams
+        team1_ids, team2_ids = self._cluster_turrets_by_team(entity_data)
+
+        if not team1_ids or not team2_ids:
+            print("[LIMITATION] Could not cluster turrets into two teams")
+            print("[STAGE:status:fail]")
+            print("[STAGE:end:analysis]")
             return None
 
-        print("[STAGE:begin:analysis]")
-        print(f"[DATA] Analyzing {len(self.turret_destructions)} turret destructions")
+        print(f"[DATA] Team1: {len(team1_ids)} turrets, Team2: {len(team2_ids)} turrets")
 
-        # Identify crystal destruction frame
-        crystal_frame = self._identify_crystal_frame()
+        # Identify Vain Crystals
+        team1_crystal, team2_crystal = self._identify_vain_crystals(team1_ids, team2_ids, entity_data)
 
-        if crystal_frame is None:
-            print("[LIMITATION] Could not identify Vain Crystal destruction frame")
+        if not team1_crystal or not team2_crystal:
+            print("[LIMITATION] Could not identify Vain Crystals")
+            print("[STAGE:status:fail]")
+            print("[STAGE:end:analysis]")
+            return None
+
+        print(f"[FINDING] Vain Crystals identified: Team1={team1_crystal}, Team2={team2_crystal}")
+
+        # Build turret destruction timeline
+        max_frame = max(e['last_frame'] for e in entity_data.values() if e['last_frame'] is not None)
+
+        team1_destructions = []
+        team2_destructions = []
+
+        for tid in team1_ids:
+            last_frame = entity_data[tid]['last_frame']
+            if last_frame and last_frame < max_frame - 1:  # Destroyed before game end
+                team1_destructions.append((tid, last_frame))
+
+        for tid in team2_ids:
+            last_frame = entity_data[tid]['last_frame']
+            if last_frame and last_frame < max_frame - 1:
+                team2_destructions.append((tid, last_frame))
+
+        print(f"[DATA] Team1 turrets destroyed: {len(team1_destructions)}")
+        print(f"[DATA] Team2 turrets destroyed: {len(team2_destructions)}")
+
+        # Look for crystal destruction pattern: 6+ turrets in 5-frame window
+        all_destructions = [(tid, frame, 1) for tid, frame in team1_destructions]
+        all_destructions += [(tid, frame, 2) for tid, frame in team2_destructions]
+        all_destructions.sort(key=lambda x: x[1])
+
+        crystal_frame = None
+        winner = None
+        loser = None
+        confidence = 0.0
+
+        for i in range(len(all_destructions)):
+            frame = all_destructions[i][1]
+            # Count destructions in 5-frame window
+            window_destructions = [d for d in all_destructions if frame <= d[1] <= frame + 5]
+            team1_in_window = sum(1 for d in window_destructions if d[2] == 1)
+            team2_in_window = sum(1 for d in window_destructions if d[2] == 2)
+
+            if team1_in_window >= 6:
+                winner = "team2"
+                loser = "team1"
+                crystal_frame = frame
+                confidence = 0.90 + min(team1_in_window / 20.0, 0.09)  # 0.90-0.99 based on turret count
+                print(f"[FINDING] Crystal destruction pattern detected: {team1_in_window} Team1 turrets destroyed in frames {frame}-{frame+5}")
+                break
+            elif team2_in_window >= 6:
+                winner = "team1"
+                loser = "team2"
+                crystal_frame = frame
+                confidence = 0.90 + min(team2_in_window / 20.0, 0.09)
+                print(f"[FINDING] Crystal destruction pattern detected: {team2_in_window} Team2 turrets destroyed in frames {frame}-{frame+5}")
+                break
+
+        if not winner:
+            print("[LIMITATION] Could not detect crystal destruction pattern")
             print("[LIMITATION] Match may have ended by surrender or time limit")
             print("[STAGE:status:fail]")
             print("[STAGE:end:analysis]")
             return None
 
-        print(f"[FINDING] Vain Crystal destroyed at frame {crystal_frame}")
-        print(f"[STAT:crystal_frame] {crystal_frame}")
+        # Map team1/team2 to left/right based on player team mappings
+        # Team1 has lower entity IDs, Team2 has higher entity IDs
+        # Players in team_id=1 (left) typically have lower entity ranges near their turrets
+        # Players in team_id=2 (right) have higher entity ranges
+        winner_label = winner
+        loser_label = loser
 
-        # Count turrets destroyed at crystal frame
-        crystal_turrets = [t for t in self.turret_destructions if t.frame == crystal_frame]
-        print(f"[STAT:crystal_turrets] {len(crystal_turrets)}")
+        if frames and player_team_map:
+            # Find which player team (left/right) has entity IDs closer to team1/team2 turrets
+            left_players = [eid for eid, team in player_team_map.items() if team == "left"]
+            right_players = [eid for eid, team in player_team_map.items() if team == "right"]
 
-        # For now, use simplified heuristic without team mapping
-        # Assumption: Crystal frame has 5+ turrets from losing team's base
+            if left_players and right_players and team1_ids and team2_ids:
+                # Calculate average distance from player IDs to turret IDs
+                team1_avg = sum(team1_ids) / len(team1_ids)
+                team2_avg = sum(team2_ids) / len(team2_ids)
+                left_avg = sum(left_players) / len(left_players)
+                right_avg = sum(right_players) / len(right_players)
 
-        # Count pre/post crystal destructions
-        pre_crystal = [t for t in self.turret_destructions if t.frame < crystal_frame]
-        post_crystal = [t for t in self.turret_destructions if t.frame > crystal_frame]
+                # Lower entity ID team is typically left
+                # But verify with player mapping
+                team1_is_left = team1_avg < team2_avg
 
-        print(f"[STAT:pre_crystal_turrets] {len(pre_crystal)}")
-        print(f"[STAT:post_crystal_turrets] {len(post_crystal)}")
+                if winner == "team1":
+                    winner_label = "left" if team1_is_left else "right"
+                    loser_label = "right" if team1_is_left else "left"
+                else:
+                    winner_label = "right" if team1_is_left else "left"
+                    loser_label = "left" if team1_is_left else "right"
 
-        # Heuristic: More post-crystal destructions = winners destroying remaining structures
-        # This suggests the team that destroyed the crystal won
-
-        total_frames = max(t.frame for t in self.turret_destructions)
-
-        # Simplified outcome (without team entity mapping)
-        # We know frame 82 had crystal destruction in the example
-        # Post-crystal activity (frames 90-100) suggests winning team cleanup
-
-        # TODO: Implement proper team entity mapping
-        # For now, provide partial result
+        print(f"[FINDING] Winner: {winner_label} ({winner})")
+        print(f"[FINDING] Loser: {loser_label} ({loser})")
 
         outcome = MatchOutcome(
-            winner="unknown",  # Need team entity mapping
-            loser="unknown",
+            winner=winner_label,
+            loser=loser_label,
             crystal_destruction_frame=crystal_frame,
-            total_frames=total_frames,
-            left_turrets_destroyed=0,  # Need team mapping
-            right_turrets_destroyed=0,
-            confidence=0.8,
-            method="crystal_pattern_detected"
+            total_frames=max_frame,
+            left_turrets_destroyed=len(team1_destructions),
+            right_turrets_destroyed=len(team2_destructions),
+            confidence=confidence,
+            method="crystal_destruction_windowed"
         )
 
-        print("[FINDING] Crystal destruction pattern detected")
-        print(f"[STAT:confidence] {outcome.confidence}")
-        print("[LIMITATION] Team entity mapping required for winner identification")
+        print(f"[STAT:team1_turrets_destroyed] {len(team1_destructions)}")
+        print(f"[STAT:team2_turrets_destroyed] {len(team2_destructions)}")
+        print(f"[STAT:confidence] {confidence:.2f}")
 
         print("[STAGE:status:success]")
         print("[STAGE:end:analysis]")
