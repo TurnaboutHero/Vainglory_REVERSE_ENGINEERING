@@ -11,6 +11,16 @@ vg/output/entity_map.json
 vg/output/entity_timeline.json
 vg/output/interaction_graph.json
 
+# Sensitive / MITM related (kept locally only)
+vg/docs/MITM_GUIDE.md
+vg/tools/mitm_capture.py
+
+# Player PII (contains in-game names)
+vg/output/batch_parse_results.json
+
+# OMC state
+.omc/
+
 # IDE
 .vscode/
 .idea/
