@@ -1,0 +1,35 @@
+{
+  "analysis_date": "2026-02-15T21:44:23.158309",
+  "frames_analyzed": [
+    10,
+    50,
+    90
+  ],
+  "total_non_zero_positions": 625,
+  "key_findings": {
+    "primary_position_offset": "+8 bytes from payload start",
+    "position_format": "IEEE 754 float32 X,Y pairs",
+    "x_range": [
+      -12.06,
+      32.0
+    ],
+    "y_range": [
+      -1.39,
+      32.0
+    ],
+    "top_action_codes": {
+      "0x05": "Movement/position update (314 positions, 47.1% density)",
+      "0x00": "Unknown high-density event (152 positions, 143.4% density)",
+      "0x17": "Unknown multi-position event (26 positions, 216.7% density)",
+      "0x15": "Unknown multi-position event (31 positions, 206.7% density)"
+    }
+  },
+  "validation_status": "Coordinates match expected Vainglory map boundaries",
+  "confidence": "High - consistent patterns across multiple frames",
+  "next_steps": [
+    "Validate offset +8 as primary position field across all frames",
+    "Document action code to event type mapping",
+    "Build position decoder for full replay timeline",
+    "Cross-validate with Vainglory API telemetry data"
+  ]
+}

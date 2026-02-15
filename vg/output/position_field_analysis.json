@@ -1,0 +1,701 @@
+{
+  "frames": {
+    "10": {
+      "total_non_zero": 413,
+      "positions": [
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": -8.125,
+          "y": 0.002
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.002,
+          "y": 7.771
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": -1.109
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -1.109,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.5
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 2.0,
+          "y": 0.003
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.003,
+          "y": 31.082
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 31.082,
+          "y": 0.707
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 0.707,
+          "y": -0.0
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": -0.0,
+          "y": 0.031
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 1.992,
+          "y": 0.005
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.005,
+          "y": 1.943
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 1.943,
+          "y": -0.814
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -0.814,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": 0.5
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": -8.064,
+          "y": 0.002
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.002,
+          "y": 31.082
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 31.082,
+          "y": 0.632
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 0.632,
+          "y": 0.0
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.5
+        }
+      ]
+    },
+    "50": {
+      "total_non_zero": 169,
+      "positions": [
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 8.125,
+          "y": 0.004
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.004,
+          "y": 31.082
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 31.082,
+          "y": 0.734
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 0.734,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.031
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 8.0,
+          "y": 0.003
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.003,
+          "y": 7.771
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": -0.262
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -0.262,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": 0.5
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 31.877,
+          "y": 0.004
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.004,
+          "y": 7.771
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": 1.922
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 1.922,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.5
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 2.016,
+          "y": 0.005
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.005,
+          "y": 7.771
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": -0.88
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -0.88,
+          "y": 0.0
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": 0.5
+        }
+      ]
+    },
+    "90": {
+      "total_non_zero": 43,
+      "positions": [
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": -32.5,
+          "y": 0.662
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.662,
+          "y": 0.837
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 0.837,
+          "y": 1.362
+        },
+        {
+          "entity_id": 56325,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 1.362,
+          "y": -0.0
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": 32.001,
+          "y": 0.003
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.003,
+          "y": 31.082
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 31.082,
+          "y": -1.0
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -1.0,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56581,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.5
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.007,
+          "y": 7.771
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": -0.792
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": -0.792,
+          "y": 0.0
+        },
+        {
+          "entity_id": 56837,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": 0.125
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 0,
+          "x": -8.064,
+          "y": 0.003
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.003,
+          "y": 31.082
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 31.082,
+          "y": 1.561
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 12,
+          "x": 1.561,
+          "y": 0.0
+        },
+        {
+          "entity_id": 57093,
+          "action_code": 0,
+          "payload_offset": 16,
+          "x": 0.0,
+          "y": -0.125
+        },
+        {
+          "entity_id": 57349,
+          "action_code": 0,
+          "payload_offset": 4,
+          "x": 0.003,
+          "y": 7.771
+        },
+        {
+          "entity_id": 57349,
+          "action_code": 0,
+          "payload_offset": 8,
+          "x": 7.771,
+          "y": -0.588
+        }
+      ]
+    }
+  },
+  "action_code_analysis": {
+    "0x01": {
+      "count": 12,
+      "non_zero_positions": 2,
+      "offsets": {
+        "0": 1,
+        "4": 1
+      }
+    },
+    "0x03": {
+      "count": 6,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x00": {
+      "count": 106,
+      "non_zero_positions": 152,
+      "offsets": {
+        "0": 33,
+        "4": 27,
+        "8": 27,
+        "12": 24,
+        "16": 24,
+        "28": 12,
+        "24": 4,
+        "20": 1
+      }
+    },
+    "0x05": {
+      "count": 667,
+      "non_zero_positions": 314,
+      "offsets": {
+        "20": 50,
+        "24": 73,
+        "8": 75,
+        "12": 60,
+        "28": 29,
+        "0": 7,
+        "4": 20
+      }
+    },
+    "0x11": {
+      "count": 2,
+      "non_zero_positions": 4,
+      "offsets": {
+        "8": 1,
+        "12": 1,
+        "0": 1,
+        "4": 1
+      }
+    },
+    "0x17": {
+      "count": 12,
+      "non_zero_positions": 26,
+      "offsets": {
+        "0": 9,
+        "4": 9,
+        "8": 3,
+        "12": 3,
+        "24": 1,
+        "28": 1
+      }
+    },
+    "0x42": {
+      "count": 3,
+      "non_zero_positions": 6,
+      "offsets": {
+        "16": 3,
+        "20": 3
+      }
+    },
+    "0x07": {
+      "count": 15,
+      "non_zero_positions": 8,
+      "offsets": {
+        "0": 1,
+        "4": 1,
+        "24": 1,
+        "28": 1,
+        "12": 2,
+        "16": 2
+      }
+    },
+    "0x12": {
+      "count": 4,
+      "non_zero_positions": 6,
+      "offsets": {
+        "12": 2,
+        "0": 2,
+        "4": 2
+      }
+    },
+    "0x10": {
+      "count": 5,
+      "non_zero_positions": 9,
+      "offsets": {
+        "8": 2,
+        "12": 3,
+        "0": 2,
+        "4": 2
+      }
+    },
+    "0x14": {
+      "count": 2,
+      "non_zero_positions": 4,
+      "offsets": {
+        "8": 2,
+        "12": 2
+      }
+    },
+    "0x15": {
+      "count": 15,
+      "non_zero_positions": 31,
+      "offsets": {
+        "8": 6,
+        "12": 8,
+        "0": 8,
+        "4": 7,
+        "24": 1,
+        "28": 1
+      }
+    },
+    "0x18": {
+      "count": 2,
+      "non_zero_positions": 4,
+      "offsets": {
+        "8": 1,
+        "12": 1,
+        "0": 1,
+        "4": 1
+      }
+    },
+    "0x3c": {
+      "count": 3,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x43": {
+      "count": 32,
+      "non_zero_positions": 5,
+      "offsets": {
+        "28": 1,
+        "4": 2,
+        "8": 2
+      }
+    },
+    "0x0d": {
+      "count": 30,
+      "non_zero_positions": 14,
+      "offsets": {
+        "28": 2,
+        "0": 1,
+        "20": 5,
+        "24": 6
+      }
+    },
+    "0x29": {
+      "count": 61,
+      "non_zero_positions": 17,
+      "offsets": {
+        "16": 8,
+        "20": 8,
+        "12": 1
+      }
+    },
+    "0x3f": {
+      "count": 17,
+      "non_zero_positions": 14,
+      "offsets": {
+        "16": 5,
+        "20": 7,
+        "24": 2
+      }
+    },
+    "0x41": {
+      "count": 8,
+      "non_zero_positions": 4,
+      "offsets": {
+        "24": 3,
+        "20": 1
+      }
+    },
+    "0x44": {
+      "count": 7,
+      "non_zero_positions": 1,
+      "offsets": {
+        "20": 1
+      }
+    },
+    "0x3e": {
+      "count": 12,
+      "non_zero_positions": 1,
+      "offsets": {
+        "4": 1
+      }
+    },
+    "0x45": {
+      "count": 4,
+      "non_zero_positions": 2,
+      "offsets": {
+        "20": 1,
+        "24": 1
+      }
+    },
+    "0x75": {
+      "count": 1,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x71": {
+      "count": 24,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x72": {
+      "count": 6,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x76": {
+      "count": 5,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x6f": {
+      "count": 12,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x74": {
+      "count": 1,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x77": {
+      "count": 5,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x0e": {
+      "count": 1,
+      "non_zero_positions": 0,
+      "offsets": {}
+    },
+    "0x6e": {
+      "count": 2,
+      "non_zero_positions": 1,
+      "offsets": {
+        "4": 1
+      }
+    }
+  },
+  "offset_totals": {
+    "0": 66,
+    "4": 75,
+    "8": 119,
+    "12": 107,
+    "16": 42,
+    "28": 47,
+    "24": 92,
+    "20": 77
+  }
+}

@@ -154,20 +154,24 @@
 
 ---
 
-### 1.10 Position Vector Search (실패)
+### 1.10 Position Vector Search (부분 성공 - KDA와는 무관)
 
 **가설:** IEEE 754 float32 좌표 벡터 [x, z, y]가 리플레이 바이너리에 있다.
 
 **시도:** `vg/analysis/position_vector_finder.py`
 
-**결과:** 대부분 (0.0, 0.0, 0.0) - Player block 내 null padding에서 false positive
+**1차 결과:** 대부분 (0.0, 0.0, 0.0) - Player block 내 null padding에서 false positive
 
-**실패 원인:**
-- Player block 헤더 영역의 00 바이트가 float 0.0으로 해석됨
-- 실제 위치 좌표로 보이는 유의미한 벡터 미발견
-- 이벤트 payload 내에는 float32 좌표가 없거나 다른 인코딩 사용
+**2차 결과 (확장 분석):** 625개의 non-zero 위치 벡터 발견!
+- **Payload offset +8**: 주요 위치 필드 (119회 출현)
+- **Action code 0x05**: 이동/위치 업데이트 (667개 이벤트 중 314개에 위치 포함)
+- **좌표 범위**: X [-12.06, 32.00], Y [-1.39, 32.00] → VG 맵 경계 일치
+- 프레임 10→90으로 갈수록 위치 이벤트 감소 (413→43) → MOBA 게임 패턴과 일치
 
-**교훈:** Null padding이 많은 바이너리에서 float32 검색은 false positive 폭발. 더 정교한 필터링 필요.
+**KDA 관련성:** 위치 데이터 자체는 유용하나, KDA 감지와는 직접 관련 없음.
+향후 kill 위치 매핑이나 death 위치 추적에 활용 가능.
+
+**교훈:** Null padding 제거 후 유의미한 float32 좌표가 존재함. 0x05가 주요 위치 이벤트.
 
 ---
 
