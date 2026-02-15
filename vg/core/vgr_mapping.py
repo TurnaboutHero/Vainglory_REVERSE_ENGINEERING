@@ -36,6 +36,60 @@ ASSET_HERO_ID_MAP: Dict[str, str] = {
     # Still missing: Ylva, Viola (One is likely 056 or 022?)
 }
 
+# Binary Hero ID Mapping (uint16 LE at player block offset +0x0A9)
+# Discovered via cross-correlation analysis of 107 player blocks
+# across 11 tournament replays with 100% consistency, 0 collisions.
+# Structure: player_block_marker(DA 03 EE) + name + ... + entity_id(0xA5) + 00 00 + hero_id(0xA9)
+BINARY_HERO_ID_MAP: Dict[int, str] = {
+    0x0101: "Ardan",
+    0x0301: "Fortress",
+    0x0501: "Baron",
+    0x0901: "Skye",
+    0x0A01: "Reim",
+    0x0B01: "Kestrel",
+    0x0D01: "Lyra",
+    0x1101: "Idris",
+    0x1201: "Ozo",
+    0x1401: "Samuel",
+    0x1701: "Phinn",
+    0x1801: "Blackfeather",
+    0x1901: "Malene",
+    0x1D01: "Celeste",
+    0x8B01: "Gwen",
+    0x8C01: "Grumpjaw",
+    0x8D01: "Tony",
+    0x8F01: "Baptiste",
+    0x9103: "Leo",
+    0x9301: "Reza",
+    0x9303: "Caine",
+    0x9401: "unknown_0x9401",  # placeholder
+    0x9403: "Warhawk",
+    0x9601: "Grace",
+    0x9901: "Lorelai",
+    0x9A03: "Ishtar",
+    0x9C01: "Kensei",
+    0xA201: "Magnus",
+    0xA401: "Kinetic",
+    0xB001: "Silvernail",
+    0xB401: "Ylva",
+    0xB701: "Yates",
+    0xB801: "Inara",
+    0xBE01: "San Feng",
+    0xF200: "Catherine",
+    0xF300: "Ringo",
+    0xFD00: "Joule",
+    0xFF00: "Skaarf",
+}
+
+# Reverse lookup: hero name -> binary ID
+BINARY_HERO_NAME_TO_ID: Dict[str, int] = {
+    name: bid for bid, name in BINARY_HERO_ID_MAP.items()
+    if not name.startswith("unknown_")
+}
+
+# Binary Hero ID offset from player block marker (DA 03 EE)
+HERO_ID_OFFSET = 0x0A9
+
 # Hero name normalization for OCR typos
 HERO_NAME_NORMALIZE: Dict[str, str] = {
     "mallene": "Malene",

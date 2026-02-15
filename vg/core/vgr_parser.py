@@ -18,10 +18,16 @@ from typing import List, Dict, Any, Optional, Tuple
 
 # Import mapping module
 try:
-    from vgr_mapping import VGRMapping, HERO_ID_MAP
+    from vgr_mapping import VGRMapping, HERO_ID_MAP, BINARY_HERO_ID_MAP, HERO_ID_OFFSET
     MAPPING_AVAILABLE = True
 except ImportError:
-    MAPPING_AVAILABLE = False
+    try:
+        from .vgr_mapping import VGRMapping, HERO_ID_MAP, BINARY_HERO_ID_MAP, HERO_ID_OFFSET
+        MAPPING_AVAILABLE = True
+    except ImportError:
+        MAPPING_AVAILABLE = False
+        BINARY_HERO_ID_MAP = {}
+        HERO_ID_OFFSET = 0x0A9
 
 try:
     from vgr_truth import load_truth_data
@@ -373,12 +379,27 @@ class VGRParser:
                         entity_id = None
                         if pos + 0xA5 + 2 <= len(data):
                             entity_id = int.from_bytes(data[pos + 0xA5:pos + 0xA5 + 2], 'little')
+                        # Extract hero ID from binary (uint16 LE at offset 0x0A9)
+                        hero_name = "Unknown"
+                        hero_id = None
+                        hero_confidence = 0.0
+                        if pos + HERO_ID_OFFSET + 2 <= len(data):
+                            binary_hero_id = int.from_bytes(
+                                data[pos + HERO_ID_OFFSET:pos + HERO_ID_OFFSET + 2], 'little'
+                            )
+                            if binary_hero_id in BINARY_HERO_ID_MAP:
+                                hero_name = BINARY_HERO_ID_MAP[binary_hero_id]
+                                hero_id = binary_hero_id
+                                hero_confidence = 1.0
                         player = PlayerData(
                             name=name,
                             position=len(players),
                             team=self._team_label_from_id(team_id),
                             team_id=team_id,
                             entity_id=entity_id,
+                            hero_id=hero_id,
+                            hero_name=hero_name,
+                            hero_confidence=hero_confidence,
                         )
                         players.append(player)
                         seen.add(name)
