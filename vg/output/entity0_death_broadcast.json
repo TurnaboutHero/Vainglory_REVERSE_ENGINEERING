@@ -1,0 +1,2800 @@
+{
+  "statistics": {
+    "total_entity_0_events": 229319,
+    "events_with_player_refs": 86146,
+    "unique_action_codes": 126,
+    "unknown_action_codes": 124,
+    "expected_deaths": 15,
+    "expected_kills": 15,
+    "candidate_death_action_codes": 8
+  },
+  "action_code_distribution": {
+    "0x44": 94862,
+    "0x43": 65460,
+    "0x42": 19211,
+    "0x3F": 12607,
+    "0x40": 7439,
+    "0x01": 6887,
+    "0xFF": 6043,
+    "0x41": 3458,
+    "0x05": 1902,
+    "0xBF": 1761,
+    "0x07": 1183,
+    "0x02": 891,
+    "0xBE": 784,
+    "0x3E": 746,
+    "0x10": 540,
+    "0x03": 528,
+    "0x45": 405,
+    "0x53": 399,
+    "0xC1": 365,
+    "0xC2": 285,
+    "0x0A": 279,
+    "0xBD": 272,
+    "0x3B": 224,
+    "0x18": 205,
+    "0x09": 200,
+    "0x3D": 195,
+    "0x08": 179,
+    "0x70": 136,
+    "0x06": 135,
+    "0xE9": 125,
+    "0x04": 118,
+    "0x0C": 117,
+    "0x0D": 115,
+    "0x2A": 106,
+    "0x39": 95,
+    "0xB3": 85,
+    "0x3C": 74,
+    "0x0B": 72,
+    "0x79": 65,
+    "0xBC": 62,
+    "0xD6": 60,
+    "0xC3": 52,
+    "0x2D": 51,
+    "0xD5": 50,
+    "0xB4": 47,
+    "0xBA": 33,
+    "0x34": 31,
+    "0xBB": 31,
+    "0x48": 29,
+    "0x69": 26,
+    "0xB9": 23,
+    "0x3A": 19,
+    "0x25": 19,
+    "0x28": 15,
+    "0x24": 15,
+    "0xE5": 14,
+    "0x0F": 12,
+    "0xB2": 11,
+    "0x37": 8,
+    "0x20": 7,
+    "0x4E": 7,
+    "0xDA": 6,
+    "0x32": 6,
+    "0x55": 6,
+    "0x46": 6,
+    "0x80": 5,
+    "0x36": 5,
+    "0x21": 5,
+    "0x29": 5,
+    "0xE0": 4,
+    "0x6F": 4,
+    "0x38": 3,
+    "0x61": 3,
+    "0x30": 3,
+    "0x17": 3,
+    "0xB6": 3,
+    "0x35": 3,
+    "0x2B": 3,
+    "0x51": 3,
+    "0x5F": 3,
+    "0x7F": 3,
+    "0x86": 3,
+    "0x47": 2,
+    "0xB5": 2,
+    "0x19": 2,
+    "0x22": 2,
+    "0x54": 2,
+    "0x59": 2,
+    "0x5B": 2,
+    "0x5C": 2,
+    "0x60": 2,
+    "0x64": 2,
+    "0x6D": 2,
+    "0xB7": 2,
+    "0x74": 2,
+    "0x7D": 2,
+    "0x7B": 2,
+    "0x67": 1,
+    "0x66": 1,
+    "0x16": 1,
+    "0x1B": 1,
+    "0x26": 1,
+    "0x2C": 1,
+    "0x33": 1,
+    "0xB8": 1,
+    "0x4F": 1,
+    "0x50": 1,
+    "0x52": 1,
+    "0x58": 1,
+    "0x5E": 1,
+    "0x62": 1,
+    "0x68": 1,
+    "0x6E": 1,
+    "0xC0": 1,
+    "0x72": 1,
+    "0x73": 1,
+    "0x71": 1,
+    "0x77": 1,
+    "0x65": 1,
+    "0x82": 1,
+    "0x83": 1,
+    "0x84": 1,
+    "0x87": 1,
+    "0x88": 1,
+    "0x89": 1,
+    "0x1A": 1
+  },
+  "unknown_action_codes": [
+    {
+      "action_code": "0x44",
+      "count": 94862
+    },
+    {
+      "action_code": "0x43",
+      "count": 65460
+    },
+    {
+      "action_code": "0x42",
+      "count": 19211
+    },
+    {
+      "action_code": "0x3F",
+      "count": 12607
+    },
+    {
+      "action_code": "0x40",
+      "count": 7439
+    },
+    {
+      "action_code": "0x01",
+      "count": 6887
+    },
+    {
+      "action_code": "0xFF",
+      "count": 6043
+    },
+    {
+      "action_code": "0x41",
+      "count": 3458
+    },
+    {
+      "action_code": "0x05",
+      "count": 1902
+    },
+    {
+      "action_code": "0xBF",
+      "count": 1761
+    },
+    {
+      "action_code": "0x07",
+      "count": 1183
+    },
+    {
+      "action_code": "0x02",
+      "count": 891
+    },
+    {
+      "action_code": "0xBE",
+      "count": 784
+    },
+    {
+      "action_code": "0x10",
+      "count": 540
+    },
+    {
+      "action_code": "0x03",
+      "count": 528
+    },
+    {
+      "action_code": "0x45",
+      "count": 405
+    },
+    {
+      "action_code": "0x53",
+      "count": 399
+    },
+    {
+      "action_code": "0xC1",
+      "count": 365
+    },
+    {
+      "action_code": "0xC2",
+      "count": 285
+    },
+    {
+      "action_code": "0x0A",
+      "count": 279
+    },
+    {
+      "action_code": "0xBD",
+      "count": 272
+    },
+    {
+      "action_code": "0x3B",
+      "count": 224
+    },
+    {
+      "action_code": "0x18",
+      "count": 205
+    },
+    {
+      "action_code": "0x09",
+      "count": 200
+    },
+    {
+      "action_code": "0x3D",
+      "count": 195
+    },
+    {
+      "action_code": "0x08",
+      "count": 179
+    },
+    {
+      "action_code": "0x70",
+      "count": 136
+    },
+    {
+      "action_code": "0x06",
+      "count": 135
+    },
+    {
+      "action_code": "0xE9",
+      "count": 125
+    },
+    {
+      "action_code": "0x04",
+      "count": 118
+    },
+    {
+      "action_code": "0x0C",
+      "count": 117
+    },
+    {
+      "action_code": "0x0D",
+      "count": 115
+    },
+    {
+      "action_code": "0x2A",
+      "count": 106
+    },
+    {
+      "action_code": "0x39",
+      "count": 95
+    },
+    {
+      "action_code": "0xB3",
+      "count": 85
+    },
+    {
+      "action_code": "0x3C",
+      "count": 74
+    },
+    {
+      "action_code": "0x0B",
+      "count": 72
+    },
+    {
+      "action_code": "0x79",
+      "count": 65
+    },
+    {
+      "action_code": "0xD6",
+      "count": 60
+    },
+    {
+      "action_code": "0xC3",
+      "count": 52
+    },
+    {
+      "action_code": "0x2D",
+      "count": 51
+    },
+    {
+      "action_code": "0xD5",
+      "count": 50
+    },
+    {
+      "action_code": "0xB4",
+      "count": 47
+    },
+    {
+      "action_code": "0xBA",
+      "count": 33
+    },
+    {
+      "action_code": "0x34",
+      "count": 31
+    },
+    {
+      "action_code": "0xBB",
+      "count": 31
+    },
+    {
+      "action_code": "0x48",
+      "count": 29
+    },
+    {
+      "action_code": "0x69",
+      "count": 26
+    },
+    {
+      "action_code": "0xB9",
+      "count": 23
+    },
+    {
+      "action_code": "0x3A",
+      "count": 19
+    },
+    {
+      "action_code": "0x25",
+      "count": 19
+    },
+    {
+      "action_code": "0x28",
+      "count": 15
+    },
+    {
+      "action_code": "0x24",
+      "count": 15
+    },
+    {
+      "action_code": "0xE5",
+      "count": 14
+    },
+    {
+      "action_code": "0x0F",
+      "count": 12
+    },
+    {
+      "action_code": "0xB2",
+      "count": 11
+    },
+    {
+      "action_code": "0x37",
+      "count": 8
+    },
+    {
+      "action_code": "0x20",
+      "count": 7
+    },
+    {
+      "action_code": "0x4E",
+      "count": 7
+    },
+    {
+      "action_code": "0xDA",
+      "count": 6
+    },
+    {
+      "action_code": "0x32",
+      "count": 6
+    },
+    {
+      "action_code": "0x55",
+      "count": 6
+    },
+    {
+      "action_code": "0x46",
+      "count": 6
+    },
+    {
+      "action_code": "0x80",
+      "count": 5
+    },
+    {
+      "action_code": "0x36",
+      "count": 5
+    },
+    {
+      "action_code": "0x21",
+      "count": 5
+    },
+    {
+      "action_code": "0x29",
+      "count": 5
+    },
+    {
+      "action_code": "0xE0",
+      "count": 4
+    },
+    {
+      "action_code": "0x6F",
+      "count": 4
+    },
+    {
+      "action_code": "0x38",
+      "count": 3
+    },
+    {
+      "action_code": "0x61",
+      "count": 3
+    },
+    {
+      "action_code": "0x30",
+      "count": 3
+    },
+    {
+      "action_code": "0x17",
+      "count": 3
+    },
+    {
+      "action_code": "0xB6",
+      "count": 3
+    },
+    {
+      "action_code": "0x35",
+      "count": 3
+    },
+    {
+      "action_code": "0x2B",
+      "count": 3
+    },
+    {
+      "action_code": "0x51",
+      "count": 3
+    },
+    {
+      "action_code": "0x5F",
+      "count": 3
+    },
+    {
+      "action_code": "0x7F",
+      "count": 3
+    },
+    {
+      "action_code": "0x86",
+      "count": 3
+    },
+    {
+      "action_code": "0x47",
+      "count": 2
+    },
+    {
+      "action_code": "0xB5",
+      "count": 2
+    },
+    {
+      "action_code": "0x19",
+      "count": 2
+    },
+    {
+      "action_code": "0x22",
+      "count": 2
+    },
+    {
+      "action_code": "0x54",
+      "count": 2
+    },
+    {
+      "action_code": "0x59",
+      "count": 2
+    },
+    {
+      "action_code": "0x5B",
+      "count": 2
+    },
+    {
+      "action_code": "0x5C",
+      "count": 2
+    },
+    {
+      "action_code": "0x60",
+      "count": 2
+    },
+    {
+      "action_code": "0x64",
+      "count": 2
+    },
+    {
+      "action_code": "0x6D",
+      "count": 2
+    },
+    {
+      "action_code": "0xB7",
+      "count": 2
+    },
+    {
+      "action_code": "0x74",
+      "count": 2
+    },
+    {
+      "action_code": "0x7D",
+      "count": 2
+    },
+    {
+      "action_code": "0x7B",
+      "count": 2
+    },
+    {
+      "action_code": "0x67",
+      "count": 1
+    },
+    {
+      "action_code": "0x66",
+      "count": 1
+    },
+    {
+      "action_code": "0x16",
+      "count": 1
+    },
+    {
+      "action_code": "0x1B",
+      "count": 1
+    },
+    {
+      "action_code": "0x26",
+      "count": 1
+    },
+    {
+      "action_code": "0x2C",
+      "count": 1
+    },
+    {
+      "action_code": "0x33",
+      "count": 1
+    },
+    {
+      "action_code": "0xB8",
+      "count": 1
+    },
+    {
+      "action_code": "0x4F",
+      "count": 1
+    },
+    {
+      "action_code": "0x50",
+      "count": 1
+    },
+    {
+      "action_code": "0x52",
+      "count": 1
+    },
+    {
+      "action_code": "0x58",
+      "count": 1
+    },
+    {
+      "action_code": "0x5E",
+      "count": 1
+    },
+    {
+      "action_code": "0x62",
+      "count": 1
+    },
+    {
+      "action_code": "0x68",
+      "count": 1
+    },
+    {
+      "action_code": "0x6E",
+      "count": 1
+    },
+    {
+      "action_code": "0xC0",
+      "count": 1
+    },
+    {
+      "action_code": "0x72",
+      "count": 1
+    },
+    {
+      "action_code": "0x73",
+      "count": 1
+    },
+    {
+      "action_code": "0x71",
+      "count": 1
+    },
+    {
+      "action_code": "0x77",
+      "count": 1
+    },
+    {
+      "action_code": "0x65",
+      "count": 1
+    },
+    {
+      "action_code": "0x82",
+      "count": 1
+    },
+    {
+      "action_code": "0x83",
+      "count": 1
+    },
+    {
+      "action_code": "0x84",
+      "count": 1
+    },
+    {
+      "action_code": "0x87",
+      "count": 1
+    },
+    {
+      "action_code": "0x88",
+      "count": 1
+    },
+    {
+      "action_code": "0x89",
+      "count": 1
+    },
+    {
+      "action_code": "0x1A",
+      "count": 1
+    }
+  ],
+  "potential_death_events": [
+    {
+      "action_code": "0x2D",
+      "event_count": 19,
+      "events": [
+        {
+          "frame": 4,
+          "offset": 58993,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3b3b030000000000423f95ff00000018043e000010bf000005e14066000011f8",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 6,
+          "offset": 74130,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3c3c010000000000428b590c00000010041d000005dfc2bd1746040001000000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 11,
+          "offset": 78595,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3d3d01000000000042ef9b0700000018041e000017e2000005dfc16000000001",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 13,
+          "offset": 41680,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "33330300000000004305dd760000000804310000175f00004305dd7600000010",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                9,
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 20,
+          "offset": 23315,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3b3b030000000000434870da00000018043e00002223000005dc40660000236b",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 21,
+          "offset": 34024,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "44440500000000004354495700000018041e00001e3a000005dec33000000005",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 25,
+          "offset": 32600,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "2e2e010000000000437cdd4000000018041e000005de000005de412000000005",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                20,
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 27,
+          "offset": 39244,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3535030000000000438877f500000018043e000029ad000005dd406600002d8c",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 33,
+          "offset": 56813,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "393903000000000043a8adaf00000018043e000005de000005debc0000002e5f",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                20,
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 46,
+          "offset": 37200,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3c3c01000000000043e7c8b400000010041d000005dc417c0001020001000000",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 46,
+          "offset": 62088,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "444401000000000043ea3752000000100443000005e100002997000000a00000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 53,
+          "offset": 59303,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "34340100000000004406612400000018043e000045c0000005df4066000048b9",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 63,
+          "offset": 72941,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "2323030000000000441feb0500000010041d000005dd417a3334020001000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 65,
+          "offset": 41765,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "3f3f0300000000004423a74100000010041d000005dc401f64ee000001000000",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 66,
+          "offset": 59097,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "323203000000000044272e8e00000010041b000005de00000008000000000000",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 67,
+          "offset": 66005,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "2b2b01000000000044299ac700000018043e000005dd000005ddbc0000002e97",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                20,
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 78,
+          "offset": 69267,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "353501000000000044452bb4000000100428000005e1d60c580b000000000100",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 80,
+          "offset": 51868,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "212105000000000044491e98000000100443000005e100002997000000de0000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 64491,
+          "action_code": "0x2D",
+          "action_code_int": 45,
+          "action_name": "unknown",
+          "payload_hex": "2c2c01000000000044553d9b00000018041e000005e0000005dfc261496b0001",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                24
+              ]
+            },
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0x25",
+      "event_count": 19,
+      "events": [
+        {
+          "frame": 36,
+          "offset": 25681,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "0000000043b4a81700000010044b000005dc000007d500010000000043b4a817",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 41,
+          "offset": 65111,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "0000000043d1a5cd00000010044b000005dc000007d500010000000043d1a5cd",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 48,
+          "offset": 23603,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "0000000043f04bab00000010044b000005dc000007d500010000000043f04bab",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 55,
+          "offset": 31726,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "000000004409d06c00000010044b000005dc000007d50001000000004409d06c",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 59,
+          "offset": 44211,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "000000004414c95a00000010044b000005dc000007d50001000000004414c95a",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 68,
+          "offset": 27230,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "00000000442a47a700000010044b000005dc000007d5000100000000442a47a7",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 68,
+          "offset": 49846,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "00000000442bdaa000000010044b000005dc000007d5000100000000442bdaa0",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 77,
+          "offset": 50863,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "0000000044425d3800000010044b000005dc000007d500010000000044425d38",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 79,
+          "offset": 63984,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "04040000444730b000000010044b000005e0000007e0000100000000444730b0",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 80,
+          "offset": 69736,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "040400004449e35400000010044b000005e0000007e00001000000004449e354",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 65695,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "040400004455503300000010044b000005e0000007e000010000000044555033",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 91,
+          "offset": 24896,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "040400004463b13c00000010044b000005e0000007e20001000000004463b13c",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 91,
+          "offset": 51080,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "000000004464ded500000010044b000005dc000007d50001000000004464ded5",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 92,
+          "offset": 46140,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "04040000446704f200000010044b000005e0000007e2000100000000446704f2",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 93,
+          "offset": 28039,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "000000004468db4d00000010044b000005dc000007d50001000000004468db4d",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 93,
+          "offset": 36711,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "04040000446961b100000010044b000005e0000007e2000100000000446961b1",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 94,
+          "offset": 35127,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "00000000446bd76600000010044b000005dc000007d5000100000000446bd766",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 95,
+          "offset": 52281,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "00000000446f285b00000010044b000005dc000007d5000100000000446f285b",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 95,
+          "offset": 63369,
+          "action_code": "0x25",
+          "action_code_int": 37,
+          "action_name": "unknown",
+          "payload_hex": "04040000446fd50f00000010044b000005e0000007e2000100000000446fd50f",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0x28",
+      "event_count": 15,
+      "events": [
+        {
+          "frame": 8,
+          "offset": 53185,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005df000005df340000001631002c000141a000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 8,
+          "offset": 53257,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005df000005dfbc0000001632002d0014000000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 17,
+          "offset": 47394,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005df000005df3e00000020f900ae00010000000000000000000001c4",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 23,
+          "offset": 46967,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "1401a3000000000000436a4b9d000000100443000005df000007d40000000200",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                21
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 23,
+          "offset": 60583,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "7801a3000000000000436cea84000000100443000005df000007d40000000200",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                21
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 36,
+          "offset": 63733,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005dd000005dd34000000360b002c000141a000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 36,
+          "offset": 63805,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005dd000005ddbc000000360c002d0014000000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 44,
+          "offset": 66299,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005df000029c93e0000003f8300ae00010000000000000000000001c4",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                4
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 62,
+          "offset": 65483,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005e0000005e03e000000547f00ae00010000000000000000000001c4",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 66,
+          "offset": 28617,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005dd00004ee93d9900005840003600013eb333330000000000000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                4
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 71,
+          "offset": 39536,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005dd000005dd3e0000005cb100ae00010000000000000000000001c4",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 74,
+          "offset": 57797,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005e0000005e0340000006209002c000141a000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 74,
+          "offset": 57869,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005e0000005e0bc000000620a002d0014000000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 90,
+          "offset": 63208,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005e1000005e138000000772f024e0000000000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 99,
+          "offset": 59409,
+          "action_code": "0x28",
+          "action_code_int": 40,
+          "action_name": "unknown",
+          "payload_hex": "043f000005e1000005e1380000008366024e0000000000000000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                4,
+                8
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0xE5",
+      "event_count": 14,
+      "events": [
+        {
+          "frame": 36,
+          "offset": 27952,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc30010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 41,
+          "offset": 66974,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700000100000000000000000000000000000005dd1e010001ff",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 41,
+          "offset": 67574,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc25010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 48,
+          "offset": 26210,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc3e010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 55,
+          "offset": 36397,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc2d010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 68,
+          "offset": 29533,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc45010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 68,
+          "offset": 52293,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc3a010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 77,
+          "offset": 53014,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc29010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 69342,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700000100000000000000000000000000000005e02f010001ff",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 91,
+          "offset": 28007,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700000100000000000000000000000000000005e03a010001ff",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 92,
+          "offset": 48779,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700000100000000000000000000000000000005e03e010001ff",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 93,
+          "offset": 30806,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc38010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 95,
+          "offset": 55616,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700010000000000000000000000000000000005dc37010001ff",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 95,
+          "offset": 66536,
+          "action_code": "0xE5",
+          "action_code_int": 229,
+          "action_name": "unknown",
+          "payload_hex": "2fe3095d4b5df700000100000000000000000000000000000005e038010001ff",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0x3C",
+      "event_count": 13,
+      "events": [
+        {
+          "frame": 0,
+          "offset": 2945,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e214000002f003f3000001055b65dad4000005e1000000010500c29a0f5c3f",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                19
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 3705,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000018048a000005e1b855d7520000000040a000000101010001003c",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 4721,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e214000000080488000005e0fe003ca8e21400000018048a000005e0b855d7",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                11,
+                27
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 5753,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000018048a000005dfb855d7520000000040a000000101010001003c",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                11
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 6769,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e214000000080488000005defe003ca8e21400000018048a000005deb855d7",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                11,
+                27
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 7801,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000018048a000005ddb855d7520000000040a000000101010001003c",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                11
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 8785,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000018048a000005dcb855d7520000000040a000000101010001003c",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                11
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 9057,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000028043f000005e1000005e1bc00000007d7024a00010000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11,
+                15
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 9105,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000028043f000005e1000005e1bc00000007d8025400010000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11,
+                15
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 9153,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000028043f000005e1000005e1bc00000007e200ff00014120000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11,
+                15
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 9201,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000028043f000005e1000005e13cce000007e300fb00070000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11,
+                15
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 0,
+          "offset": 9249,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "a8e21400000028043f000005e1000005e13cce000007e400ae00010000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                11,
+                15
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 41,
+          "offset": 62162,
+          "action_code": "0x3C",
+          "action_code_int": 60,
+          "action_name": "unknown",
+          "payload_hex": "2601a300000000000043d17e6d00000018043e000005df000005df450000003c",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                21,
+                25
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0x0F",
+      "event_count": 12,
+      "events": [
+        {
+          "frame": 23,
+          "offset": 44123,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "01010000004369cc9c00000010041d000005de43e400000600010000004369cc",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 40,
+          "offset": 48508,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000043c9f8a700000010041d000005de43a8800006000100000043c9f8",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 43,
+          "offset": 73869,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000043db4d7600000010041d000005df435a800006000100000043db4d",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 50,
+          "offset": 86280,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000043fed2c000000010041d000005df440a000006000100000043fed2",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 75,
+          "offset": 34289,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "0101000000443be77d00000010041d000005dc43fc8000060001000000443be7",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 81,
+          "offset": 28919,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "0101000000444aaf8200000010041d000005e1433e0000060001000000444aaf",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 75862,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000044559cbe00000010041d000005de43f3c00006000100000044559c",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 106838,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "01010000004456eb0800000010041d000005e143bc00000600010000004456eb",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 86,
+          "offset": 28611,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000044575f3600000010041d000005dd444ae00006000100000044575f",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 97,
+          "offset": 80315,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "01010000004474378500000010041d000005e1437e8000060001000000447437",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 98,
+          "offset": 54659,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "0101000000447656fa00000010041d000005dc43878000060001000000447656",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 99,
+          "offset": 39652,
+          "action_code": "0x0F",
+          "action_code_int": 15,
+          "action_name": "unknown",
+          "payload_hex": "010100000044783d9400000010041d000005e1435a800006000100000044783d",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                17
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0xB9",
+      "event_count": 11,
+      "events": [
+        {
+          "frame": 6,
+          "offset": 60590,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "0101000042862d4700000018043e000010c1000005df406600001463003e0000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 11,
+          "offset": 39631,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "0101000042e3921c00000018041e000005e1000005e141200000000500000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                16,
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 17,
+          "offset": 52750,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "010100004333673200000018041e000005e000001e46c13b2ee7000504000000",
+          "player_references": [
+            {
+              "entity_id": 57349,
+              "name": "Karas",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 22,
+          "offset": 76013,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "010100004365da9a00000010041500002356000005de0000000000004365da9a",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 30,
+          "offset": 40633,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "010100004397c86000000018041e000005dd000005dfc278ebda000500000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                16
+              ]
+            },
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 41,
+          "offset": 65175,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "0101000043d1a5cd00000010041d000005df41b5cccd02000100000043d1a5cd",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 46,
+          "offset": 27372,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "0101000043e6d60500000018043e000005dc000005dc3e000000406b00fb0000",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16,
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 53,
+          "offset": 35203,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "01010000440548ac00000010041d000005dc4058de5d000001000000440548ac",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 60,
+          "offset": 24862,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "01010000441606d900000018043e000005df000005dfbc0000004f4b01290000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                16,
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 65,
+          "offset": 37097,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "01010000442368ab00000010041d000005dc40254a24000001000000442368ab",
+          "player_references": [
+            {
+              "entity_id": 56325,
+              "name": "Phinn",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 85,
+          "offset": 70663,
+          "action_code": "0xB9",
+          "action_code_int": 185,
+          "action_name": "unknown",
+          "payload_hex": "0101000044557d4200000018041e000005de00006bd2c1b38ed3000504000000",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                16
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    },
+    {
+      "action_code": "0x08",
+      "event_count": 10,
+      "events": [
+        {
+          "frame": 53,
+          "offset": 24271,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042c00000d60020244049d0000000010042b000005dd00030000000000000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 57,
+          "offset": 36272,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "0431000047c00000440f1f00000000100443000005e100002997000000e80000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 58,
+          "offset": 45279,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042400004a430000441255000000001803fa000005e100004a434141bc7b3be7",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 58,
+          "offset": 66071,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042c00000d5f02004413610000000010042b000005e100010000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 62,
+          "offset": 65099,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "0431000051e40000441c930000000018043e000005dd000005ddbc0000002e97",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                20,
+                24
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 62,
+          "offset": 65907,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042c00000d630201441c930000000010041d000005dd428c0000060000000000",
+          "player_references": [
+            {
+              "entity_id": 56581,
+              "name": "Yates",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 66,
+          "offset": 56369,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042c00000d6201004426fa0000000010042b000005e100010000000000000000",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 67,
+          "offset": 46021,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "0424000005de00004428a8ab000000080424000058c000004428a8ab00000010",
+          "player_references": [
+            {
+              "entity_id": 56837,
+              "name": "Caine",
+              "positions": [
+                4
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 72,
+          "offset": 30488,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042c00000d6001004434570000000010042b000005df00010300000000000000",
+          "player_references": [
+            {
+              "entity_id": 57093,
+              "name": "Petal",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        },
+        {
+          "frame": 90,
+          "offset": 63072,
+          "action_code": "0x08",
+          "action_code_int": 8,
+          "action_name": "unknown",
+          "payload_hex": "042400006f760000446291000000001803fa000005e100006f76c0e21b2d3be7",
+          "player_references": [
+            {
+              "entity_id": 57605,
+              "name": "Baron",
+              "positions": [
+                20
+              ]
+            }
+          ],
+          "has_player_refs": true
+        }
+      ]
+    }
+  ],
+  "truth_data": {
+    "56325": {
+      "name": "Phinn",
+      "kills": 2,
+      "deaths": 0,
+      "assists": 6
+    },
+    "56581": {
+      "name": "Yates",
+      "kills": 1,
+      "deaths": 4,
+      "assists": 4
+    },
+    "56837": {
+      "name": "Caine",
+      "kills": 3,
+      "deaths": 4,
+      "assists": 3
+    },
+    "57093": {
+      "name": "Petal",
+      "kills": 3,
+      "deaths": 2,
+      "assists": 3
+    },
+    "57349": {
+      "name": "Karas",
+      "kills": 0,
+      "deaths": 3,
+      "assists": 2
+    },
+    "57605": {
+      "name": "Baron",
+      "kills": 6,
+      "deaths": 2,
+      "assists": 6
+    }
+  }
+}
