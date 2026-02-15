@@ -4,7 +4,7 @@
 
 ---
 
-## 1. KDA (Kill/Death/Assist) Detection - 모든 접근 실패
+## 1. KDA (Kill/Death/Assist) Detection - Kill/Death 해결, Assist 부분 해결
 
 ### 1.1 Action Code 0x29 = Kill Signature (실패)
 
@@ -336,21 +336,161 @@
 
 ---
 
-## 5. KDA 연구 현재 상태 및 향후 방향
+## 5. KDA 연구 - Kill/Death 해결! (2026-02-16)
 
-### 5.1 왜 KDA가 어려운가
+### 5.1 성공한 접근: Brute-force Frequency Matching + Structural Validation
 
-1. **VGR은 서버 이벤트 로그**: E.V.I.L. 엔진은 server-authoritative. KDA는 서버가 계산하는 값이며, 리플레이에는 **raw input/state** 만 기록될 수 있음.
+**핵심 발견:** 특정 action code가 아닌, **프로토콜 레벨의 구조화된 레코드**가 kill/death를 나타냄.
 
-2. **명시적 Kill/Death 이벤트가 없을 수 있음**: API 텔레메트리에는 KillActor 이벤트가 있었지만, 바이너리 VGR 포맷에는 다른 방식으로 인코딩되었을 수 있음.
+**발견 방법:**
+1. **Brute-force frequency matching**: 가능한 모든 (pattern, offset, endianness) 조합에서 per-player 카운트가 truth와 일치하는 것을 탐색
+2. Death: 19,306개 조합 중 **정확히 1개** 일치 → `[08 04 31]`
+3. Kill: offset 1-30, 2/3/4-byte 패턴으로 확장 탐색 → `[00 29 00]` at BE offset 23 → 구조 분석으로 `[18 04 1C]` 발견
 
-3. **시도하지 않은 것들:**
-   - HP 변화 추적 (HP가 0이 되는 시점 = death)
-   - 특정 payload 바이트 위치의 의미 분석 (37바이트 payload 중 미해독 바이트 다수)
-   - 멀티 이벤트 시퀀스 분석 (연속된 2-3개 이벤트의 조합)
-   - API 텔레메트리 KillActor 필드와 바이너리 패턴 매핑
-   - Gold 획득 이벤트 역추적 (킬 골드 = kill 증거)
-   - VGReborn MITM 프로토콜 분석에서 실마리 찾기
+**Kill 레코드:** `[18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]`
+- Timestamp: f32 BE at 7 bytes before header
+- Kill-death dt ≈ 1.8s consistently
+
+**Death 레코드:** `[08 04 31] [00 00] [victim_eid BE] [00 00] [timestamp f32 BE] [00 00 00]`
+
+**Credit 레코드:** `[10 04 1D] [00 00] [eid BE] [value f32 BE]`
+- Kill header 뒤에 위치: killer(1.0), assister(gold), assister(1.0), assister(0.5)
+- Assist gold: 10-250, Kill gold: 100-800+ (프레임 다른 위치)
+
+**크로스 검증 (10개 완전 리플레이, 94명 플레이어):**
+- Kill: **97.9%** (92/94) - raw, 필터 없음
+- Death: **95.7%** (90/94) - ts <= duration + 10s 필터
+- Combined: **96.8%** (182/188)
+
+**Post-game ceremony filter:**
+- 크리스탈 파괴 후 세레모니 중 킬/데스는 통계에 미반영
+- Death timestamp > game_duration + 10s 필터로 해결 (8/10 오버카운트 제거)
+
+**모듈:** `vg/core/kda_detector.py` (KDADetector 클래스)
+
+### 5.2 미해결: Assist Detection
+
+- Hero kill assist는 credit record `[10 04 1D]`에서 추출 가능
+- 하지만 truth assist에는 **objective assist** (터렛, 크라켄 파괴 참여) 포함
+- 일부 플레이어의 truth_A > 가능한 hero_kill_assists → 정확 매칭 불가
+- 향후: objective kill 이벤트 패턴 탐색 필요
+
+### 5.3 교훈
+
+- **Brute-force frequency matching을 항상 먼저 시도할 것** - 가설 기반보다 데이터 기반이 효과적
+- 프로토콜 레코드는 player event와 다른 구조 (3-byte header `[XX 04 YY]`)
+- Entity ID는 프로토콜에서 Big Endian, player block에서 Little Endian
+- Dedup 불필요 - 동일 이벤트가 여러 프레임에 중복되지 않음
+
+### 1.15 Player Block Byte Diff (실패)
+
+**가설:** 플레이어 블록(DA 03 EE) 내에 KDA 카운터가 프레임마다 업데이트된다.
+
+**시도:** `vg/analysis/player_block_kda_diff.py` - Frame 0 vs Frame 102 전체 블록 비교
+
+**결과:** 6명 모든 플레이어의 블록이 **4바이트만 변경** (+0xDB~+0xDE: 44 7F 01 29)되었으며, 이 값은 6명 전원 동일. KDA와 무관한 타임스탬프/게임상태 필드.
+
+**교훈:** 플레이어 블록은 정적 메타데이터(영웅, 팀, 엔티티 ID)만 저장. 동적 통계는 없음.
+
+---
+
+### 1.16 직접 바이너리 KDA/Gold 값 검색 (결정적 실패)
+
+**가설:** KDA나 골드 값이 VGR 프레임 바이너리 어딘가에 저장되어 있다.
+
+**시도:**
+- `vg/analysis/stat_block_extractor.py` - Karas KDA offset 주변 구조 분석
+- `last_frame_forensics.py` - 마지막 프레임 전체 포렌식
+- 전체 바이너리 검색 스크립트 (이 세션에서 실행)
+
+**검색 범위:**
+- 인코딩: uint8, uint16 LE/BE, uint32 LE/BE, float32 LE/BE
+- 패턴: 연속, stride 1-4, 모든 순열, 인터리브
+- 프레임: 0, 20, 50, 80, 100, 102 (전체 타임라인)
+- 리플레이: 21.11.04 + 토너먼트 리플레이 15개
+
+**결과:**
+- Baron KDA [6,2,6]: 전체 87K 파일에서 **0건** (uint8 연속)
+- 6명 골드 값 (5779~10393): **모든 인코딩에서 0건**
+- 토너먼트 리플레이 IcyBang 골드=12900: **0건**
+- KDA 시퀀스 (6명 Kills/Deaths/Assists): **모든 stride에서 0건**
+- Karas KDA at 0x15490: 프레임 4부터 이미 존재 → 프로토콜 상수 (false positive)
+
+**결론:** ❌ **VGR 파일에 KDA/골드 통계가 저장되지 않음**
+- VGR은 raw game events(입력/상태 브로드캐스트)만 기록
+- 누적 통계(KDA, 골드, 레벨)는 서버가 계산하여 텔레메트리 API로 별도 전달
+- E.V.I.L. 엔진의 server-authoritative 설계: 클라이언트 리플레이에는 통계 미포함
+
+**상태:** ❌ 완전 실패 - VGR 포맷의 근본적 한계. 직접 바이너리 검색은 다시 시도하지 말 것.
+
+---
+
+### 1.17 Roster Data Region KDA Search (v2k-v2s, 결정적 실패)
+
+**가설:** 마지막 프레임의 "roster data region" (Player EID 목록 뒤 데이터 영역)에 KDA/골드/CS 등 게임 종료 통계가 저장되어 있다.
+
+**시도:**
+- `vg/analysis/event_parsing_v2k.py` - EID 컨텍스트 스캔 (타입마커 카운트, 고정오프셋 값)
+- `vg/analysis/event_parsing_v2l.py` - v2k Phase 4 false positive 반증
+- `vg/analysis/event_parsing_v2m.py` - Raw hex dump → roster block 발견 (Cluster 3 at 0x014E61)
+- `vg/analysis/event_parsing_v2n.py` - Roster 구조 확인 + 토너먼트 검증
+- `vg/analysis/event_parsing_v2o.py` - Data bytes = STATIC (not KDA), float arrays 분석
+- `vg/analysis/event_parsing_v2p.py` - 64-byte block 구조 파싱, uint32/uint16 해석
+- `vg/analysis/event_parsing_v2q.py` - 전체 프레임 모든 인코딩 exhaustive KDA 검색
+- `vg/analysis/event_parsing_v2r.py` - 토너먼트 10개 매치 roster 추출, 대안 인코딩 검색
+- `vg/analysis/event_parsing_v2s.py` - 3v3 vs 5v5 레이아웃 비교, 최종 결론
+
+**Roster Data Region 구조 (발견):**
+```
+[EID1_BE 00 00][EID2_BE 00 00]...[EIDn_BE]
+[FF padding (24-40 bytes)]
+[Team bytes: 1=left, 2=right per player]  ← 100% 정확!
+[FF padding (6-10 bytes)]
+[Data bytes (N bytes): STATIC per slot, NOT KDA]
+[Zero padding to 0x10 alignment]
+[Float32 array 0 (N*4 bytes): damage stats ~1000-40000 range]
+[Zero padding]
+[Float32 array 1-5: various per-player stats]
+[Sparse uint32 values: small integers 1-48, unknown meaning]
+[uint16 values at +0x1D0: NOT gold (r=-0.133)]
+[Player levels? at +0x220: values 3-10]
+[Float32 array at +0x270: values 5-35, unknown]
+[Item inventories: uint16 IDs with 0xFFFF=empty, 10 slots/player]
+```
+
+**Exhaustive KDA 검색 결과 (v2q Phase 7):**
+- 전체 87,613바이트 마지막 프레임 완전 탐색
+- 인코딩: uint8, uint16 (BE/LE), uint32 (BE/LE) → **모두 0건**
+- 6/6 exact match: 0건
+- 5/6 near match (uint8, max<30): 0건
+
+**대안 인코딩 검색 결과 (v2r Phase 4-5):**
+- Strided uint8 (stride 2-64): **0건**
+- Strided uint16 BE (stride 4-64): **0건**
+- Interleaved [k,d,a,k,d,a,...]: **0건**
+- Interleaved with padding: **0건**
+- K/D/A separate strided arrays: **0건**
+- Nibble packed (K<<4|D, D<<4|K, K<<4|A): **0건**
+- Combined K*100+D*10+A as uint16: **0건**
+- [k,d,a] triplet near player blocks (+-512 bytes): **0건**
+
+**토너먼트 교차 검증 (v2r Phase 2):**
+- 10/11 매치에서 roster 발견 (EID base = 1500, 항상 동일)
+- Team bytes: 모든 매치에서 정확
+- Float arrays: 5v5에서 일부 매치 alignment 문제 (garbage values)
+- byte@0x220: KDA와 상관계수 r~0 (n=99 players)
+- uint16@1D0: Gold과 r=-0.133 (무상관)
+- floats@270: 모든 stat과 r<0.2 (무상관)
+
+**결론:** ❌ **Roster data region에 KDA 통계는 없음**
+- Data bytes = STATIC per match slot (영웅/팀 무관)
+- Float arrays = damage/healing 관련 추정 (gold/CS/KDA 아님)
+- 대안 인코딩 포함 모든 방식에서 완전 탈락
+- 3v3와 5v5에서 block layout이 다름 (64-byte vs variable)
+
+**상태:** ❌ 완전 실패 - roster data region에서 KDA 검색 절대 재시도 금지
+
+---
 
 ### 5.2 절대 다시 시도하지 말 것
 
@@ -364,6 +504,11 @@
 | Entity 0 `00 00 00 00` 패턴 = 정확한 파싱 | Null padding과 충돌, false positive 대량 발생 |
 | 37바이트 고정 이벤트 구조 가정 | 실제: 11B~221B 가변 크기 (0x81=147B, 0x01=221B) |
 | Gold amount (150-500 uint16) in payload | 0건 발견. Gold는 payload에 없음 |
+| 바이너리에서 KDA/골드 직접 검색 | VGR에 누적 통계 미저장. 모든 인코딩/프레임/리플레이에서 0건 |
+| 플레이어 블록 diff로 KDA 추출 | 블록은 정적 메타데이터만 저장 (4바이트만 변경, 전원 동일값) |
+| Roster data region KDA 검색 | Data bytes=STATIC, float arrays=damage stats, 모든 인코딩(strided/interleaved/nibble/packed) 0건 |
+| Roster float arrays ↔ Gold/CS 상관 | r=-0.133 (gold), r~0 (kills/deaths/assists). 99 players across 10 matches |
+| 마지막 프레임 전체 exhaustive KDA 스캔 | uint8/16/32 BE/LE, 87,613 bytes, stride 2-64: 6/6 exact 0건, 5/6 near 0건 |
 
 ---
 
@@ -374,9 +519,11 @@
 | Hero Detection | Player block +0xA9 uint16 LE | 100% (107/107) | `vg/core/hero_matcher.py` |
 | Win/Loss | Turret ID clustering + Crystal destruction | 100% (19/19) | `vg/analysis/win_loss_detector.py` |
 | Team Detection | Player block +0xD5 byte | 100% | `vg/core/vgr_parser.py` |
+| Kill Detection | `[18 04 1C]` protocol record + frequency matching | 97.9% (92/94) | `vg/core/kda_detector.py` |
+| Death Detection | `[08 04 31]` protocol record + post-game filter | 95.7% (90/94) | `vg/core/kda_detector.py` |
 | Item Detection | 4-strategy unified extractor | 부분 성공 | `vg/analysis/item_extractor.py` |
 
 ---
 
-*Last Updated: 2026-02-15*
+*Last Updated: 2026-02-16*
 *이 문서는 새로운 실패 시도가 발생할 때마다 업데이트할 것.*
