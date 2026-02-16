@@ -242,7 +242,7 @@ def compare_all(truth_path: str):
                     mismatches.append(f"MK: {dp.minion_kills} != {truth_mk} ({'+' if diff>0 else ''}{diff})")
                     mk_errors.append((mi+1, pname, dp.hero_name, dp.minion_kills, truth_mk, diff, is_incomplete))
 
-            # Gold (gold_earned = positive action=0x06, truth = total gold)
+            # Gold (gold_earned = positive action 0x06+0x0F+0x0D, truth = total gold)
             truth_gold = tp.get("gold")
             if truth_gold is not None and not is_incomplete:
                 if dp.gold_spent == truth_gold:
@@ -303,7 +303,7 @@ def compare_all(truth_path: str):
     print(f"\n  Gold (gold_earned vs truth, complete):")
     print(f"    Within ±5%:  {pct(g_5, g_total)}")
     print(f"    Within ±10%: {pct(g_10, g_total)}")
-    print(f"    Note: gold_earned = sum of positive action=0x06 credit records")
+    print(f"    Note: gold_earned = sum of positive action 0x06+0x0F+0x0D credit records")
 
     # Error details - complete matches only
     complete_kills = [e for e in kill_errors if not e[6]]

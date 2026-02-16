@@ -4,7 +4,8 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
-  - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0%
+  - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0% (combined 98.3%)
+  - Gold earned: action 0x06+0x0F+0x0D (±5% 49.5%, ±10% 85.0%)
   - WinLossDetector: crystal destruction detection (100% accuracy)
   - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
   - Crystal Death Detection: eid 2000-2005 death → game duration & winner
@@ -168,7 +169,7 @@ class DecodedPlayer:
     assists: Optional[int] = None
     minion_kills: int = 0
     gold_spent: int = 0
-    gold_earned: int = 0  # Positive action=0x06 credits (~97% of truth gold)
+    gold_earned: int = 0  # Positive credits: 0x06 income + 0x0F minion + 0x0D jungle (±5% 49.5%, ±10% 85%)
     items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
     items_all_purchased: List[str] = field(default_factory=list)  # Raw purchase history
     # Comparison fields (populated when truth is available)
@@ -320,17 +321,15 @@ class UnifiedDecoder:
             )
 
         # --- Step 7: Duration estimation ---
-        # Use the LATER of crystal death and max death timestamp.
-        # Crystal death should be near game end; if it's much earlier
-        # than player deaths, the detected "crystal" is likely a turret.
+        # Crystal death is preferred but eid 2000-2005 can be turrets.
+        # If crystal is much earlier than max player death, it's a FP.
         duration = None
         if crystal_ts is not None and duration_est is not None:
             if crystal_ts >= duration_est - 30:
                 # Crystal death is at or after last player death → valid
                 duration = int(crystal_ts)
             else:
-                # Crystal death is much earlier than last death → false positive
-                # Use max death timestamp instead
+                # Crystal death is much earlier → false positive turret
                 duration = int(duration_est)
         elif crystal_ts is not None:
             duration = int(crystal_ts)
@@ -563,10 +562,14 @@ class UnifiedDecoder:
             value = struct.unpack_from(">f", all_data, pos + 7)[0]
             action = all_data[pos + 11]
 
-            if action == 0x06 and not math.isnan(value) and not math.isinf(value):
-                if value < 0:
-                    gold_spent[eid] += abs(value)
-                elif value > 0:
+            if not math.isnan(value) and not math.isinf(value):
+                if action == 0x06:
+                    if value < 0:
+                        gold_spent[eid] += abs(value)
+                    elif value > 0:
+                        gold_earned[eid] += value
+                elif action in (0x0F, 0x0D) and value > 0:
+                    # Minion gold (0x0F) + jungle gold (0x0D) improve ±5% accuracy
                     gold_earned[eid] += value
 
             pos += 3
