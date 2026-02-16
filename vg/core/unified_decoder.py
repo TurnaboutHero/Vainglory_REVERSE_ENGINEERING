@@ -5,7 +5,7 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
   - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0% (combined 98.3%)
-  - Gold earned: action 0x06+0x0F+0x0D (±5% 49.5%, ±10% 85.0%)
+  - Gold earned: 600 starting + action 0x06+0x0F+0x0D (±5% 70.7%, ±10% 84.8%)
   - WinLossDetector: crystal destruction detection (100% accuracy)
   - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
   - Crystal Death Detection: eid 2000-2005 death → game duration & winner
@@ -169,7 +169,7 @@ class DecodedPlayer:
     assists: Optional[int] = None
     minion_kills: int = 0
     gold_spent: int = 0
-    gold_earned: int = 0  # Positive credits: 0x06 income + 0x0F minion + 0x0D jungle (±5% 49.5%, ±10% 85%)
+    gold_earned: int = 0  # 600 starting + 0x06 income + 0x0F minion + 0x0D jungle (±5% 70.7%, ±10% 84.8%)
     items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
     items_all_purchased: List[str] = field(default_factory=list)  # Raw purchase history
     # Comparison fields (populated when truth is available)
@@ -579,8 +579,8 @@ class UnifiedDecoder:
             if player:
                 if eid in gold_spent:
                     player.gold_spent = round(gold_spent[eid])
-                if eid in gold_earned:
-                    player.gold_earned = round(gold_earned[eid])
+                # Starting gold (600) + credit records
+                player.gold_earned = 600 + round(gold_earned.get(eid, 0))
 
     def _detect_crystal_death(
         self,
