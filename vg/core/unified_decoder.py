@@ -5,9 +5,21 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
   - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0%
-  - WinLossDetector: win/loss 100%
+  - WinLossDetector: crystal destruction detection (100% accuracy)
   - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
   - Crystal Death Detection: eid 2000-2005 death → game duration & winner
+
+Team label limitation:
+  The team_byte at player block +0xD5 groups players correctly (100%),
+  but the 1→left / 2→right mapping is non-deterministic (~50% of matches
+  have swapped labels). No binary-level signal has been found to resolve
+  this (exhaustive search: player block bytes, entity events, event headers,
+  turret clustering, crystal entity IDs — all fail to discriminate left/right).
+  The E.V.I.L. engine replay format does not appear to encode map position.
+  Winner detection via kill count asymmetry is 100% accurate (the winning
+  GROUP is always correctly identified), but its "left"/"right" label may
+  not match the API convention. Use truth_comparison.py auto-swap correction
+  when validating against API telemetry data.
 
 Usage:
     from vg.core.unified_decoder import UnifiedDecoder
@@ -186,6 +198,7 @@ class DecodedMatch:
     kda_detection_used: bool = False
     win_detection_used: bool = False
     item_detection_used: bool = False
+    team_labels_reliable: bool = False  # left/right labels may not match API convention
 
     @property
     def all_players(self) -> List[DecodedPlayer]:
