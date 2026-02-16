@@ -4,9 +4,10 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
-  - KDADetector: kills 97.9%, deaths 95.7%
+  - KDADetector: kills 97.9%, deaths 95.7%, assists 93.9%, minion kills 97.1%
   - WinLossDetector: win/loss 100%
-  - ItemExtractor: items (partial)
+  - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
+  - Crystal Death Detection: eid 2000-2005 death → game duration & winner
 
 Usage:
     from vg.core.unified_decoder import UnifiedDecoder
@@ -20,31 +21,36 @@ CLI:
 """
 
 import json
+import math
 import struct
 import sys
+from collections import defaultdict
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set, Tuple
 
 # Local imports with fallback for both package and direct execution
 try:
     from vg.core.vgr_parser import VGRParser
     from vg.core.kda_detector import KDADetector
+    from vg.core.vgr_mapping import ITEM_ID_MAP
     from vg.analysis.win_loss_detector import WinLossDetector
-    from vg.analysis.item_extractor import ItemExtractor
 except ImportError:
     try:
         from vgr_parser import VGRParser
         from kda_detector import KDADetector
-        # analysis modules need special handling
-        import importlib
-        import os
+        from vgr_mapping import ITEM_ID_MAP
         _root = Path(__file__).resolve().parent.parent
         sys.path.insert(0, str(_root.parent))
         from vg.analysis.win_loss_detector import WinLossDetector
-        from vg.analysis.item_extractor import ItemExtractor
     except ImportError as e:
         raise ImportError(f"Cannot import required modules: {e}")
+
+# Event headers for item and objective detection
+_ITEM_ACQUIRE_HEADER = bytes([0x10, 0x04, 0x3D])
+_ITEM_EQUIP_HEADER = bytes([0x10, 0x04, 0x4B])
+_CREDIT_HEADER = bytes([0x10, 0x04, 0x1D])
+_DEATH_HEADER = bytes([0x08, 0x04, 0x31])
 
 
 def _le_to_be(eid_le: int) -> int:
@@ -64,6 +70,7 @@ class DecodedPlayer:
     deaths: int = 0
     assists: Optional[int] = None
     minion_kills: int = 0
+    gold_spent: int = 0
     items: List[str] = field(default_factory=list)
     # Comparison fields (populated when truth is available)
     truth_kills: Optional[int] = None
@@ -86,6 +93,8 @@ class DecodedMatch:
     left_team: List[DecodedPlayer] = field(default_factory=list)
     right_team: List[DecodedPlayer] = field(default_factory=list)
     total_frames: int = 0
+    crystal_death_ts: Optional[float] = None
+    crystal_death_eid: Optional[int] = None
     # Detection flags
     kda_detection_used: bool = False
     win_detection_used: bool = False
@@ -199,32 +208,36 @@ class UnifiedDecoder:
             elif crystal_detected and outcome:
                 winner = outcome.winner
 
-        # --- Step 5: Item Detection (optional) ---
+        # --- Step 5: Per-player Item Detection via [10 04 3D] ---
         item_used = False
-        if detect_items:
-            try:
-                item_dir = frame_dir
-                extractor = ItemExtractor(item_dir)
-                report = extractor.extract_items()
-                # Collect unique T3 item names
-                all_items = set()
-                for category_items in report.items_found.values():
-                    for item in category_items:
-                        if item.get("tier", 0) >= 3:
-                            all_items.add(item["name"])
-                # Assign items to match (not per-player yet)
-                for player in all_players:
-                    player.items = sorted(all_items)
+        all_data = b"".join(data for _, data in frames) if frames else b""
+        if all_data and all_players:
+            eid_map_be = {}
+            for player in all_players:
+                if player.entity_id:
+                    eid_be = _le_to_be(player.entity_id)
+                    eid_map_be[eid_be] = player
+            if eid_map_be:
+                self._detect_items_per_player(all_data, eid_map_be)
                 item_used = True
-            except Exception:
-                pass
 
-        # --- Step 6: Duration estimation ---
-        duration = duration_est
-        if duration is not None:
-            duration = int(duration)
+        # --- Step 6: Crystal Death Detection ---
+        crystal_ts = None
+        crystal_eid = None
+        if all_data:
+            crystal_ts, crystal_eid = self._detect_crystal_death(
+                all_data, duration_est
+            )
 
-        # --- Step 7: Assemble result ---
+        # --- Step 7: Duration estimation ---
+        # Prefer crystal death timestamp, fallback to max death timestamp
+        duration = None
+        if crystal_ts is not None:
+            duration = int(crystal_ts)
+        elif duration_est is not None:
+            duration = int(duration_est)
+
+        # --- Step 8: Assemble result ---
         return DecodedMatch(
             replay_name=replay_name,
             replay_path=str(replay_file),
@@ -236,6 +249,8 @@ class UnifiedDecoder:
             left_team=left_team,
             right_team=right_team,
             total_frames=match_info.get("total_frames", 0),
+            crystal_death_ts=crystal_ts,
+            crystal_death_eid=crystal_eid,
             kda_detection_used=kda_used,
             win_detection_used=win_used,
             item_detection_used=item_used,
@@ -389,6 +404,145 @@ class UnifiedDecoder:
                 player.assists = kda.assists
                 player.minion_kills = kda.minion_kills
 
+    def _detect_items_per_player(
+        self,
+        all_data: bytes,
+        eid_map: Dict[int, 'DecodedPlayer'],
+    ) -> None:
+        """
+        Scan [10 04 3D] item acquire events and [10 04 1D] action=0x06
+        purchase costs. Assigns per-player items and gold_spent.
+
+        Item acquire: [10 04 3D][00 00][eid BE][00 00][qty][item_id LE][00 00][counter BE][ts f32 BE]
+        Purchase cost: [10 04 1D][00 00][eid BE][cost f32 BE (negative)][06]
+        """
+        valid_eids = set(eid_map.keys())
+
+        # --- Scan item acquire events ---
+        player_items: Dict[int, Dict[int, str]] = defaultdict(dict)  # eid -> {item_id: name}
+        pos = 0
+        while True:
+            pos = all_data.find(_ITEM_ACQUIRE_HEADER, pos)
+            if pos == -1:
+                break
+            if pos + 20 > len(all_data):
+                pos += 1
+                continue
+            if all_data[pos + 3:pos + 5] != b'\x00\x00':
+                pos += 1
+                continue
+
+            eid = struct.unpack_from(">H", all_data, pos + 5)[0]
+            if eid not in valid_eids:
+                pos += 1
+                continue
+
+            item_id = struct.unpack_from("<H", all_data, pos + 10)[0]
+            item_info = ITEM_ID_MAP.get(item_id)
+            if item_info:
+                tier = item_info.get("tier", 0)
+                name = item_info["name"]
+                # Keep highest tier per item_id
+                existing = player_items[eid].get(item_id)
+                if existing is None or tier >= existing[1]:
+                    player_items[eid][item_id] = (name, tier)
+
+            pos += 3
+
+        # Assign items: report T3 items only (final build), T2 if no T3
+        for eid, items in player_items.items():
+            player = eid_map.get(eid)
+            if player:
+                t3 = sorted(set(n for n, t in items.values() if t == 3))
+                if t3:
+                    player.items = t3
+                else:
+                    # Fallback: show T2 items if no T3
+                    t2 = sorted(set(n for n, t in items.values() if t == 2))
+                    player.items = t2
+
+        # --- Scan purchase costs (action=0x06, negative values) ---
+        gold_spent: Dict[int, float] = defaultdict(float)
+        pos = 0
+        while True:
+            pos = all_data.find(_CREDIT_HEADER, pos)
+            if pos == -1:
+                break
+            if pos + 12 > len(all_data):
+                pos += 1
+                continue
+            if all_data[pos + 3:pos + 5] != b'\x00\x00':
+                pos += 1
+                continue
+
+            eid = struct.unpack_from(">H", all_data, pos + 5)[0]
+            if eid not in valid_eids:
+                pos += 3
+                continue
+
+            value = struct.unpack_from(">f", all_data, pos + 7)[0]
+            action = all_data[pos + 11]
+
+            if action == 0x06 and not math.isnan(value) and value < 0:
+                gold_spent[eid] += abs(value)
+
+            pos += 3
+
+        for eid, spent in gold_spent.items():
+            player = eid_map.get(eid)
+            if player:
+                player.gold_spent = round(spent)
+
+    def _detect_crystal_death(
+        self,
+        all_data: bytes,
+        duration_est: Optional[float],
+    ) -> Tuple[Optional[float], Optional[int]]:
+        """
+        Detect Vain Crystal destruction via death header for eid 2000-2005.
+        The crystal death timestamp closely matches game duration.
+
+        Returns:
+            (crystal_death_ts, crystal_death_eid) or (None, None).
+        """
+        crystal_deaths = []
+        pos = 0
+        while True:
+            pos = all_data.find(_DEATH_HEADER, pos)
+            if pos == -1:
+                break
+            if pos + 13 > len(all_data):
+                pos += 1
+                continue
+            if (all_data[pos + 3:pos + 5] != b'\x00\x00' or
+                    all_data[pos + 7:pos + 9] != b'\x00\x00'):
+                pos += 1
+                continue
+
+            eid = struct.unpack_from(">H", all_data, pos + 5)[0]
+            ts = struct.unpack_from(">f", all_data, pos + 9)[0]
+
+            if 2000 <= eid <= 2005 and 60 < ts < 2400:
+                crystal_deaths.append((ts, eid))
+
+            pos += 1
+
+        if not crystal_deaths:
+            return None, None
+
+        # The crystal death is the one with the latest timestamp
+        # (closest to game end). Filter: must be within ±60s of
+        # duration estimate if available.
+        crystal_deaths.sort(key=lambda x: x[0], reverse=True)
+
+        if duration_est is not None:
+            for ts, eid in crystal_deaths:
+                if abs(ts - duration_est) < 60:
+                    return ts, eid
+
+        # No duration estimate: return latest crystal death
+        return crystal_deaths[0]
+
     def _load_truth(self, truth_path: str, replay_name: str) -> Optional[Dict]:
         """Load truth data for a specific replay."""
         try:
@@ -419,7 +573,7 @@ def main():
     arg_parser.add_argument(
         '--items',
         action='store_true',
-        help='Enable item detection (partial accuracy)'
+        help='(Legacy flag, items are now always detected per-player)'
     )
     arg_parser.add_argument(
         '-o', '--output',
