@@ -228,107 +228,151 @@ HERO_NAME_TO_ID: Dict[str, int] = {
 }
 
 # Item ID Mapping
+# =============================================================================
+# IMPORTANT: The old 100/300/400-series IDs were WRONG (never appeared in replay
+# binary data). Real item IDs use the 200-255 range plus low IDs (0-27, qty=1).
+#
+# Mapping sources:
+#   - "confirmed": Truth data frequency matching (Jaccard >= 0.50, matches 1-4)
+#   - "moderate":  Truth data lower confidence + role matrix corroboration
+#   - "tentative": Role matrix + transition chain analysis (no direct truth match)
+#   - "unknown":   Category known from role matrix, specific item uncertain
+# =============================================================================
 ITEM_ID_MAP: Dict[int, Dict] = {
-    # Weapon - Basic
-    101: {"name": "Weapon Blade", "category": "Weapon", "tier": 1},
-    102: {"name": "Book of Eulogies", "category": "Weapon", "tier": 1},
-    103: {"name": "Swift Shooter", "category": "Weapon", "tier": 1},
-    104: {"name": "Minion's Foot", "category": "Weapon", "tier": 1},
-    105: {"name": "Unknown Weapon 105", "category": "Weapon", "tier": 1, "status": "discovered"},
-    106: {"name": "Unknown Weapon 106", "category": "Weapon", "tier": 1, "status": "discovered"},
-    107: {"name": "Unknown Weapon 107", "category": "Weapon", "tier": 1, "status": "discovered"},
-    108: {"name": "Unknown Weapon 108", "category": "Weapon", "tier": 1, "status": "discovered"},
-    109: {"name": "Unknown Weapon 109", "category": "Weapon", "tier": 1, "status": "discovered"},
-    110: {"name": "Unknown Weapon 110", "category": "Weapon", "tier": 1, "status": "discovered"},
-    
-    # Weapon - Tier 2
-    111: {"name": "Heavy Steel", "category": "Weapon", "tier": 2},
-    112: {"name": "Six Sins", "category": "Weapon", "tier": 2},
-    113: {"name": "Blazing Salvo", "category": "Weapon", "tier": 2},
-    114: {"name": "Lucky Strike", "category": "Weapon", "tier": 2},
-    115: {"name": "Piercing Spear", "category": "Weapon", "tier": 2},
-    116: {"name": "Barbed Needle", "category": "Weapon", "tier": 2},
-    
-    # Weapon - Tier 3
-    # Note: Tier 3 items (121-129, 221-229, 321-328) are NOT stored with FF FF FF FF pattern
-    # They use different storage mechanism when crafted from components
-    121: {"name": "Sorrowblade", "category": "Weapon", "tier": 3},
-    122: {"name": "Serpent Mask", "category": "Weapon", "tier": 3},
-    123: {"name": "Tornado Trigger", "category": "Weapon", "tier": 3},
-    124: {"name": "Tyrant's Monocle", "category": "Weapon", "tier": 3},
-    125: {"name": "Bonesaw", "category": "Weapon", "tier": 3},
-    126: {"name": "Poisoned Shiv", "category": "Weapon", "tier": 3},
-    127: {"name": "Breaking Point", "category": "Weapon", "tier": 3},
-    128: {"name": "Tension Bow", "category": "Weapon", "tier": 3},
-    129: {"name": "Spellsword", "category": "Weapon", "tier": 3},
-    
-    # Crystal - Basic
-    201: {"name": "Crystal Bit", "category": "Crystal", "tier": 1},
-    202: {"name": "Energy Battery", "category": "Crystal", "tier": 1},
-    203: {"name": "Hourglass", "category": "Crystal", "tier": 1},
-    
-    # Crystal - Tier 2
-    211: {"name": "Eclipse Prism", "category": "Crystal", "tier": 2},
-    212: {"name": "Heavy Prism", "category": "Crystal", "tier": 2},
-    213: {"name": "Piercing Shard", "category": "Crystal", "tier": 2},
-    214: {"name": "Chronograph", "category": "Crystal", "tier": 2},
-    215: {"name": "Void Battery", "category": "Crystal", "tier": 2},
-    
-    # Crystal - Tier 3
-    221: {"name": "Shatterglass", "category": "Crystal", "tier": 3},
-    222: {"name": "Frostburn", "category": "Crystal", "tier": 3},
-    223: {"name": "Eve of Harvest", "category": "Crystal", "tier": 3},
-    224: {"name": "Broken Myth", "category": "Crystal", "tier": 3},
-    225: {"name": "Clockwork", "category": "Crystal", "tier": 3},
-    226: {"name": "Alternating Current", "category": "Crystal", "tier": 3},
-    227: {"name": "Dragon's Eye", "category": "Crystal", "tier": 3},
-    228: {"name": "Spellfire", "category": "Crystal", "tier": 3},
-    229: {"name": "Aftershock", "category": "Crystal", "tier": 3},
-    
-    # Defense - Basic
-    301: {"name": "Light Shield", "category": "Defense", "tier": 1},
-    302: {"name": "Light Armor", "category": "Defense", "tier": 1},
-    303: {"name": "Oakheart", "category": "Defense", "tier": 1},
-    
-    # Defense - Tier 2
-    311: {"name": "Kinetic Shield", "category": "Defense", "tier": 2},
-    312: {"name": "Coat of Plates", "category": "Defense", "tier": 2},
-    313: {"name": "Dragonheart", "category": "Defense", "tier": 2},
-    314: {"name": "Reflex Block", "category": "Defense", "tier": 2},
-    
-    # Defense - Tier 3
-    321: {"name": "Aegis", "category": "Defense", "tier": 3},
-    322: {"name": "Metal Jacket", "category": "Defense", "tier": 3},
-    323: {"name": "Fountain of Renewal", "category": "Defense", "tier": 3},
-    324: {"name": "Crucible", "category": "Defense", "tier": 3},
-    325: {"name": "Atlas Pauldron", "category": "Defense", "tier": 3},
-    326: {"name": "Slumbering Husk", "category": "Defense", "tier": 3},
-    327: {"name": "Pulseweave", "category": "Defense", "tier": 3},
-    328: {"name": "Capacitor Plate", "category": "Defense", "tier": 3},
-    
-    # Utility - Boots
-    401: {"name": "Sprint Boots", "category": "Utility", "tier": 1},
-    402: {"name": "Travel Boots", "category": "Utility", "tier": 2},
-    403: {"name": "Journey Boots", "category": "Utility", "tier": 3},
-    404: {"name": "Halcyon Chargers", "category": "Utility", "tier": 3},
-    405: {"name": "War Treads", "category": "Utility", "tier": 3},
-    406: {"name": "Teleport Boots", "category": "Utility", "tier": 3},
-    
-    # Utility - Vision
-    411: {"name": "Flare", "category": "Utility", "tier": 1},
-    412: {"name": "Scout Trap", "category": "Utility", "tier": 1},
-    413: {"name": "Flare Gun", "category": "Utility", "tier": 2},
-    414: {"name": "Contraption", "category": "Utility", "tier": 3},
-    415: {"name": "Superscout 2000", "category": "Utility", "tier": 3},
-    
-    # Utility - Other
-    421: {"name": "Nullwave Gauntlet", "category": "Utility", "tier": 3},
-    422: {"name": "Echo", "category": "Utility", "tier": 3},
-    423: {"name": "Stormcrown", "category": "Utility", "tier": 3},
+    # =========================================================================
+    # LOW IDs (0-27): qty=1 = shop items, qty=2 = ability upgrades
+    # =========================================================================
+    0:  {"name": "Heavy Prism", "category": "Crystal", "tier": 2, "status": "tentative",
+         "note": "Appears in all crystal carry builds, consumed into crystal T3 items"},
+    5:  {"name": "Tyrants Monocle", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    8:  {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "tentative",
+         "note": "Only WP carry (tsuki/Kinetic) in M7. Late-game consumable."},
+    7:  {"name": "Stormcrown", "category": "Utility", "tier": 3, "status": "confirmed"},
+    10: {"name": "Spellfire", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    11: {"name": "Dragons Eye", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    12: {"name": "Spellsword", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    13: {"name": "Slumbering Husk", "category": "Defense", "tier": 3, "status": "confirmed"},
+    15: {"name": "SuperScout 2000", "category": "Utility", "tier": 3, "status": "confirmed"},
+    16: {"name": "Contraption", "category": "Utility", "tier": 3, "status": "tentative",
+         "note": "Appears exclusively in captain builds (Lorelai, Lyra, Ardan). Built from Stormguard Banner + Chronograph"},
+    20: {"name": "Flare", "category": "Utility", "tier": 0, "status": "confirmed"},
+    21: {"name": "Pulseweave", "category": "Defense", "tier": 3, "status": "confirmed"},
+    24: {"name": "Blazing Salvo", "category": "Weapon", "tier": 2, "status": "confirmed",
+         "note": "Tied J=1.00 with Dragonblood Contract (same player)"},
+    26: {"name": "Warmail", "category": "Defense", "tier": 2, "status": "confirmed"},
+    27: {"name": "Rooks Decree", "category": "Defense", "tier": 3, "status": "confirmed"},
 
-    # System Items
-    188: {"name": "System Item 188", "category": "System", "tier": 0, "status": "system"},
-    255: {"name": "Marker 255", "category": "System", "tier": 0, "status": "marker"},
+    # =========================================================================
+    # IDs 200+: Main shop items
+    # =========================================================================
+
+    # --- Weapon T1 (300g) ---
+    202: {"name": "Weapon Blade", "category": "Weapon", "tier": 1, "status": "tentative",
+          "note": "Role matrix: 92% WP (46/50), cost=300g"},
+    204: {"name": "Swift Shooter", "category": "Weapon", "tier": 1, "status": "confirmed"},
+    243: {"name": "Book of Eulogies", "category": "Weapon", "tier": 1, "status": "confirmed"},
+
+    # --- Weapon T2 (400-850g) ---
+    205: {"name": "Six Sins", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 93%, cost=350g matches Six Sins"},
+    207: {"name": "Weapon T2", "category": "Weapon", "tier": 2, "status": "unknown",
+          "note": "WP 85% (17/20), cost=400g"},
+    237: {"name": "Barbed Needle", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 75% (36/48), cost=500g, transitions to Breaking Point(251)"},
+    244: {"name": "Lucky Strike", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 83% (5/6), cost=500g"},
+    249: {"name": "Heavy Steel", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 100% (27/27), cost=850g, transitions to Sorrowblade(208)"},
+    250: {"name": "Piercing Spear", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 100% (14/14), cost=600g, transitions to Bonesaw(226)"},
+    252: {"name": "Weapon T2-T3", "category": "Weapon", "tier": 2, "status": "unknown",
+          "note": "WP 100% (5/5), cost=900g"},
+
+    # --- Weapon T3 (1300g+) ---
+    208: {"name": "Sorrowblade", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    223: {"name": "Serpent Mask", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    226: {"name": "Bonesaw", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    235: {"name": "Tension Bow", "category": "Weapon", "tier": 3, "status": "tentative",
+          "note": "WP 100% (4/4), cost=1350g"},
+    251: {"name": "Breaking Point", "category": "Weapon", "tier": 3, "status": "confirmed"},
+
+    # --- Crystal T1 (300g) ---
+    203: {"name": "Crystal Bit", "category": "Crystal", "tier": 1, "status": "tentative",
+          "note": "CP 86% (77/90), cost=300g, most common CP item"},
+    206: {"name": "Energy Battery", "category": "Crystal", "tier": 1, "status": "tentative",
+          "note": "CP 81% (35/43), cost=350g"},
+    216: {"name": "Hourglass", "category": "Crystal", "tier": 1, "status": "tentative",
+          "note": "CP 65% (17/26), cost=300g"},
+
+    # --- Crystal T2 (400-600g) ---
+    218: {"name": "Chronograph", "category": "Crystal", "tier": 2, "status": "tentative",
+          "note": "CP 81% (13/16), cost=400g"},
+    238: {"name": "Eclipse Prism", "category": "Crystal", "tier": 2, "status": "tentative",
+          "note": "CP 74% (31/42), cost=500g, transitions to Broken Myth(240)"},
+    254: {"name": "Piercing Shard", "category": "Crystal", "tier": 2, "status": "confirmed"},
+
+    # --- Crystal T3 (900g+) ---
+    209: {"name": "Shatterglass", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    220: {"name": "Clockwork", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    230: {"name": "Frostburn", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    236: {"name": "Aftershock", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    240: {"name": "Broken Myth", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    253: {"name": "Alternating Current", "category": "Crystal", "tier": 3, "status": "confirmed"},
+    255: {"name": "Eve of Harvest", "category": "Crystal", "tier": 3, "status": "confirmed"},
+
+    # --- Defense T1 (250-350g) ---
+    211: {"name": "Light Shield", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "CAP 58% (61/105), cost=300g, very common (multi-buy for Aegis)"},
+    212: {"name": "Oakheart", "category": "Defense", "tier": 1, "status": "moderate",
+          "note": "Truth J=0.18 (recall 100%), CAP 61% (38/62), cost=350g"},
+    213: {"name": "Light Armor", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "CAP 58% (18/31), cost=300g"},
+    245: {"name": "Light Shield", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "Variant of ID 211 (Light Shield). CAP 52%, cost=300g, transitions to Kinetic Shield(246). Very common across all matches."},
+    215: {"name": "Light Armor", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "Variant of ID 213 (Light Armor). Only topLaner in M7/M8. Transitions to Kinetic Shield."},
+
+    # --- Defense T2 (400-800g) ---
+    214: {"name": "Dragonheart", "category": "Defense", "tier": 2, "status": "tentative",
+          "note": "BR 57% (13/23), cost=450g"},
+    229: {"name": "Reflex Block", "category": "Defense", "tier": 2, "status": "tentative",
+          "note": "Universal (69p), cost=700g, transitions to Crucible(232)+Aegis(247)"},
+    246: {"name": "Kinetic Shield", "category": "Defense", "tier": 2, "status": "moderate",
+          "note": "Truth J=0.17, DEF (BR+CAP 91%), cost=450g"},
+    248: {"name": "Lifespring", "category": "Defense", "tier": 2, "status": "tentative",
+          "note": "CAP 57% (17/30), cost=800g, transitions to Fountain(231)"},
+
+    # --- Defense T3 (950g+) ---
+    231: {"name": "Fountain of Renewal", "category": "Defense", "tier": 3, "status": "confirmed"},
+    232: {"name": "Crucible", "category": "Defense", "tier": 3, "status": "confirmed"},
+    242: {"name": "Atlas Pauldron", "category": "Defense", "tier": 3, "status": "confirmed"},
+    247: {"name": "Aegis", "category": "Defense", "tier": 3, "status": "confirmed"},
+
+    # --- Utility / Boots ---
+    201: {"name": "Unknown 201", "category": "Utility", "tier": 0, "status": "unknown",
+          "note": "Universal (70p), cost=FREE, possibly system/start item"},
+    219: {"name": "Stormguard Banner", "category": "Utility", "tier": 2, "status": "tentative",
+          "note": "Mixed roles (20p), cost=800g"},
+    221: {"name": "Sprint Boots", "category": "Utility", "tier": 1, "status": "tentative",
+          "note": "Universal (67p), cost=300g"},
+    222: {"name": "Travel Boots", "category": "Utility", "tier": 2, "status": "tentative",
+          "note": "Universal (73p), cost=350g"},
+    234: {"name": "Halcyon Chargers", "category": "Utility", "tier": 3, "status": "confirmed"},
+    241: {"name": "War Treads", "category": "Utility", "tier": 3, "status": "confirmed"},
+
+    # --- Identified from final build analysis ---
+    17: {"name": "Shiversteel", "category": "Defense", "tier": 3, "status": "tentative",
+         "note": "Appears exclusively in captain/tank builds (Warhawk, Lorelai, Grumpjaw). Built from Dragonheart."},
+    18: {"name": "Crystal Infusion", "category": "Consumable", "tier": 0, "status": "tentative",
+         "note": "M7 right team ALL 4 players (WP+CP+tank+mage) = role-independent consumable. Late-game buff."},
+    19: {"name": "Unknown 19", "category": "Utility", "tier": 3, "status": "unknown",
+         "note": "Only Acex(Lorelai) in M6/M7. Captain-specific T3 (Echo? Capacitor Plate? Nullwave?)."},
+    22: {"name": "Unknown 22", "category": "Utility", "tier": 3, "status": "unknown",
+         "note": "Captain builds (Yates, Grace) in M10. Non-boot T3."},
+
+    # --- Unknown (category from role matrix but item uncertain) ---
+    217: {"name": "Unknown 217", "category": "Defense", "tier": 1, "status": "unknown",
+          "note": "Mixed roles (19p), cost=250g"},
 }
 
 # Reverse lookup: item name to ID
