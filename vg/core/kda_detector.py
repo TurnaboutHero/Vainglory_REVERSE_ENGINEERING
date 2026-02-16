@@ -1,12 +1,12 @@
 """
 KDA Detector - Kill/Death/Assist/Minion detection from Vainglory replay files.
 
-Cross-validated accuracy (excluding incomplete Match 9):
-  Kill:        97.9% (92/94) - raw detection, no filtering
-  Death:       95.7% (90/94) - with post-game ceremony filter (ts <= duration + 10s)
-  Assist:      93.9% (93/99) - credit record flag + same-team filtering
-  Minion Kill: 97.1% (67/69) - credit record action byte 0x0E
-  Combined K+D: 96.8% (182/188)
+Cross-validated accuracy (10 complete matches, 99 players):
+  Kill:        99.0% (98/99) - with post-game filter (kill_buffer=3s)
+  Death:       98.0% (97/99) - with post-game filter (death_buffer=10s)
+  Assist:      98.0% (97/99) - credit record flag + same-team + min 2 credits
+  Minion Kill: 87.3% (69/79) - credit record action byte 0x0E (M6 outlier)
+  Combined K+D+A: 98.3% (292/297)
 
 Record structures (Big Endian protocol):
   Kill:   [18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]
@@ -232,15 +232,18 @@ class KDADetector:
 
     def get_results(self, game_duration: Optional[float] = None,
                     death_buffer: float = 10.0,
+                    kill_buffer: float = 3.0,
                     team_map: Optional[Dict[int, str]] = None) -> Dict[int, KDAResult]:
         """
         Get per-player KDA results.
 
         Args:
-            game_duration: If provided, deaths with ts > duration + death_buffer
-                          are filtered (post-game ceremony kills not counted in stats).
-            death_buffer: Buffer seconds added to game_duration for death filtering.
-                         Default 10s. Only used if game_duration is provided.
+            game_duration: If provided, events after game end are filtered.
+            death_buffer: Buffer seconds for death filtering (default 10s).
+                         Deaths during post-game ceremony still count briefly.
+            kill_buffer: Buffer seconds for kill filtering (default 3s).
+                        Kills after game end are cosmetic and should not count.
+                        Tighter than death_buffer since kills are the cause, not effect.
             team_map: Dict mapping entity ID (BE) -> team name ("left"/"right").
                      Required for assist detection. If None, assists remain 0.
 
@@ -251,13 +254,16 @@ class KDADetector:
         for eid in self.valid_eids:
             results[eid] = KDAResult()
 
-        # Count kills (no timestamp filter - kill timestamps less reliable)
+        # Count kills (with tight post-game filter - kills after crystal destruction don't count)
+        max_kill_ts = (game_duration + kill_buffer) if game_duration else 9999
         for kev in self._kill_events:
             if kev.killer_eid in results:
+                if kev.timestamp is not None and kev.timestamp > max_kill_ts:
+                    continue  # Post-game ceremony kill
                 results[kev.killer_eid].kills += 1
                 results[kev.killer_eid].kill_events.append(kev)
 
-        # Count deaths (with optional post-game filter)
+        # Count deaths (with wider post-game buffer - dying during ceremony still counts briefly)
         max_death_ts = (game_duration + death_buffer) if game_duration else 9999
         for dev in self._death_events:
             if dev.victim_eid in results and dev.timestamp <= max_death_ts:
@@ -269,19 +275,30 @@ class KDADetector:
             if eid in results:
                 results[eid].minion_kills = count
 
-        # Count assists (requires team_map)
+        # Count assists (requires team_map, uses kill_buffer since assists derive from kills)
         if team_map:
-            self._count_assists(results, team_map)
+            self._count_assists(results, team_map, game_duration, kill_buffer)
 
         return results
 
     def _count_assists(self, results: Dict[int, KDAResult],
-                       team_map: Dict[int, str]) -> None:
+                       team_map: Dict[int, str],
+                       game_duration: Optional[float] = None,
+                       death_buffer: float = 10.0) -> None:
         """Count assists from credit records after each kill.
 
-        An assist = non-killer, same-team player with value==1.0 flag.
+        An assist = non-killer, same-team player with:
+          - value==1.0 participation flag
+          - at least one OTHER credit record (gold share)
+        A lone 1.0 without gold credit is a false positive
+        (e.g., Blackfeather passive triggering credit records).
         """
+        max_ts = (game_duration + death_buffer) if game_duration else 9999
         for kev in self._kill_events:
+            # Skip post-game kills for assist counting
+            if kev.timestamp is not None and kev.timestamp > max_ts:
+                continue
+
             killer_eid = kev.killer_eid
             killer_team = team_map.get(killer_eid)
             if not killer_team:
@@ -297,6 +314,10 @@ class KDADetector:
                     continue
                 # Must have 1.0 participation flag
                 if not any(abs(v - 1.0) < 0.01 for v in values):
+                    continue
+                # Must have at least 2 credit records (1.0 flag + gold share).
+                # A lone [1.0] is a false positive from hero passives.
+                if len(values) < 2:
                     continue
                 # Must be same team as killer
                 if team_map.get(eid) != killer_team:

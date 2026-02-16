@@ -58,6 +58,7 @@ def match_to_csv_rows(match: DecodedMatch, match_idx: int = 0) -> List[Dict]:
             'assists': player.assists if player.assists is not None else '',
             'minion_kills': player.minion_kills,
             'gold_spent': player.gold_spent,
+            'gold_earned': player.gold_earned,
             'items': ' | '.join(player.items) if player.items else '',
             'item_count': len(player.items),
         }

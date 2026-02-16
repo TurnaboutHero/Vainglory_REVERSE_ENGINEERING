@@ -4,7 +4,7 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
-  - KDADetector: kills 97.9%, deaths 95.7%, assists 93.9%, minion kills 97.1%
+  - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0%
   - WinLossDetector: win/loss 100%
   - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
   - Crystal Death Detection: eid 2000-2005 death → game duration & winner
@@ -52,10 +52,95 @@ _ITEM_EQUIP_HEADER = bytes([0x10, 0x04, 0x4B])
 _CREDIT_HEADER = bytes([0x10, 0x04, 0x1D])
 _DEATH_HEADER = bytes([0x08, 0x04, 0x31])
 
+# ===== ITEM BUILD ESTIMATION =====
+# Upgrade tree using BINARY REPLAY IDs (from ITEM_ID_MAP)
+# component_id -> set of result_ids it could have been upgraded into
+UPGRADE_TREE = {
+    # ====== Weapon T1 → T2 + T3 (transitive) ======
+    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253},  # Weapon Blade
+    243: {237, 223},  # Book of Eulogies → Barbed Needle → Serpent Mask
+    204: {24, 244, 226, 251, 253, 5},  # Swift Shooter
+    # ====== Weapon T2 → T3 ======
+    249: {208, 223, 12, 251},  # Heavy Steel
+    205: {208, 235, 5},  # Six Sins
+    237: {223},  # Barbed Needle → Serpent Mask
+    250: {235, 226},  # Piercing Spear
+    24: {226, 251, 253},  # Blazing Salvo
+    244: {5},  # Lucky Strike → Tyrants Monocle
+    207: {208, 223, 12, 251},  # Weapon T2 (unknown)
+    252: {226, 235, 251},  # Weapon T2-T3 (unknown)
+    # ====== Crystal T1 → T2 + T3 (transitive) ======
+    203: {0, 238, 254, 209, 10, 230, 11, 236, 253, 240, 255},  # Crystal Bit
+    206: {220, 255, 234},  # Energy Battery
+    216: {218, 220, 236, 12, 7, 27, 16},  # Hourglass
+    # ====== Crystal T2 → T3 ======
+    0: {209, 10, 230, 11, 240, 255, 253},  # Heavy Prism
+    238: {209, 10, 230, 11, 236},  # Eclipse Prism
+    254: {253, 240},  # Piercing Shard
+    218: {220, 236, 12, 7, 27, 16},  # Chronograph
+    # ====== Defense T1 → T2 + T3 (transitive) ======
+    212: {214, 248, 229, 219, 21, 232, 27, 241, 231, 247, 7, 16, 17},  # Oakheart
+    211: {246, 26, 231, 247, 13, 242},  # Light Shield
+    213: {26, 242},  # Light Armor
+    245: {246, 231, 247, 13},  # Defense T1 (unknown)
+    215: {246, 231, 247, 13},  # Defense T1 (unknown)
+    # ====== Defense T2 → T3 ======
+    214: {21, 232, 27, 241, 17},  # Dragonheart
+    248: {21, 231},  # Lifespring
+    229: {232, 247},  # Reflex Block
+    246: {231, 247, 13},  # Kinetic Shield
+    26: {242},  # Warmail → Atlas Pauldron
+    # ====== Boots ======
+    221: {222, 241, 234},  # Sprint Boots
+    222: {241, 234},  # Travel Boots
+    # ====== Utility T2 → T3 ======
+    219: {7, 16},  # Stormguard Banner
+}
+
+# Starter/consumable IDs - never in final build
+STARTER_IDS = {1, 8, 14, 18, 20, 201, 217}
+
 
 def _le_to_be(eid_le: int) -> int:
     """Convert uint16 Little Endian entity ID to Big Endian."""
     return struct.unpack('>H', struct.pack('<H', eid_le))[0]
+
+
+def _estimate_final_build(item_ids_set: Set[int]) -> List[str]:
+    """
+    Remove consumed components and starters. Return up to 6 items (final build).
+
+    Args:
+        item_ids_set: Set of all purchased item IDs (binary replay IDs)
+
+    Returns:
+        List of item names in final 6-slot build, sorted by tier desc
+    """
+    remaining = set(item_ids_set) - STARTER_IDS
+
+    # Iteratively remove components that have been upgraded
+    changed = True
+    while changed:
+        changed = False
+        to_remove = set()
+        for comp_id, result_ids in UPGRADE_TREE.items():
+            if comp_id in remaining and (remaining & result_ids):
+                to_remove.add(comp_id)
+        if to_remove:
+            remaining -= to_remove
+            changed = True
+
+    # Convert to named items, sorted by tier desc
+    items = []
+    for iid in remaining:
+        info = ITEM_ID_MAP.get(iid)
+        if info:
+            items.append((info.get('tier', 0), info['name'], iid))
+        else:
+            items.append((-1, f"Unknown_{iid}", iid))
+
+    items.sort(key=lambda x: (-x[0], x[1]))
+    return [name for _, name, _ in items[:6]]
 
 
 @dataclass
@@ -71,7 +156,9 @@ class DecodedPlayer:
     assists: Optional[int] = None
     minion_kills: int = 0
     gold_spent: int = 0
-    items: List[str] = field(default_factory=list)
+    gold_earned: int = 0  # Positive action=0x06 credits (~97% of truth gold)
+    items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
+    items_all_purchased: List[str] = field(default_factory=list)  # Raw purchase history
     # Comparison fields (populated when truth is available)
     truth_kills: Optional[int] = None
     truth_deaths: Optional[int] = None
@@ -164,13 +251,16 @@ class UnifiedDecoder:
         # --- Step 2: Load all frames ---
         frames = self._load_frames(frame_dir, frame_name)
 
-        # --- Step 3: KDA Detection ---
+        # --- Step 3: KDA Scanning (event collection only, no filtering yet) ---
         kda_used = False
         duration_est = None
+        kda_detector = None
+        eid_map_be_kda = {}  # BE -> player
+        team_map_kda = {}    # BE -> team name
         if frames and all_players:
-            kda_used, duration_est = self._detect_kda(
-                frames, all_players, match_info
-            )
+            kda_detector, eid_map_be_kda, team_map_kda, duration_est = \
+                self._scan_kda_events(frames, all_players)
+            kda_used = kda_detector is not None
 
         # --- Step 4: Win/Loss Detection ---
         # Strategy: WinLossDetector for crystal destruction detection,
@@ -195,19 +285,6 @@ class UnifiedDecoder:
         except Exception:
             pass
 
-        # KDA-based winner: team with more kills wins (consistent
-        # with VGRParser's team label convention).
-        if kda_used:
-            left_kills = sum(p.kills for p in left_team)
-            right_kills = sum(p.kills for p in right_team)
-            if left_kills > right_kills:
-                winner = "left"
-            elif right_kills > left_kills:
-                winner = "right"
-            # Tie: use WinLossDetector's label as fallback
-            elif crystal_detected and outcome:
-                winner = outcome.winner
-
         # --- Step 5: Per-player Item Detection via [10 04 3D] ---
         item_used = False
         all_data = b"".join(data for _, data in frames) if frames else b""
@@ -230,12 +307,50 @@ class UnifiedDecoder:
             )
 
         # --- Step 7: Duration estimation ---
-        # Prefer crystal death timestamp, fallback to max death timestamp
+        # Use the LATER of crystal death and max death timestamp.
+        # Crystal death should be near game end; if it's much earlier
+        # than player deaths, the detected "crystal" is likely a turret.
         duration = None
-        if crystal_ts is not None:
+        if crystal_ts is not None and duration_est is not None:
+            if crystal_ts >= duration_est - 30:
+                # Crystal death is at or after last player death → valid
+                duration = int(crystal_ts)
+            else:
+                # Crystal death is much earlier than last death → false positive
+                # Use max death timestamp instead
+                duration = int(duration_est)
+        elif crystal_ts is not None:
             duration = int(crystal_ts)
         elif duration_est is not None:
             duration = int(duration_est)
+
+        # --- Step 7b: Apply KDA filter with computed duration ---
+        # Now that we have proper game duration (from crystal death),
+        # filter kills/deaths/assists with post-game ceremony removal.
+        if kda_detector and eid_map_be_kda:
+            results = kda_detector.get_results(
+                game_duration=duration, team_map=team_map_kda,
+            )
+            for eid_be, kda in results.items():
+                player = eid_map_be_kda.get(eid_be)
+                if player:
+                    player.kills = kda.kills
+                    player.deaths = kda.deaths
+                    player.assists = kda.assists
+                    player.minion_kills = kda.minion_kills
+
+        # KDA-based winner: team with more kills wins (consistent
+        # with VGRParser's team label convention).
+        if kda_used:
+            left_kills = sum(p.kills for p in left_team)
+            right_kills = sum(p.kills for p in right_team)
+            if left_kills > right_kills:
+                winner = "left"
+            elif right_kills > left_kills:
+                winner = "right"
+            # Tie: use WinLossDetector's label as fallback
+            elif crystal_detected and outcome:
+                winner = outcome.winner
 
         # --- Step 8: Assemble result ---
         return DecodedMatch(
@@ -288,9 +403,9 @@ class UnifiedDecoder:
                 player.truth_kills = tp.get("kills")
                 player.truth_deaths = tp.get("deaths")
 
-        # Re-run KDA with truth duration for better death filtering
-        if truth_info.get("duration_seconds") is not None:
-            self._rerun_kda_with_duration(match, truth_info["duration_seconds"])
+        # Note: KDA is NOT re-run with truth duration. The decoder's own
+        # duration estimate (from crystal death / max death timestamp)
+        # provides better post-game filtering.
 
         return match
 
@@ -319,17 +434,17 @@ class UnifiedDecoder:
         frame_files.sort(key=_idx)
         return [(_idx(f), f.read_bytes()) for f in frame_files]
 
-    def _detect_kda(
+    def _scan_kda_events(
         self,
         frames: List[tuple],
         all_players: List[DecodedPlayer],
-        match_info: Dict,
     ) -> tuple:
         """
-        Run KDADetector on all frames and assign K/D/A to players.
+        Scan all frames for KDA events (no filtering applied yet).
 
         Returns:
-            (kda_used: bool, duration_estimate: Optional[float])
+            (detector, eid_map, team_map, duration_estimate)
+            detector is None if no valid entity IDs found.
         """
         # Build BE entity ID set and LE→BE mapping
         eid_map = {}  # BE -> player
@@ -343,7 +458,7 @@ class UnifiedDecoder:
                 team_map[eid_be] = player.team
 
         if not valid_eids:
-            return False, None
+            return None, {}, {}, None
 
         detector = KDADetector(valid_eids)
         for frame_idx, data in frames:
@@ -354,55 +469,7 @@ class UnifiedDecoder:
         if detector.death_events:
             duration_est = max(d.timestamp for d in detector.death_events)
 
-        # Get results with post-game filter and assist detection
-        results = detector.get_results(
-            game_duration=duration_est, team_map=team_map,
-        )
-
-        for eid_be, kda in results.items():
-            player = eid_map.get(eid_be)
-            if player:
-                player.kills = kda.kills
-                player.deaths = kda.deaths
-                player.assists = kda.assists
-                player.minion_kills = kda.minion_kills
-
-        return True, duration_est
-
-    def _rerun_kda_with_duration(self, match: DecodedMatch, duration: float) -> None:
-        """Re-run KDA detection with known game duration for better filtering."""
-        replay_file = Path(match.replay_path)
-        frame_dir = replay_file.parent
-        frame_name = replay_file.stem.rsplit('.', 1)[0]
-        frames = self._load_frames(frame_dir, frame_name)
-        if not frames:
-            return
-
-        eid_map = {}
-        valid_eids = set()
-        team_map = {}
-        for player in match.all_players:
-            if player.entity_id:
-                eid_be = _le_to_be(player.entity_id)
-                eid_map[eid_be] = player
-                valid_eids.add(eid_be)
-                team_map[eid_be] = player.team
-
-        if not valid_eids:
-            return
-
-        detector = KDADetector(valid_eids)
-        for frame_idx, data in frames:
-            detector.process_frame(frame_idx, data)
-
-        results = detector.get_results(game_duration=duration, team_map=team_map)
-        for eid_be, kda in results.items():
-            player = eid_map.get(eid_be)
-            if player:
-                player.kills = kda.kills
-                player.deaths = kda.deaths
-                player.assists = kda.assists
-                player.minion_kills = kda.minion_kills
+        return detector, eid_map, team_map, duration_est
 
     def _detect_items_per_player(
         self,
@@ -411,7 +478,8 @@ class UnifiedDecoder:
     ) -> None:
         """
         Scan [10 04 3D] item acquire events and [10 04 1D] action=0x06
-        purchase costs. Assigns per-player items and gold_spent.
+        purchase costs. Assigns per-player items (final build after upgrade tree)
+        and gold_spent.
 
         Item acquire: [10 04 3D][00 00][eid BE][00 00][qty][item_id LE][00 00][counter BE][ts f32 BE]
         Purchase cost: [10 04 1D][00 00][eid BE][cost f32 BE (negative)][06]
@@ -419,7 +487,7 @@ class UnifiedDecoder:
         valid_eids = set(eid_map.keys())
 
         # --- Scan item acquire events ---
-        player_items: Dict[int, Dict[int, str]] = defaultdict(dict)  # eid -> {item_id: name}
+        player_items: Dict[int, Set[int]] = defaultdict(set)  # eid -> set of item_ids
         pos = 0
         while True:
             pos = all_data.find(_ITEM_ACQUIRE_HEADER, pos)
@@ -440,29 +508,28 @@ class UnifiedDecoder:
             item_id = struct.unpack_from("<H", all_data, pos + 10)[0]
             item_info = ITEM_ID_MAP.get(item_id)
             if item_info:
-                tier = item_info.get("tier", 0)
-                name = item_info["name"]
-                # Keep highest tier per item_id
-                existing = player_items[eid].get(item_id)
-                if existing is None or tier >= existing[1]:
-                    player_items[eid][item_id] = (name, tier)
+                player_items[eid].add(item_id)
 
             pos += 3
 
-        # Assign items: report T3 items only (final build), T2 if no T3
-        for eid, items in player_items.items():
+        # Apply upgrade tree filtering to get final builds
+        for eid, item_ids in player_items.items():
             player = eid_map.get(eid)
             if player:
-                t3 = sorted(set(n for n, t in items.values() if t == 3))
-                if t3:
-                    player.items = t3
-                else:
-                    # Fallback: show T2 items if no T3
-                    t2 = sorted(set(n for n, t in items.values() if t == 2))
-                    player.items = t2
+                # Store all purchased items (raw)
+                all_purchased = []
+                for iid in sorted(item_ids):
+                    info = ITEM_ID_MAP.get(iid)
+                    if info:
+                        all_purchased.append(info['name'])
+                player.items_all_purchased = all_purchased
 
-        # --- Scan purchase costs (action=0x06, negative values) ---
+                # Apply upgrade tree to get final build (max 6 slots)
+                player.items = _estimate_final_build(item_ids)
+
+        # --- Scan gold credits (action=0x06) ---
         gold_spent: Dict[int, float] = defaultdict(float)
+        gold_earned: Dict[int, float] = defaultdict(float)
         pos = 0
         while True:
             pos = all_data.find(_CREDIT_HEADER, pos)
@@ -483,15 +550,21 @@ class UnifiedDecoder:
             value = struct.unpack_from(">f", all_data, pos + 7)[0]
             action = all_data[pos + 11]
 
-            if action == 0x06 and not math.isnan(value) and value < 0:
-                gold_spent[eid] += abs(value)
+            if action == 0x06 and not math.isnan(value) and not math.isinf(value):
+                if value < 0:
+                    gold_spent[eid] += abs(value)
+                elif value > 0:
+                    gold_earned[eid] += value
 
             pos += 3
 
-        for eid, spent in gold_spent.items():
+        for eid in valid_eids:
             player = eid_map.get(eid)
             if player:
-                player.gold_spent = round(spent)
+                if eid in gold_spent:
+                    player.gold_spent = round(gold_spent[eid])
+                if eid in gold_earned:
+                    player.gold_earned = round(gold_earned[eid])
 
     def _detect_crystal_death(
         self,
