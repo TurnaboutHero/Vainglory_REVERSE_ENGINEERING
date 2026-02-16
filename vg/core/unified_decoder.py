@@ -63,6 +63,7 @@ class DecodedPlayer:
     kills: int = 0
     deaths: int = 0
     assists: Optional[int] = None
+    minion_kills: int = 0
     items: List[str] = field(default_factory=list)
     # Comparison fields (populated when truth is available)
     truth_kills: Optional[int] = None
@@ -349,6 +350,7 @@ class UnifiedDecoder:
                 player.kills = kda.kills
                 player.deaths = kda.deaths
                 player.assists = kda.assists
+                player.minion_kills = kda.minion_kills
 
         return True, duration_est
 
@@ -385,6 +387,7 @@ class UnifiedDecoder:
                 player.kills = kda.kills
                 player.deaths = kda.deaths
                 player.assists = kda.assists
+                player.minion_kills = kda.minion_kills
 
     def _load_truth(self, truth_path: str, replay_name: str) -> Optional[Dict]:
         """Load truth data for a specific replay."""

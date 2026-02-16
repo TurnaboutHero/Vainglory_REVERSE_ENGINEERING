@@ -1,18 +1,21 @@
 """
-KDA Detector - Kill/Death/Assist detection from Vainglory replay files.
+KDA Detector - Kill/Death/Assist/Minion detection from Vainglory replay files.
 
-Cross-validated accuracy (94 players across 10 complete replays):
-  Kill:   97.9% (92/94) - raw detection, no filtering
-  Death:  95.7% (90/94) - with post-game ceremony filter (ts <= duration + 10s)
-  Assist: 93.9% (93/99) - credit record flag + same-team filtering
+Cross-validated accuracy (excluding incomplete Match 9):
+  Kill:        97.9% (92/94) - raw detection, no filtering
+  Death:       95.7% (90/94) - with post-game ceremony filter (ts <= duration + 10s)
+  Assist:      93.9% (93/99) - credit record flag + same-team filtering
+  Minion Kill: 97.1% (67/69) - credit record action byte 0x0E
   Combined K+D: 96.8% (182/188)
 
 Record structures (Big Endian protocol):
   Kill:   [18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]
           Timestamp: f32 BE at 7 bytes before header
   Death:  [08 04 31] [00 00] [victim_eid BE] [00 00] [timestamp f32 BE] [00 00 00]
-  Credit: [10 04 1D] [00 00] [eid BE] [value f32 BE]  (9 bytes)
+  Credit: [10 04 1D] [00 00] [eid BE] [value f32 BE] [action_byte]  (12 bytes)
           After kill header: killer(1.0), then assister(gold), assister(1.0), assister(0.5)
+  Minion: [10 04 1D] [00 00] [eid BE] [3F 80 00 00 = 1.0] [0E]
+          Credit record with value=1.0 and action byte 0x0E = minion last-hit
 
 Assist detection: After each kill, scan credit records within 500 bytes.
 An assist = non-killer player with value==1.0 flag AND same team as killer.
@@ -60,6 +63,7 @@ class KDAResult:
     kills: int = 0
     deaths: int = 0
     assists: int = 0
+    minion_kills: int = 0
     kill_events: List[KillEvent] = field(default_factory=list)
     death_events: List[DeathEvent] = field(default_factory=list)
 
@@ -85,11 +89,13 @@ class KDADetector:
         self.valid_eids = valid_entity_ids
         self._kill_events: List[KillEvent] = []
         self._death_events: List[DeathEvent] = []
+        self._minion_kills: Dict[int, int] = defaultdict(int)  # eid -> count
 
     def process_frame(self, frame_idx: int, data: bytes) -> None:
-        """Process a single frame, extracting kill and death events."""
+        """Process a single frame, extracting kill, death, and minion kill events."""
         self._scan_kills(frame_idx, data)
         self._scan_deaths(frame_idx, data)
+        self._scan_minion_kills(data)
 
     def _scan_kills(self, frame_idx: int, data: bytes) -> None:
         """Scan for kill records: [18 04 1C] [00 00] [eid BE] [FF FF FF FF] [3F 80 00 00] [29]"""
@@ -164,6 +170,35 @@ class KDADetector:
 
         return credits
 
+    def _scan_minion_kills(self, data: bytes) -> None:
+        """Scan for minion kill records: [10 04 1D] [00 00] [eid BE] [1.0 f32 BE] [0E]"""
+        pos = 0
+        while True:
+            pos = data.find(CREDIT_HEADER, pos)
+            if pos == -1:
+                break
+            if pos + 12 > len(data):
+                pos += 1
+                continue
+
+            if data[pos+3:pos+5] != b'\x00\x00':
+                pos += 1
+                continue
+
+            eid = struct.unpack_from(">H", data, pos + 5)[0]
+            if eid not in self.valid_eids:
+                pos += 1
+                continue
+
+            # Check value = 1.0 and action byte = 0x0E
+            value = struct.unpack_from(">f", data, pos + 7)[0]
+            action = data[pos + 11]
+
+            if abs(value - 1.0) < 0.01 and action == 0x0E:
+                self._minion_kills[eid] += 1
+
+            pos += 3  # Skip past header to avoid re-matching
+
     def _scan_deaths(self, frame_idx: int, data: bytes) -> None:
         """Scan for death records: [08 04 31] [00 00] [eid BE] [00 00] [ts f32 BE]"""
         pos = 0
@@ -228,6 +263,11 @@ class KDADetector:
             if dev.victim_eid in results and dev.timestamp <= max_death_ts:
                 results[dev.victim_eid].deaths += 1
                 results[dev.victim_eid].death_events.append(dev)
+
+        # Count minion kills
+        for eid, count in self._minion_kills.items():
+            if eid in results:
+                results[eid].minion_kills = count
 
         # Count assists (requires team_map)
         if team_map:

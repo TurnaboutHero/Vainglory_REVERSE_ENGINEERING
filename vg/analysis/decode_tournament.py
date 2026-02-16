@@ -89,6 +89,8 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
     death_total = 0
     assist_correct = 0
     assist_total = 0
+    mk_correct = 0
+    mk_total = 0
     winner_correct = 0
     winner_total = 0
     team_swapped_matches = 0
@@ -143,6 +145,8 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         match_d_total = 0
         match_a_ok = 0
         match_a_total = 0
+        match_mk_ok = 0
+        match_mk_total = 0
 
         for player in decoded.all_players:
             tp = truth_players.get(player.name, {})
@@ -207,6 +211,17 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
                 else:
                     print(f"  [MISS] Assist {player.name}: detected={player.assists}, truth={truth_a}")
 
+            # Minion Kills
+            truth_mk = tp.get("minion_kills")
+            if truth_mk is not None:
+                mk_total += 1
+                match_mk_total += 1
+                if player.minion_kills == truth_mk:
+                    mk_correct += 1
+                    match_mk_ok += 1
+                else:
+                    print(f"  [MISS] MinionKill {player.name}: detected={player.minion_kills}, truth={truth_mk}")
+
         # Match summary
         effective_winner = (_flip_team(decoded.winner) if is_swapped else decoded.winner) if decoded.winner else None
         match_result = {
@@ -217,6 +232,7 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
             "kill_accuracy": f"{match_k_ok}/{match_k_total}" if match_k_total else "N/A",
             "death_accuracy": f"{match_d_ok}/{match_d_total}" if match_d_total else "N/A",
             "assist_accuracy": f"{match_a_ok}/{match_a_total}" if match_a_total else "N/A",
+            "mk_accuracy": f"{match_mk_ok}/{match_mk_total}" if match_mk_total else "N/A",
             "duration_detected": decoded.duration_seconds,
             "duration_truth": truth_duration,
         }
@@ -262,6 +278,11 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         pct = assist_correct / assist_total * 100
         summary["assists"] = {"correct": assist_correct, "total": assist_total, "pct": pct}
         print(f"Assist: {assist_correct}/{assist_total} ({pct:.1f}%)")
+
+    if mk_total:
+        pct = mk_correct / mk_total * 100
+        summary["minion_kills"] = {"correct": mk_correct, "total": mk_total, "pct": pct}
+        print(f"Minion: {mk_correct}/{mk_total} ({pct:.1f}%)")
 
     combined = kill_correct + death_correct
     combined_total = kill_total + death_total
