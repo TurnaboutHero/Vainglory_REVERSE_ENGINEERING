@@ -37,7 +37,7 @@ import json
 import math
 import struct
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
@@ -310,6 +310,7 @@ class UnifiedDecoder:
                     eid_map_be[eid_be] = player
             if eid_map_be:
                 self._detect_items_per_player(all_data, eid_map_be)
+                self._detect_gold_per_player(frames, eid_map_be)
                 item_used = True
 
         # --- Step 6: Crystal Death Detection ---
@@ -539,44 +540,64 @@ class UnifiedDecoder:
                 # Apply upgrade tree to get final build (max 6 slots)
                 player.items = _estimate_final_build(item_ids)
 
-        # --- Scan gold credits (action=0x06) ---
+        # Gold detection moved to _detect_gold_per_player (frame-by-frame dedup)
+
+    def _detect_gold_per_player(
+        self,
+        frames: List[tuple],
+        eid_map: Dict[int, 'DecodedPlayer'],
+    ) -> None:
+        """
+        Detect gold earned/spent via [10 04 1D] action=0x06.
+        Frames are independent (not cumulative), so sum across all frames.
+
+        Sell-back filtering: the byte at offset +12 (right after action byte)
+        distinguishes income (0x00) from item sell-back refunds (0x01).
+        Excluding 0x01 records eliminates sell-back gold overcounting.
+
+        Args:
+            frames: List of (frame_idx, data) tuples, sorted by frame index.
+            eid_map: {BE entity ID: DecodedPlayer} mapping.
+        """
+        valid_eids = set(eid_map.keys())
         gold_spent: Dict[int, float] = defaultdict(float)
         gold_earned: Dict[int, float] = defaultdict(float)
-        pos = 0
-        while True:
-            pos = all_data.find(_CREDIT_HEADER, pos)
-            if pos == -1:
-                break
-            if pos + 12 > len(all_data):
-                pos += 1
-                continue
-            if all_data[pos + 3:pos + 5] != b'\x00\x00':
-                pos += 1
-                continue
 
-            eid = struct.unpack_from(">H", all_data, pos + 5)[0]
-            if eid not in valid_eids:
-                pos += 3
-                continue
+        for frame_idx, data in frames:
+            pos = 0
+            while True:
+                pos = data.find(_CREDIT_HEADER, pos)
+                if pos == -1:
+                    break
+                if pos + 13 > len(data):
+                    pos += 1
+                    continue
+                if data[pos + 3:pos + 5] != b'\x00\x00':
+                    pos += 1
+                    continue
 
-            value = struct.unpack_from(">f", all_data, pos + 7)[0]
-            action = all_data[pos + 11]
+                eid = struct.unpack_from(">H", data, pos + 5)[0]
+                if eid not in valid_eids:
+                    pos += 3
+                    continue
 
-            if not math.isnan(value) and not math.isinf(value):
-                if action == 0x06:
+                value = struct.unpack_from(">f", data, pos + 7)[0]
+                action = data[pos + 11]
+                sell_flag = data[pos + 12]
+
+                if action == 0x06 and not math.isnan(value) and not math.isinf(value):
                     if value < 0:
                         gold_spent[eid] += abs(value)
-                    elif value > 0:
+                    elif value > 0 and sell_flag != 0x01:
                         gold_earned[eid] += value
 
-            pos += 3
+                pos += 3
 
         for eid in valid_eids:
             player = eid_map.get(eid)
             if player:
                 if eid in gold_spent:
                     player.gold_spent = round(gold_spent[eid])
-                # Starting gold (600) + credit records
                 player.gold_earned = 600 + round(gold_earned.get(eid, 0))
 
     def _detect_crystal_death(
