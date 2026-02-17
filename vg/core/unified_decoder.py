@@ -169,7 +169,7 @@ class DecodedPlayer:
     assists: Optional[int] = None
     minion_kills: int = 0
     gold_spent: int = 0
-    gold_earned: int = 0  # 600 starting + 0x06 income + 0x0F minion + 0x0D jungle (±5% 70.7%, ±10% 84.8%)
+    gold_earned: int = 0  # 600 starting + 0x06 income only (±5% 68.3%, ±10% 79.8%)
     items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
     items_all_purchased: List[str] = field(default_factory=list)  # Raw purchase history
     # Comparison fields (populated when truth is available)
@@ -568,9 +568,6 @@ class UnifiedDecoder:
                         gold_spent[eid] += abs(value)
                     elif value > 0:
                         gold_earned[eid] += value
-                elif action in (0x0F, 0x0D) and value > 0:
-                    # Minion gold (0x0F) + jungle gold (0x0D) improve ±5% accuracy
-                    gold_earned[eid] += value
 
             pos += 3
 

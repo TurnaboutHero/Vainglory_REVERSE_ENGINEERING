@@ -1,0 +1,198 @@
+{
+  "analysis_date": "2026-02-17",
+  "analyst": "scientist_agent",
+  "replays_analyzed": 3,
+  "total_frames": 617,
+  "total_credit_records": 342707,
+  "turret_deaths": 170,
+
+  "action_bytes": {
+    "0x05": {
+      "name": "Turret Damage/Repair",
+      "confidence": "high",
+      "total_occurrences": 366,
+      "unique_entities": 7,
+      "entity_range": "1500-1506",
+      "value_type": "float",
+      "value_range": [-1717.61, 2204.0],
+      "has_negatives": true,
+      "interpretation": "Bidirectional resource flow - negative=damage taken, positive=regeneration/repair",
+      "correlation_with_turret_deaths": "93.6%",
+      "key_patterns": {
+        "positive_rate": 54.4,
+        "negative_rate": 45.6,
+        "net_sum_avg": 7838.75,
+        "paired_entities": 9,
+        "common_values": [329.4, 600.0, 720.0]
+      }
+    },
+
+    "0x09": {
+      "name": "Turret Flag 1 (Active/Inactive)",
+      "confidence": "medium",
+      "total_occurrences": 228,
+      "unique_entities": 9,
+      "entity_range": "1500-1509",
+      "value_type": "binary",
+      "value_range": [0.0, 1.0],
+      "has_negatives": false,
+      "interpretation": "Binary toggle flag - possibly active/inactive or attack/idle mode",
+      "correlation_with_turret_deaths": "95.5%",
+      "key_patterns": {
+        "value_0_count": 67,
+        "value_1_count": 161,
+        "value_0_rate": 29.4,
+        "value_1_rate": 70.6,
+        "toggle_entities": 8,
+        "toggle_entity_ids": [1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509]
+      }
+    },
+
+    "0x0A": {
+      "name": "Turret Flag 2 (Vulnerable/Protected)",
+      "confidence": "medium",
+      "total_occurrences": 223,
+      "unique_entities": 10,
+      "entity_range": "1500-1509",
+      "value_type": "binary",
+      "value_range": [0.0, 1.0],
+      "has_negatives": false,
+      "interpretation": "Binary toggle flag - possibly vulnerable/invulnerable or targetable/protected",
+      "correlation_with_turret_deaths": "95.5%",
+      "key_patterns": {
+        "value_0_count": 62,
+        "value_1_count": 161,
+        "value_0_rate": 27.8,
+        "value_1_rate": 72.2,
+        "toggle_entities": 8,
+        "toggle_entity_ids": [1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508]
+      }
+    },
+
+    "0x0B": {
+      "name": "Turret Activation Event",
+      "confidence": "high",
+      "total_occurrences": 269,
+      "unique_entities": 10,
+      "entity_range": "1500-1509",
+      "value_type": "constant",
+      "value_range": [1.0, 1.0],
+      "has_negatives": false,
+      "interpretation": "Constant 1.0 trigger - likely activation event (attack initiation, aggro trigger, or structure online)",
+      "correlation_with_turret_deaths": "91.9%",
+      "key_patterns": {
+        "constant_value": 1.0,
+        "variance": 0.0,
+        "constant_rate": 100.0
+      }
+    },
+
+    "0x0C": {
+      "name": "Turret State Progression",
+      "confidence": "high",
+      "total_occurrences": 366,
+      "unique_entities": 10,
+      "entity_range": "1500-1509",
+      "value_type": "fractional",
+      "value_range": [0.0, 1.0],
+      "has_negatives": false,
+      "interpretation": "Fractional state progression - likely capture progress, charge level, or health percentage (0=destroyed, 0.33=damaged, 0.5=half, 1.0=full)",
+      "correlation_with_turret_deaths": "95.5%",
+      "key_patterns": {
+        "unique_values": 5,
+        "value_distribution": {
+          "0.00": 97,
+          "0.25": 20,
+          "0.33": 78,
+          "0.50": 116,
+          "1.00": 55
+        },
+        "avg_value": 0.39,
+        "progression_entities": 30
+      }
+    }
+  },
+
+  "clustering_patterns": {
+    "description": "Action bytes cluster in coordinated sequences",
+    "top_pairs": {
+      "0x0B_0x0C": {
+        "count": 1098,
+        "interpretation": "Activation + state update sequence"
+      },
+      "0x09_0x0C": {
+        "count": 476,
+        "interpretation": "Flag toggle + state update"
+      },
+      "0x0A_0x0C": {
+        "count": 370,
+        "interpretation": "Flag toggle + state update"
+      },
+      "0x09_0x0A": {
+        "count": 328,
+        "interpretation": "Both flags toggle together"
+      },
+      "0x05_0x05": {
+        "count": 476,
+        "interpretation": "Sequential damage/repair events"
+      }
+    }
+  },
+
+  "temporal_distribution": {
+    "description": "Continuous activity throughout match (>50% of frames)",
+    "avg_frame_activity": 56.4,
+    "peak_activity": {
+      "frame": 53,
+      "total_events": 28
+    }
+  },
+
+  "turret_lifecycle_model": [
+    "1. Activation: 0x0B (constant 1.0 trigger)",
+    "2. State Update: 0x0C (set initial state, e.g., 1.0 = full health)",
+    "3. Flag Initialization: 0x09=1, 0x0A=1 (active, vulnerable)",
+    "4. Damage Cycle: 0x05 (negative values as damage accumulates)",
+    "5. State Degradation: 0x0C (1.0 → 0.5 → 0.33 → 0.0)",
+    "6. Flag Toggle: 0x09=0 or 0x0A=0 (deactivated or protected)",
+    "7. Destruction: Death event [08 04 31] with turret eid"
+  ],
+
+  "key_findings": [
+    "All five action bytes exclusively target turret/structure entities (1500-1509)",
+    "89-100% correlation with turret death events",
+    "0x05 represents bidirectional resource flow (damage/repair)",
+    "0x09 and 0x0A are binary flags that toggle for the same entities",
+    "0x0B is always 1.0 - constant activation marker",
+    "0x0C tracks fractional state progression through 5 discrete values",
+    "Action bytes cluster in predictable sequences",
+    "Active throughout match (56.4% of frames), not concentrated at start/end"
+  ],
+
+  "limitations": [
+    "Tournament replays (1 frame) lack these events - may be client-side or extended data",
+    "No ground truth data for turret mechanics validation",
+    "Cannot map entity IDs 1500-1509 to specific turret types without position data",
+    "Third replay missing all 0x05 records - match-specific or hero-specific trigger",
+    "Fractional value semantics (0.33 = 33% vs 1/3 stages) ambiguous without game docs"
+  ],
+
+  "recommendations": [
+    "Validate 0x0C hypothesis by correlating with VGReborn turret health API",
+    "Map entity IDs 1500-1509 to specific turrets using position data",
+    "Investigate 0x05 absence in Match 3",
+    "Apply methodology to item events for item-specific action bytes",
+    "Plot 0x0C time-series to visualize turret state changes",
+    "Correlate with player proximity to identify tower diving events",
+    "Record game video for frame-by-frame flag semantics validation"
+  ],
+
+  "credit_record_format": {
+    "header": "[10 04 1D]",
+    "padding": "[00 00]",
+    "entity_id": "2 bytes (big endian)",
+    "value": "4 bytes (float, big endian)",
+    "action_byte": "1 byte",
+    "total_length": "12 bytes"
+  }
+}
