@@ -100,9 +100,9 @@ BINARY_HERO_ID_MAP: Dict[int, str] = {
     # 0x03 suffix: season 4+ heroes
     0x9703: "Viola",        # 75% - between Warhawk(94) and Ishtar(9A)
     0x9C03: "Anka",         # 80% - season 4 assassin
-    0x9D03: "Karas",        # 85% - sequential, decent usage(7)
+    0x9D03: "Amael",        # CONFIRMED via replay screenshot (21.11.04 match, support build)
     0x9E03: "Shin",         # 70% - latest captain
-    0x9F03: "Amael",        # 75% - final mage hero
+    0x9F03: "Karas",        # SWAPPED with Amael - Karas is CP ranged dealer
 }
 
 # Reverse lookup: hero name -> binary ID
@@ -215,11 +215,11 @@ HERO_ID_MAP: Dict[int, Dict] = {
     50: {"name": "Warhawk", "name_ko": "워호크", "role": "Sniper"},
     51: {"name": "Anka", "name_ko": "앙카", "role": "Assassin"},
     52: {"name": "Miho", "name_ko": "미호", "role": "Assassin"},
-    53: {"name": "Karas", "name_ko": "카라스", "role": "Assassin"},
+    53: {"name": "Karas", "name_ko": "카라스", "role": "Mage"},  # CP ranged dealer
     54: {"name": "Shin", "name_ko": "신", "role": "Captain"},
     55: {"name": "Ishtar", "name_ko": "이슈타르", "role": "Sniper"},
     56: {"name": "Ylva", "name_ko": "일바", "role": "Assassin"},
-    57: {"name": "Amael", "name_ko": "아마엘", "role": "Mage"},
+    57: {"name": "Amael", "name_ko": "아마엘", "role": "Captain"},  # tank/support
 }
 
 # Reverse lookup: name to ID
