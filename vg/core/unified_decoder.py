@@ -161,9 +161,9 @@ def _estimate_final_build(item_ids_set: Set[int]) -> List[str]:
 
 @dataclass
 class ObjectiveEvent:
-    """Detected objective event (Gold Mine capture or Kraken death)."""
+    """Detected objective event (Gold Mine/Ghostwing capture or Kraken/Blackclaw death)."""
     timestamp: float
-    event_type: str  # GOLD_MINE_CAPTURE, KRAKEN_DEATH, KRAKEN_WAVE, MINION_WAVE
+    event_type: str  # 3v3: GOLD_MINE_CAPTURE, KRAKEN_DEATH/WAVE. 5v5: GHOSTWING_CAPTURE, BLACKCLAW_DEATH/WAVE
     entity_count: int
     entity_ids: List[int] = field(default_factory=list)
 
@@ -183,6 +183,7 @@ class DecodedPlayer:
     deaths: int = 0
     assists: Optional[int] = None
     minion_kills: int = 0
+    jungle_kills: int = 0  # action 0x0D credit count
     gold_spent: int = 0
     gold_earned: int = 0  # 600 starting + 0x06 income (sell_flag!=0x01). ±5% 98.0%, ±10% 100%
     items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
@@ -381,10 +382,15 @@ class UnifiedDecoder:
             elif crystal_detected and outcome:
                 winner = outcome.winner
 
-        # --- Step 8: Objective event detection (Kraken vs Gold Mine) ---
+        # --- Step 8: Objective event detection ---
+        # 3v3: Kraken / Gold Mine.  5v5: Blackclaw / Ghostwing
+        game_mode = match_info.get("mode", "")
+        is_5v5 = "5v5" in game_mode
         objective_events = []
         if all_data:
-            objective_events = self._detect_objective_events(all_data)
+            objective_events = self._detect_objective_events(
+                all_data, is_5v5=is_5v5,
+            )
 
         # --- Step 9: Assemble result ---
         return DecodedMatch(
@@ -584,6 +590,7 @@ class UnifiedDecoder:
         valid_eids = set(eid_map.keys())
         gold_spent: Dict[int, float] = defaultdict(float)
         gold_earned: Dict[int, float] = defaultdict(float)
+        jungle_kills: Dict[int, int] = defaultdict(int)
 
         for frame_idx, data in frames:
             pos = 0
@@ -607,11 +614,14 @@ class UnifiedDecoder:
                 action = data[pos + 11]
                 sell_flag = data[pos + 12]
 
-                if action == 0x06 and not math.isnan(value) and not math.isinf(value):
-                    if value < 0:
-                        gold_spent[eid] += abs(value)
-                    elif value > 0 and sell_flag != 0x01:
-                        gold_earned[eid] += value
+                if not math.isnan(value) and not math.isinf(value):
+                    if action == 0x06:
+                        if value < 0:
+                            gold_spent[eid] += abs(value)
+                        elif value > 0 and sell_flag != 0x01:
+                            gold_earned[eid] += value
+                    elif action == 0x0D:
+                        jungle_kills[eid] += 1
 
                 pos += 3
 
@@ -621,12 +631,15 @@ class UnifiedDecoder:
                 if eid in gold_spent:
                     player.gold_spent = round(gold_spent[eid])
                 player.gold_earned = 600 + round(gold_earned.get(eid, 0))
+                if eid in jungle_kills:
+                    player.jungle_kills = jungle_kills[eid]
 
     def _detect_objective_events(
         self,
         all_data: bytes,
         eid_threshold: int = 60000,
         cluster_window: float = 5.0,
+        is_5v5: bool = False,
     ) -> List[ObjectiveEvent]:
         """
         Detect objective events (Gold Mine captures and Kraken deaths).
@@ -682,11 +695,11 @@ class UnifiedDecoder:
             player_kill = self._has_player_kill_nearby(all_data, offsets)
 
             if n == 1 and not player_kill:
-                event_type = "GOLD_MINE_CAPTURE"
+                event_type = "GHOSTWING_CAPTURE" if is_5v5 else "GOLD_MINE_CAPTURE"
             elif n == 1 and player_kill:
-                event_type = "KRAKEN_DEATH"
+                event_type = "BLACKCLAW_DEATH" if is_5v5 else "KRAKEN_DEATH"
             elif n > 1 and player_kill:
-                event_type = "KRAKEN_WAVE"
+                event_type = "BLACKCLAW_WAVE" if is_5v5 else "KRAKEN_WAVE"
             else:
                 event_type = "MINION_WAVE"
 
