@@ -279,8 +279,8 @@ ITEM_ID_MAP: Dict[int, Dict] = {
           "note": "WP 85% (17/20), cost=400g"},
     237: {"name": "Barbed Needle", "category": "Weapon", "tier": 2, "status": "tentative",
           "note": "WP 75% (36/48), cost=500g, transitions to Breaking Point(251)"},
-    244: {"name": "Lucky Strike", "category": "Weapon", "tier": 2, "status": "tentative",
-          "note": "WP 83% (5/6), cost=500g"},
+    244: {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "confirmed",
+          "note": "CONFIRMED via replay viewer at 10:17. Korean: 타격 강화제. Was incorrectly mapped as Lucky Strike then Tornado Trigger"},
     249: {"name": "Heavy Steel", "category": "Weapon", "tier": 2, "status": "tentative",
           "note": "WP 100% (27/27), cost=850g, transitions to Sorrowblade(208)"},
     250: {"name": "Piercing Spear", "category": "Weapon", "tier": 2, "status": "tentative",
@@ -295,6 +295,8 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     235: {"name": "Tension Bow", "category": "Weapon", "tier": 3, "status": "tentative",
           "note": "WP 100% (4/4), cost=1350g"},
     251: {"name": "Breaking Point", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    210: {"name": "Tornado Trigger", "category": "Weapon", "tier": 3, "status": "confirmed",
+          "note": "CONFIRMED via 21.11.04 match: Baron+Yates both bought ID 210. Built from Lucky Strike+Blazing Salvo"},
 
     # --- Crystal T1 (300g) ---
     203: {"name": "Crystal Bit", "category": "Crystal", "tier": 1, "status": "tentative",

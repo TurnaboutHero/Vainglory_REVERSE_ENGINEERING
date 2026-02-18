@@ -73,16 +73,16 @@ _PLAYER_EID_RANGE = set(range(1500, 1510))  # BE entity IDs for players
 # component_id -> set of result_ids it could have been upgraded into
 UPGRADE_TREE = {
     # ====== Weapon T1 → T2 + T3 (transitive) ======
-    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253},  # Weapon Blade
+    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253, 210},  # Weapon Blade
     243: {237, 223},  # Book of Eulogies → Barbed Needle → Serpent Mask
-    204: {24, 244, 226, 251, 253, 5},  # Swift Shooter
+    204: {24, 244, 226, 251, 253, 5, 210},  # Swift Shooter → ... → Tornado Trigger
     # ====== Weapon T2 → T3 ======
     249: {208, 223, 12, 251},  # Heavy Steel
     205: {208, 235, 5},  # Six Sins
     237: {223},  # Barbed Needle → Serpent Mask
     250: {235, 226},  # Piercing Spear
-    24: {226, 251, 253},  # Blazing Salvo
-    244: {5},  # Lucky Strike → Tyrants Monocle
+    24: {226, 251, 253, 210},  # Blazing Salvo → ... → Tornado Trigger
+    # 244 = Weapon Infusion (consumable, filtered by STARTER_IDS)
     207: {208, 223, 12, 251},  # Weapon T2 (unknown)
     252: {226, 235, 251},  # Weapon T2-T3 (unknown)
     # ====== Crystal T1 → T2 + T3 (transitive) ======
@@ -114,7 +114,7 @@ UPGRADE_TREE = {
 }
 
 # Starter/consumable IDs - never in final build
-STARTER_IDS = {1, 8, 14, 18, 20, 201, 217}
+STARTER_IDS = {1, 8, 14, 18, 20, 201, 217, 244}  # 244=Weapon Infusion (confirmed)
 
 
 def _le_to_be(eid_le: int) -> int:
@@ -122,12 +122,20 @@ def _le_to_be(eid_le: int) -> int:
     return struct.unpack('>H', struct.pack('<H', eid_le))[0]
 
 
-def _estimate_final_build(item_ids_set: Set[int]) -> List[str]:
+def _estimate_final_build(
+    item_ids_set: Set[int],
+    last_acquire_ts: Optional[Dict[int, float]] = None,
+) -> List[str]:
     """
     Remove consumed components and starters. Return up to 6 items (final build).
 
+    When more than 6 items remain after upgrade-tree filtering, uses the
+    last-acquired timestamp to keep only the 6 most recently purchased items.
+    This handles sell-back scenarios where items are sold and replaced.
+
     Args:
         item_ids_set: Set of all purchased item IDs (binary replay IDs)
+        last_acquire_ts: Optional {item_id: last_purchase_timestamp} for tie-breaking
 
     Returns:
         List of item names in final 6-slot build, sorted by tier desc
@@ -146,17 +154,19 @@ def _estimate_final_build(item_ids_set: Set[int]) -> List[str]:
             remaining -= to_remove
             changed = True
 
-    # Convert to named items, sorted by tier desc
+    # Convert to named items
     items = []
     for iid in remaining:
         info = ITEM_ID_MAP.get(iid)
+        ts = last_acquire_ts.get(iid, 0) if last_acquire_ts else 0
         if info:
-            items.append((info.get('tier', 0), info['name'], iid))
+            items.append((info.get('tier', 0), ts, info['name'], iid))
         else:
-            items.append((-1, f"Unknown_{iid}", iid))
+            items.append((-1, ts, f"Unknown_{iid}", iid))
 
-    items.sort(key=lambda x: (-x[0], x[1]))
-    return [name for _, name, _ in items[:6]]
+    # Sort: tier desc, then latest timestamp desc (within same tier)
+    items.sort(key=lambda x: (-x[0], -x[1]))
+    return [name for _, _, name, _ in items[:6]]
 
 
 @dataclass
@@ -529,6 +539,7 @@ class UnifiedDecoder:
 
         # --- Scan item acquire events ---
         player_items: Dict[int, Set[int]] = defaultdict(set)  # eid -> set of item_ids
+        player_item_ts: Dict[int, Dict[int, float]] = defaultdict(dict)  # eid -> {item_id: last_ts}
         pos = 0
         while True:
             pos = all_data.find(_ITEM_ACQUIRE_HEADER, pos)
@@ -550,6 +561,11 @@ class UnifiedDecoder:
             item_info = ITEM_ID_MAP.get(item_id)
             if item_info:
                 player_items[eid].add(item_id)
+                # Track last acquire timestamp per item
+                if pos + 21 <= len(all_data):
+                    ts = struct.unpack_from(">f", all_data, pos + 17)[0]
+                    if 0 < ts < 5000:
+                        player_item_ts[eid][item_id] = ts
 
             pos += 3
 
@@ -566,7 +582,10 @@ class UnifiedDecoder:
                 player.items_all_purchased = all_purchased
 
                 # Apply upgrade tree to get final build (max 6 slots)
-                player.items = _estimate_final_build(item_ids)
+                # Pass timestamps for sell-back resolution
+                player.items = _estimate_final_build(
+                    item_ids, last_acquire_ts=player_item_ts.get(eid),
+                )
 
         # Gold detection moved to _detect_gold_per_player (frame-by-frame dedup)
 
