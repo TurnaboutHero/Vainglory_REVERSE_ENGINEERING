@@ -75,52 +75,76 @@ _PLAYER_EID_RANGE = set(range(1500, 1510))  # BE entity IDs for players
 # Two ID ranges:
 #   - 200-255: standard shop purchases (qty=1)
 #   - 0-27: T3/special item completions (qty=2), identified via hero distribution
+#
+# Uses TRANSITIVE relationships (T1 → all reachable T3s) because the iterative
+# stripping algorithm removes intermediates first, which could strand T1 items.
+# Verified against official VG recipes (item_price_verify.py OFFICIAL_RECIPES).
 UPGRADE_TREE = {
     # ====== Weapon T1 → T2 + T3 (transitive) ======
-    202: {249, 205, 250, 207, 237, 235, 208, 223, 224, 226, 251, 252, 210, 5, 12},  # Weapon Blade
-    243: {237, 223, 252},  # Book of Eulogies → Barbed Needle → Serpent Mask/Poisoned Shiv
-    204: {207, 235, 210, 252, 253, 5},  # Swift Shooter → Blazing Salvo/Lucky Strike → T3
+    202: {249, 205, 250, 208, 223, 251, 12, 235, 5, 226},
+    # Weapon Blade → Heavy Steel(249), Six Sins(205), Piercing Spear(250) + their T3s
+    243: {244, 223, 8},
+    # Book of Eulogies → Barbed Needle(244) → Serpent Mask(223), Poisoned Shiv(8)
+    204: {207, 252, 210, 8, 226, 251, 24, 253, 5},
+    # Swift Shooter → Blazing Salvo(207), Lucky Strike(252) + their T3s
+
     # ====== Weapon T2 → T3 ======
-    249: {208, 223, 251, 5, 12},  # Heavy Steel → Sorrowblade, Serpent Mask, Breaking Point, Tyrants Monocle, Spellsword
-    205: {208, 224},  # Six Sins → Sorrowblade, Tension Bow
-    235: {210, 5},  # Lucky Strike → Tornado Trigger, Tyrants Monocle
-    237: {223, 251, 252},  # Barbed Needle → Serpent Mask, Breaking Point, Poisoned Shiv
-    250: {226, 224},  # Piercing Spear → Bonesaw, Tension Bow
-    207: {210, 252, 253, 5},  # Blazing Salvo → Tornado Trigger, Poisoned Shiv, AC, Tyrants Monocle
+    249: {208, 223, 251, 12},   # Heavy Steel → Sorrowblade, Serpent Mask, Breaking Point, Spellsword
+    205: {208, 235, 5, 12},     # Six Sins → Sorrowblade, Tension Bow, Tyrants Monocle, Spellsword
+    244: {223, 8},              # Barbed Needle → Serpent Mask, Poisoned Shiv
+    250: {226, 235},            # Piercing Spear → Bonesaw, Tension Bow
+    207: {210, 8, 226, 251, 24, 253},  # Blazing Salvo → TT, PShiv, Bonesaw, BP, Shiversteel, AC
+    252: {210, 5},              # Lucky Strike → Tornado Trigger, Tyrants Monocle
+
     # ====== Crystal T1 → T2 + T3 (transitive) ======
-    203: {0, 254, 209, 230, 236, 253, 240, 255, 10, 11},  # Crystal Bit → Heavy Prism, various CP T3
-    206: {220, 255, 234, 10, 11},  # Energy Battery → Clockwork, Eve of Harvest, Halcyon Chargers, Spellfire, Dragons Eye
-    216: {218, 220, 236, 10},  # Hourglass → Chronograph → Clockwork, Aftershock, Spellfire
+    203: {0, 206, 254, 209, 10, 230, 11, 240, 255, 253, 236},
+    # Crystal Bit → Heavy Prism(0), Eclipse Prism(206), Piercing Shard(254) + all CP T3s
+    216: {218, 220, 255, 234},
+    # Energy Battery → Void Battery(218) → Clockwork(220), Eve of Harvest(255), Halcyon(234)
+    217: {219, 220, 236, 7, 16, 22, 23, 12},
+    # Hourglass → Chronograph(219) → all Chronograph T3s
+
     # ====== Crystal T2 → T3 ======
-    0: {209, 230, 10, 11, 240},  # Heavy Prism → Shatterglass, Frostburn, Spellfire, Dragons Eye, Broken Myth
-    254: {253, 240},  # Piercing Shard → Alternating Current, Broken Myth
-    218: {220, 236},  # Chronograph → Clockwork, Aftershock
+    0: {209, 10, 230, 11, 240, 255, 253},  # Heavy Prism → SG, SF, FB, DE, BM, EoH, AC
+    206: {209, 10, 230, 11, 236},           # Eclipse Prism → SG, SF, FB, DE, Aftershock
+    218: {220, 255, 234},                   # Void Battery → Clockwork, EoH, Halcyon Chargers
+    254: {240},                             # Piercing Shard → Broken Myth
+    219: {220, 236, 7, 16, 22, 23, 12},    # Chronograph → CW, AS, Stormcrown, Contraption, CapP, RD, Spellsword
+
     # ====== Defense T1 → T2 + T3 (transitive) ======
-    212: {214, 248, 229, 219, 232, 241, 231, 247, 21, 22, 23, 17},  # Oakheart → HP-based items
-    211: {246, 228, 231, 247, 242, 27, 13},  # Light Shield → shield-based items
-    213: {228, 26, 242, 27},  # Light Armor → Coat of Plates, Warmail, Atlas Pauldron, Metal Jacket
-    245: {246, 231, 247, 13},  # Light Shield variant
-    215: {246, 231, 247},  # Light Armor variant
+    211: {212, 248, 229, 20, 21, 232, 22, 23, 17, 24, 231, 247, 16},
+    # Oakheart → Dragonheart(212), Lifespring(248), Reflex Block(229), Flare Gun(20) + T3s
+    245: {246, 26, 231, 247, 13},
+    # Light Shield → Kinetic Shield(246), Warmail(26) + KS T3s (Fountain, Aegis, SlumbHusk)
+    213: {214, 26, 27, 242, 13},
+    # Light Armor → Coat of Plates(214), Warmail(26) + CoP T3s (MJ, AP, SlumbHusk)
+    215: {214, 26, 27, 242, 13},
+    # Light Armor variant → same as 213 (alternate acquisition path)
+
     # ====== Defense T2 → T3 ======
-    214: {232, 241, 21, 22, 23, 17},  # Dragonheart → Crucible, War Treads, Pulseweave, Cap Plate, Rooks Decree, Shiversteel
-    248: {231},  # Lifespring → Fountain of Renewal
-    229: {232, 247, 13},  # Reflex Block → Crucible, Aegis, Slumbering Husk
-    246: {231, 247, 13},  # Kinetic Shield → Fountain, Aegis, Slumbering Husk
-    228: {242, 27},  # Coat of Plates → Atlas Pauldron, Metal Jacket
-    26: {242, 27},  # Warmail → Atlas Pauldron, Metal Jacket
+    212: {21, 22, 23, 17, 24},  # Dragonheart → Pulseweave, CapP, RD, WarTreads, Shiversteel (NOT Crucible - Crucible uses Reflex Block)
+    248: {231, 21},                  # Lifespring → Fountain of Renewal, Pulseweave
+    229: {232, 247},                 # Reflex Block → Crucible, Aegis
+    246: {231, 247, 13},             # Kinetic Shield → Fountain, Aegis, Slumbering Husk
+    214: {27, 242, 13},              # Coat of Plates → Metal Jacket, Atlas Pauldron, Slumbering Husk
+    228: {27, 242},                  # Coat of Plates variant → MJ, AP
+    20: {16},                        # Flare Gun → Contraption
+
     # ====== Boots ======
-    221: {222, 241, 234, 1},  # Sprint Boots → Travel Boots, War Treads, Halcyon Chargers, Journey Boots
-    222: {241, 234, 1},  # Travel Boots → War Treads, Halcyon Chargers, Journey Boots
-    # ====== Utility T2 → T3 ======
-    219: {7, 16},  # Stormguard Banner → Stormcrown, Contraption
+    221: {222, 241, 234, 1, 17},  # Sprint Boots → Travel Boots + all T3 boots
+    222: {241, 234, 1, 17},       # Travel Boots → Teleport, Halcyon, Journey, War Treads
+
+    # ====== Utility ======
+    19: {15},   # ScoutTuff → SuperScout 2000
 }
 
-# Starter/consumable IDs - never in final build
-# ID 14 = universal system event (not an item)
-STARTER_IDS = {14, 201, 225, 233, 238, 239, 244, 8, 18, 20}
-# 14=system, 201=Starting Item, 225=Scout Trap, 233=Unknown consumable
-# 238=Flare, 239=Unknown consumable, 244=WP Infusion(qty=1)
-# 8=WP Infusion(qty=2), 18=CP Infusion(qty=2), 20=Flare Gun(qty=2)
+# Starter/system IDs - never in final build
+# Only items that are system events or auto-purchased at game start.
+# Consumables (infusions, scout items) can appear in final builds,
+# so they are handled by the 6-slot tier-based limit instead.
+STARTER_IDS = {14, 201}
+# 14=universal system event (not an item)
+# 201=Starting Item (auto-purchased at game start)
 
 
 def _le_to_be(eid_le: int) -> int:
@@ -170,9 +194,25 @@ def _estimate_final_build(
         else:
             items.append((-1, ts, f"Unknown_{iid}", iid))
 
-    # Sort: tier desc, then latest timestamp desc (within same tier)
-    items.sort(key=lambda x: (-x[0], -x[1]))
-    return [name for _, _, name, _ in items[:6]]
+    # Select top 6: tier-based with consumable separation.
+    # 1) T1+ items (real equipment) sorted by tier desc, timestamp desc
+    # 2) T0 items (consumables: infusions, traps) only fill remaining slots
+    # This keeps core T3 items for carries while allowing consumables only
+    # when the player has fewer than 6 real items.
+    real = [x for x in items if x[0] >= 1]
+    consumables = [x for x in items if x[0] < 1]
+
+    # Within real items: tier desc, timestamp desc
+    real.sort(key=lambda x: (-x[0], -x[1]))
+    selected = real[:6]
+
+    # Fill remaining slots with consumables (most recent first)
+    if len(selected) < 6:
+        consumables.sort(key=lambda x: -x[1])
+        selected.extend(consumables[:6 - len(selected)])
+
+    selected.sort(key=lambda x: (-x[0], -x[1]))
+    return [name for _, _, name, _ in selected]
 
 
 @dataclass
