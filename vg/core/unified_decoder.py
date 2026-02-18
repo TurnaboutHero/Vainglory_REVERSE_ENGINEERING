@@ -71,50 +71,56 @@ _PLAYER_EID_RANGE = set(range(1500, 1510))  # BE entity IDs for players
 # ===== ITEM BUILD ESTIMATION =====
 # Upgrade tree using BINARY REPLAY IDs (from ITEM_ID_MAP)
 # component_id -> set of result_ids it could have been upgraded into
+#
+# Two ID ranges:
+#   - 200-255: standard shop purchases (qty=1)
+#   - 0-27: T3/special item completions (qty=2), identified via hero distribution
 UPGRADE_TREE = {
     # ====== Weapon T1 → T2 + T3 (transitive) ======
-    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253, 210, 224},  # Weapon Blade
-    243: {237, 223},  # Book of Eulogies → Barbed Needle → Serpent Mask
-    204: {24, 244, 226, 251, 253, 5, 210, 235},  # Swift Shooter → Lucky Strike → Tyrants Monocle/Tornado Trigger
+    202: {249, 205, 250, 207, 237, 235, 208, 223, 224, 226, 251, 252, 210, 5, 12},  # Weapon Blade
+    243: {237, 223, 252},  # Book of Eulogies → Barbed Needle → Serpent Mask/Poisoned Shiv
+    204: {207, 235, 210, 252, 253, 5},  # Swift Shooter → Blazing Salvo/Lucky Strike → T3
     # ====== Weapon T2 → T3 ======
-    249: {208, 223, 12, 251},  # Heavy Steel
-    205: {208, 5, 224},  # Six Sins → Sorrowblade, Tyrants Monocle, Tension Bow
-    235: {5, 210},  # Lucky Strike → Tyrants Monocle, Tornado Trigger
-    237: {223},  # Barbed Needle → Serpent Mask
+    249: {208, 223, 251, 5, 12},  # Heavy Steel → Sorrowblade, Serpent Mask, Breaking Point, Tyrants Monocle, Spellsword
+    205: {208, 224},  # Six Sins → Sorrowblade, Tension Bow
+    235: {210, 5},  # Lucky Strike → Tornado Trigger, Tyrants Monocle
+    237: {223, 251, 252},  # Barbed Needle → Serpent Mask, Breaking Point, Poisoned Shiv
     250: {226, 224},  # Piercing Spear → Bonesaw, Tension Bow
-    24: {226, 251, 253, 210},  # Blazing Salvo → ... → Tornado Trigger
-    # 244 = Weapon Infusion (consumable, filtered by STARTER_IDS)
-    207: {208, 223, 12, 251},  # Weapon T2 (unknown)
-    252: {226, 251},  # Weapon T2-T3 (unknown)
+    207: {210, 252, 253, 5},  # Blazing Salvo → Tornado Trigger, Poisoned Shiv, AC, Tyrants Monocle
     # ====== Crystal T1 → T2 + T3 (transitive) ======
-    203: {0, 254, 209, 10, 230, 11, 236, 253, 240, 255},  # Crystal Bit
-    206: {220, 255, 234},  # Energy Battery
-    216: {218, 220, 236, 12, 7, 27, 16},  # Hourglass
+    203: {0, 254, 209, 230, 236, 253, 240, 255, 10, 11},  # Crystal Bit → Heavy Prism, various CP T3
+    206: {220, 255, 234, 10, 11},  # Energy Battery → Clockwork, Eve of Harvest, Halcyon Chargers, Spellfire, Dragons Eye
+    216: {218, 220, 236, 10},  # Hourglass → Chronograph → Clockwork, Aftershock, Spellfire
     # ====== Crystal T2 → T3 ======
-    0: {209, 10, 230, 11, 240, 255, 253},  # Heavy Prism
-    254: {253, 240},  # Piercing Shard
-    218: {220, 236, 12, 7, 27, 16},  # Chronograph
+    0: {209, 230, 10, 11, 240},  # Heavy Prism → Shatterglass, Frostburn, Spellfire, Dragons Eye, Broken Myth
+    254: {253, 240},  # Piercing Shard → Alternating Current, Broken Myth
+    218: {220, 236},  # Chronograph → Clockwork, Aftershock
     # ====== Defense T1 → T2 + T3 (transitive) ======
-    212: {214, 248, 229, 219, 21, 232, 27, 241, 231, 247, 7, 16, 17},  # Oakheart
-    211: {246, 26, 231, 247, 13, 242},  # Light Shield
-    213: {26, 242},  # Light Armor
-    245: {246, 231, 247, 13},  # Defense T1 (unknown)
-    215: {246, 231, 247, 13},  # Defense T1 (unknown)
+    212: {214, 248, 229, 219, 232, 241, 231, 247, 21, 22, 23, 17},  # Oakheart → HP-based items
+    211: {246, 228, 231, 247, 242, 27, 13},  # Light Shield → shield-based items
+    213: {228, 26, 242, 27},  # Light Armor → Coat of Plates, Warmail, Atlas Pauldron, Metal Jacket
+    245: {246, 231, 247, 13},  # Light Shield variant
+    215: {246, 231, 247},  # Light Armor variant
     # ====== Defense T2 → T3 ======
-    214: {21, 232, 27, 241, 17},  # Dragonheart
-    248: {21, 231},  # Lifespring
-    229: {232, 247},  # Reflex Block
-    246: {231, 247, 13},  # Kinetic Shield
-    26: {242},  # Warmail → Atlas Pauldron
+    214: {232, 241, 21, 22, 23, 17},  # Dragonheart → Crucible, War Treads, Pulseweave, Cap Plate, Rooks Decree, Shiversteel
+    248: {231},  # Lifespring → Fountain of Renewal
+    229: {232, 247, 13},  # Reflex Block → Crucible, Aegis, Slumbering Husk
+    246: {231, 247, 13},  # Kinetic Shield → Fountain, Aegis, Slumbering Husk
+    228: {242, 27},  # Coat of Plates → Atlas Pauldron, Metal Jacket
+    26: {242, 27},  # Warmail → Atlas Pauldron, Metal Jacket
     # ====== Boots ======
-    221: {222, 241, 234},  # Sprint Boots
-    222: {241, 234},  # Travel Boots
+    221: {222, 241, 234, 1},  # Sprint Boots → Travel Boots, War Treads, Halcyon Chargers, Journey Boots
+    222: {241, 234, 1},  # Travel Boots → War Treads, Halcyon Chargers, Journey Boots
     # ====== Utility T2 → T3 ======
-    219: {7, 16},  # Stormguard Banner
+    219: {7, 16},  # Stormguard Banner → Stormcrown, Contraption
 }
 
 # Starter/consumable IDs - never in final build
-STARTER_IDS = {1, 8, 14, 18, 20, 201, 217, 238, 244}  # 238=Flare, 244=Weapon Infusion
+# ID 14 = universal system event (not an item)
+STARTER_IDS = {14, 201, 225, 233, 238, 239, 244, 8, 18, 20}
+# 14=system, 201=Starting Item, 225=Scout Trap, 233=Unknown consumable
+# 238=Flare, 239=Unknown consumable, 244=WP Infusion(qty=1)
+# 8=WP Infusion(qty=2), 18=CP Infusion(qty=2), 20=Flare Gun(qty=2)
 
 
 def _le_to_be(eid_le: int) -> int:
@@ -557,7 +563,20 @@ class UnifiedDecoder:
                 pos += 1
                 continue
 
+            # qty=1 + IDs 200-255 = standard item purchase
+            # qty=2 + IDs 0-27 = T3/special item completion (NOT ability upgrades)
+            #   Per-player analysis: only 2-5 qty=2 events (too few for abilities)
+            #   Hero distribution matches item buyers perfectly
+            # ID 14 is universal (system event, not an item) - filtered below
+            qty = all_data[pos + 9]
+            if qty not in (1, 2):
+                pos += 3
+                continue
+
             item_id = struct.unpack_from("<H", all_data, pos + 10)[0]
+            # Normalize encoding artifacts (e.g., 65505=0xFFE1 → 225=0xE1)
+            if item_id > 255:
+                item_id = item_id & 0xFF
             item_info = ITEM_ID_MAP.get(item_id)
             if item_info:
                 player_items[eid].add(item_id)

@@ -229,93 +229,124 @@ HERO_NAME_TO_ID: Dict[str, int] = {
 
 # Item ID Mapping
 # =============================================================================
-# IMPORTANT: The old 100/300/400-series IDs were WRONG (never appeared in replay
-# binary data). Real item IDs use the 200-255 range plus low IDs (0-27, qty=1).
+# Two acquisition mechanisms in [10 04 3D] acquire events:
+#   - qty=1 + IDs 200-255: Standard shop purchase (all tiers)
+#   - qty=2 + IDs 0-27:    T3/special item completion (crafted from components)
+#
+# Evidence for qty=2 = items (NOT ability upgrades):
+#   - Only 2-5 qty=2 events per player (ability upgrades would be 12 = max level)
+#   - Hero role distribution matches expected item buyers perfectly
+#   - ID 14 is universal (system event, excluded)
 #
 # Mapping sources:
-#   - "confirmed": Truth data frequency matching (Jaccard >= 0.50, matches 1-4)
-#   - "moderate":  Truth data lower confidence + role matrix corroboration
-#   - "tentative": Role matrix + transition chain analysis (no direct truth match)
-#   - "unknown":   Category known from role matrix, specific item uncertain
+#   - "confirmed": Replay viewer screenshot or build comparison with known match
+#   - "tentative": Role matrix + co-item analysis + upgrade chain inference
+#   - "inferred":  qty=2 hero distribution analysis (buyer role matching)
+#   - "unknown":   Category known from buyer profile, specific item uncertain
 # =============================================================================
 ITEM_ID_MAP: Dict[int, Dict] = {
     # =========================================================================
-    # LOW IDs (0-27): qty=1 = shop items, qty=2 = ability upgrades
+    # qty=2 T3/Special Items (IDs 0-27) - crafted/completed items
+    # Identified by hero buyer distribution across 56 replays
     # =========================================================================
-    0:  {"name": "Heavy Prism", "category": "Crystal", "tier": 2, "status": "tentative",
-         "note": "Appears in all crystal carry builds, consumed into crystal T3 items"},
-    5:  {"name": "Tyrants Monocle", "category": "Weapon", "tier": 3, "status": "confirmed"},
-    8:  {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "tentative",
-         "note": "Only WP carry (tsuki/Kinetic) in M7. Late-game consumable."},
-    7:  {"name": "Stormcrown", "category": "Utility", "tier": 3, "status": "confirmed"},
-    10: {"name": "Spellfire", "category": "Crystal", "tier": 3, "status": "confirmed"},
-    11: {"name": "Dragons Eye", "category": "Crystal", "tier": 3, "status": "confirmed"},
-    12: {"name": "Spellsword", "category": "Weapon", "tier": 3, "status": "confirmed"},
-    13: {"name": "Slumbering Husk", "category": "Defense", "tier": 3, "status": "confirmed"},
-    15: {"name": "SuperScout 2000", "category": "Utility", "tier": 3, "status": "confirmed"},
-    16: {"name": "Contraption", "category": "Utility", "tier": 3, "status": "tentative",
-         "note": "Appears exclusively in captain builds (Lorelai, Lyra, Ardan). Built from Stormguard Banner + Chronograph"},
-    20: {"name": "Flare", "category": "Utility", "tier": 0, "status": "confirmed"},
-    21: {"name": "Pulseweave", "category": "Defense", "tier": 3, "status": "confirmed"},
-    24: {"name": "Blazing Salvo", "category": "Weapon", "tier": 2, "status": "confirmed",
-         "note": "Tied J=1.00 with Dragonblood Contract (same player)"},
-    26: {"name": "Warmail", "category": "Defense", "tier": 2, "status": "confirmed"},
-    27: {"name": "Rooks Decree", "category": "Defense", "tier": 3, "status": "confirmed"},
+    0: {"name": "Heavy Prism", "category": "Crystal", "tier": 2, "status": "inferred",
+        "note": "qty=2. 63 buyers, ALL CP heroes. Crystal T2 component"},
+    1: {"name": "Journey Boots", "category": "Utility", "tier": 3, "status": "inferred",
+        "note": "qty=2. 57 buyers, melee/bruiser heavy. T3 boots"},
+    5: {"name": "Tyrants Monocle", "category": "Weapon", "tier": 3, "status": "inferred",
+        "note": "qty=2. 15 buyers (Baron 6x, Ringo 5x). WP carry T3"},
+    7: {"name": "Stormcrown", "category": "Utility", "tier": 3, "status": "inferred",
+        "note": "qty=2. 39 buyers, junglers/bruisers. Jungle utility T3"},
+    8: {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "inferred",
+        "note": "qty=2. 12 buyers, ALL WP carries. Late-game WP buff (alt ID, see also 244)"},
+    10: {"name": "Spellfire", "category": "Crystal", "tier": 3, "status": "inferred",
+         "note": "qty=2. 38 buyers, CP mages. Crystal T3"},
+    11: {"name": "Dragons Eye", "category": "Crystal", "tier": 3, "status": "inferred",
+         "note": "qty=2. 19 buyers, CP carries. Crystal T3"},
+    12: {"name": "Spellsword", "category": "Weapon", "tier": 3, "status": "inferred",
+         "note": "qty=2. 12 buyers (Caine 7x dominant). WP/hybrid T3"},
+    13: {"name": "Slumbering Husk", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 19 buyers, mixed carry+tank. Defense T3"},
+    # ID 14 = system event (universal, excluded via STARTER_IDS)
+    15: {"name": "SuperScout 2000", "category": "Utility", "tier": 3, "status": "inferred",
+         "note": "qty=2. 12 buyers, ALL captains. Vision utility T3"},
+    16: {"name": "Contraption", "category": "Utility", "tier": 3, "status": "inferred",
+         "note": "qty=2. 15 buyers, ALL captains. Vision/utility T3"},
+    17: {"name": "Shiversteel", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 13 buyers, ALL captains. HP/slow utility T3"},
+    18: {"name": "Crystal Infusion", "category": "Consumable", "tier": 0, "status": "inferred",
+         "note": "qty=2. 11 buyers, mixed. Late-game CP buff consumable"},
+    20: {"name": "Flare Gun", "category": "Consumable", "tier": 0, "status": "inferred",
+         "note": "qty=2. 29 buyers, ALL captains. Captain consumable/utility"},
+    21: {"name": "Pulseweave", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 40 buyers, bruisers/tanks. Defense T3"},
+    22: {"name": "Capacitor Plate", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 25 buyers, ALL captains. Captain defense T3"},
+    23: {"name": "Rooks Decree", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 16 buyers, ALL captains. Captain defense T3"},
+    26: {"name": "Warmail", "category": "Defense", "tier": 2, "status": "inferred",
+         "note": "qty=2. 45 buyers, captains/tanks. Defense T2 armor"},
+    27: {"name": "Metal Jacket", "category": "Defense", "tier": 3, "status": "inferred",
+         "note": "qty=2. 31 buyers, bruisers+carries (Gwen/Kinetic/SAW). Armor T3"},
 
     # =========================================================================
-    # IDs 200+: Main shop items
+    # Weapon T1
     # =========================================================================
-
-    # --- Weapon T1 (300g) ---
     202: {"name": "Weapon Blade", "category": "Weapon", "tier": 1, "status": "tentative",
-          "note": "Role matrix: 92% WP (46/50), cost=300g"},
+          "note": "WP 92% (140 buyers), most common WP T1 component"},
     204: {"name": "Swift Shooter", "category": "Weapon", "tier": 1, "status": "confirmed"},
     243: {"name": "Book of Eulogies", "category": "Weapon", "tier": 1, "status": "confirmed"},
 
-    # --- Weapon T2 (400-850g) ---
+    # =========================================================================
+    # Weapon T2
+    # =========================================================================
     205: {"name": "Six Sins", "category": "Weapon", "tier": 2, "status": "tentative",
-          "note": "WP 93%, cost=350g matches Six Sins"},
-    207: {"name": "Weapon T2", "category": "Weapon", "tier": 2, "status": "unknown",
-          "note": "WP 85% (17/20), cost=400g"},
-    237: {"name": "Barbed Needle", "category": "Weapon", "tier": 2, "status": "tentative",
-          "note": "WP 75% (36/48), cost=500g, transitions to Breaking Point(251)"},
-    244: {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "confirmed",
-          "note": "CONFIRMED via replay viewer at 10:17. Korean: 타격 강화제. Was incorrectly mapped as Lucky Strike then Tornado Trigger"},
-    249: {"name": "Heavy Steel", "category": "Weapon", "tier": 2, "status": "tentative",
-          "note": "WP 100% (27/27), cost=850g, transitions to Sorrowblade(208)"},
-    250: {"name": "Piercing Spear", "category": "Weapon", "tier": 2, "status": "tentative",
-          "note": "WP 100% (14/14), cost=600g, transitions to Bonesaw(226)"},
-    252: {"name": "Weapon T2-T3", "category": "Weapon", "tier": 2, "status": "unknown",
-          "note": "WP 100% (5/5), cost=900g"},
-
-    # --- Weapon T3 (1300g+) ---
-    208: {"name": "Sorrowblade", "category": "Weapon", "tier": 3, "status": "confirmed"},
-    223: {"name": "Serpent Mask", "category": "Weapon", "tier": 3, "status": "confirmed"},
-    226: {"name": "Bonesaw", "category": "Weapon", "tier": 3, "status": "confirmed"},
+          "note": "WP 93%, builds into Sorrowblade(208), Tension Bow(224)"},
+    207: {"name": "Blazing Salvo", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 85% (144 buyers), multi-buy. Builds into Tornado Trigger(210), Poisoned Shiv(252). Co-occurs with Barbed Needle(237) 86%"},
     235: {"name": "Lucky Strike", "category": "Weapon", "tier": 2, "status": "confirmed",
-          "note": "CONFIRMED via 21.11.04 match. Upgrades to Tyrants Monocle(5) or Tornado Trigger(210). Was incorrectly mapped as Tension Bow"},
-    224: {"name": "Tension Bow", "category": "Weapon", "tier": 3, "status": "confirmed",
-          "note": "CONFIRMED: all buyers have Piercing Spear(250)+Six Sins(205). Built from Piercing Spear+Six Sins"},
-    251: {"name": "Breaking Point", "category": "Weapon", "tier": 3, "status": "confirmed"},
+          "note": "CONFIRMED via 21.11.04 match. Builds into Tornado Trigger(210)"},
+    237: {"name": "Barbed Needle", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 75%, builds into Serpent Mask(223), Poisoned Shiv(252), Breaking Point(251)"},
+    249: {"name": "Heavy Steel", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 100% (132 buyers), builds into Sorrowblade(208)"},
+    250: {"name": "Piercing Spear", "category": "Weapon", "tier": 2, "status": "tentative",
+          "note": "WP 100% (111 buyers), builds into Bonesaw(226), Tension Bow(224)"},
+
+    # =========================================================================
+    # Weapon T3
+    # =========================================================================
+    208: {"name": "Sorrowblade", "category": "Weapon", "tier": 3, "status": "confirmed"},
     210: {"name": "Tornado Trigger", "category": "Weapon", "tier": 3, "status": "confirmed",
-          "note": "CONFIRMED via 21.11.04 match: Baron+Yates both bought ID 210. Built from Lucky Strike+Blazing Salvo"},
+          "note": "CONFIRMED via 21.11.04 match. Built from Lucky Strike(235)+Blazing Salvo(207)"},
+    223: {"name": "Serpent Mask", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    224: {"name": "Tension Bow", "category": "Weapon", "tier": 3, "status": "confirmed",
+          "note": "CONFIRMED: all buyers have Piercing Spear(250)+Six Sins(205)"},
+    226: {"name": "Bonesaw", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    251: {"name": "Breaking Point", "category": "Weapon", "tier": 3, "status": "confirmed"},
+    252: {"name": "Poisoned Shiv", "category": "Weapon", "tier": 3, "status": "tentative",
+          "note": "WP 100% (50 buyers). Co-occurs with Barbed Needle(237) 90% + Blazing Salvo(207) 92%. Built from Blazing Salvo+Barbed Needle"},
 
-    # --- Crystal T1 (300g) ---
+    # =========================================================================
+    # Crystal T1
+    # =========================================================================
     203: {"name": "Crystal Bit", "category": "Crystal", "tier": 1, "status": "tentative",
-          "note": "CP 86% (77/90), cost=300g, most common CP item"},
+          "note": "CP 86% (177 buyers), most common CP T1"},
     206: {"name": "Energy Battery", "category": "Crystal", "tier": 1, "status": "tentative",
-          "note": "CP 81% (35/43), cost=350g"},
+          "note": "CP 81% (174 buyers)"},
     216: {"name": "Hourglass", "category": "Crystal", "tier": 1, "status": "tentative",
-          "note": "CP 65% (17/26), cost=300g"},
+          "note": "CP 65% (138 buyers)"},
 
-    # --- Crystal T2 (400-600g) ---
+    # =========================================================================
+    # Crystal T2
+    # =========================================================================
     218: {"name": "Chronograph", "category": "Crystal", "tier": 2, "status": "tentative",
-          "note": "CP 81% (13/16), cost=400g"},
-    238: {"name": "Flare", "category": "Consumable", "tier": 0, "status": "confirmed",
-          "note": "CONFIRMED: tanks (Phinn/Lance/Yates/Catherine) buy x1-4 with no CP items. Was incorrectly mapped as Eclipse Prism"},
+          "note": "CP 81% (80 buyers), builds into Clockwork(220), Aftershock(236)"},
     254: {"name": "Piercing Shard", "category": "Crystal", "tier": 2, "status": "confirmed"},
 
-    # --- Crystal T3 (900g+) ---
+    # =========================================================================
+    # Crystal T3
+    # =========================================================================
     209: {"name": "Shatterglass", "category": "Crystal", "tier": 3, "status": "confirmed"},
     220: {"name": "Clockwork", "category": "Crystal", "tier": 3, "status": "confirmed"},
     230: {"name": "Frostburn", "category": "Crystal", "tier": 3, "status": "confirmed"},
@@ -324,59 +355,71 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     253: {"name": "Alternating Current", "category": "Crystal", "tier": 3, "status": "confirmed"},
     255: {"name": "Eve of Harvest", "category": "Crystal", "tier": 3, "status": "confirmed"},
 
-    # --- Defense T1 (250-350g) ---
+    # =========================================================================
+    # Defense T1
+    # =========================================================================
     211: {"name": "Light Shield", "category": "Defense", "tier": 1, "status": "tentative",
-          "note": "CAP 58% (61/105), cost=300g, very common (multi-buy for Aegis)"},
-    212: {"name": "Oakheart", "category": "Defense", "tier": 1, "status": "moderate",
-          "note": "Truth J=0.18 (recall 100%), CAP 61% (38/62), cost=350g"},
+          "note": "276 buyers, very common (multi-buy for Aegis/shield items)"},
+    212: {"name": "Oakheart", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "202 buyers, HP component for Dragonheart and other tank items"},
     213: {"name": "Light Armor", "category": "Defense", "tier": 1, "status": "tentative",
-          "note": "CAP 58% (18/31), cost=300g"},
-    245: {"name": "Light Shield", "category": "Defense", "tier": 1, "status": "tentative",
-          "note": "Variant of ID 211 (Light Shield). CAP 52%, cost=300g, transitions to Kinetic Shield(246). Very common across all matches."},
+          "note": "169 buyers, armor component"},
     215: {"name": "Light Armor", "category": "Defense", "tier": 1, "status": "tentative",
-          "note": "Variant of ID 213 (Light Armor). Only topLaner in M7/M8. Transitions to Kinetic Shield."},
+          "note": "Variant of ID 213. 12 buyers, rare"},
+    245: {"name": "Light Shield", "category": "Defense", "tier": 1, "status": "tentative",
+          "note": "Variant of ID 211. 122 buyers, transitions to Kinetic Shield(246)"},
 
-    # --- Defense T2 (400-800g) ---
+    # =========================================================================
+    # Defense T2
+    # =========================================================================
     214: {"name": "Dragonheart", "category": "Defense", "tier": 2, "status": "tentative",
-          "note": "BR 57% (13/23), cost=450g"},
+          "note": "108 buyers, HP component for Crucible(232), War Treads(241)"},
+    228: {"name": "Coat of Plates", "category": "Defense", "tier": 2, "status": "tentative",
+          "note": "4 buyers (Grumpjaw/BF/SanFeng/Catherine). Co-occurs with Light Armor(213) 100%, Atlas Pauldron(242) 75%"},
     229: {"name": "Reflex Block", "category": "Defense", "tier": 2, "status": "tentative",
-          "note": "Universal (69p), cost=700g, transitions to Crucible(232)+Aegis(247)"},
-    246: {"name": "Kinetic Shield", "category": "Defense", "tier": 2, "status": "moderate",
-          "note": "Truth J=0.17, DEF (BR+CAP 91%), cost=450g"},
+          "note": "378 buyers, builds into Crucible(232)+Aegis(247)"},
+    246: {"name": "Kinetic Shield", "category": "Defense", "tier": 2, "status": "tentative",
+          "note": "85 buyers, builds into Aegis(247), Fountain(231)"},
     248: {"name": "Lifespring", "category": "Defense", "tier": 2, "status": "tentative",
-          "note": "CAP 57% (17/30), cost=800g, transitions to Fountain(231)"},
+          "note": "167 buyers, builds into Fountain(231)"},
 
-    # --- Defense T3 (950g+) ---
+    # =========================================================================
+    # Defense T3
+    # =========================================================================
     231: {"name": "Fountain of Renewal", "category": "Defense", "tier": 3, "status": "confirmed"},
     232: {"name": "Crucible", "category": "Defense", "tier": 3, "status": "confirmed"},
     242: {"name": "Atlas Pauldron", "category": "Defense", "tier": 3, "status": "confirmed"},
     247: {"name": "Aegis", "category": "Defense", "tier": 3, "status": "confirmed"},
 
-    # --- Utility / Boots ---
-    201: {"name": "Unknown 201", "category": "Utility", "tier": 0, "status": "unknown",
-          "note": "Universal (70p), cost=FREE, possibly system/start item"},
+    # =========================================================================
+    # Utility / Boots
+    # =========================================================================
     219: {"name": "Stormguard Banner", "category": "Utility", "tier": 2, "status": "tentative",
-          "note": "Mixed roles (20p), cost=800g"},
+          "note": "139 buyers, captain/jungler utility"},
     221: {"name": "Sprint Boots", "category": "Utility", "tier": 1, "status": "tentative",
-          "note": "Universal (67p), cost=300g"},
+          "note": "426 buyers, universal T1 boots"},
     222: {"name": "Travel Boots", "category": "Utility", "tier": 2, "status": "tentative",
-          "note": "Universal (73p), cost=350g"},
+          "note": "429 buyers, universal T2 boots"},
     234: {"name": "Halcyon Chargers", "category": "Utility", "tier": 3, "status": "confirmed"},
     241: {"name": "War Treads", "category": "Utility", "tier": 3, "status": "confirmed"},
 
-    # --- Identified from final build analysis ---
-    17: {"name": "Shiversteel", "category": "Defense", "tier": 3, "status": "tentative",
-         "note": "Appears exclusively in captain/tank builds (Warhawk, Lorelai, Grumpjaw). Built from Dragonheart."},
-    18: {"name": "Crystal Infusion", "category": "Consumable", "tier": 0, "status": "tentative",
-         "note": "M7 right team ALL 4 players (WP+CP+tank+mage) = role-independent consumable. Late-game buff."},
-    19: {"name": "Unknown 19", "category": "Utility", "tier": 3, "status": "unknown",
-         "note": "Only Acex(Lorelai) in M6/M7. Captain-specific T3 (Echo? Capacitor Plate? Nullwave?)."},
-    22: {"name": "Unknown 22", "category": "Utility", "tier": 3, "status": "unknown",
-         "note": "Captain builds (Yates, Grace) in M10. Non-boot T3."},
-
-    # --- Unknown (category from role matrix but item uncertain) ---
-    217: {"name": "Unknown 217", "category": "Defense", "tier": 1, "status": "unknown",
-          "note": "Mixed roles (19p), cost=250g"},
+    # =========================================================================
+    # Consumables / System
+    # =========================================================================
+    201: {"name": "Starting Item", "category": "System", "tier": 0, "status": "tentative",
+          "note": "456 buyers (everyone), avg 13s. Auto-purchased at game start"},
+    217: {"name": "Unknown 217", "category": "Unknown", "tier": 0, "status": "unknown",
+          "note": "108 buyers, mixed roles (Lorelai 9, Samuel 8, Magnus 7). avg 604s. Could be Healing Flask or contract item"},
+    225: {"name": "Scout Trap", "category": "Consumable", "tier": 0, "status": "tentative",
+          "note": "13 captain buyers, qty up to 24x. Repeated purchase pattern = vision consumable"},
+    233: {"name": "Unknown 233", "category": "Consumable", "tier": 0, "status": "unknown",
+          "note": "4 buyers (Reim/Lorelai/Reza/Baron), avg 1316s. Very late-game, possibly Crystal Infusion"},
+    238: {"name": "Flare", "category": "Consumable", "tier": 0, "status": "confirmed",
+          "note": "CONFIRMED: vision consumable. Tanks buy x1-4"},
+    239: {"name": "Unknown 239", "category": "Consumable", "tier": 0, "status": "unknown",
+          "note": "7 captain buyers, qty 2-7. Co-occurs with Scout Trap(225) 86%. Another vision consumable?"},
+    244: {"name": "Weapon Infusion", "category": "Consumable", "tier": 0, "status": "confirmed",
+          "note": "CONFIRMED via replay viewer. Late-game WP buff consumable"},
 }
 
 # Reverse lookup: item name to ID
