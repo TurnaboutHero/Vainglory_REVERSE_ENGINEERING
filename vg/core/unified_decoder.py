@@ -87,12 +87,11 @@ UPGRADE_TREE = {
     207: {208, 223, 12, 251},  # Weapon T2 (unknown)
     252: {226, 251},  # Weapon T2-T3 (unknown)
     # ====== Crystal T1 → T2 + T3 (transitive) ======
-    203: {0, 238, 254, 209, 10, 230, 11, 236, 253, 240, 255},  # Crystal Bit
+    203: {0, 254, 209, 10, 230, 11, 236, 253, 240, 255},  # Crystal Bit
     206: {220, 255, 234},  # Energy Battery
     216: {218, 220, 236, 12, 7, 27, 16},  # Hourglass
     # ====== Crystal T2 → T3 ======
     0: {209, 10, 230, 11, 240, 255, 253},  # Heavy Prism
-    238: {209, 10, 230, 11, 236},  # Eclipse Prism
     254: {253, 240},  # Piercing Shard
     218: {220, 236, 12, 7, 27, 16},  # Chronograph
     # ====== Defense T1 → T2 + T3 (transitive) ======
@@ -115,7 +114,7 @@ UPGRADE_TREE = {
 }
 
 # Starter/consumable IDs - never in final build
-STARTER_IDS = {1, 8, 14, 18, 20, 201, 217, 244}  # 244=Weapon Infusion (confirmed)
+STARTER_IDS = {1, 8, 14, 18, 20, 201, 217, 238, 244}  # 238=Flare, 244=Weapon Infusion
 
 
 def _le_to_be(eid_le: int) -> int:

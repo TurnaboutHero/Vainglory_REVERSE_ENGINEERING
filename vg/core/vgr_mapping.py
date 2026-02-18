@@ -311,8 +311,8 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     # --- Crystal T2 (400-600g) ---
     218: {"name": "Chronograph", "category": "Crystal", "tier": 2, "status": "tentative",
           "note": "CP 81% (13/16), cost=400g"},
-    238: {"name": "Eclipse Prism", "category": "Crystal", "tier": 2, "status": "tentative",
-          "note": "CP 74% (31/42), cost=500g, transitions to Broken Myth(240)"},
+    238: {"name": "Flare", "category": "Consumable", "tier": 0, "status": "confirmed",
+          "note": "CONFIRMED: tanks (Phinn/Lance/Yates/Catherine) buy x1-4 with no CP items. Was incorrectly mapped as Eclipse Prism"},
     254: {"name": "Piercing Shard", "category": "Crystal", "tier": 2, "status": "confirmed"},
 
     # --- Crystal T3 (900g+) ---
