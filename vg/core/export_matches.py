@@ -42,6 +42,9 @@ def match_to_csv_rows(match: DecodedMatch, match_idx: int = 0) -> List[Dict]:
     """Convert a decoded match to flat CSV rows (one row per player)."""
     rows = []
     for player in match.all_players:
+        assists = player.assists if player.assists is not None else 0
+        kda_ratio = round((player.kills + assists) / max(player.deaths, 1), 2)
+        is_winner = 1 if match.winner and player.team == match.winner else 0
         row = {
             'match_idx': match_idx,
             'replay_name': match.replay_name,
@@ -52,10 +55,12 @@ def match_to_csv_rows(match: DecodedMatch, match_idx: int = 0) -> List[Dict]:
             'winner': match.winner or '',
             'player_name': player.name,
             'team': player.team,
+            'is_winner': is_winner,
             'hero': player.hero_name,
             'kills': player.kills,
             'deaths': player.deaths,
             'assists': player.assists if player.assists is not None else '',
+            'kda_ratio': kda_ratio,
             'minion_kills': player.minion_kills,
             'gold_spent': player.gold_spent,
             'gold_earned': player.gold_earned,
@@ -70,6 +75,41 @@ def match_to_csv_rows(match: DecodedMatch, match_idx: int = 0) -> List[Dict]:
             row['death_match'] = 1 if player.deaths == player.truth_deaths else 0
         rows.append(row)
     return rows
+
+
+def match_to_summary_row(match: DecodedMatch, match_idx: int = 0) -> Dict:
+    """Convert a decoded match to a single summary row."""
+    left_kills = sum(p.kills for p in match.left_team)
+    right_kills = sum(p.kills for p in match.right_team)
+    left_deaths = sum(p.deaths for p in match.left_team)
+    right_deaths = sum(p.deaths for p in match.right_team)
+    left_gold = sum(p.gold_earned for p in match.left_team)
+    right_gold = sum(p.gold_earned for p in match.right_team)
+
+    obj_counts = {}
+    for evt in match.objective_events:
+        obj_counts[evt.event_type] = obj_counts.get(evt.event_type, 0) + 1
+
+    return {
+        'match_idx': match_idx,
+        'replay_name': match.replay_name,
+        'game_mode': match.game_mode,
+        'map': match.map_name,
+        'team_size': match.team_size,
+        'duration_s': match.duration_seconds or '',
+        'winner': match.winner or '',
+        'left_kills': left_kills,
+        'right_kills': right_kills,
+        'left_deaths': left_deaths,
+        'right_deaths': right_deaths,
+        'left_gold': left_gold,
+        'right_gold': right_gold,
+        'gold_mine_captures': obj_counts.get('GOLD_MINE_CAPTURE', 0),
+        'kraken_deaths': obj_counts.get('KRAKEN_DEATH', 0),
+        'kraken_waves': obj_counts.get('KRAKEN_WAVE', 0),
+        'crystal_death_ts': match.crystal_death_ts or '',
+        'total_frames': match.total_frames,
+    }
 
 
 def export_csv(rows: List[Dict], output_path: Path) -> None:
@@ -157,6 +197,13 @@ def decode_batch(
         csv_path = out / 'all_matches.csv'
         export_csv(all_csv_rows, csv_path)
         print(f"Combined CSV:  {csv_path}")
+
+    # Match summary CSV
+    if matches:
+        summary_rows = [match_to_summary_row(m, i+1) for i, m in enumerate(matches)]
+        summary_path = out / 'match_summary.csv'
+        export_csv(summary_rows, summary_path)
+        print(f"Summary CSV:   {summary_path}")
 
     # Summary
     if matches:

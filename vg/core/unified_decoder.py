@@ -5,10 +5,11 @@ Unified Replay Decoder - Single entry point for complete VGR replay analysis.
 Combines all solved detection modules:
   - VGRParser: players, teams, heroes, game mode (100% accuracy)
   - KDADetector: kills 99.0%, deaths 98.0%, assists 98.0% (combined 98.3%)
-  - Gold earned: 600 starting + action 0x06+0x0F+0x0D (±5% 70.7%, ±10% 84.8%)
+  - Gold earned: 600 starting + action 0x06 (sell_flag!=0x01). ±5% 98.0%, ±10% 100%
   - WinLossDetector: crystal destruction detection (100% accuracy)
   - Item-Player Mapping: [10 04 3D] acquire events → per-player item builds
   - Crystal Death Detection: eid 2000-2005 death → game duration & winner
+  - Objective Events: Kraken vs Gold Mine via player kill proximity (eid>60000)
 
 Team label limitation:
   The team_byte at player block +0xD5 groups players correctly (100%),
@@ -64,6 +65,8 @@ _ITEM_ACQUIRE_HEADER = bytes([0x10, 0x04, 0x3D])
 _ITEM_EQUIP_HEADER = bytes([0x10, 0x04, 0x4B])
 _CREDIT_HEADER = bytes([0x10, 0x04, 0x1D])
 _DEATH_HEADER = bytes([0x08, 0x04, 0x31])
+_KILL_HEADER = bytes([0x18, 0x04, 0x1C])
+_PLAYER_EID_RANGE = set(range(1500, 1510))  # BE entity IDs for players
 
 # ===== ITEM BUILD ESTIMATION =====
 # Upgrade tree using BINARY REPLAY IDs (from ITEM_ID_MAP)
@@ -157,6 +160,18 @@ def _estimate_final_build(item_ids_set: Set[int]) -> List[str]:
 
 
 @dataclass
+class ObjectiveEvent:
+    """Detected objective event (Gold Mine capture or Kraken death)."""
+    timestamp: float
+    event_type: str  # GOLD_MINE_CAPTURE, KRAKEN_DEATH, KRAKEN_WAVE, MINION_WAVE
+    entity_count: int
+    entity_ids: List[int] = field(default_factory=list)
+
+    def to_dict(self) -> Dict:
+        return asdict(self)
+
+
+@dataclass
 class DecodedPlayer:
     """Player data from unified decoding."""
     name: str
@@ -169,7 +184,7 @@ class DecodedPlayer:
     assists: Optional[int] = None
     minion_kills: int = 0
     gold_spent: int = 0
-    gold_earned: int = 0  # 600 starting + 0x06 income only (±5% 68.3%, ±10% 79.8%)
+    gold_earned: int = 0  # 600 starting + 0x06 income (sell_flag!=0x01). ±5% 98.0%, ±10% 100%
     items: List[str] = field(default_factory=list)  # Final build (after upgrade tree filtering)
     items_all_purchased: List[str] = field(default_factory=list)  # Raw purchase history
     # Comparison fields (populated when truth is available)
@@ -195,6 +210,7 @@ class DecodedMatch:
     total_frames: int = 0
     crystal_death_ts: Optional[float] = None
     crystal_death_eid: Optional[int] = None
+    objective_events: List[ObjectiveEvent] = field(default_factory=list)
     # Detection flags
     kda_detection_used: bool = False
     win_detection_used: bool = False
@@ -365,7 +381,12 @@ class UnifiedDecoder:
             elif crystal_detected and outcome:
                 winner = outcome.winner
 
-        # --- Step 8: Assemble result ---
+        # --- Step 8: Objective event detection (Kraken vs Gold Mine) ---
+        objective_events = []
+        if all_data:
+            objective_events = self._detect_objective_events(all_data)
+
+        # --- Step 9: Assemble result ---
         return DecodedMatch(
             replay_name=replay_name,
             replay_path=str(replay_file),
@@ -379,6 +400,7 @@ class UnifiedDecoder:
             total_frames=match_info.get("total_frames", 0),
             crystal_death_ts=crystal_ts,
             crystal_death_eid=crystal_eid,
+            objective_events=objective_events,
             kda_detection_used=kda_used,
             win_detection_used=win_used,
             item_detection_used=item_used,
@@ -599,6 +621,105 @@ class UnifiedDecoder:
                 if eid in gold_spent:
                     player.gold_spent = round(gold_spent[eid])
                 player.gold_earned = 600 + round(gold_earned.get(eid, 0))
+
+    def _detect_objective_events(
+        self,
+        all_data: bytes,
+        eid_threshold: int = 60000,
+        cluster_window: float = 5.0,
+    ) -> List[ObjectiveEvent]:
+        """
+        Detect objective events (Gold Mine captures and Kraken deaths).
+
+        Classification rule for single-entity deaths (n=1, eid > 60000):
+          - Player kill [18 04 1C] within ±500B → KRAKEN_DEATH
+          - No player kill nearby → GOLD_MINE_CAPTURE
+        Multi-entity clusters (n>1) are KRAKEN_WAVE or MINION_WAVE.
+        """
+        # Collect all objective deaths
+        deaths = []
+        pos = 0
+        while True:
+            idx = all_data.find(_DEATH_HEADER, pos)
+            if idx == -1:
+                break
+            pos = idx + 1
+            if idx + 13 > len(all_data):
+                continue
+            if (all_data[idx + 3:idx + 5] != b'\x00\x00' or
+                    all_data[idx + 7:idx + 9] != b'\x00\x00'):
+                continue
+            eid = struct.unpack_from(">H", all_data, idx + 5)[0]
+            ts = struct.unpack_from(">f", all_data, idx + 9)[0]
+            if eid > eid_threshold and 0 < ts < 5000:
+                deaths.append((ts, eid, idx))
+
+        if not deaths:
+            return []
+
+        deaths.sort(key=lambda x: x[0])
+
+        # Cluster by time window
+        clusters: List[List[tuple]] = []
+        cur: List[tuple] = []
+        for d in deaths:
+            if not cur or d[0] - cur[-1][0] <= cluster_window:
+                cur.append(d)
+            else:
+                clusters.append(cur)
+                cur = [d]
+        if cur:
+            clusters.append(cur)
+
+        # Classify each cluster
+        events = []
+        for cluster in clusters:
+            ts = cluster[0][0]
+            eids = [d[1] for d in cluster]
+            offsets = [d[2] for d in cluster]
+            n = len(cluster)
+
+            player_kill = self._has_player_kill_nearby(all_data, offsets)
+
+            if n == 1 and not player_kill:
+                event_type = "GOLD_MINE_CAPTURE"
+            elif n == 1 and player_kill:
+                event_type = "KRAKEN_DEATH"
+            elif n > 1 and player_kill:
+                event_type = "KRAKEN_WAVE"
+            else:
+                event_type = "MINION_WAVE"
+
+            events.append(ObjectiveEvent(
+                timestamp=round(ts, 2),
+                event_type=event_type,
+                entity_count=n,
+                entity_ids=eids,
+            ))
+
+        return events
+
+    @staticmethod
+    def _has_player_kill_nearby(
+        data: bytes, offsets: List[int], window: int = 500
+    ) -> bool:
+        """Check if any player kill [18 04 1C] exists within window bytes."""
+        for off in offsets:
+            s = max(0, off - window)
+            e = min(len(data), off + window)
+            region = data[s:e]
+            pk = 0
+            while True:
+                kidx = region.find(_KILL_HEADER, pk)
+                if kidx == -1:
+                    break
+                pk = kidx + 1
+                if kidx + 7 > len(region):
+                    continue
+                killer = struct.unpack_from(">H", region, kidx + 5)[0]
+                if killer in _PLAYER_EID_RANGE:
+                    return True
+        return False
 
     def _detect_crystal_death(
         self,
