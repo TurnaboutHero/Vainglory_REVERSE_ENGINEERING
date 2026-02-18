@@ -294,6 +294,8 @@ ITEM_ID_MAP: Dict[int, Dict] = {
     226: {"name": "Bonesaw", "category": "Weapon", "tier": 3, "status": "confirmed"},
     235: {"name": "Lucky Strike", "category": "Weapon", "tier": 2, "status": "confirmed",
           "note": "CONFIRMED via 21.11.04 match. Upgrades to Tyrants Monocle(5) or Tornado Trigger(210). Was incorrectly mapped as Tension Bow"},
+    224: {"name": "Tension Bow", "category": "Weapon", "tier": 3, "status": "confirmed",
+          "note": "CONFIRMED: all buyers have Piercing Spear(250)+Six Sins(205). Built from Piercing Spear+Six Sins"},
     251: {"name": "Breaking Point", "category": "Weapon", "tier": 3, "status": "confirmed"},
     210: {"name": "Tornado Trigger", "category": "Weapon", "tier": 3, "status": "confirmed",
           "note": "CONFIRMED via 21.11.04 match: Baron+Yates both bought ID 210. Built from Lucky Strike+Blazing Salvo"},

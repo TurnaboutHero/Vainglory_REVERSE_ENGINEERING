@@ -73,15 +73,15 @@ _PLAYER_EID_RANGE = set(range(1500, 1510))  # BE entity IDs for players
 # component_id -> set of result_ids it could have been upgraded into
 UPGRADE_TREE = {
     # ====== Weapon T1 → T2 + T3 (transitive) ======
-    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253, 210},  # Weapon Blade
+    202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253, 210, 224},  # Weapon Blade
     243: {237, 223},  # Book of Eulogies → Barbed Needle → Serpent Mask
     204: {24, 244, 226, 251, 253, 5, 210, 235},  # Swift Shooter → Lucky Strike → Tyrants Monocle/Tornado Trigger
     # ====== Weapon T2 → T3 ======
     249: {208, 223, 12, 251},  # Heavy Steel
-    205: {208, 5},  # Six Sins → Sorrowblade, Tyrants Monocle
+    205: {208, 5, 224},  # Six Sins → Sorrowblade, Tyrants Monocle, Tension Bow
     235: {5, 210},  # Lucky Strike → Tyrants Monocle, Tornado Trigger
     237: {223},  # Barbed Needle → Serpent Mask
-    250: {226},  # Piercing Spear → Bonesaw
+    250: {226, 224},  # Piercing Spear → Bonesaw, Tension Bow
     24: {226, 251, 253, 210},  # Blazing Salvo → ... → Tornado Trigger
     # 244 = Weapon Infusion (consumable, filtered by STARTER_IDS)
     207: {208, 223, 12, 251},  # Weapon T2 (unknown)
