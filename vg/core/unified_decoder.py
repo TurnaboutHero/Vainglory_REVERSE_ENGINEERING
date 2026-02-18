@@ -75,16 +75,17 @@ UPGRADE_TREE = {
     # ====== Weapon T1 → T2 + T3 (transitive) ======
     202: {249, 205, 250, 24, 244, 237, 208, 223, 12, 251, 235, 5, 226, 253, 210},  # Weapon Blade
     243: {237, 223},  # Book of Eulogies → Barbed Needle → Serpent Mask
-    204: {24, 244, 226, 251, 253, 5, 210},  # Swift Shooter → ... → Tornado Trigger
+    204: {24, 244, 226, 251, 253, 5, 210, 235},  # Swift Shooter → Lucky Strike → Tyrants Monocle/Tornado Trigger
     # ====== Weapon T2 → T3 ======
     249: {208, 223, 12, 251},  # Heavy Steel
-    205: {208, 235, 5},  # Six Sins
+    205: {208, 5},  # Six Sins → Sorrowblade, Tyrants Monocle
+    235: {5, 210},  # Lucky Strike → Tyrants Monocle, Tornado Trigger
     237: {223},  # Barbed Needle → Serpent Mask
-    250: {235, 226},  # Piercing Spear
+    250: {226},  # Piercing Spear → Bonesaw
     24: {226, 251, 253, 210},  # Blazing Salvo → ... → Tornado Trigger
     # 244 = Weapon Infusion (consumable, filtered by STARTER_IDS)
     207: {208, 223, 12, 251},  # Weapon T2 (unknown)
-    252: {226, 235, 251},  # Weapon T2-T3 (unknown)
+    252: {226, 251},  # Weapon T2-T3 (unknown)
     # ====== Crystal T1 → T2 + T3 (transitive) ======
     203: {0, 238, 254, 209, 10, 230, 11, 236, 253, 240, 255},  # Crystal Bit
     206: {220, 255, 234},  # Energy Battery
