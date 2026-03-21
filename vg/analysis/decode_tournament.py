@@ -13,6 +13,7 @@ Usage:
 
 import json
 import sys
+import difflib
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -56,6 +57,24 @@ def _detect_team_swap(decoded_players, truth_players) -> bool:
     return matches > 0 and swaps == matches
 
 
+def _resolve_truth_player_name(decoded_name: str, truth_players: Dict[str, Dict]) -> Optional[str]:
+    """Resolve decoded player name to truth key, tolerating OCR typos."""
+    if decoded_name in truth_players:
+        return decoded_name
+
+    lower_map = {name.lower(): name for name in truth_players}
+    if decoded_name.lower() in lower_map:
+        return lower_map[decoded_name.lower()]
+
+    prefix = decoded_name.split("_", 1)[0]
+    candidates = [name for name in truth_players if name.split("_", 1)[0] == prefix]
+    if not candidates:
+        return None
+
+    match = difflib.get_close_matches(decoded_name, candidates, n=1, cutoff=0.85)
+    return match[0] if match else None
+
+
 def _flip_team(team: str) -> str:
     """Flip left↔right."""
     if team == "left":
@@ -95,6 +114,10 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
     winner_total = 0
     team_swapped_matches = 0
     match_results = []
+    duration_exact = 0
+    duration_total = 0
+    duration_abs_errors = []
+    complete_duration_abs_errors = []
 
     for i, truth_match in enumerate(matches):
         replay_name = truth_match.get("replay_name", f"match_{i}")
@@ -110,7 +133,7 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
 
         try:
             decoder = UnifiedDecoder(replay_file)
-            decoded = decoder.decode_with_truth(truth_path)
+            decoded = decoder.decode()
         except Exception as e:
             print(f"[ERROR] Failed to decode: {e}")
             continue
@@ -119,9 +142,24 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         truth_players = truth_match.get("players", {})
         truth_winner = truth_info.get("winner")
         truth_duration = truth_info.get("duration_seconds")
+        is_incomplete_fixture = "Incomplete" in Path(replay_file).parent.name
+
+        if truth_duration is not None and decoded.duration_seconds is not None:
+            duration_total += 1
+            duration_abs_error = abs(decoded.duration_seconds - truth_duration)
+            duration_abs_errors.append(duration_abs_error)
+            if not is_incomplete_fixture:
+                complete_duration_abs_errors.append(duration_abs_error)
+            if decoded.duration_seconds == truth_duration:
+                duration_exact += 1
 
         # --- Detect team label swap ---
-        is_swapped = _detect_team_swap(decoded.all_players, truth_players)
+        resolved_truth_players = {}
+        for player in decoded.all_players:
+            resolved_name = _resolve_truth_player_name(player.name, truth_players)
+            if resolved_name:
+                resolved_truth_players[player.name] = truth_players[resolved_name]
+        is_swapped = _detect_team_swap(decoded.all_players, resolved_truth_players)
         if is_swapped:
             team_swapped_matches += 1
             if verbose:
@@ -147,13 +185,16 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         match_a_total = 0
         match_mk_ok = 0
         match_mk_total = 0
+        matched_players = 0
 
         for player in decoded.all_players:
-            tp = truth_players.get(player.name, {})
-            if not tp:
+            truth_name = _resolve_truth_player_name(player.name, truth_players)
+            if not truth_name:
                 if verbose:
                     print(f"  [WARN] Player {player.name} not in truth")
                 continue
+            tp = truth_players[truth_name]
+            matched_players += 1
 
             total_players += 1
 
@@ -227,6 +268,8 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         match_result = {
             "match": i + 1,
             "replay_name": replay_name,
+            "is_incomplete_fixture": is_incomplete_fixture,
+            "matched_players": matched_players,
             "team_swapped": is_swapped,
             "winner_ok": effective_winner == truth_winner if truth_winner else None,
             "kill_accuracy": f"{match_k_ok}/{match_k_total}" if match_k_total else "N/A",
@@ -235,6 +278,9 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
             "mk_accuracy": f"{match_mk_ok}/{match_mk_total}" if match_mk_total else "N/A",
             "duration_detected": decoded.duration_seconds,
             "duration_truth": truth_duration,
+            "duration_abs_error": abs(decoded.duration_seconds - truth_duration)
+            if truth_duration is not None and decoded.duration_seconds is not None
+            else None,
         }
         match_results.append(match_result)
 
@@ -284,12 +330,74 @@ def run_validation(truth_path: str, verbose: bool = False) -> Dict:
         summary["minion_kills"] = {"correct": mk_correct, "total": mk_total, "pct": pct}
         print(f"Minion: {mk_correct}/{mk_total} ({pct:.1f}%)")
 
+    if duration_total:
+        pct = duration_exact / duration_total * 100
+        mae_all = sum(duration_abs_errors) / len(duration_abs_errors)
+        summary["duration"] = {
+            "exact_correct": duration_exact,
+            "total": duration_total,
+            "pct_exact": pct,
+            "mae_seconds": mae_all,
+        }
+        print(f"Duration exact: {duration_exact}/{duration_total} ({pct:.1f}%)")
+        print(f"Duration MAE:   {mae_all:.1f}s")
+
     combined = kill_correct + death_correct
     combined_total = kill_total + death_total
     if combined_total:
         pct = combined / combined_total * 100
         summary["combined_kd"] = {"correct": combined, "total": combined_total, "pct": pct}
         print(f"K+D:    {combined}/{combined_total} ({pct:.1f}%)")
+
+    complete_results = [m for m in match_results if not m["is_incomplete_fixture"]]
+    if complete_results:
+        complete_summary = {
+            "winner": [0, 0],
+            "kills": [0, 0],
+            "deaths": [0, 0],
+            "assists": [0, 0],
+            "minion_kills": [0, 0],
+        }
+        for item in complete_results:
+            if item["winner_ok"] is not None:
+                complete_summary["winner"][1] += 1
+                complete_summary["winner"][0] += 1 if item["winner_ok"] else 0
+            for key, field in (
+                ("kills", "kill_accuracy"),
+                ("deaths", "death_accuracy"),
+                ("assists", "assist_accuracy"),
+                ("minion_kills", "mk_accuracy"),
+            ):
+                value = item[field]
+                if value == "N/A":
+                    continue
+                ok, total = value.split("/")
+                complete_summary[key][0] += int(ok)
+                complete_summary[key][1] += int(total)
+
+        summary["complete_only"] = {
+            key: {
+                "correct": ok,
+                "total": total,
+                "pct": (ok / total * 100) if total else None,
+            }
+            for key, (ok, total) in complete_summary.items()
+        }
+        if complete_duration_abs_errors:
+            summary["complete_only"]["duration"] = {
+                "mae_seconds": sum(complete_duration_abs_errors) / len(complete_duration_abs_errors),
+                "max_abs_error_seconds": max(complete_duration_abs_errors),
+            }
+
+        print("\nComplete fixtures only:")
+        for key in ("winner", "kills", "deaths", "assists", "minion_kills"):
+            ok, total = complete_summary[key]
+            pct = (ok / total * 100) if total else 0.0
+            print(f"  {key}: {ok}/{total} ({pct:.1f}%)")
+        if complete_duration_abs_errors:
+            print(
+                f"  duration_mae: {sum(complete_duration_abs_errors) / len(complete_duration_abs_errors):.1f}s"
+            )
 
     print(f"\nTotal players analyzed: {total_players}")
     print(f"Team-swapped matches: {team_swapped_matches}/{len(match_results)}")

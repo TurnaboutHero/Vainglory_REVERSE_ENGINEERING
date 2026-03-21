@@ -1,23 +1,16 @@
 #!/usr/bin/env python3
 """Generate analysis report from system entity analysis results"""
 
+from __future__ import annotations
+
+import argparse
 import json
 import sys
 from pathlib import Path
 from datetime import datetime
 
-# Load results
-data = json.load(open('vg/output/system_entity_analysis.json'))
-
-# Create report directory
-report_dir = Path('.omc/scientist/reports')
-report_dir.mkdir(parents=True, exist_ok=True)
-
-timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-report_path = report_dir / f"{timestamp}_system_entity_report.md"
-
-# Build report
-report = f"""# System Entity Analysis Report
+def build_report() -> str:
+    return f"""# System Entity Analysis Report
 Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 ## Executive Summary
@@ -181,12 +174,42 @@ This analysis proves the original parser's Entity 0 detection was broken due to 
 *Replay: 21.11.04 | Frames: 103 | Python: {sys.version.split()[0]}*
 """
 
-# Save report
-with open(report_path, 'w', encoding='utf-8') as f:
-    f.write(report)
 
-print(f"[FINDING] Report saved to {report_path}")
-print(f"[STAT:report_size_bytes] {len(report)}")
-print(f"[STAT:report_sections] 7")
-print(f"[STAT:findings_documented] 5")
-print(f"[STAT:recommendations] 6")
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Generate a system entity analysis report.")
+    parser.add_argument(
+        "--input",
+        default="vg/output/system_entity_analysis.json",
+        help="Input JSON path",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=".omc/scientist/reports",
+        help="Directory where the markdown report will be written",
+    )
+    args = parser.parse_args(argv)
+
+    input_path = Path(args.input)
+    if not input_path.exists():
+        print(f"Input not found: {input_path}")
+        return 1
+
+    json.loads(input_path.read_text(encoding="utf-8"))
+    report_dir = Path(args.output_dir)
+    report_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    report_path = report_dir / f"{timestamp}_system_entity_report.md"
+    report = build_report()
+    report_path.write_text(report, encoding="utf-8")
+
+    print(f"[FINDING] Report saved to {report_path}")
+    print(f"[STAT:report_size_bytes] {len(report)}")
+    print("[STAT:report_sections] 7")
+    print("[STAT:findings_documented] 5")
+    print("[STAT:recommendations] 6")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

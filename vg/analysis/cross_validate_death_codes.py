@@ -12,10 +12,11 @@ from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Tuple, Set
 
-# Add project root to path
-sys.path.insert(0, 'D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg')
-
-from core.vgr_parser import VGRParser
+try:
+    from vg.core.vgr_parser import VGRParser
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+    from vg.core.vgr_parser import VGRParser
 
 # Death-exclusive codes from baseline analysis
 DEATH_CODES = {0x61, 0x81, 0x82, 0x85}
@@ -69,9 +70,11 @@ class DeathCodeValidator:
             data = parser.parse()
 
             entity_ids = set()
-            for player in data.get('players', []):
-                if player.get('entity_id'):
-                    entity_ids.add(player['entity_id'])
+            for team_label in ("left", "right"):
+                for player in data.get("teams", {}).get(team_label, []):
+                    entity_id = player.get("entity_id")
+                    if entity_id:
+                        entity_ids.add(entity_id)
 
             print(f"[DATA] Found {len(entity_ids)} player entity IDs: {sorted(entity_ids)}")
             return entity_ids
