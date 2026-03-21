@@ -6,11 +6,14 @@ Usage: python replay_batch_parser.py <replay_dir> [--output results.json]
 import argparse
 import json
 import sys
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "core"))
-from vgr_parser import VGRParser
+try:
+    from vg.core.vgr_parser import VGRParser
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+    from vg.core.vgr_parser import VGRParser
 
 
 def parse_replay(vgr_path: Path) -> dict:
@@ -18,6 +21,7 @@ def parse_replay(vgr_path: Path) -> dict:
     try:
         parser = VGRParser(str(vgr_path), auto_truth=False)
         parsed = parser.parse()
+        match_info = parsed.get("match_info", {})
         players = []
         for team_label in ("left", "right"):
             for p in parsed["teams"].get(team_label, []):
@@ -31,7 +35,8 @@ def parse_replay(vgr_path: Path) -> dict:
         return {
             "file": str(vgr_path),
             "game_mode": parsed.get("game_mode", "unknown"),
-            "map_mode": parsed.get("map_mode", "unknown"),
+            "map_name": match_info.get("map_name", "unknown"),
+            "map_mode": match_info.get("map_name", "unknown"),
             "players": players,
             "player_count": len(players),
             "success": True,

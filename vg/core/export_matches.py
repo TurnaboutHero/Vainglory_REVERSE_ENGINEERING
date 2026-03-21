@@ -25,7 +25,7 @@ import csv
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
@@ -117,7 +117,13 @@ def export_csv(rows: List[Dict], output_path: Path) -> None:
     """Export flat rows to CSV."""
     if not rows:
         return
-    fieldnames = list(rows[0].keys())
+    fieldnames = []
+    seen = set()
+    for row in rows:
+        for key in row.keys():
+            if key not in seen:
+                seen.add(key)
+                fieldnames.append(key)
     with open(output_path, 'w', encoding='utf-8-sig', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -146,6 +152,7 @@ def decode_batch(
     directory: str,
     truth_path: Optional[str] = None,
     output_dir: Optional[str] = None,
+    csv_only: bool = False,
 ) -> List[DecodedMatch]:
     """Decode all replays in a directory."""
     dir_path = Path(directory)
@@ -168,9 +175,9 @@ def decode_batch(
             match = decode_single(str(replay), truth_path)
             matches.append(match)
 
-            # Per-match JSON
-            json_path = out / f"match_{i+1}.json"
-            export_match_json(match, json_path)
+            if not csv_only:
+                json_path = out / f"match_{i+1}.json"
+                export_match_json(match, json_path)
 
             # Collect CSV rows
             csv_rows = match_to_csv_rows(match, match_idx=i+1)
@@ -183,7 +190,7 @@ def decode_batch(
             print(f"ERROR: {e}")
 
     # Combined JSON
-    if matches:
+    if matches and not csv_only:
         combined = {
             'total_matches': len(matches),
             'matches': [m.to_dict() for m in matches],
@@ -221,7 +228,41 @@ def decode_batch(
     return matches
 
 
-def main():
+def resolve_single_output_paths(
+    replay_path: Path,
+    output: Optional[str] = None,
+    csv_only: bool = False,
+) -> Tuple[Optional[Path], Path]:
+    """Resolve output paths for single-replay export."""
+    if output:
+        out = Path(output)
+        if out.is_dir():
+            base = out / f"{replay_path.stem}_decoded"
+            return (None if csv_only else base.with_suffix('.json'), base.with_suffix('.csv'))
+        if csv_only:
+            csv_path = out if out.suffix else out.with_suffix('.csv')
+            return (None, csv_path)
+        return (out, out.with_suffix('.csv'))
+
+    base = replay_path.parent / f"{replay_path.stem}_decoded"
+    return (None if csv_only else base.with_suffix('.json'), base.with_suffix('.csv'))
+
+
+def export_single(
+    replay_path: Path,
+    match: DecodedMatch,
+    output: Optional[str] = None,
+    csv_only: bool = False,
+) -> Tuple[Optional[Path], Path]:
+    """Export a single decoded match and return created paths."""
+    json_path, csv_path = resolve_single_output_paths(replay_path, output, csv_only)
+    if json_path is not None:
+        export_match_json(match, json_path)
+    export_csv(match_to_csv_rows(match), csv_path)
+    return json_path, csv_path
+
+
+def main(argv: Optional[List[str]] = None) -> int:
     import argparse
 
     parser = argparse.ArgumentParser(
@@ -250,31 +291,24 @@ def main():
         help='Only output CSV (skip per-match JSON files)'
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     path = Path(args.path)
 
     if args.batch or path.is_dir():
-        decode_batch(str(path), args.truth, args.output)
+        decode_batch(str(path), args.truth, args.output, csv_only=args.csv_only)
     else:
         match = decode_single(str(path), args.truth)
-        if args.output:
-            out = Path(args.output)
-            if out.is_dir():
-                json_path = out / f"{path.stem}_decoded.json"
-            else:
-                json_path = out
-        else:
-            json_path = path.parent / f"{path.stem}_decoded.json"
-
-        export_match_json(match, json_path)
-        print(f"Exported: {json_path}")
-
-        # Also export CSV if requested
-        csv_path = json_path.with_suffix('.csv')
-        rows = match_to_csv_rows(match)
-        export_csv(rows, csv_path)
+        json_path, csv_path = export_single(
+            path,
+            match,
+            output=args.output,
+            csv_only=args.csv_only,
+        )
+        if json_path is not None:
+            print(f"Exported: {json_path}")
         print(f"CSV:      {csv_path}")
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

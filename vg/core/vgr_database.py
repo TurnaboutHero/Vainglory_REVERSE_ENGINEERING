@@ -8,7 +8,11 @@ import json
 from pathlib import Path
 from typing import List, Dict, Optional
 from datetime import datetime
-from vgr_parser import VGRParser
+
+try:
+    from vgr_parser import VGRParser
+except ImportError:
+    from .vgr_parser import VGRParser
 
 # All heroes from VaingloryFire wiki
 HEROES_DATA = [
@@ -368,6 +372,15 @@ class VGDatabase:
             json.dump(data, f, indent=2, ensure_ascii=False)
         return output_path
 
+    @staticmethod
+    def _winner_to_team_value(winner: Optional[str]) -> int:
+        """Convert parser winner label to DB team integer."""
+        if winner == 'left':
+            return 1
+        if winner == 'right':
+            return 2
+        return 0
+
     def import_replay(self, file_path: str):
         """Parse and import a replay file into the database"""
         try:
@@ -375,35 +388,38 @@ class VGDatabase:
             data = parser.parse()
             
             cursor = self.conn.cursor()
-            
-            # Insert Match
             match_info = data['match_info']
+            replay_name = data['replay_name']
+
+            existing = cursor.execute(
+                "SELECT id FROM matches WHERE replay_name=?",
+                (replay_name,),
+            ).fetchone()
+            if existing:
+                print(f"  Skipping existing replay: {replay_name}")
+                return False
+
             cursor.execute('''
-                INSERT OR IGNORE INTO matches 
+                INSERT INTO matches 
                 (replay_name, game_mode, frame_count, duration, winning_team, match_date, file_path)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
             ''', (
-                data['replay_name'],
+                replay_name,
                 match_info['mode'],
                 match_info['total_frames'],
-                match_info.get('duration', 0),
-                match_info.get('winning_team', 0),
-                data.get('parsed_at'), # Should use actual match date if available
+                match_info.get('duration_seconds') or 0,
+                self._winner_to_team_value(match_info.get('winner')),
+                data.get('parsed_at'),
                 file_path
             ))
-            
-            match_id = cursor.lastrowid
+
+            match_id = cursor.execute(
+                "SELECT id FROM matches WHERE replay_name=?",
+                (replay_name,),
+            ).fetchone()
             if not match_id:
-                # Already exists (or ignored)
-                # Ideally we want to get the ID if it exists? 
-                # For now assume if IGNORE triggered, we skip players
-                # But lastrowid might be None if ignored.
-                # Check replay existence.
-                check = cursor.execute("SELECT id FROM matches WHERE replay_name=?", (data['replay_name'],)).fetchone()
-                if check:
-                    print(f"  Skipping existing replay: {data['replay_name']}")
-                    return False
-                return False # Should not happen if insert succeeded
+                raise RuntimeError(f"Failed to insert match row for {replay_name}")
+            match_id = match_id[0]
                 
             # Insert Players
             all_players = data['teams']['left'] + data['teams']['right']
@@ -448,6 +464,8 @@ class VGDatabase:
             return True
             
         except Exception as e:
+            if self.conn:
+                self.conn.rollback()
             print(f"Error importing {file_path}: {e}")
             import traceback
             traceback.print_exc()
@@ -474,10 +492,10 @@ def main():
         db.create_tables()
         hero_count = db.populate_heroes()
         item_count = db.populate_items()
-        print(f"✓ 데이터베이스 초기화 완료!")
-        print(f"  - 영웅: {hero_count}개")
-        print(f"  - 아이템: {item_count}개")
-        print(f"  - 저장 위치: {db.db_path}")
+        print("Database initialized.")
+        print(f"  Heroes: {hero_count}")
+        print(f"  Items: {item_count}")
+        print(f"  Path: {db.db_path}")
         
     elif args.command == 'heroes':
         heroes = db.get_heroes()
@@ -495,22 +513,22 @@ def main():
             
     elif args.command == 'search':
         if not args.query:
-            print("검색어를 입력하세요: -q <검색어>")
+            print("Specify a search term with -q <query>.")
         else:
             results = db.search_hero(args.query)
             if results:
                 for h in results:
                     print(f"{h['name']} ({h['name_ko']}) - {h['role']}, {h['attack_type']}")
             else:
-                print("결과 없음")
+                print("No results found.")
                 
     elif args.command == 'export':
         output = db.export_json(args.output)
-        print(f"✓ JSON 내보내기 완료: {output}")
+        print(f"Exported JSON: {output}")
         
     elif args.command == 'import':
         if not args.input:
-            print("입력 경로를 지정하세요: --input <경로>")
+            print("Specify an input path with --input <path>.")
         else:
             path = Path(args.input)
             files = []
@@ -530,7 +548,7 @@ def main():
                 if db.import_replay(str(f)):
                     success_count += 1
             
-            print(f"✓ 가져오기 완료: {success_count}/{len(files)} 성공")
+            print(f"Import complete: {success_count}/{len(files)} succeeded")
     
     db.close()
 

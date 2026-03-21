@@ -33,7 +33,11 @@ try:
     from vgr_truth import load_truth_data
     TRUTH_AVAILABLE = True
 except ImportError:
-    TRUTH_AVAILABLE = False
+    try:
+        from .vgr_truth import load_truth_data
+        TRUTH_AVAILABLE = True
+    except ImportError:
+        TRUTH_AVAILABLE = False
 
 # Hero matching imports
 try:

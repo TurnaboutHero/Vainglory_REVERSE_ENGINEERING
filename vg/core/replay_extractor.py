@@ -219,29 +219,23 @@ class ReplayExtractor:
         team_size: int
     ) -> None:
         """Run hero matching and update players in place."""
-        # Convert to dict format for HeroMatcher
-        player_dicts = [
-            {
-                "name": p.name,
-                "entity_id": p.entity_id,
-                "position": p.position
-            }
-            for p in players
-        ]
-
-        # Run hero matching
+        # Run binary hero matching using the currently supported HeroMatcher API.
         matcher = HeroMatcher(data, team_size)
-        entity_ids = [p.entity_id for p in players if p.entity_id]
-        candidates = matcher.detect_heroes_with_probes(entity_ids)
+        candidates = matcher.detect_heroes()
 
         # Update players with matched heroes
         for i, player in enumerate(players):
             if i < len(candidates):
                 hero = candidates[i]
-                player.hero_name = hero.hero_name
-                player.hero_id = hero.hero_id
-                player.hero_confidence = hero.confidence
-                player.hero_source = "extracted"
+                if hero.hero_name != "Unknown" or hero.hero_id is not None:
+                    player.hero_name = hero.hero_name
+                    player.hero_id = hero.hero_id
+                    player.hero_confidence = hero.confidence
+                    player.hero_source = hero.source or "binary"
+                    continue
+            if player.hero_name != "Unknown" or player.hero_id is not None:
+                player.hero_confidence = max(player.hero_confidence, 1.0 if player.hero_id is not None else 0.0)
+                player.hero_source = "binary"
             else:
                 player.hero_source = "unknown"
 

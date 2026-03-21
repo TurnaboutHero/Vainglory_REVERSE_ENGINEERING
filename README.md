@@ -83,8 +83,8 @@ python vg/analysis/win_loss_detector.py /path/to/replay/cache/ --debug
 # Extract item IDs from replay
 python vg/analysis/extract_all_item_ids.py /path/to/replay/
 
-# Batch analysis with CSV export
-python vg/tools/replay_batch_parser.py /path/to/replays/ --format csv-heroes -o heroes.csv
+# Batch analysis summary
+python vg/tools/replay_batch_parser.py /path/to/replays/ -o batch_summary.json
 ```
 
 ## VGR Binary Format

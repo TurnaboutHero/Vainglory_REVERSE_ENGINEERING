@@ -13,7 +13,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-import easyocr
+try:
+    import easyocr
+except ImportError:
+    easyocr = None
 
 
 UI_WORDS = {
@@ -267,7 +270,9 @@ def _read_image_size(path: Path) -> Tuple[int, int]:
 
 def build_mapping(root: Path) -> List[Tuple[Path, Path]]:
     pairs = []
-    for img in root.rglob("result*.jp*g"):
+    for img in root.rglob("result*"):
+        if img.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
+            continue
         if "__MACOSX" in img.parts:
             continue
         vgrs = sorted(img.parent.glob("*.0.vgr"))
@@ -277,21 +282,28 @@ def build_mapping(root: Path) -> List[Tuple[Path, Path]]:
     return pairs
 
 
-def main() -> int:
+def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="OCR tournament result images and map to replays.")
     parser.add_argument("root", help="Root folder with result images and .vgr files")
     parser.add_argument("--output", default="tournament_truth.json", help="Output truth JSON")
     parser.add_argument("--raw-output", default="tournament_ocr_raw.json", help="Raw OCR JSON")
     parser.add_argument("--gpu", action="store_true", help="Use GPU if available")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     root = Path(args.root)
     if not root.exists():
         print(f"Path not found: {root}")
         return 1
 
-    reader = easyocr.Reader(["en"], gpu=args.gpu, verbose=False)
     pairs = build_mapping(root)
+    if not pairs:
+        print(f"No result image / replay pairs found under: {root}")
+        return 1
+    if easyocr is None:
+        print("easyocr is not installed.")
+        return 1
+
+    reader = easyocr.Reader(["en"], gpu=args.gpu, verbose=False)
 
     matches = []
     raw_dump = []
