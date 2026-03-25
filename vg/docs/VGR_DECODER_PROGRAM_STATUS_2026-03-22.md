@@ -173,8 +173,12 @@ truth가 부족하다는 가설을 코드로 검증했다.
 - truth-covered: `11`
 - missing: `45`
 - coverage: `19.6%`
+- immediately labelable: `0`
+- manifest-only: `41`
+- raw-only: `4`
 
 즉 decoder 연구는 진전됐지만, 검증 커버리지는 여전히 좁다.
+또한 현재 상태에선 OCR를 더 돌린다고 coverage가 바로 늘어나지 않는다.
 
 ## 5. 아직 미완료인 것
 
@@ -199,7 +203,8 @@ truth가 부족하다는 가설을 코드로 검증했다.
 
 - action `0x04` bucket은 `MAE`만 보면 좋아 보이지만 sparse residual 기준으로는 overfit 가능성이 높다
 - match 6 same-frame window에서는 `28 04 3F`, `08 04 2C`, `18 04 1C`, 일부 `0x02`/`0x08`/`0x00` family가 positive residual 쪽에 더 자주 붙는다
-- 다만 아직 match 6 중심 evidence라 cross-fixture generalization이 필요하다
+- complete fixture 전체로 확장해도 positive residual은 사실상 한 경기(match 6)에만 몰려 있다
+- 즉 지금 단계에선 “새 전역 규칙을 넣는다”보다 “왜 match 6만 특별한가”를 먼저 설명해야 한다
 
 즉 minion은 아직 `withheld`가 맞다.
 
@@ -234,12 +239,78 @@ OCR truth audit 결과:
 
 ## 7. 다음 우선순위
 
-우선순위는 다음 순서가 맞다.
+우선순위는 지금 기준으로 다음 순서가 더 맞다.
 
-1. minion same-frame enriched signal을 complete fixture 전체로 확장 검증
-2. duration exact match-end signal 별도 분리
-3. truth source 확장
-4. broader replay pool에서 completeness rule 검증
+1. truth source 확장
+   - 특히 manifest-only 41개에 대해 result image / score source를 확보
+   - immediate OCR backlog는 0개이므로 OCR scale-out은 우선순위가 낮다
+2. broader replay pool에서 completeness rule 검증
+   - 현재 56 replay 기준 `complete_confirmed 53`, `incomplete_confirmed 3`, `unknown 0`
+   - winner/K/D/A accepted replay도 53개까지 늘었다
+   - broader replay 풀은 이제 conservative policy 기준으로 complete/incomplete가 모두 분류된다
+3. minion outlier root-cause 분석
+   - positive residual이 한 complete match에 몰려 있으므로, 먼저 match 6 특이성을 설명해야 한다
+   - 현재 evidence상 match 6 outlier의 중심은 `action 0x02 family`다
+   - same-hero peer 대비:
+     - Kestrel은 `0x02@20.0`가 peer mean `14.0` 대비 target `117`
+     - Samuel은 `0x02@17.4`가 peer mean `340.25` 대비 target `667`
+     - Grumpjaw는 `0x02@4.0`가 peer baseline `0`인데 target `222`
+     - Kinetic은 `0x02@9.54`가 peer mean `205.0` 대비 target `444`
+   - 즉 minion undercount는 hero 일반 현상보다 replay-family에서 `0x02` 계열이 비정상적으로 커지는 문제에 더 가깝다
+   - provenance/cluster evidence도 같은 방향이다
+     - 핵심 `0x02` value 대부분은 same-frame에서 `0x06@3.0`, `0x08@0.6`, `0x03@1.0`과 강하게 묶인다
+     - `0x02@17.4`, `0x02@14.34`, `0x02@9.54`, `0x02@4.0`는 cluster size가 거의 항상 `1`이라 team-wide shared event보다는 solo reward subfamily에 가깝다
+     - `0x02@20.0`와 `0x02@-50.0`만 일부 multi-player cluster가 보이지만, 그래도 shared-cluster rate는 낮다
+   - self/teammate/opponent presence를 보면 이 solo 계열도 순수 self reward로 단정하긴 이르다
+   - 따라서 더 안전한 표현은 `solo reward`보다 `solo-cluster subfamily`다
+   - 기존 repo의 주류 해석은 `0x02 = XP / team-wide sharing` 쪽이지만, 현재 evidence는 `0x02`를 하나의 semantic으로 다루면 안 된다는 쪽으로 움직였다
+   - 현재 가장 실용적인 taxonomy:
+     - `solo_subfamily_candidate`
+       - `0x02@17.4`
+       - `0x02@14.34`
+       - `0x02@9.54`
+       - `0x02@4.0`
+     - `mixed_or_shared_subfamily_candidate`
+       - `0x02@20.0`
+       - `0x02@-50.0`
+   - hero affinity도 강하다
+     - `0x02@17.4`는 fixture 기준 사실상 `Samuel` 전용
+     - `0x02@14.34`는 `Celeste` 중심, 일부 `Magnus`
+     - `0x02@9.54`는 `Kinetic` 중심, 일부 `Ishtar`
+     - `0x02@4.0`는 `Caine` 중심이지만 `Grumpjaw`/`Kestrel`도 포함
+     - `0x02@20.0`와 `0x02@-50.0`는 여러 hero에 넓게 분포
+   - 즉 다음 단계는 `0x02`를 하나의 의미로 해석하는 게 아니라, subfamily별 semantic 후보를 따로 검증하는 것이다
+   - series-level 비교도 중요하다
+     - Finals 시리즈 전체는 다른 series보다 `solo_subfamily_total`과 `solo_excess_vs_peer_mean`이 훨씬 높다
+     - 하지만 Finals 2는 같은 Finals 내부 peer와 비교해도 여전히 값이 더 높다
+       - Kestrel `0x02@20.0`: same-series mean `30.0`, target `117`
+       - Samuel `0x02@17.4`: same-series mean `416.0`, target `667`
+       - Grumpjaw `0x02@4.0`: same-series mean `0`, target `222`
+       - Kinetic `0x02@9.54`: same-series mean `350.5`, target `444`
+   - 따라서 current best explanation은:
+     - Finals series 자체가 `0x02` solo-subfamily를 키우는 replay-family
+     - 그 안에서도 Finals 2가 추가적인 match-specific amplification을 가진다
+   - risk report 기준으로는 `solo_subfamily` excess만으로 residual-positive player를 clean하게 분리하지 못한다
+     - Finals 1/3/4 zero-residual rows도 높은 solo excess를 가진다
+     - 따라서 `solo_subfamily_total`을 minion 보정식으로 바로 쓰는 건 위험하다
+   - ratio 정규화도 아직 충분하지 않다
+     - `0x02@20.0_ratio` best rule은 `precision 0.75 / recall 0.43`
+     - `solo_ratio` best rule은 `precision 0.60 / recall 0.43`
+     - 즉 raw count보다 조금 낫지만, 아직 product minion rule로 쓰기엔 약하다
+   - 하지만 partial acceptance candidate는 하나 보인다
+     - current truth 기준 `Finals 제외` gate는 baseline `0x0E` minion을 `precision 1.0`으로 받는다
+     - coverage는 `0.5128`로 낮지만, 지금까지 나온 첫 보수적 partial policy 후보다
+     - 또 하나의 hybrid candidate는 `nonfinals_or_mixed_ratio<=0.1351`이고
+       - `precision ~= 0.9796`
+       - `coverage ~= 0.6282`
+       - finals rows 일부만 추가로 받아들인다
+   - 다만 truth coverage가 낮아서, 이 gate도 default policy로 바로 승격하진 않는 편이 맞다
+   - 이 taxonomy는 아직 연구용 분류이며, product export rule로 바로 승격하면 안 된다
+   - 즉 현재 evidence는 `0x02`를 하나의 전역 의미로 다루기보다
+     - `shared XP / mixed reward candidate`
+     - `solo-cluster / replay-family outlier candidate`
+     로 분리해야 한다는 쪽을 지지한다
+4. duration exact match-end signal 분리
 
 ## 8. 현재 판단
 

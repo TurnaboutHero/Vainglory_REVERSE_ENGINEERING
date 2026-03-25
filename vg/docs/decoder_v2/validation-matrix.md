@@ -6,6 +6,9 @@ Source:
 - `vg/output/truth_inventory.json`
 - `vg/output/decoder_v2_residual_signal_research.json`
 - `vg/output/decoder_v2_minion_window_match6.json`
+- `vg/output/decoder_v2_minion_window_complete.json`
+- `vg/output/truth_source_priority.json`
+- `vg/output/decoder_v2_completeness_audit.json`
 
 ## All Fixtures
 
@@ -113,6 +116,35 @@ Source:
 - match 6 undercount는 완전한 random noise보다, 특정 same-frame context family를 놓치는 쪽에 더 가깝다.
 - 다만 이 결과는 아직 match 6 중심 evidence라서, complete fixture 전체로 일반화 검증이 필요하다.
 
+## Complete-Fixture Window Audit
+
+Source:
+- `vg/output/decoder_v2_minion_window_complete.json`
+
+핵심 차이:
+- complete fixture 전체로 집계해도 positive residual rows는 사실상 한 경기(match 6)에서만 나온다.
+- 그래도 `28 04 3F`, `08 04 2C`, `18 04 1C`는 global aggregate에서도 positive 쪽이 더 높다.
+- same-frame `0x02` family와 일부 `0x00`/`0x08` bucket도 positive 쪽에 더 붙는다.
+
+해석:
+- 이 결과는 “새 전역 minion rule이 보였다”보다 “match 6이 정말 특이 케이스다”에 가깝다.
+- 다음 단계는 global rule 추가보다 match 6 replay-family 차이를 설명하는 것이다.
+
+## Truth Source Priority
+
+Source:
+- `vg/output/truth_source_priority.json`
+
+| metric | value |
+|---|---:|
+| immediately labelable | 0 |
+| manifest-only | 41 |
+| raw-only | 4 |
+
+해석:
+- immediate OCR backlog가 0이라서 OCR scale-out은 지금 우선순위가 낮다.
+- truth 확장의 실제 병목은 manifest-only 41개에 대한 result image / score source 확보다.
+
 ## Completeness Gate
 
 현재 fixture 분류:
@@ -123,3 +155,21 @@ Source:
 의미:
 - 현재 tournament fixture 집합에선 conservative gate가 전부 분류에 성공한다.
 - 다만 broader replay coverage가 낮아서 아직 final rule로 선언하긴 이르다.
+
+## Broader Completeness Audit
+
+Source:
+- `vg/output/decoder_v2_completeness_audit.json`
+
+| metric | value |
+|---|---:|
+| total replays audited | 56 |
+| complete_confirmed | 53 |
+| completeness_unknown | 0 |
+| incomplete_confirmed | 3 |
+| review queue size | 27 |
+
+해석:
+- 현재 gate는 broader replay pool에서도 usable 수준으로 올라왔다.
+- winner/K/D/A accepted replay도 53개까지 올라왔다.
+- broader replay 풀은 이제 conservative policy 기준으로 complete/incomplete가 모두 분류된다.
