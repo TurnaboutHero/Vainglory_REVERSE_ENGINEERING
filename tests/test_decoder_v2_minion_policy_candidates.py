@@ -8,9 +8,38 @@ class TestMinionPolicyCandidates(unittest.TestCase):
     def test_build_minion_policy_candidates_ranks_nonfinals_policy(self) -> None:
         profile = {
             "rows": [
-                {"series": "Finals", "residual_vs_0e": 2, "solo_ratio": 2.0, "mixed_ratio": 1.0, "0x02@20.0_ratio": 0.8},
-                {"series": "Semis", "residual_vs_0e": 0, "solo_ratio": 0.2, "mixed_ratio": 0.1, "0x02@20.0_ratio": 0.0},
-                {"series": "Semis", "residual_vs_0e": 0, "solo_ratio": 0.3, "mixed_ratio": 0.2, "0x02@20.0_ratio": 0.0},
+                {
+                    "series": "Law Enforcers (Finals)",
+                    "residual_vs_0e": 1,
+                    "baseline_0e": 7,
+                    "solo_ratio": 0.0,
+                    "mixed_ratio": 0.0,
+                    "0x02@20.0_ratio": 0.0,
+                },
+                {
+                    "series": "Law Enforcers (Finals)",
+                    "residual_vs_0e": 0,
+                    "baseline_0e": 10,
+                    "solo_ratio": 0.0,
+                    "mixed_ratio": 0.0,
+                    "0x02@20.0_ratio": 0.0,
+                },
+                {
+                    "series": "Semis",
+                    "residual_vs_0e": 0,
+                    "baseline_0e": 50,
+                    "solo_ratio": 0.2,
+                    "mixed_ratio": 0.1,
+                    "0x02@20.0_ratio": 0.0,
+                },
+                {
+                    "series": "Semis",
+                    "residual_vs_0e": 0,
+                    "baseline_0e": 60,
+                    "solo_ratio": 0.3,
+                    "mixed_ratio": 0.2,
+                    "0x02@20.0_ratio": 0.0,
+                },
             ]
         }
 
@@ -21,6 +50,15 @@ class TestMinionPolicyCandidates(unittest.TestCase):
             report = build_minion_policy_candidates("truth.json")
 
         self.assertEqual(report["top_policies"][0]["accepted_error"], 0)
+        self.assertEqual(report["recommended_policies"][0]["policy"], "accept_nonfinals_only")
+        self.assertTrue(
+            any(
+                row["policy"] == "nonfinals_or_mixed_ratio<=0.0_and_baseline_0e>=10"
+                and row["precision"] == 1.0
+                and row["coverage"] > 0.5
+                for row in report["top_policies"]
+            )
+        )
 
 
 if __name__ == "__main__":
