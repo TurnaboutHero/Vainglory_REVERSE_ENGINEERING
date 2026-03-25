@@ -130,6 +130,29 @@ Source:
 - 이 결과는 “새 전역 minion rule이 보였다”보다 “match 6이 정말 특이 케이스다”에 가깝다.
 - 다음 단계는 global rule 추가보다 match 6 replay-family 차이를 설명하는 것이다.
 
+## Finals Series Effect
+
+Source:
+- `vg/output/decoder_v2_minion_series_profile.json`
+- `vg/output/decoder_v2_minion_series_peer_match6.json`
+- `vg/output/decoder_v2_minion_pattern_family_match6.json`
+- `vg/output/decoder_v2_action02_value_compare_match6.json`
+
+핵심 차이:
+- Finals 1-4는 모두 `GameMode_5v5_Ranked`, `Sovereign Rise`, `team_size = 5`라서 format 차이로 설명되지 않는다.
+- Finals series 전체는 다른 tournament series보다 `0x02` solo-subfamily가 높다.
+- 하지만 Finals 2는 same-series peer와 비교해도 특정 `0x02` bucket이 더 높다.
+
+대표 예:
+- `Kestrel 0x02@20.0`: target `117`, same-series mean `30`, cross-series mean `6`
+- `Samuel 0x02@17.4`: target `667`, same-series mean `416`, cross-series mean `113`
+- `Kinetic 0x02@9.54`: target `444`, same-series mean `350.5`, cross-series mean `59.5`
+- `Grumpjaw 0x02@4.0`: target `222`, same-series mean `0`, cross-series mean `0`
+
+해석:
+- 현재 minion blocker는 “Finals series 효과 + Finals-2-specific amplification” 구조에 가깝다.
+- 가장 강한 shared signature는 `0x02 family`다.
+
 ## Truth Source Priority
 
 Source:

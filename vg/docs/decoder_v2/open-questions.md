@@ -82,10 +82,11 @@
     - `solo_subfamily` excess만으로는 positive residual을 clean하게 분리하지 못한다
     - Finals 1/3/4 같은 zero-residual rows도 높은 solo excess를 가진다
     - 즉 `solo_subfamily_total`을 전역 minion 보정식으로 쓰면 false positive가 크다
-  - series compare의 현재 결론:
-    - Finals series 전체가 다른 series보다 `0x02` solo-subfamily가 높다
-    - 하지만 Finals 2는 same-series peer와 비교해도 특정 bucket이 더 높다
-    - 즉 현재 문제는 “Finals 전체 replay-family 효과”와 “Finals 2 특이치”가 겹친 구조다
+- series compare의 현재 결론:
+  - Finals series 전체가 다른 series보다 `0x02` solo-subfamily가 높다
+  - 하지만 Finals 2는 same-series peer와 비교해도 특정 bucket이 더 높다
+  - 즉 현재 문제는 “Finals 전체 replay-family 효과”와 “Finals 2 특이치”가 겹친 구조다
+  - mode/map/team_size는 Finals 1-4가 전부 같아서 이 차이를 설명하지 못한다
   - hero affinity의 현재 결론:
     - `0x02@17.4`는 사실상 `Samuel` 전용
     - `0x02@14.34`는 `Celeste` 중심, 일부 `Magnus`
@@ -96,6 +97,11 @@
     - `0x02`는 현재 production decoder rule이 아니라 replay-family risk signal로만 써야 한다
     - 지금 단계에서 가장 위험한 overfit은 `solo_subfamily_total` 또는 특정 `0x02` bucket count를 minion 보정식으로 직접 넣는 것이다
   - dangerous overfit은 `0x02 family` 또는 특정 `0x02` bucket count를 바로 `0x0E` baseline에 더하는 규칙이다
+  - no-go rules:
+    - `0x02 family` count를 전역 minion 보정식으로 직접 쓰지 않는다
+    - Finals-2 bucket pattern을 다른 replay family에 일반화하지 않는다
+    - hero-only correction rule로 단순화하지 않는다
+    - OCR minion/score를 ground truth로 승격하지 않는다
   - ratio research의 현재 결론:
     - raw count보다 `0x02@20.0_ratio`가 조금 낫지만, best rule도 `precision 0.75 / recall 0.43` 수준이다
     - `solo_ratio`도 `precision 0.60 / recall 0.43` 수준이라 production rule로는 아직 부족하다
@@ -106,6 +112,14 @@
     - hybrid candidate `nonfinals_or_mixed_ratio<=0.1351`는 `precision ~= 0.9796`, `coverage ~= 0.6282`
     - 즉 partial acceptance는 가능성이 있지만, 아직 truth coverage가 낮아서 default policy 승격은 이르다
     - 다만 truth coverage가 낮아서 이걸 default policy로 바로 승격하면 위험하다
+    - 구현 관점에선 현재 `index_export`에 optional policy로만 노출하는 것이 맞다
+    - current optional policy names:
+      - `nonfinals-baseline-0e`
+      - `nonfinals-or-low-mixed-ratio-experimental`
+    - current policy validation summary:
+      - `none` -> `accepted_rows 0`, `coverage 0.0`
+      - `nonfinals-baseline-0e` -> `accepted_rows 40`, `precision 1.0`, `coverage 0.5128`
+      - `nonfinals-or-low-mixed-ratio-experimental` -> `accepted_rows 49`, `precision 0.9796`, `coverage 0.6282`
   - prior-research tension:
     - 기존 repo의 주류 해석은 `0x02 = XP / team-wide sharing`
     - 하지만 현재 match 6 evidence는 `0x02` 내부에 solo-like subfamily와 mixed/shared-like subfamily가 같이 있음을 시사한다

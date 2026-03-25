@@ -43,6 +43,8 @@
   - `python -m vg.decoder_v2.decode_match <replay.0.vgr> --format debug-json`
 - fixture validation
   - `python -m vg.decoder_v2.validation --truth vg/output/tournament_truth.json`
+- KDA / team / post-game tail audit
+  - `python -m vg.decoder_v2.kda_postgame_audit --truth vg/output/tournament_truth.json -o kda-postgame.json`
 - sparse residual signal research
   - `python -m vg.decoder_v2.residual_signal_research --truth vg/output/tournament_truth.json -o residual.json`
 - same-frame minion window research
@@ -75,6 +77,14 @@
   - `python -m vg.decoder_v2.minion_outlier_risk_report --truth vg/output/tournament_truth.json -o risk.json`
 - minion acceptance gate research
   - `python -m vg.decoder_v2.minion_acceptance_gate_research --truth vg/output/tournament_truth.json -o acceptance-gates.json`
+- minion policy candidate search
+  - `python -m vg.decoder_v2.minion_policy_candidates --truth vg/output/tournament_truth.json -o policy-candidates.json`
+- minion policy cross-validation
+  - `python -m vg.decoder_v2.minion_policy_cross_validation --truth vg/output/tournament_truth.json -o policy-cv.json`
+- minion policy stability audit
+  - `python -m vg.decoder_v2.minion_policy_stability_audit --truth vg/output/tournament_truth.json -o policy-stability.json`
+- minion policy validation
+  - `python -m vg.decoder_v2.minion_policy_validation --truth vg/output/tournament_truth.json --policy nonfinals-baseline-0e -o policy-validation.json`
 - minion series profile
   - `python -m vg.decoder_v2.minion_series_profile --truth vg/output/tournament_truth.json -o series.json`
 - minion same-series peer compare
@@ -89,6 +99,10 @@
   - `python -m vg.decoder_v2.truth_inventory --truth vg/output/tournament_truth.json`
 - truth source priority
   - `python -m vg.decoder_v2.truth_source_priority --truth vg/output/tournament_truth.json -o truth-priority.json`
+- truth labeling queue
+  - `python -m vg.decoder_v2.truth_labeling_queue --truth vg/output/tournament_truth.json -o truth-labeling-queue.json`
+- truth capture pack
+  - `python -m vg.decoder_v2.truth_capture_pack --truth vg/output/tournament_truth.json --limit 20 -o truth-capture-pack.json`
 - batch conservative export
   - `python -m vg.decoder_v2.batch_decode <replay_root> -o batch.json`
 - broader completeness audit
@@ -101,6 +115,9 @@
   - `python -m vg.decoder_v2.truth_audit --truth vg/output/tournament_truth.json --ocr <ocr_truth.json> -o audit.json`
 - index-safe export
   - `python -m vg.decoder_v2.index_export <replay_root> -o index.json`
+  - optional partial minion policy:
+    - `python -m vg.decoder_v2.index_export <replay_root> --minion-policy nonfinals-baseline-0e -o index.json`
+    - `python -m vg.decoder_v2.index_export <replay_root> --minion-policy nonfinals-or-low-mixed-ratio-experimental -o index.json`
 
 ## Safe Output Policy
 

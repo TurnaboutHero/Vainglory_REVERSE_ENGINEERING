@@ -305,6 +305,18 @@ OCR truth audit 결과:
        - `coverage ~= 0.6282`
        - finals rows 일부만 추가로 받아들인다
    - 다만 truth coverage가 낮아서, 이 gate도 default policy로 바로 승격하진 않는 편이 맞다
+   - 따라서 이건 기본 정책이 아니라 optional export mode로만 다루는 편이 맞다
+   - 현재 optional policy name으로는 다음 둘을 지원한다
+     - `nonfinals-baseline-0e`
+     - `nonfinals-or-low-mixed-ratio-experimental`
+   - current policy validation:
+     - `none` -> `accepted_rows 0`, `precision 0.0`, `coverage 0.0`
+     - `nonfinals-baseline-0e` -> `accepted_rows 40`, `precision 1.0`, `coverage 0.5128`
+     - `nonfinals-or-low-mixed-ratio-experimental` -> `accepted_rows 49`, `precision 0.9796`, `coverage 0.6282`
+   - practical recommendation:
+     - 기본 정책은 계속 `none`
+     - 필요하면 optional mode로 `nonfinals-baseline-0e`만 먼저 노출
+     - experimental policy는 아직 research/ops용으로만 유지
    - 이 taxonomy는 아직 연구용 분류이며, product export rule로 바로 승격하면 안 된다
    - 즉 현재 evidence는 `0x02`를 하나의 전역 의미로 다루기보다
      - `shared XP / mixed reward candidate`
