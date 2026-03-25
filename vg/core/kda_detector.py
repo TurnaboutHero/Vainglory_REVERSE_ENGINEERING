@@ -240,10 +240,14 @@ class KDADetector:
         Args:
             game_duration: If provided, events after game end are filtered.
             death_buffer: Buffer seconds for death filtering (default 10s).
-                         Deaths during post-game ceremony still count briefly.
+                         Kept wider than kill_buffer because tournament fixtures
+                         still contain a short end-of-match death tail; forcing
+                         this to 0s lowers fixture accuracy.
             kill_buffer: Buffer seconds for kill filtering (default 3s).
                         Kills after game end are cosmetic and should not count.
-                        Tighter than death_buffer since kills are the cause, not effect.
+                        Tighter than death_buffer since kills are the cause, not
+                        the effect, and late kill events are more likely to be
+                        ceremony noise.
             team_map: Dict mapping entity ID (BE) -> team name ("left"/"right").
                      Required for assist detection. If None, assists remain 0.
 
