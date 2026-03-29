@@ -44,6 +44,9 @@ Current strongest reading:
 - `vgrplay` overwrite itself is succeeding
 - the remaining instability is mostly post-overwrite UI timing
 - `Esc` is now the preferred build-selection path because it removes one unreliable click stage
+- target replay load has now been visually confirmed multiple times after overwrite
+- build selection can be skipped with `Esc`
+- replay HUD with exact player panels has now also been re-entered live
 
 ## Current Interpretation
 
@@ -55,3 +58,43 @@ The remaining replay problem is:
 - then proving that `다시보기` lands in that replay consistently
 
 That is separate from the memory-dump track, which is already producing useful artifacts.
+
+## Latest Live Result
+
+Latest confirmed path:
+
+- home
+- play
+- practice
+- hero select
+- talent select
+- build skip via `Esc`
+- in-match scoreboard
+- surrender overlay
+- `vgrplay` overwrite
+- replay entry
+- replay HUD visible
+- full memory dumps captured from replay HUD states
+
+Important consequence:
+
+- replay automation is now strong enough to reach memory-useful replay HUD states repeatedly
+- exact `8815_*` player labels were recovered from the later replay HUD full dumps
+- the next live blocker is no longer replay entry itself
+- result-screen capture has now also succeeded
+- the next live blocker is no longer capture, but stable extraction from result-screen memory
+
+## Memory Track Caveat
+
+Do not treat raw full-dump keyword hits like `DIOR`, `korea`, or `rui` as proof of exact target player identity yet.
+
+Current audit shows:
+
+- `DIOR` hits are asset/table noise
+- `korea` hits are mostly locale-table noise
+- `rui` hits are too noisy to trust
+
+The strongest replay-load proof remains:
+
+- successful `vgrplay` overwrite
+- visual confirmation of the target replay HUD
