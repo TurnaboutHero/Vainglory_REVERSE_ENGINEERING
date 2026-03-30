@@ -5,6 +5,7 @@
 - [result_screen_va_locator_fullset.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_va_locator_fullset.json)
 - [result_screen_cluster_candidates.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_cluster_candidates.json)
 - [result_screen_cluster_assignment_report.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_cluster_assignment_report.json)
+- [result_screen_kda_correction_report.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_kda_correction_report.json)
 - [result_screen_row_anchor_report.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_row_anchor_report.json)
 - [result_screen_row_anchor_sweep.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/replay_state_probe_003_live/result_screen_row_anchor_sweep.json)
 
@@ -93,6 +94,13 @@ The result-screen track has now progressed to:
 - exact KDA/gold/minion strings present in memory
 - first useful mixed cluster found
 - partial automatic row reconstruction working for a subset
+- full KDA multiset confirmation on the captured replay
+
+Current correction coverage:
+
+- name-bound KDA reconstruction: `8 / 10`
+- group-confirmable KDA rows: `10 / 10`
+- only unresolved duplicate group: `8815_LeeJiEun` / `8815_rui` with shared `2/5/2`
 
 The remaining task is:
 
