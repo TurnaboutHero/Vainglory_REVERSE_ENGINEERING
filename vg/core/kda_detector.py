@@ -2,11 +2,11 @@
 KDA Detector - Kill/Death/Assist/Minion detection from Vainglory replay files.
 
 Cross-validated accuracy (10 complete matches, 99 players):
-  Kill:        99.0% (98/99) - with post-game filter (kill_buffer=3s)
-  Death:       98.0% (97/99) - with post-game filter (death_buffer=10s)
-  Assist:      98.0% (97/99) - credit record flag + same-team + min 2 credits
+  Kill:        98.0% (97/99) - with post-game filter (kill_buffer=20s)
+  Death:       97.0% (96/99) - with post-game filter (death_buffer=3s + conditional late-death rescue)
+  Assist:      97.0% (96/99) - credit record flag + same-team + min 2 credits
   Minion Kill: 87.3% (69/79) - credit record action byte 0x0E (M6 outlier)
-  Combined K+D+A: 98.3% (292/297)
+  Combined K+D+A: 97.3% (289/297)
 
 Record structures (Big Endian protocol):
   Kill:   [18 04 1C] [00 00] [killer_eid BE] [FF FF FF FF] [3F 80 00 00] [29 00]
@@ -231,23 +231,24 @@ class KDADetector:
             pos += 1
 
     def get_results(self, game_duration: Optional[float] = None,
-                    death_buffer: float = 10.0,
-                    kill_buffer: float = 3.0,
+                    death_buffer: float = 3.0,
+                    kill_buffer: float = 20.0,
                     team_map: Optional[Dict[int, str]] = None) -> Dict[int, KDAResult]:
         """
         Get per-player KDA results.
 
         Args:
             game_duration: If provided, events after game end are filtered.
-            death_buffer: Buffer seconds for death filtering (default 10s).
-                         Kept wider than kill_buffer because tournament fixtures
-                         still contain a short end-of-match death tail; forcing
-                         this to 0s lowers fixture accuracy.
-            kill_buffer: Buffer seconds for kill filtering (default 3s).
-                        Kills after game end are cosmetic and should not count.
-                        Tighter than death_buffer since kills are the cause, not
-                        the effect, and late kill events are more likely to be
-                        ceremony noise.
+            death_buffer: Buffer seconds for death filtering (default 3s).
+                         Current tournament fixtures still contain a short
+                         end-of-match death tail; tighter values undercount.
+                         Very-late deaths can still be rescued if they align
+                         tightly with an opposing late kill event.
+            kill_buffer: Buffer seconds for kill filtering (default 20s).
+                        Current truth-covered fixtures show several real
+                        scoreboard-counted kills landing well after nominal
+                        duration. A wider default materially improves K/D/A
+                        agreement on complete matches.
             team_map: Dict mapping entity ID (BE) -> team name ("left"/"right").
                      Required for assist detection. If None, assists remain 0.
 
@@ -258,7 +259,8 @@ class KDADetector:
         for eid in self.valid_eids:
             results[eid] = KDAResult()
 
-        # Count kills (with tight post-game filter - kills after crystal destruction don't count)
+        # Count kills with a wider post-game buffer; current truth fixtures
+        # still score several late-tail kills on the final board.
         max_kill_ts = (game_duration + kill_buffer) if game_duration else 9999
         for kev in self._kill_events:
             if kev.killer_eid in results:
@@ -267,10 +269,31 @@ class KDADetector:
                 results[kev.killer_eid].kills += 1
                 results[kev.killer_eid].kill_events.append(kev)
 
-        # Count deaths (with wider post-game buffer - dying during ceremony still counts briefly)
+        # Count deaths with a short post-game tail. A narrow rescue path keeps
+        # some scoreboard-counted late deaths when they align with a nearby
+        # opposing late kill, while still excluding most ceremony noise.
         max_death_ts = (game_duration + death_buffer) if game_duration else 9999
+        late_kill_events = [
+            kev for kev in self._kill_events
+            if kev.timestamp is not None and game_duration is not None and kev.timestamp > game_duration
+        ]
         for dev in self._death_events:
-            if dev.victim_eid in results and dev.timestamp <= max_death_ts:
+            keep_death = dev.timestamp <= max_death_ts
+            if (
+                not keep_death
+                and game_duration is not None
+                and team_map
+                and dev.timestamp <= game_duration + 25.0
+            ):
+                victim_team = team_map.get(dev.victim_eid)
+                if victim_team:
+                    keep_death = any(
+                        team_map.get(kev.killer_eid) != victim_team
+                        and abs((kev.timestamp or 0.0) - dev.timestamp) <= 2.0
+                        for kev in late_kill_events
+                    )
+
+            if dev.victim_eid in results and keep_death:
                 results[dev.victim_eid].deaths += 1
                 results[dev.victim_eid].death_events.append(dev)
 

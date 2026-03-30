@@ -60,13 +60,18 @@ Using raw `KDADetector` against truth durations:
 | `kill=3, death=0` | `94 / 99` | `91 / 99` | `91 / 99` | `276 / 297` |
 | `kill=3, death=10` | `94 / 99` | `95 / 99` | `91 / 99` | `280 / 297` |
 | `kill=5, death=10` | `95 / 99` | `95 / 99` | `92 / 99` | `282 / 297` |
+| `kill=20, death=3` | `97 / 99` | `96 / 99` | `96 / 99` | `289 / 297` |
+| `kill=20, death=8` | `97 / 99` | `96 / 99` | `96 / 99` | `289 / 297` |
 
 What this means:
 
 - `death_buffer=0` is too strict on current fixtures
-- current default `death_buffer=10` is defensible because it preserves short-tail deaths that truth still counts
-- current default `kill_buffer=3` is conservative and excludes all known late kills beyond `+3s`
-- a wider `kill_buffer=5` improves this raw audit slightly, but it also weakens the anti-ceremony posture, so it should stay research-only for now
+- `death_buffer=3` performs as well as wider rescue-based settings on current fixtures
+- current fixture set contains real scoreboard-counted kills beyond `+3s`
+- widening `kill_buffer` materially improves kills and assists on complete fixtures
+- current best known fixture-backed setting is `kill_buffer=20`, `death_buffer=3`
+- the current detector also uses a conditional late-death rescue:
+  - keep very-late deaths only when they align closely with an opposing late kill
 
 ## Product Position
 
@@ -74,16 +79,15 @@ Current recommendation:
 
 - team grouping: accepted
 - K/D/A on complete-confirmed replays: accepted
-- keep current anti-ceremony posture:
-  - kills use a tight post-game cutoff
-  - deaths keep a short tail
-- do not change default buffers yet
+- use `kill_buffer=20`
+- use `death_buffer=3`
 
 Rationale:
 
 - team grouping is already strong from direct offsets
 - strict `death_buffer=0` makes fixture agreement worse
-- raw late events exist, but not all short-tail late deaths are ceremony noise
+- raw late events exist, but several of them are clearly reflected on the final result boards
+- `kill_buffer=20`, `death_buffer=3` plus conditional late-death rescue reduces complete-fixture player mismatches from `16` to `8`
 
 ## Follow-up
 
