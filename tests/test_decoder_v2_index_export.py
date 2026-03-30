@@ -1,5 +1,6 @@
 import tempfile
 import unittest
+import json
 from pathlib import Path
 from unittest.mock import patch
 
@@ -176,6 +177,205 @@ class TestDecoderV2IndexExport(unittest.TestCase):
         self.assertEqual(export["matches"][0]["minion_policy"]["accepted_player_count"], 1)
         self.assertEqual(export["matches"][0]["players"][0]["minion_kills"], 42)
         self.assertNotIn("minion_kills", export["matches"][0]["players"][1])
+
+    def test_build_index_ready_export_can_apply_kda_correction_file(self) -> None:
+        batch = {
+            "total_replays": 1,
+            "completeness_summary": {"complete_confirmed": 1},
+            "matches": [
+                {
+                    "replay_name": "sample",
+                    "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                    "game_mode": "GameMode_HF_Ranked",
+                    "map_name": "Halcyon Fold",
+                    "team_size": 3,
+                    "completeness_status": "complete_confirmed",
+                    "accepted_fields": {
+                        "winner": {"accepted_for_index": True, "value": "left"},
+                        "kills": {"accepted_for_index": True},
+                    },
+                    "players": [
+                        {
+                            "name": "player1",
+                            "team": "left",
+                            "entity_id": 1,
+                            "hero_name": "Alpha",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 3,
+                        }
+                    ],
+                }
+            ],
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            correction_path = Path(tmp) / "correction.json"
+            correction_path.write_text(
+                json.dumps(
+                    {
+                        "replay_name": "sample",
+                        "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                        "players": [
+                            {
+                                "name": "player1",
+                                "corrected_kda": "12/1/4",
+                                "kda_correction_status": "name_bound_unique",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with patch("vg.decoder_v2.index_export.decode_replay_batch", return_value=batch):
+                export = build_index_ready_export(
+                    tempfile.gettempdir(),
+                    kda_correction_path=str(correction_path),
+                )
+
+        self.assertEqual(export["kda_correction_summary"]["corrected_matches"], 1)
+        self.assertEqual(export["kda_correction_summary"]["corrected_rows"], 1)
+        self.assertEqual(export["matches"][0]["players"][0]["kills"], 12)
+        self.assertEqual(export["matches"][0]["players"][0]["deaths"], 1)
+        self.assertEqual(export["matches"][0]["players"][0]["assists"], 4)
+        self.assertEqual(
+            export["matches"][0]["players"][0]["kda_correction_status"],
+            "name_bound_unique",
+        )
+        self.assertTrue(export["matches"][0]["kda_correction"]["applied"])
+
+    def test_build_index_ready_export_can_apply_kda_correction_directory(self) -> None:
+        batch = {
+            "total_replays": 1,
+            "completeness_summary": {"complete_confirmed": 1},
+            "matches": [
+                {
+                    "replay_name": "sample",
+                    "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                    "game_mode": "GameMode_HF_Ranked",
+                    "map_name": "Halcyon Fold",
+                    "team_size": 3,
+                    "completeness_status": "complete_confirmed",
+                    "accepted_fields": {
+                        "winner": {"accepted_for_index": True, "value": "left"},
+                        "kills": {"accepted_for_index": True},
+                    },
+                    "players": [
+                        {
+                            "name": "player1",
+                            "team": "left",
+                            "entity_id": 1,
+                            "hero_name": "Alpha",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 3,
+                        }
+                    ],
+                }
+            ],
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle_dir = Path(tmp) / "bundle"
+            bundle_dir.mkdir()
+            (bundle_dir / "result_screen_kda_correction_report.json").write_text(
+                json.dumps({"groups": []}),
+                encoding="utf-8",
+            )
+            (bundle_dir / "result_screen_kda_correction_merge.json").write_text(
+                json.dumps(
+                    {
+                        "replay_name": "sample",
+                        "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                        "players": [
+                            {
+                                "name": "player1",
+                                "kills": 9,
+                                "deaths": 8,
+                                "assists": 7,
+                                "kda_correction_status": "name_bound_unique",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with patch("vg.decoder_v2.index_export.decode_replay_batch", return_value=batch):
+                export = build_index_ready_export(
+                    tempfile.gettempdir(),
+                    kda_correction_path=str(bundle_dir),
+                )
+
+        self.assertEqual(export["kda_correction_summary"]["corrected_matches"], 1)
+        self.assertEqual(export["matches"][0]["players"][0]["kills"], 9)
+        self.assertEqual(export["matches"][0]["players"][0]["deaths"], 8)
+        self.assertEqual(export["matches"][0]["players"][0]["assists"], 7)
+
+    def test_build_index_ready_export_can_apply_kda_correction_recursive_directory(self) -> None:
+        batch = {
+            "total_replays": 1,
+            "completeness_summary": {"complete_confirmed": 1},
+            "matches": [
+                {
+                    "replay_name": "sample",
+                    "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                    "game_mode": "GameMode_HF_Ranked",
+                    "map_name": "Halcyon Fold",
+                    "team_size": 3,
+                    "completeness_status": "complete_confirmed",
+                    "accepted_fields": {
+                        "winner": {"accepted_for_index": True, "value": "left"},
+                        "kills": {"accepted_for_index": True},
+                    },
+                    "players": [
+                        {
+                            "name": "player1",
+                            "team": "left",
+                            "entity_id": 1,
+                            "hero_name": "Alpha",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 3,
+                        }
+                    ],
+                }
+            ],
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            nested = Path(tmp) / "memory_sessions" / "probe" / "bundle"
+            nested.mkdir(parents=True)
+            (nested / "result_screen_kda_correction_merge.json").write_text(
+                json.dumps(
+                    {
+                        "replay_name": "sample",
+                        "replay_file": str(Path(tempfile.gettempdir()) / "sample.0.vgr"),
+                        "players": [
+                            {
+                                "name": "player1",
+                                "kills": 4,
+                                "deaths": 5,
+                                "assists": 6,
+                                "kda_correction_status": "name_bound_unique",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with patch("vg.decoder_v2.index_export.decode_replay_batch", return_value=batch):
+                export = build_index_ready_export(
+                    tempfile.gettempdir(),
+                    kda_correction_path=str(Path(tmp) / "memory_sessions"),
+                )
+
+        self.assertEqual(export["kda_correction_summary"]["corrected_matches"], 1)
+        self.assertEqual(export["matches"][0]["players"][0]["kills"], 4)
+        self.assertEqual(export["matches"][0]["players"][0]["deaths"], 5)
+        self.assertEqual(export["matches"][0]["players"][0]["assists"], 6)
 
 
 if __name__ == "__main__":

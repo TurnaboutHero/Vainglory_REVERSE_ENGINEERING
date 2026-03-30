@@ -4,6 +4,9 @@
 
 - [index_export_local_none.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_local_none.json)
 - [index_export_local_nonfinals_minion.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_local_nonfinals_minion.json)
+- [index_export_target_kda_corrected.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected.json)
+- [index_export_target_kda_corrected_auto.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected_auto.json)
+- [result_screen_kda_correction_inventory.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/result_screen_kda_correction_inventory.json)
 
 ## Replay Pool
 
@@ -52,6 +55,27 @@ The current repo is already in this state:
   - minion off
 - optional partial lane:
   - minion on for `49/56` local replays under `nonfinals-baseline-0e`
+- optional KDA correction lane:
+  - result-screen correction can now be merged into export when a replay-specific correction JSON exists
+
+## Target Replay KDA-Corrected Export
+
+The target replay now has a concrete corrected export sample:
+
+- [index_export_target_kda_corrected.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected.json)
+- [index_export_target_kda_corrected_auto.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected_auto.json)
+
+Current correction summary on that sample:
+
+- corrected matches: `1`
+- corrected rows: `10`
+
+Interpretation:
+
+- pure `.vgr` remains the default baseline
+- when a result-screen correction artifact exists, export can now carry corrected KDA rows and a per-player `kda_correction_status`
+- export can now discover correction payloads recursively from a `memory_sessions` root, not just a single file or one bundle directory
+- recursive discovery is deterministic because preferred correction files are selected per replay before export
 
 This means the remaining blocker for broader rollout is not the whole parser anymore.
 The remaining blocker is concentrated in:
