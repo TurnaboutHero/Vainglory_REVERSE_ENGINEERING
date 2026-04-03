@@ -54,6 +54,8 @@ class TestResultScreenKdaCorrectionPipeline(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
+            truth = root / "truth.json"
+            truth.write_text(json.dumps({"matches": []}), encoding="utf-8")
 
             with patch("vg.tools.result_screen_kda_correction_pipeline.build_index_ready_export") as mocked_export:
                 mocked_export.return_value = {"matches": [], "kda_correction_summary": {}}
@@ -61,12 +63,16 @@ class TestResultScreenKdaCorrectionPipeline(unittest.TestCase):
                     str(memory_sessions),
                     str(root),
                     export_base_path="dummy",
+                    truth_path=str(truth),
                 )
 
         self.assertEqual(report["bundled_session_count"], 1)
         self.assertEqual(report["failed_session_count"], 0)
         self.assertEqual(report["inventory"]["preferred_correction_count"], 1)
         self.assertIsNotNone(report["export"])
+        self.assertIn("readiness", report)
+        self.assertIn("validation", report)
+        self.assertIn("backlog", report)
 
 
 if __name__ == "__main__":

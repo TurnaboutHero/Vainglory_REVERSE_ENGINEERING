@@ -112,6 +112,9 @@ Current supporting artifacts:
 - [result_screen_kda_correction_inventory.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/result_screen_kda_correction_inventory.json)
 - [index_export_target_kda_corrected_auto.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected_auto.json)
 - [result_screen_kda_correction_pipeline.py](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/tools/result_screen_kda_correction_pipeline.py)
+- [result_screen_kda_correction_readiness.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/result_screen_kda_correction_readiness.json)
+- [result_screen_kda_validation.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/result_screen_kda_validation.json)
+- [kda_result_capture_backlog.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/kda_result_capture_backlog.json)
 
 Selection policy:
 
@@ -136,3 +139,18 @@ That closes most of the remaining manual glue between:
 - captured result-screen dump
 - correction artifacts
 - final export
+
+## Readiness / Validation / Backlog
+
+The correction lane now emits three operational views:
+
+- `readiness`
+  - one replay-level status row per discovered replay or decoded-only replay
+  - identifies whether the next step is dump capture, autobundle, inventory, corrected export, or review
+- `validation`
+  - compares parser baseline vs corrected rows against either truth or result-screen reference rows
+- `capture backlog`
+  - prioritizes the next replay captures, with truth residual replays first
+
+This means the next action is no longer “inspect the folder and guess”.
+The next action is “read the backlog and capture the top replay”.
