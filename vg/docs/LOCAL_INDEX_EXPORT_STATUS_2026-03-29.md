@@ -6,6 +6,7 @@
 - [index_export_local_nonfinals_minion.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_local_nonfinals_minion.json)
 - [index_export_target_kda_corrected.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected.json)
 - [index_export_target_kda_corrected_auto.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected_auto.json)
+- [index_export_target_kda_corrected_pipeline.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/index_export_target_kda_corrected_pipeline.json)
 - [result_screen_kda_correction_inventory.json](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/output/memory_sessions/result_screen_kda_correction_inventory.json)
 
 ## Replay Pool
@@ -76,6 +77,7 @@ Interpretation:
 - when a result-screen correction artifact exists, export can now carry corrected KDA rows and a per-player `kda_correction_status`
 - export can now discover correction payloads recursively from a `memory_sessions` root, not just a single file or one bundle directory
 - recursive discovery is deterministic because preferred correction files are selected per replay before export
+- the pipeline can now emit a corrected export directly from `memory_sessions` plus replay root, without manual intermediate steps
 
 This means the remaining blocker for broader rollout is not the whole parser anymore.
 The remaining blocker is concentrated in:

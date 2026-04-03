@@ -53,6 +53,9 @@ class TestDecoderV2IndexExport(unittest.TestCase):
 
         self.assertEqual(export["matches"][0]["winner"], "left")
         self.assertEqual(export["matches"][0]["players"][0]["kills"], 1)
+        self.assertEqual(export["matches"][0]["players"][0]["kda_source"], "parser")
+        self.assertEqual(export["matches"][0]["kda_source_summary"]["parser_rows"], 1)
+        self.assertEqual(export["matches"][0]["kda_source_summary"]["result_screen_rows"], 0)
         self.assertNotIn("withheld_fields", export["matches"][0])
 
     def test_build_index_ready_export_can_include_nonfinals_minion_policy(self) -> None:
@@ -243,6 +246,8 @@ class TestDecoderV2IndexExport(unittest.TestCase):
             export["matches"][0]["players"][0]["kda_correction_status"],
             "name_bound_unique",
         )
+        self.assertEqual(export["matches"][0]["players"][0]["kda_source"], "result_screen")
+        self.assertEqual(export["matches"][0]["kda_source_summary"]["result_screen_rows"], 1)
         self.assertTrue(export["matches"][0]["kda_correction"]["applied"])
 
     def test_build_index_ready_export_can_apply_kda_correction_directory(self) -> None:

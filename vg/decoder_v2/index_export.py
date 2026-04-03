@@ -118,6 +118,8 @@ def build_index_ready_export(
 
         players = []
         match_corrected_rows = 0
+        parser_rows = 0
+        unresolved_rows = 0
         for player in match["players"]:
             row = {
                 "name": player["name"],
@@ -134,11 +136,16 @@ def build_index_ready_export(
                     row["deaths"] = deaths
                     row["assists"] = assists
                     row["kda_correction_status"] = correction_status
+                    row["kda_source"] = "result_screen"
                     match_corrected_rows += 1
                 else:
                     row["kills"] = player["kills"]
                     row["deaths"] = player["deaths"]
                     row["assists"] = player["assists"]
+                    row["kda_source"] = "parser"
+                    parser_rows += 1
+            else:
+                unresolved_rows += 1
             player_decision = player_minion_decisions.get(player["name"])
             if player_decision:
                 row["minion_policy"] = player_decision.to_dict()
@@ -160,6 +167,11 @@ def build_index_ready_export(
                 "reason": minion_reason,
             },
             "players": players,
+            "kda_source_summary": {
+                "parser_rows": parser_rows,
+                "result_screen_rows": match_corrected_rows,
+                "unresolved_rows": unresolved_rows,
+            },
         }
         if accepted.get("winner", {}).get("accepted_for_index"):
             match_row["winner"] = accepted["winner"]["value"]
