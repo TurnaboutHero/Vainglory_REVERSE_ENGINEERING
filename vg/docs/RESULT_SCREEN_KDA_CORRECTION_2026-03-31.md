@@ -152,5 +152,19 @@ The correction lane now emits three operational views:
 - `capture backlog`
   - prioritizes the next replay captures, with truth residual replays first
 
+## Capture-First Archive
+
+The capture lane now also has a capture-first archive layer:
+
+- [result_screen_capture_inventory.py](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/tools/result_screen_capture_inventory.py)
+- [result_screen_capture_classification.py](/D:/Documents/GitHub/VG_REVERSE_ENGINEERING/vg/tools/result_screen_capture_classification.py)
+
+These tools do not assume correction is already possible.
+They answer a simpler first question:
+
+- did we capture a result-screen dump?
+- did we at least capture a result image?
+- is the session ready for processing or still missing metadata?
+
 This means the next action is no longer “inspect the folder and guess”.
 The next action is “read the backlog and capture the top replay”.
