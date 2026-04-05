@@ -15,7 +15,6 @@ from .result_screen_kda_correction_autobundle import build_result_screen_kda_cor
 from .result_screen_kda_correction_inventory import build_result_screen_kda_correction_inventory
 from .result_screen_kda_correction_readiness import (
     build_result_screen_kda_correction_readiness,
-    discover_session_dirs,
 )
 from .result_screen_kda_validation import build_result_screen_kda_validation
 
@@ -49,7 +48,8 @@ def build_result_screen_kda_correction_pipeline(
 
     bundled_sessions = []
     failed_sessions = []
-    for session_dir in discover_session_dirs(root):
+    session_dirs = _discover_session_dirs(root)
+    for session_dir in session_dirs:
         try:
             bundle = build_result_screen_kda_correction_autobundle(str(session_dir), str(output_root_path))
             bundle_dir = session_dir / "autobundle_auto"
@@ -106,7 +106,7 @@ def build_result_screen_kda_correction_pipeline(
         "memory_sessions_root": str(root.resolve()),
         "output_root": str(output_root_path.resolve()),
         "truth_path": str(Path(truth_path).resolve()),
-        "discovered_session_count": len(discover_session_dirs(root)),
+        "discovered_session_count": len(session_dirs),
         "bundled_session_count": len(bundled_sessions),
         "failed_session_count": len(failed_sessions),
         "bundled_sessions": bundled_sessions,
